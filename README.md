@@ -103,6 +103,8 @@ kotlin-study/
 - 마크업 링크 다는 방법 및 더 다양한 마크업 문법들
 - wsl이 무엇이고 어떻게 설치 및 사용하는가?
 - git rebase 기능과 server와 local의 repository 동기화 관련 내용
+- 문서 정리 방법들
+
 #### 익숙해져야 할 내용들
 - git 환경 구축 및 repsitory에 올리고 받아오는 행위
 - intellij 툴 기능들
