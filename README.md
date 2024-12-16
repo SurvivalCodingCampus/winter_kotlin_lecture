@@ -108,4 +108,5 @@ kotlin-study/
 #### 익숙해져야 할 내용들
 - git 환경 구축 및 repsitory에 올리고 받아오는 행위
 - intellij 툴 기능들
+- 
 #### 복습 내용
