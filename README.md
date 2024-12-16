@@ -71,23 +71,13 @@ kotlin-study/
 # Kotlin Study
 
 ## 📝 학습 기록
-- [2024-01-15](docs/daily/2024-01-15.md) - 변수와 함수
-- [2024-01-16](docs/daily/2024-01-16.md) - 변수의 타입과 범위
+- [2024-12-16](docs/daily/2024-12-16.md) - 오리엔테이션 및 Git, Github 사용법
 
 ## 💻 작성 코드
-- Day 1
-  - [Person.kt](src/main/kotlin/day1/Person.kt) - 클래스 실습
-  - [Solution.kt](src/main/kotlin/day1/Solution.kt) - 과제 풀이
-- Day 2
-  - [Variable.kt](src/main/kotlin/day2/Variable.kt) - 변수 실습
 
 ## 📚 주제별 정리
-- [제네릭](docs/topics/generics.md)
-- [람다](docs/topics/lambda.md)
-
-## 🔍 참고 자료
-- [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
-- [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
+- [오리엔테이션](docs/topics/orientation.md)
+- [Git, Github](docs/topics/git.md)
 ```
 
 ## ⭐️ 참고사항
