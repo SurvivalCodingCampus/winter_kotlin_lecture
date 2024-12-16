@@ -1,4 +1,4 @@
-package org.example
+package day1
 
 fun main() {
     println("Hello World!")
