@@ -36,7 +36,7 @@ kotlin-study/
 
 
 ### 📚 주제별 정리
-- [2024-12-16](docs/topics/Git&Github.md) - Git&Github
+- [Git&Github](docs/topics/Git&Github.md) - Git&Github
 
 ### 🔍 참고 자료
 - [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
