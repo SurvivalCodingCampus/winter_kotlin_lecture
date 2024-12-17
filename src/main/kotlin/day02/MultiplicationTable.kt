@@ -13,7 +13,6 @@ fun multiply(number: Int) {
     require(number in 1..9) { "1부터 9 사이의 숫자를 입력해주세요." }
     println("=== $number 단 ===")
     for (i in 1..9) {
-        println(number * i)
         println("$number x $i = ${number * i}")
     }
 }
