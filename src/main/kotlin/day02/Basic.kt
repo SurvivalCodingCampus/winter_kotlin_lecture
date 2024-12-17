@@ -1,4 +1,4 @@
-package org.hyunjung.day02
+package day02
 
 fun main() {
     println("Hello World")
