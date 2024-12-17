@@ -42,7 +42,7 @@
 - git checkout master
 - git checkout -b issue2
   git checkout -D issue1
-- git merge master
+- git merge issue1
 - git rebase issue2
 - 
 
