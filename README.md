@@ -1,5 +1,29 @@
 # Kotlin Study
 
+## 📝 학습 기록
+
+- [2024-12-16](src/docs/daily/2024-12-16.md) - Git, GitHub 기초
+- [2024-12-17](src/docs/daily/2024-12-17.md) - Kotlin 기초 문법
+
+## 💻 작성 코드
+
+- Day 2
+    - [Basic.kt](src/main/kotlin/day02/Basic.kt) - Kotlin Basic
+    - [Basic.java](src/main/kotlin/day02/Basic.java) - Java Basic
+
+## 📚 주제별 정리
+
+- [Git](src/docs/topics/git.md)
+- Java
+    - [ArrayList](src/docs/topics/java-array-list.md)
+
+## 🔍 참고 자료
+
+- [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
+- [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
+
+---
+
 ## 📝 과제 제출 방법
 
 1. 본인의 브랜치 생성
