@@ -29,8 +29,10 @@ for (x in 9 downTo 0 step 3) {
 
 ```kotlin
 val listOfElements = listOf(1,5,2,5,7,8,3)
-for (el in myRange.reversed()) {
+for (el in listOfElements.asReversed()) {
     //code
 }
 ```
 List.reversed() cpp의 rbegin()같은 뒤집힌 이터레이터를 얻을수 있다.
+
+_edit: asReversed()는 뷰만 생성하기 때문에 메모리를 절약할수 있다._
