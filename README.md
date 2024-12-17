@@ -113,5 +113,5 @@ kotlin-study/
 
 #### Test
 - 이미지 테스트
-- <img src="[image_path/image_name.png](https://github.com/user-attachments/assets/e6740510-d98f-47a9-b04a-6fa16a6ce74b)" width="250px" height="250px">
+- <img src="(https://github.com/user-attachments/assets/e6740510-d98f-47a9-b04a-6fa16a6ce74b)" width="250px" height="250px">
 
