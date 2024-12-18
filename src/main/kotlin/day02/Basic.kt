@@ -1,6 +1,9 @@
 package com.survivalcoding.day02
 
+const val MAX_COUNT = 8
+
 fun main() {
+
     println("Hello World")
 
     // 상수
@@ -16,10 +19,11 @@ fun main() {
 
     val a = 10
     val b = 5
+    val d = true
     val c = if (a > b) a else b
 
     // 수정 안 되는 리스트
-    val items : List<String> = listOf("apple", "banana")
+    val items: List<String> = listOf("apple", "banana")
     println(items)
 
     for (item in items) {
@@ -37,6 +41,10 @@ fun main() {
 // f(x) = x + 5
 // f(5) = 25
 // f(3) = ?
+
+//function sum(a, b) {
+//
+//}
 
 fun plus5(x: Int): Int = x + 5
 
