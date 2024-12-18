@@ -12,4 +12,13 @@ class Cleric(
         mp -= 5
         hp = maxHp
     }
+
+    fun pray(prayTime: Int): Int {
+        val recover = prayTime + (0..2).random()
+        mp += recover
+        if (mp > maxMp) {
+            mp = maxMp
+        }
+        return recover
+    }
 }
