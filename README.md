@@ -31,9 +31,12 @@ kotlin-study/
 ### 📝 학습 기록
 - [2024-12-16](docs/daily/2024-12-16.md) - OT & Git&Github 기초
 - [2024-12-17](docs/daily/2024-12-17.md) - Git협업 & Kotlin 기초
+- [2024-12-18](docs/daily/2024-12-18.md) - 클래스 인스턴스
 
 ### 💻 작성 코드
 - [Kotlin Basic](src/main/kotlin/day02/Basic.kt) - Kotlin 기초
+- [클래스,인스턴스 실습](src/main/kotlin/day03/Hero.kt)
+- [테스트코드 실습](src/test/kotlin/day03/HeroTest.kt)
 
 ### 📚 주제별 정리
 - [Git&Github](docs/topics/Git&Github.md) - Git&Github
