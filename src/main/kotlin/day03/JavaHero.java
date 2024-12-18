@@ -1,10 +1,10 @@
 package day03;
 
-public class Hero {
+public class JavaHero {
     private String name;
     private int hp;
 
-    public Hero(String name, int hp) {
+    public JavaHero(String name, int hp) {
         this.name = name;
         this.hp = hp;
     }
