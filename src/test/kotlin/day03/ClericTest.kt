@@ -59,6 +59,6 @@ class ClericTest {
     fun `check initialization of name`() {
         val cleric1 = Cleric("who are you", 10, 10)
 
-        println(cleric1.name)
+        assertEquals("who are you", cleric1.name)
     }
 }
