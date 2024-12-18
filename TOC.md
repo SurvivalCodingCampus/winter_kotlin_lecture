@@ -4,8 +4,12 @@
 
 - [2024-12-16](./docs/daily/2024-12-16.md): git에 대한 기초가이드
 - [2024-12-17](./docs/daily/2024-12-17.md)
+- [2024-12-18](./docs/daily/2024-12-18.md): Kotlin class + JUnit4
 
 ## 💻 작성 코드
+
+- [day3](./src/main/kotlin/day3)
+- [day3 유닛테스트](./src/test/kotlin/day3)
 
 ## 📚 주제별 정리
 
