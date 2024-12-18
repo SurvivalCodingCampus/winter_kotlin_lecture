@@ -13,4 +13,21 @@ class Cleric(
         hp = MAX_HP
     }
 
+    fun pray(sec : Int) : Int {
+        if (sec <= 0)
+            return -1
+
+        var healMp = ( sec + (0..2).random() )
+
+        if( (mp + healMp) > MAX_MP ) {
+            healMp -= ( (mp + healMp) - MAX_MP )    // 실제로 회복한 mp량
+            return healMp
+        }
+        else {
+            mp += healMp
+            return healMp
+        }
+
+    }
+
 }
