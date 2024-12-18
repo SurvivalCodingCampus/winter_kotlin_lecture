@@ -23,21 +23,22 @@ class Cleric(
         // 회복량
         val healAmount = (0..2).random() + praySecond
 
-        // 실제 회복된 MP 양
-        val realHealAmount: Int
+        // 힐량이 MaxMp를 초과하는 경우와 그렇지 않은 경우로 구분
+        return when {
+            healAmount + mp > MAX_MP -> {
+                val heal = MAX_MP - mp
+                mp = MAX_MP
+                heal
+            }
 
-        // 회복량이 초과될경우 현재 mp 최대 mp로 맞춰주기
-        if (healAmount + mp > MAX_MP) {
-            realHealAmount = MAX_MP - mp
-            mp = MAX_MP
-        } else {
-            realHealAmount = healAmount
-            mp += healAmount
+            else -> {
+                mp += healAmount
+                healAmount
+            }
         }
-
-        return realHealAmount
     }
 
+    // 상태 출력용 메소드
     fun showStatus() {
         println("------- 성직자의 현재 상태를 출력합니다 -------")
         println("hp: ${this.hp}")
