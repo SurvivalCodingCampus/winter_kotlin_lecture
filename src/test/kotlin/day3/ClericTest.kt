@@ -8,14 +8,19 @@ import org.junit.Assert.*
 
  class ClericTest {
 
-@Before
+ @Before
  fun setUp() {}
 
-@After
+ @After
  fun tearDown() {}
 
   @Test
   fun selfAId() {
-   
+   var cleric = Cleric(name = "사제")
+
+   cleric.selfAId()
+
+   assertEquals(200, cleric.hp)
   }
+
  }
