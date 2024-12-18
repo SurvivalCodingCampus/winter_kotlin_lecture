@@ -32,9 +32,9 @@ ex) 유용한 twoMillion 표현 방식 `2_000_000`
 
 a + b는 중위
 
-| not | ! |
-| --- | --- |
-| 논리합 | || |
+| 연산자 | 기호 |
+|--------|------|
+| 논리합 | \|\| |
 | 논리곱 | && |
 
 ### Char
@@ -42,12 +42,14 @@ a + b는 중위
 싱글 따옴표 `‘ '` 로 감싸서 표현
 
 ```kotlin
- val charRange: CharRange = 'a ' .. ' z '
- // a to z
+val charRange: CharRange = 'a'..'z'  // a부터 z까지의 범위
 
-val char = Char('a') // 모든 타입은 클래스
-val char = 'a' //자주 쓰는 기본 타입은 할당하여 생성 가능
-// char.code 유니코드 값 반환
+// 두 가지 선언 방식
+val char1 = Char('a')  // 생성자를 통한 선언 (모든 타입은 클래스)
+val char2 = 'a'        // 리터럴을 통한 선언 (자주 쓰는 기본 타입)
+
+// 유니코드 값 확인
+println(char2.code)    // 유니코드 값 반환
 ```
 
 ### Unicode
@@ -62,14 +64,15 @@ val char = 'a' //자주 쓰는 기본 타입은 할당하여 생성 가능
 
 비트연산은 잘 쓸 일 없다. 알아만 두기.
 
-| **or** |  |
-| --- | --- |
-| **and** |  |
-| **xor** |  |
-| inv |  |
-| shl |  |
-| shr |  |
-| ushr |  |
+| 연산자 | 설명 |
+|--------|------|
+| or     | 비트 OR 연산 |
+| and    | 비트 AND 연산 |
+| xor    | 비트 XOR 연산 |
+| inv    | 비트 반전 |
+| shl    | 왼쪽 시프트 |
+| shr    | 오른쪽 시프트 |
+| ushr   | 부호 없는 오른쪽 시프트 |
 
 ### 산술 할당 연산자
 
@@ -125,9 +128,10 @@ if(a===b) // 객체 참조값 비교 - 거짓 //생성 HashCode를 비교
 var s = "abc" + 1 // s = "abc1"
 
 var s = "" // 공백도 객체다.
-for (a .. z) {
-	s += char // 문자열을 이런식으로 concat하면...
-}
+
+for (char in 'a'..'z') {
+        s += char // 문자열을 이런 식으로 연결하면 매 반복마다 새로운 String 객체가 생성됨
+    }
 
 "" a
 a
@@ -308,10 +312,5 @@ fun main() {
 
 ## 참고자료
 
-- 코틀린 Edu Course
-
-  https://plugins.jetbrains.com/plugin/17654-atomickotlin
-
-- 책 아토믹 코틀린
-
-  https://product.kyobobook.co.kr/detail/S000201206714
+[코틀린 Edu Course](https://plugins.jetbrains.com/plugin/17654-atomickotlin)
+[책 아토믹 코틀린](https://product.kyobobook.co.kr/detail/S000201206714)
