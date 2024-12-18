@@ -84,7 +84,7 @@ git fetch [name of repository]
 - commit 이력을 과거 특정 지점으로 돌려놓는다.
 
 예시\)
-<img src="image/selectOptionForResetPoint.png" width="460" height="250" />
+<img src="image/selectOptionForResetPoint.png" width="460" height="250" alt="error: not exist image source"/>
 설명\) git commit 이력 구조에서 특정 commit 지점을 우클릭 후 reset 항목을 눌러주면
 위와 같은 옵션 선택이 나온다.
 
