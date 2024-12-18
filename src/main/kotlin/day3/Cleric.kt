@@ -1,7 +1,5 @@
 package org.example.day3
 
-import kotlin.math.max
-
 class Cleric(
     val name: String,
     var hp: Int = 50,
@@ -9,8 +7,24 @@ class Cleric(
     var mp: Int = 25,
     val maxMp: Int = 100
 ) {
-    fun selfAId() {
-        mp -= 5
-        hp = maxHp
+    fun selfAid() {
+        if (mp >= 5) {
+            mp -= 5
+            hp = maxHp
+        }
+    }
+
+    fun pray(prayTime: Int = 3): Int {
+        val numberRange = (0..2)
+        val number = numberRange.random()
+        val startMp = mp
+
+        mp += (prayTime + number)
+
+        if (mp > maxMp) mp = maxMp - startMp
+
+        val recoveryMp = mp - startMp
+
+        return recoveryMp
     }
 }

@@ -50,4 +50,54 @@
 - fun printSum(a: Int, b: Int): Unit { ... }
 
 
+# 2024-12-18
+
+## 📚 오늘 배운 내용
+- const 상수 와 그냥 상수의 차이
+  컴파일타임에 메모리에 올라가는 상수와 런타임에 실행되면서 메모리에 올라가는 상수
+
+- class Hero (name: String, hp: Int) {}
+  () 괄호가 자바의 생성자 역할
+
+- 인풋에 대해서 아웃풋이 항상 같으면 함수 
+  다를 수도 있으면 메소드
+
+- 필드에서 접근하려면 val, var 사용해야함
+
+- 코틀린은 조건 반복 함수들을 식으로 표현가능
+
+- 코틀린 객체 생성시에 new 사용안함
+
+- 생성자에 초기값 설정해 놓으면 객체생성시에 값지정을 안하면 초기값 설정
+
+## 💻 예제 코드
+```kotlin
+class Cleric(
+    val name: String,
+    var hp: Int = 50,
+    val maxHp: Int = 200,
+    var mp: Int = 25,
+    val maxMp: Int = 100
+) {
+    fun selfAid() {
+        if (mp >= 5) {
+        mp -= 5
+        hp = maxHp
+        }
+    }
+
+    fun pray(prayTime: Int = 3): Int {
+        val numberRange = (0..2)
+        val number = numberRange.random()
+        val startMp = mp
+
+        mp += (prayTime + number)
+
+        if (mp > maxMp) mp = maxMp - startMp
+
+        val recoveryMp = mp - startMp
+
+        return recoveryMp
+    }
+}
 ```
