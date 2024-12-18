@@ -21,6 +21,7 @@ class Cleric(
 
         if( (mp + healMp) > MAX_MP ) {
             healMp -= ( (mp + healMp) - MAX_MP )    // 실제로 회복한 mp량
+            mp += healMp
             return healMp
         }
         else {
