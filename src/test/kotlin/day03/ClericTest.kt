@@ -6,14 +6,6 @@ import kotlin.test.assertContains
 
 class ClericTest {
 
-    @org.junit.Before
-    fun setUp() {
-    }
-
-    @org.junit.After
-    fun tearDown() {
-    }
-
     @org.junit.Test
     fun `selfAid method test`() {
         val cleric1 = Cleric("cleric1", 10, 10)
