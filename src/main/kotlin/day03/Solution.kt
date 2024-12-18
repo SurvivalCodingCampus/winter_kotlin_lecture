@@ -8,4 +8,9 @@ class Cleric(
     val MAX_HP = 50
     val MAX_MP = 10
 
+    fun selfAid() : Unit {
+        mp -= 5
+        hp = MAX_HP
+    }
+
 }
