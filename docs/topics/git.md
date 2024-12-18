@@ -3,6 +3,8 @@
 # 2024-12-16
 
 ## 📚 오늘 배운 내용
+- git 설치 후 초기설정 필요
+
 - push 업로드
 - pull 내려받기
 - clone 복사
@@ -23,6 +25,14 @@
 
 
 ## 💻 예제 코드
-<!-- 실습한 코드나 예제를 추가 -->
+- git config --global user.name "Git 이름"
+- git config --global user.email 이메일주소
+- git init
+- git status
+- git add .
+- git commit -m "커밋할게요"
+- git push -u origin master
+- git pull origin master
+- git branch
 
 ```
