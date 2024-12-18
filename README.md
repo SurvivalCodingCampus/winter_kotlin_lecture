@@ -5,7 +5,7 @@
 
 1. [기본 문법 (Basics)](docs/topics/kotlin/concepts/1.Basics.kotlin.md)
     
-2. [기본 타입 (Types)](docs/topics/kotlin/concepts/2.Types.md)[작성중]
+[//]: # (2. [기본 타입 &#40;Types&#41;]&#40;docs/topics/kotlin/concepts/2.Types.md&#41;[작성중])
 
 [//]: # (- 3. [제어 흐름 &#40;Control Flow&#41;]&#40;docs/topics/concepts/3.ControlFlow.md&#41;)
 
