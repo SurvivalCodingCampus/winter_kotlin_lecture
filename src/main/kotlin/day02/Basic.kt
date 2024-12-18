@@ -21,7 +21,7 @@ fun main() {
     val items : List<String> = listOf("apple", "banana")
     println(items)
 
-    for (item in items){
+    for (item in items) {
         println(item)
     }
 
