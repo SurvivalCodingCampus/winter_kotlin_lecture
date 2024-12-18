@@ -1,9 +1,8 @@
 package day03
 
-class Slime(hp: Int, val suffix: String) {
+class Slime(hp: Int, private val suffix: String) {
 
-
-    val level = 10
+    private val level = 10
 
     fun attack() {
         println("슬라임 ${suffix}가 공격한다.")
