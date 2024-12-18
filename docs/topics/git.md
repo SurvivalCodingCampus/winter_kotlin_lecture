@@ -54,6 +54,66 @@ git init
 > 독립적으로 어떤 작업을 진행하기 위한 개념 
 >> 필요에 의해 만들어지는 각각의 브랜치는 다른 브랜치의 영향을 받지 않기 때문에, 여러 작업을 동시에 진행이 가능
 
+### 😀 Git 브랜치 병합 전략
+브랜치 병합 전략은 3가지
+```markdown
+1. Merge
+2. Rebase
+3. Squash
+```
+
+1. Merge   
+Merge에는 여러가지 방식이 있지만 크게 두 가지 방식이 존재 
+```markdown
+Fast-Forward
+3-Way-Merge
+```
+
+- Fast-Forward
+> Master 브랜치에서 생성된 A 브랜치를 Merge 할 경우 조상 브랜치인 Master에 변경점이 없다면 Master 브랜치를 바로 A로 브랜치로 이동해서 Merge하는 것
+
+- 3-Way-Merge
+> Fast-Forward랑 다르게 아래처럼 A 브랜치와 Master 브랜치 둘다 변경사항이 있을 경우에 Merge 하는 경우   
+정리하면, 각 브랜치의 최신 Commit과 공통 Base 커밋을 비교하여 새로운 Commit을 만들어 Merge 하는 전략 
+
+그렇다면, Merge의 특징은?
+> - 변경 내용의 커밋 내역이 모두 그대로 유지   
+> - Merge시 Merge Commit이 새로 생성    
+> 그렇기 때문에, 불필요한 Commit 내역이 생겨 history가 지저분해져서 협업 과정에서 Commit 확인에 대한 불편함이 발생 
+
+
+2. Rebase
+> - 공통 base를 가진 두 브랜치에서 하나의 브랜치의 base를 다른 브랜치의 최신 Commit을 base로 하게 끔 재정렬 하는 것   
+>
+> Rebase를 수행할 경우 Merge와 다르게 Merge Commit이 생기지 않음. 따라서, 하나의 브랜치에서 작업한 것처럼 보이기 때문에 히스토리를 간결하게 할때 사용
+
+하지만, 지저분한 Commit의 해결방법? 답은 Squash!!
+
+3. Squash
+> Git Squash는 여러개의 Commit을 하나의 Commit으로 만들어줌
+
+Squash를 하려면 우선 Rebase에 -i 옵션을 이용
+```bash
+git rebase -i [CommitID]
+```
+입력 했으면, Commit Hash 다음 Commit 내역들이 표시   
+그리고, 'Squash' CommitID를 입력, 다음은 예시 코드
+```bash
+git rebase -i 57d3f1b
+```
+
+그리고 Squash의 옵션중 Pick 옵션을 주고 합쳐질 Commit에 squash를 입력 -> 저장 -> 새로운 창에서 Commit Message를 입력하게 되면 커밋 내역이 합쳐짐.   
+결론적으로는, Pick과 squash를 사용하면 하나의 커밋이 아닌 원하는 커밋 수로 압축 
+
+이밖에 다른 옵션들
+- reword   
+> 단순히 Commit Message 변경 
+
+- fixup
+> squash와 기능은 동일 하나 커밋 메시지를 새로 쓸 수 없고 pick한 부분의 커밋 메시지로 합쳐짐 
+
+- drop
+> 해당 커밋 제거, 해당 커밋에서 변경된 작업도 원래대로 돌아감 
 ### 😀 작업 트리 상태 확인(git status)
 - git status 명령으로 현재 추적(Untracked)되지 않는 파일을 확인 가능 
 ```bash
