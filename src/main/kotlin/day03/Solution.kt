@@ -9,8 +9,12 @@ class Cleric(
     val MAX_MP = 10
 
     fun selfAid() : Unit {
+        if(mp < 5)
+            return
+
         mp -= 5
         hp = MAX_HP
+
     }
 
     fun pray(sec : Int) : Int {
