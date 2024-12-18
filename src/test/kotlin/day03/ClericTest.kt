@@ -16,8 +16,8 @@ class ClericTest {
         cleric.selfAid()
 
         // 검증
-        assertEquals(cleric.maxMp - 5, cleric.mp)
-        assertEquals(cleric.maxHp, cleric.hp)
+        assertEquals(Cleric.MAX_MP - 5, cleric.mp)
+        assertEquals(Cleric.MAX_HP, cleric.hp)
     }
 
 
