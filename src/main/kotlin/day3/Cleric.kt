@@ -12,7 +12,9 @@ class Cleric(
     val maxMp: Int = 10,
     var mp: Int = maxMp,
 ) {
-    fun attack() {}
+    fun attack() {
+        TODO("Not yet implemented")
+    }
 
     fun selfAid() {
         if (mp - 5 < 0) {
