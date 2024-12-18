@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-title="$(date -u +%Y-%m-%d)"
+title="$(date +%Y-%m-%d)"
 daily_md="./docs/daily/$title.md"
 
 [ -d ./docs/daily/ ] || mkdir -p ./docs/daily/
