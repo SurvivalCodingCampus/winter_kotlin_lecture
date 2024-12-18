@@ -10,8 +10,6 @@ fun main() {
     println("hehehe $haha")
     println(" hehe ra "+plus5(4,3))
 
-    val items = listOf("ahahha", "kekekr")
-
 
 }
 
