@@ -2,15 +2,16 @@ package org.example.day03
 
 const val MAX_HP = 50
 const val MAX_MP = 10
-const val USE_SELF_AID_MP = 5
+const val USE_MP_SELF_AID = 5
 
 class Cleric(
     override var name: String,
     override var hp: Int = 50,
     override var mp: Int = 10,
 ) : Hero(name, hp, mp) {
-    val maxHp = MAX_HP
-    val maxMp = MAX_MP
+    private val maxHp : Int = MAX_HP
+    private val maxMp : Int = MAX_MP
+    private val useMpSelfAid : Int = USE_MP_SELF_AID
 
     fun usingMp(consuming: Int): Int {
         when {
@@ -22,11 +23,11 @@ class Cleric(
         return mp
     }
 
-    fun getDamaged(damagedNum: Int) {
+    fun takenDamage(damageScore: Int) {
         when {
-            hp != 0 && damagedNum > 0 -> hp -= damagedNum
-            damagedNum > hp -> hp = 0
-            damagedNum < 0 -> return
+            hp != 0 && damageScore > 0 -> hp -= damageScore
+            damageScore > hp -> hp = 0
+            damageScore < 0 -> return
         }
     }
 
@@ -36,34 +37,31 @@ class Cleric(
 
     fun selfAid() {
         when {
-            hp > 0 && mp >= USE_SELF_AID_MP -> {
-                hp = MAX_HP
-                mp -= USE_SELF_AID_MP
+            hp > 0 && mp >= useMpSelfAid -> {
+                hp = maxHp
+                mp -= useMpSelfAid 
             }
         }
     }
 
-    fun pray(sec: Int): Int {
+    fun pray(totalSeconds: Int): Int {
 
-        val minRecoverMp: Int = 3
-        var recoveredMp: Int = 0
-        val count: Int = sec / minRecoverMp
+        val minRecoverPerInterval = 3
+        val maxRecoverPerInterval = 5
+        val intervalSeconds =  3
+        val count: Int = totalSeconds / intervalSeconds
 
-        // mp가 100 이상일때 0
-        if (mp >= MAX_MP) return 0
+        if (mp >= maxMp) return 0
 
-        // 초가 이미 MAX_MP보다 넘었을때
-        if (sec * minRecoverMp > MAX_MP) {
-            // 최대치 recoverdMp
-            recoveredMp = MAX_MP - mp
-            // 100으로 초기화
-            mp = MAX_MP
+        val potentialRecovery : Int = if (totalSeconds * intervalSeconds > maxMp) {
+            maxMp - mp
         } else {
-            repeat(count) { recoveredMp += (3..5).random() }
-
-            mp += recoveredMp
+            var recovery = 0
+            repeat(count) { recovery += (minRecoverPerInterval..maxRecoverPerInterval).random() }
+            recovery
         }
-        return recoveredMp
+        mp = (mp + potentialRecovery).coerceAtMost(maxMp)
+        return potentialRecovery
     }
 }
 
