@@ -25,7 +25,7 @@ class ClericTestKotest : DescribeSpec({
     }
 
     describe("selfAid") {
-        var currentMp: Int = 0
+        var currentMp = 0
         beforeEach {
             cleric.hp = 0
             currentMp = cleric.mp
