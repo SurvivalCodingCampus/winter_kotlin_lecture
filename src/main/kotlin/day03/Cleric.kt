@@ -1,16 +1,21 @@
 package day03
 
+
+fun main() {
+
+}
 class Cleric(var name: String, var hp: Int = MAX_HP, var mp: Int = MAX_MP) {
 
     companion object {
         const val MAX_HP = 50
         const val MAX_MP = 10
+        const val MP_FOR_AID = 5
     }
 
     fun selfAid() {
-        if (mp < 5) return
+        if (mp < MP_FOR_AID) return
 
-        mp -= 5
+        mp -= MP_FOR_AID
         hp = MAX_HP
     }
 
