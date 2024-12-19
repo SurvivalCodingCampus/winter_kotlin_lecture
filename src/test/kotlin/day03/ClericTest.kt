@@ -12,22 +12,22 @@ class ClericTest {
 
     @Test
     fun `Cleric 인스턴스화 테스트 name,hp,mp`() {
-        val cleric = Cleric("아서스", hp = 35, mp = 3)
+        val cleric = Cleric("아서스", hp = 40, mp = 5)
         assertEquals("아서스", cleric.name)
-        assertEquals(35, cleric.hp)
-        assertEquals(3, cleric.mp)
+        assertEquals(40, cleric.hp)
+        assertEquals(5, cleric.mp)
     }
 
     @Test
-    fun `Cleric 인스턴스화 테스트 name,hp`() {
-        val cleric = Cleric("아서스", hp = 30)
+    fun `Cleric 인스턴스화 테스트 name,hp, 이 때, mp는 MAX_MP가 된다`() {
+        val cleric = Cleric("아서스", hp = 35)
         assertEquals("아서스", cleric.name)
-        assertEquals(30, cleric.hp)
+        assertEquals(35, cleric.hp)
         assertEquals(MAX_MP, cleric.mp)
     }
 
     @Test
-    fun `Cleric 인스턴스화 테스트 name`() {
+    fun `Cleric 인스턴스화 테스트 name, 이 때, hp는 MAX_HP, mp는 MAX_MP가 된다`() {
         val cleric = Cleric("아서스")
         assertEquals("아서스", cleric.name)
         assertEquals(MAX_HP, cleric.hp)
