@@ -1,9 +1,5 @@
 package day03
 
-
-fun main() {
-
-}
 class Cleric(var name: String, var hp: Int = MAX_HP, var mp: Int = MAX_MP) {
 
     companion object {
