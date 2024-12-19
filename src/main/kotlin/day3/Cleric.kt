@@ -4,7 +4,7 @@ package org.example.day3
 //const val MAX_MP = 10
 
 class Cleric(
-    val name: String = "사제",
+    val name: String = "",
     var hp: Int = MAX_HP,
     var mp: Int = MAX_MP
 ) {
@@ -13,6 +13,11 @@ class Cleric(
         const val MAX_MP = 10
     }
 
+    init {
+        if (name.isEmpty()) {
+            throw IllegalArgumentException()
+        }
+    }
 
     fun selfAid() {
         if (mp >= 5) {

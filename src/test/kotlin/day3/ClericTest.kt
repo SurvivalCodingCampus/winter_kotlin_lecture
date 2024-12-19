@@ -5,6 +5,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Assert.*
 import org.junit.Test
+import org.junit.jupiter.api.assertThrows
 
 class ClericTest {
 
@@ -127,5 +128,19 @@ class ClericTest {
         assertEquals("리치왕", cleric2.name)
         assertEquals(Cleric.MAX_HP, cleric1.hp)
         assertEquals(Cleric.MAX_MP, cleric2.mp)
+    }
+
+    @Test
+    fun `연습문제 2-D 인스턴스화 불가`() {
+        // 이 클래스는 Cleric() 과 같이
+        // 이름을 지정하지 않는 경우에는 인스턴스화 할 수 없다고 한다.
+        // 이름이 없는 성직자는 존재 할 수 없음
+
+        assertThrows(IllegalArgumentException::class.java) {
+            val cleric1 = Cleric()
+        }
+        assertThrows(IllegalArgumentException::class.java) {
+            val cleric2 = Cleric("", 45, 5)
+        }
     }
 }
