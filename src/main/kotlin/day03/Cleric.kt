@@ -1,11 +1,24 @@
 package day03
 
+import utils.GameFunction
 
-class Cleric(
-    var name: String = "클레릭",
-    var hp: Int = 50,
-    var mp: Int = 10,
-) {
+
+class Cleric(var name: String) : GameFunction {
+
+    var hp: Int = MAX_HP
+    var mp: Int = MAX_MP
+
+    constructor(name: String, hp: Int) : this(name) {
+        this.name = name
+        this.hp = hp
+    }
+
+    constructor(name: String, hp: Int, mp: Int) : this(name, hp) {
+        this.name = name
+        this.hp = hp
+        this.mp = mp
+    }
+
 
     fun selfAid() {
         // 마력이 부족하다면 사용 취소
@@ -38,24 +51,36 @@ class Cleric(
         }
     }
 
-    // 상태 출력용 메소드
-    fun showStatus() {
-        println("------- 성직자의 현재 상태를 출력합니다 -------")
-        println("hp: ${this.hp}")
-        println("mp: ${this.mp}")
+    override fun showStatus(name: String) {
+        println("------- 성직자 $name 현재 상태 출력 -------")
+        println("이름: ${this.name} hp: ${this.hp}, mp: ${this.mp}")
+        println("")
     }
 
     companion object {
         const val MAX_HP = 50
         const val MAX_MP = 10
     }
+
+
 }
 
 fun main() {
-    val cleric = Cleric(hp = 50, mp = 10)
-    cleric.showStatus()
-    cleric.selfAid()
-    cleric.showStatus()
-    cleric.pray(2)
-    cleric.showStatus()
+    val clericA = Cleric(name = "아서스", hp = 40, mp = 5)
+
+    val clericB = Cleric(name = "아서스", hp = 35)
+
+    val clericC = Cleric(name = "아서스")
+
+    //val clericD = Cleric()
+
+//    println("(A) 인스턴스 속성 출력: name:  ${clericA.name}, hp : ${clericA.hp}, mp: ${clericA.mp}")
+//
+//    println("(B) 인스턴스 속성 출력: name:  ${clericB.name}, hp : ${clericB.hp}, mp: ${clericB.mp}")
+//
+//    println("(C) 인스턴스 속성 출력: name:  ${clericC.name}, hp : ${clericC.hp}, mp: ${clericC.mp}")
+
+    clericA.showStatus("A")
+    clericB.showStatus("B")
+    clericC.showStatus("C")
 }
