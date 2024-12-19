@@ -8,19 +8,28 @@
 ## 📝 학습 기록
 - [2024-12-16](docs/daily/2024-12-16.md) - git
 - [2024-12-17](docs/daily/2024-12-17.md) - git branch, kotlin
+- [2024-12-18](docs/daily/2024-12-18.md) - 
+
 
 ## 💻 작성 코드
-- Day 1
-  - [Person.kt](src/main/kotlin/day1/Person.kt) - 클래스 실습
-  - [Solution.kt](src/main/kotlin/day1/Solution.kt) - 과제 풀이
 - Day 2
-  - [Variable.kt](src/main/kotlin/day2/Variable.kt) - 변수 실습
-
+  - [Basic](src/main/kotlin/day02/Basic) - 자바 클래스
+  - [Basic.kt](src/main/kotlin/day02/Basic.kt) - 코틀린 기초 문법
+- Day 3
+  - [Hero2](src/main/kotlin/day03/Hero2) - 자바 클래스
+  - [Hero.kt](src/main/kotlin/day03/Hero.kt) - 코틀린 클래스, 인스턴스
+  - [Slime.kt](src/main/kotlin/day03/Slime.kt) - 코틀린 클래스
+  - [StringSpeed.kt](src/main/kotlin/day03/StringSpeed.kt) - 문자열 생성 방식의 성능 차이 확인
+  - [Cleric.kt](src/main/kotlin/day03/Cleric.kt) - 연습문제
+    
+  - [ClericTest.kt](src/test/kotlin/day03/ClericTest.kt) - 연습문제 테스트 코드
+  - [HeroTest.kt](src/test/kotlin/day03/HeroTest.kt) - Hero클래스 테스트 코드
+    
+    
 ## 📚 주제별 정리
-- [제네릭](docs/topics/generics.md)
-- [람다](docs/topics/lambda.md)
+- [git](docs/topics/git.md)
+- [kotlin](docs/topics/kotlin.md)
 
 ## 🔍 참고 자료
-- [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
-- [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
+
 ```

@@ -8,7 +8,7 @@ public class Basic {
         String name = null;
         System.out.println(name.toUpperCase());
 
-        List<String> items = List.of("apple","banana");
+        List<String> items = List.of("apple", "banana");
 
     }
 }
