@@ -33,6 +33,8 @@ fun main() {
 
 
     "반복 해서 출력 해버려!".repeatSentence(5)
+
+
 }
 
 fun sum(a: Int, b: Int) = a + b
@@ -42,6 +44,7 @@ fun sum(a: Int, b: Int) = a + b
 fun String.printSentence() {
     println(this)
 }
+
 
 
 // 입력 받은 카운트 만큼 반복 출력
