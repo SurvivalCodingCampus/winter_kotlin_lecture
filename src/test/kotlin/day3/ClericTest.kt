@@ -91,4 +91,22 @@ class ClericTest {
 //        assertEquals(Cleric.MAX_MP, cleric3.mp)
     }
 
+    @Test
+    fun `연습문제 2-B 인스턴스화`() {
+        // 이 클래스는 Cleric(“아서스", hp = 35) 와 같이,
+        // 이름과 HP만으로 지정하여 인스턴스화 할 수 있다.
+        // 이 때, MP는 최대 MP와 같은 값이 초기화 된다
+        val cleric1 = Cleric("아서스", hp = 35)
+
+        assertEquals("아서스", cleric1.name)
+        assertEquals(35, cleric1.hp)
+        assertEquals(Cleric.MAX_MP, cleric1.mp)
+
+        // 다른 경우 Cleric(“리치왕", hp = 45)
+        val cleric2 = Cleric("리치왕", hp = 45)
+
+        assertEquals("리치왕", cleric2.name)
+        assertEquals(45, cleric2.hp)
+        assertEquals(Cleric.MAX_MP, cleric2.mp)
+    }
 }
