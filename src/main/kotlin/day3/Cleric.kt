@@ -21,7 +21,7 @@ class Cleric(
 
         mp += (prayTime + number)
 
-        if (mp > maxMp) mp = maxMp - startMp
+        if (mp > maxMp) mp = maxMp
 
         val recoveryMp = mp - startMp
 
