@@ -1,12 +1,14 @@
 package day03
 
 import org.example.day03.Cleric
+import org.example.day4.skills.Prayable
+import org.example.day4.skills.SelfAidable
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.jupiter.api.assertAll
-import kotlin.random.Random
+import kotlin.test.assertContains
 import kotlin.test.assertIs
 
 class ClericTestJUnit4 {
@@ -26,11 +28,20 @@ class ClericTestJUnit4 {
     @Test
     fun selfAid() {
 
+        cleric.hp = 0
         val currentMp = cleric.mp
         cleric.selfAid()
 
-        assertEquals("selfAid() 메소드 실행 후 hp 값이 maxHp 값인 50이여야 한다.", 50, cleric.hp)
-        assertEquals("selfAid() 메소드 실행 후 mp 값이 5 감소 해야 한다.", currentMp - 5, cleric.mp)
+        assertEquals("selfAid() 메소드 실행 후 hp 값이 maxHp 값인 50이여야 한다.", Cleric.MAX_HP, cleric.hp)
+        assertEquals("selfAid() 메소드 실행 후 mp 값이 5 감소 해야 한다.", currentMp - SelfAidable.NEED_MP, cleric.mp)
+
+        val setMp = SelfAidable.NEED_MP - 1
+
+        cleric.mp = setMp
+
+        cleric.selfAid()
+
+        assertEquals("selfAid() 메소드 실행 시 mp가 ${SelfAidable.NEED_MP} 보다 낮다면 mp는 변하지 않아야 한다.", setMp, cleric.mp)
 
 
     }
@@ -40,18 +51,24 @@ class ClericTestJUnit4 {
 
         val beforeMp = cleric.mp
 
-        val recover = cleric.pray(Random.nextInt(10))
+        val variableSeconds: Array<Int> = arrayOf(-1, 0, 1)
 
-        assert(recover in 0..12) { "pray() 메소드 실행 후 recover 값이 0 이상 12 이하 여야 한다." }
-        assert(beforeMp <= cleric.mp) { "pray() 메소드 실행 후 mp 값이 증가 하거나 같아야 한다." }
-        assert(0 <= cleric.mp && cleric.mp <= cleric.maxMp) { "pray() 메소드 실행 후 mp 값이 0 이상 maxMp 값인 10이하 여야 한다." }
+        for (second in variableSeconds) {
+            val recoverMP = cleric.pray(second)
+            assertEquals(
+                "pray() 메소드 실행 후 recover 값이 0 또는 기도한 시간..시간 + Prayable.RANDOM_COLLECTION_MP_RANGE 값이여야 한다.",
+                recoverMP == 0 || recoverMP in second..second + Prayable.RANDOM_COLLECTION_MP_RANGE,
+                true
+            )
+            assertEquals("pray() 메소드 실행 후 mp 값이 증가 하거나 같아야 한다.", true, beforeMp <= cleric.mp)
+            assertContains(0..Cleric.MAX_MP, cleric.mp, "pray() 메소드 실행 후 mp 값이 0 이상 maxMp 값 이하 여야 한다.")
+        }
+
 
     }
 
     fun createCleric(): Cleric {
-        val hp = Random.nextInt(50)
-        val mp = Random.nextInt(10)
-        return Cleric("test", hp, mp)
+        return Cleric("test")
     }
 
     fun validateCleric() {
@@ -62,8 +79,8 @@ class ClericTestJUnit4 {
             assertEquals("생성된 cleric의 name 값이 'test'여야 한다.", "test", cleric.name)
             assertEquals("생성된 cleric의 hp 값이 0 이상 50 이하 여야 한다.", true, cleric.hp in 0..50)
             assertEquals("생성된 cleric의 mp 값이 0 이상 10 이하 여야 한다.", true, cleric.mp in 0..10)
-            assertEquals("생성된 cleric의 maxHp 값이 50이여야 한다.", 50, cleric.maxHp)
-            assertEquals("생성된 cleric의 maxMp 값이 10이여야 한다.", 10, cleric.maxMp)
+            assertEquals("생성된 cleric의 maxHp 값이 50이여야 한다.", 50, Cleric.MAX_HP)
+            assertEquals("생성된 cleric의 maxMp 값이 10이여야 한다.", 10, Cleric.MAX_MP)
         })
     }
 
