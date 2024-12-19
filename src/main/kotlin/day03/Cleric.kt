@@ -1,24 +1,13 @@
 package day03
 
-import utils.GameFunction
+import utils.SystemFunction
 
 
-class Cleric(var name: String) : GameFunction {
-
-    var hp: Int = MAX_HP
+class Cleric(
+    var name: String,
+    var hp: Int = MAX_HP,
     var mp: Int = MAX_MP
-
-    constructor(name: String, hp: Int) : this(name) {
-        this.name = name
-        this.hp = hp
-    }
-
-    constructor(name: String, hp: Int, mp: Int) : this(name, hp) {
-        this.name = name
-        this.hp = hp
-        this.mp = mp
-    }
-
+) : SystemFunction {
 
     fun selfAid() {
         // 마력이 부족하다면 사용 취소
@@ -51,11 +40,12 @@ class Cleric(var name: String) : GameFunction {
         }
     }
 
-    override fun showStatus(name: String) {
-        println("------- 성직자 $name 현재 상태 출력 -------")
+    override fun showStatus() {
+        println("------- 현재 상태 출력 -------")
         println("이름: ${this.name} hp: ${this.hp}, mp: ${this.mp}")
         println("")
     }
+
 
     companion object {
         const val MAX_HP = 50
@@ -71,6 +61,9 @@ fun main() {
     val clericB = Cleric(name = "아서스", hp = 35)
 
     val clericC = Cleric(name = "아서스")
+    clericA.showStatus()
+    clericB.showStatus()
+    clericC.showStatus()
 
     //val clericD = Cleric()
 
@@ -79,8 +72,4 @@ fun main() {
 //    println("(B) 인스턴스 속성 출력: name:  ${clericB.name}, hp : ${clericB.hp}, mp: ${clericB.mp}")
 //
 //    println("(C) 인스턴스 속성 출력: name:  ${clericC.name}, hp : ${clericC.hp}, mp: ${clericC.mp}")
-
-    clericA.showStatus("A")
-    clericB.showStatus("B")
-    clericC.showStatus("C")
 }
