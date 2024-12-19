@@ -6,20 +6,26 @@ import kotlin.test.assertContains
 
 class ClericTest {
 
+    @org.junit.Before
+    fun setUp() {
+
+    }
+
     @org.junit.Test
     fun `selfAid method test`() {
         val cleric1 = Cleric("cleric1", 10, 10)
 
         cleric1.selfAid()
 
-        assertEquals(cleric1.MAX_HP, cleric1.hp)
+        assertEquals(Cleric.MAX_HP, cleric1.hp)
         assertEquals(5, cleric1.mp)
     }
 
     @org.junit.Test
     fun `pray method test`() {
-        var cleric1 : Cleric    // null 값을 넣지는 않을 것이다.
-        var mpBeforePray : Int  // 마찬가지로 null 값을 넣지는 않을 것이다.
+        var cleric1 : Cleric
+        var mpBeforePray : Int
+
         val randomHp = 1..50
         val randomMp = 1..10
         val randomPraySecond = 1..30    // 30초 넘게는 지루해서 기도를 안 하지 않을까
@@ -27,8 +33,8 @@ class ClericTest {
 
         for(count in 1..5) {
             checkLog.appendLine("test$count")
-            val testHp = randomHp.random()
-            val testMp = randomMp.random()
+            val testHp = randomHp.random()      // 이런식으로 랜덤하게 뽑아서 하면 안된다.
+            val testMp = randomMp.random()      // 풀로 정한 수들을 다 해봐야 한다는 의미이다. 랜덤으로하면 빠진 숫자들은 테스트를 안하게 된 것이 되므로.
             checkLog.appendLine("testHp: $testHp, testMp: $testMp")
 
             cleric1 = Cleric("cleric1", testHp, testMp)
@@ -39,18 +45,40 @@ class ClericTest {
 
             assertContains(0..testPraySecond + 2, cleric1.pray(testPraySecond))   // 실제로 회복된 mp량 검증
 
-            assertContains(mpBeforePray + 1..cleric1.MAX_MP, cleric1.mp)  // 회복하고 난 후 hp, 최소한 mpBeforePray + 1만큼을 존재하여야 한다. + 1을 해주는 이유는 0이면 사망으로 간주
+            if(mpBeforePray != Cleric.MAX_MP)
+                assertContains(mpBeforePray + 1..Cleric.MAX_MP, cleric1.mp)  // 회복하고 난 후 mp, 최소한 mpBeforePray + 1만큼을 존재하여야 한다. + 1을 해주는 이유는 0이면 사망으로 간주
+            else
+                assertEquals(Cleric.MAX_MP, cleric1.mp)
 
             checkLog.appendLine("----------")
         }
 
         println(checkLog)
-    }
+    }   // 해당 테스트는 다시 만들 예정
 
     @org.junit.Test
     fun `check initialization of name`() {
         val cleric1 = Cleric("who are you", 10, 10)
 
         assertEquals("who are you", cleric1.name)
+    }
+
+    @org.junit.Test
+    fun `test Cleric Constructor`() {
+        val clericFullParameter = Cleric("아서스", 40, 5)
+        val clericNoMp = Cleric("아서스", 35)
+        val clericNoHpMp = Cleric("아서스")
+
+        assertEquals("아서스", clericFullParameter.name)
+        assertEquals(40, clericFullParameter.hp)
+        assertEquals(5, clericFullParameter.mp)
+
+        assertEquals("아서스", clericNoMp.name)
+        assertEquals(35, clericNoMp.hp)
+        assertEquals(Cleric.MAX_MP, clericNoMp.mp)
+
+        assertEquals("아서스", clericNoHpMp.name)
+        assertEquals(Cleric.MAX_HP, clericNoHpMp.hp)
+        assertEquals(Cleric.MAX_MP, clericNoHpMp.mp)
     }
 }
