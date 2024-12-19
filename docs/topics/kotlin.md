@@ -79,6 +79,7 @@
 # 📖특징
 
 ## kotlin은 Primitive Types(원시타입)과 (Reference Types)의 구분이 없다
+> kotlin은 모든 타입이 레퍼런스 타입이다
 
 kotlin은 `Int`, `Long`, `Boolean`과 같은 타입을 사용하여, 이러한 타입은 컴파일 시에 필요한 경우 JVM의 원시 타입으로 변환된다.  
 ex)
