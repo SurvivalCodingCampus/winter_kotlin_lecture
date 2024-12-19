@@ -10,8 +10,8 @@ class ClericTest {
         val clericSubject = Cleric("Tester", hp = 2, mp = 3)
         clericSubject.selfAid()
 
-        assertEquals("HP should remain unchanged", clericSubject.hp, 2)
-        assertEquals("MP should remain unchanged", clericSubject.mp, 3)
+        assertEquals("HP should remain unchanged", 2, clericSubject.hp)
+        assertEquals("MP should remain unchanged", 3, clericSubject.mp)
     }
 
     @Test
@@ -19,8 +19,8 @@ class ClericTest {
         val clericSubject = Cleric("Tester", hp = 2, mp = 5)
         clericSubject.selfAid()
 
-        assertEquals("HP should be restored", clericSubject.hp, Cleric.MAX_HP)
-        assertEquals("MP should be 5 less", clericSubject.mp, 0)
+        assertEquals("HP should be restored", Cleric.MAX_HP, clericSubject.hp)
+        assertEquals("MP should be 5 less", 0, clericSubject.mp)
     }
 
 
@@ -28,8 +28,8 @@ class ClericTest {
     fun testPray_Overflow() {
         val clericSubject = Cleric("Tester", mp = 9)
         val restoredMp = clericSubject.pray(Cleric.MAX_MP.toDouble())
-        assertEquals(clericSubject.mp, Cleric.MAX_MP)
-        assertEquals(restoredMp, 1)
+        assertEquals(Cleric.MAX_MP, clericSubject.mp)
+        assertEquals(1, restoredMp)
     }
 
 
@@ -43,7 +43,7 @@ class ClericTest {
     fun testPray_InputZero() {
         val clericSubject = Cleric("Tester", mp = 9)
         val restoredMp = clericSubject.pray(0.0)
-        assertEquals(restoredMp, 0);
-        assertEquals(clericSubject.mp, 9)
+        assertEquals(0, restoredMp);
+        assertEquals(9, clericSubject.mp)
     }
 }
