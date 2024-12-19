@@ -19,7 +19,7 @@ class ClericTest {
         val clericSubject = Cleric("Tester", hp = 2, mp = 5)
         clericSubject.selfAid()
 
-        assertEquals("HP should be restored", clericSubject.hp, clericSubject.maxHp)
+        assertEquals("HP should be restored", clericSubject.hp, Cleric.MAX_HP)
         assertEquals("MP should be 5 less", clericSubject.mp, 0)
     }
 
@@ -27,8 +27,8 @@ class ClericTest {
     @Test
     fun testPray_Overflow() {
         val clericSubject = Cleric("Tester", mp = 9)
-        val restoredMp = clericSubject.pray(10.0)
-        assertEquals(clericSubject.mp, clericSubject.maxMp)
+        val restoredMp = clericSubject.pray(Cleric.MAX_MP.toDouble())
+        assertEquals(clericSubject.mp, Cleric.MAX_MP)
         assertEquals(restoredMp, 1)
     }
 

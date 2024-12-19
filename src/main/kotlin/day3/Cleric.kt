@@ -7,11 +7,13 @@ import kotlin.random.Random
 
 class Cleric(
     var name: String,
-    var hp: Int = 50,
-    var mp: Int = 10,
+    var hp: Int = MAX_HP,
+    var mp: Int = MAX_MP,
 ) {
-    val maxHp: Int = 50
-    val maxMp: Int = 10
+    companion object {
+        const val MAX_HP = 50
+        const val MAX_MP = 10
+    }
 
     fun attack() {
         TODO("Not yet implemented")
@@ -23,7 +25,7 @@ class Cleric(
         }
 
         require(hp > 0) { "체력이 0 이하인 상태에서는 치유할 수 없습니다" }
-        hp = maxHp
+        hp = MAX_HP
         mp -= 5
     }
 
@@ -35,9 +37,9 @@ class Cleric(
         }
         val compensation = Random.nextDouble(0.0, 2.0)
         val restoredMp = floor(lengthInSeconds + compensation).toInt()
-        val overflow = max(0, restoredMp + mp - maxMp)
+        val overflow = max(0, restoredMp + mp - MAX_MP)
 
-        mp = min(restoredMp + mp, maxMp)
+        mp = min(restoredMp + mp, MAX_MP)
         return restoredMp - overflow
     }
 
