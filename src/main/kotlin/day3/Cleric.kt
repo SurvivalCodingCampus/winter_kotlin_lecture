@@ -14,9 +14,9 @@ class Cleric(
         }
     }
 
-    fun pray(prayTime: Int = 3): Int {
-        val numberRange = (0..2)
-        val number = numberRange.random()
+    fun pray(prayTime: Int): Int {
+//        val numberRange = (0..2)
+        val number = (0..2).random()
         val startMp = mp
 
         mp += (prayTime + number)

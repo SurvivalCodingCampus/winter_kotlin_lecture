@@ -29,6 +29,6 @@ class ClericTest {
  fun pray() {
   val cleric = Cleric(name = "사제")
 
-  assertTrue(cleric.pray() in 3..5)
+  assertTrue(cleric.pray(3) in 3..5)
  }
 }
