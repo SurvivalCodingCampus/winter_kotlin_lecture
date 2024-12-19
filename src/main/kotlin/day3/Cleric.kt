@@ -17,6 +17,14 @@ class Cleric(
         if (name.isEmpty()) {
             throw IllegalArgumentException()
         }
+
+        if (hp > MAX_HP) {
+            hp = MAX_HP
+        }
+
+        if (mp > MAX_MP) {
+            mp = MAX_MP
+        }
     }
 
     fun selfAid() {

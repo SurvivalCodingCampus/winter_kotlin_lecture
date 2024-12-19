@@ -85,11 +85,11 @@ class ClericTest {
         assertEquals(45, cleric2.hp)
         assertEquals(10, cleric2.mp)
 
-//        // hp와 mp가 max 보다 큰 경우 Cleric(“리치왕", hp = 55, mp = 15)
-//        val cleric3 = Cleric("리치왕", hp = 55, mp = 15)
-//
-//        assertEquals(Cleric.MAX_HP, cleric3.hp)
-//        assertEquals(Cleric.MAX_MP, cleric3.mp)
+        // hp와 mp가 max 보다 큰 경우 Cleric(“리치왕", hp = 55, mp = 15)
+        val cleric3 = Cleric("리치왕", hp = 55, mp = 15)
+
+        assertEquals(Cleric.MAX_HP, cleric3.hp)
+        assertEquals(Cleric.MAX_MP, cleric3.mp)
     }
 
     @Test
