@@ -1,48 +1,62 @@
 package day03
 
-import org.junit.After
-import org.junit.Before
 import org.junit.Test
 
 import org.junit.Assert.*
- class ClericTest {
 
-@Before
- fun setUp() {}
 
-@After
- fun tearDown() {}
+class ClericTest {
 
-@Test
- fun selfAid() {
-   // 준비
-   val cleric = Cleric("홍길동", hp = 30, mp = 10)
-   val cleric2 = Cleric("기러기", hp = 30, mp = 4)
+    @Test
+    fun `mp 부족시 selfAid가 동작하지 않는다`() {
+        // 준비
+        val cleric = Cleric("tester", hp = 30, mp = 4)
 
-   // 실행
-   cleric.selfAid()
-   cleric2.selfAid()
+        // 실행
+        cleric.selfAid()
 
-   // 회복 확인
-   assertEquals(50, cleric.hp)
-   assertEquals(5, cleric.mp)
+        // 미회복 확인
+        assertEquals(30, cleric.hp)
+        assertEquals(4, cleric.mp)
+    }
 
-   // 미회복 확인
-   assertEquals(30, cleric2.hp)
-   assertEquals(4, cleric2.mp)
- }
+    @Test
+    fun `mp를 사용하여 hp를 회복한다`() {
+        // 준비
+        val cleric = Cleric("tester", hp = 30)
 
-@Test
- fun pray() {
- // 준비
- val cleric = Cleric("홍길동", mp = 5)
+        // 실행
+        cleric.selfAid()
 
- // 실행
- val actualRecover = cleric.pray(2)
+        // 회복 확인
+        assertEquals(Cleric.MAX_HP, cleric.hp)
+        assertEquals((Cleric.MAX_MP - Cleric.MP_FOR_AID), cleric.mp)
+    }
 
- // 확인
- assertTrue(actualRecover in 2..4)
- assertTrue(cleric.mp in 7..9)
+    @Test
+    fun `회복 후 mp는 maxMP를 초과할 수 없다`() {
+        // 준비
+        val cleric = Cleric("tester", mp = 9)
 
- }
+        // 실행
+        val actualRecover = cleric.pray(2)
+
+        // 확인
+        assertTrue(actualRecover in 0..1)
+        assertEquals(Cleric.MAX_MP, cleric.mp)
+    }
+
+    @Test
+    fun `pray 동작시 (초 + 0~2) 만큼 mp가 충전된다 `() {
+        // 준비
+        val cleric = Cleric("tester", mp = 5)
+
+        // 실행
+        val actualRecover = cleric.pray(2)
+
+        // 확인
+        assertTrue(actualRecover in 2..4)
+        assertTrue(cleric.mp in 7..9)
+    }
+
 }
