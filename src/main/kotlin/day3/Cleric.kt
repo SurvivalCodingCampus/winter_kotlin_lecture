@@ -7,11 +7,12 @@ import kotlin.random.Random
 
 class Cleric(
     var name: String,
-    val maxHp: Int = 50,
-    var hp: Int = maxHp,
-    val maxMp: Int = 10,
-    var mp: Int = maxMp,
+    var hp: Int = 50,
+    var mp: Int = 10,
 ) {
+    val maxHp: Int = 50
+    val maxMp: Int = 10
+
     fun attack() {
         TODO("Not yet implemented")
     }
