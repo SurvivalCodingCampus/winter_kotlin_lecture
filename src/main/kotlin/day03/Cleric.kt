@@ -1,6 +1,6 @@
 package com.survivalcoding.day03
 
-import kotlin.math.max
+import kotlin.math.min
 
 const val MAX_HP = 50
 const val MAX_MP = 10
@@ -32,7 +32,7 @@ class Cleric(
 
         val currentMp = mp
 
-        mp += max(sec + randomNumber, MAX_MP)
+        mp += min(sec + randomNumber, MAX_MP)
 
         return mp - currentMp
     }
