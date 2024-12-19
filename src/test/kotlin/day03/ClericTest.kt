@@ -21,6 +21,7 @@ class ClericTest {
         assertEquals(5, cleric1.mp)
     }
 
+    /* 잘못된 테스트 코드로 새로 만든다.
     @org.junit.Test
     fun `pray method test`() {
         var cleric1 : Cleric
@@ -54,7 +55,20 @@ class ClericTest {
         }
 
         println(checkLog)
-    }   // 해당 테스트는 다시 만들 예정
+    } */
+
+    @org.junit.Test
+    fun `test pray function test`() {
+        val cleric = Cleric("cleric1", 10, 1)
+        val clericMaxMp = Cleric("cleric2")
+
+        assertContains(3..5, cleric.pray(3))    // pray 함수의 리턴 값 검사
+        assertContains(4..6, cleric.mp)             // pray 함수 호출 후 mp 값 검사, 이후의 두 코드도 이와 동일.
+
+        assertEquals(Cleric.MAX_MP - clericMaxMp.mp, clericMaxMp.pray(3))
+        assertEquals(Cleric.MAX_MP, clericMaxMp.mp)
+
+    }
 
     @org.junit.Test
     fun `check initialization of name`() {
