@@ -45,3 +45,6 @@ bin/
 .DS_Store
 
 .idea
+
+/docs/daily/template.md
+/src/main/kotlin/PRTemplate.md
