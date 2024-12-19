@@ -32,15 +32,20 @@ kotlin-study/
 - [2024-12-16](docs/daily/2024-12-16.md) - OT & Git&Github 기초
 - [2024-12-17](docs/daily/2024-12-17.md) - Git협업 & Kotlin 기초
 - [2024-12-18](docs/daily/2024-12-18.md) - 클래스 인스턴스
+- [2024-12-19](docs/daily/2024-12-19.md) - 클래스, companion
 
 ### 💻 작성 코드
-- [Kotlin Basic](src/main/kotlin/day02/Basic.kt) - Kotlin 기초
-- [클래스,인스턴스 실습](src/main/kotlin/day03/Hero.kt)
-- [테스트코드 실습](src/test/kotlin/day03/HeroTest.kt)
+- Day 2
+  - [Basic.kt](src/main/kotlin/day02/Basic.kt)
+- Day 3
+  - [Hero.kt](src/main/kotlin/day03/Hero.kt)
+  - [HeroTest.kt](src/test/kotlin/day03/HeroTest.kt)
+  - [Cleric.kt](src/main/kotlin/day03/Cleric.kt)
+  - [ClericTest.kt](src/test/kotlin/day03/ClericTest.kt)
 
 ### 📚 주제별 정리
-- [Git&Github](docs/topics/Git&Github.md) - Git&Github
-- [Kotlin 문법](docs/topics/Git&Github.md) - 코틀린 기본 문법
+- [Git&Github](docs/topics/Git&Github.md)
+- [Kotlin 기본 문법](docs/topics/Git&Github.md)
 
 ### 🔍 참고 자료
 - [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
