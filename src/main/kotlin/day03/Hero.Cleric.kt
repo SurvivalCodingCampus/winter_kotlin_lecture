@@ -9,9 +9,9 @@ class Cleric(
     override var hp: Int = 50,
     override var mp: Int = 10,
 ) : Hero(name, hp, mp) {
-    private val maxHp : Int = MAX_HP
-    private val maxMp : Int = MAX_MP
-    private val useMpSelfAid : Int = USE_MP_SELF_AID
+    private val maxHp: Int = MAX_HP
+    private val maxMp: Int = MAX_MP
+    private val useMpSelfAid: Int = USE_MP_SELF_AID
 
     fun usingMp(consuming: Int): Int {
         when {
@@ -39,7 +39,7 @@ class Cleric(
         when {
             hp > 0 && mp >= useMpSelfAid -> {
                 hp = maxHp
-                mp -= useMpSelfAid 
+                mp -= useMpSelfAid
             }
         }
     }
@@ -48,12 +48,12 @@ class Cleric(
 
         val minRecoverPerInterval = 3
         val maxRecoverPerInterval = 5
-        val intervalSeconds =  3
+        val intervalSeconds = 3
         val count: Int = totalSeconds / intervalSeconds
 
         if (mp >= maxMp) return 0
 
-        val potentialRecovery : Int = if (totalSeconds * intervalSeconds > maxMp) {
+        val potentialRecovery: Int = if (totalSeconds * intervalSeconds > maxMp) {
             maxMp - mp
         } else {
             var recovery = 0
