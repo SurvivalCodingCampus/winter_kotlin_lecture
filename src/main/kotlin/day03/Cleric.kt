@@ -10,6 +10,12 @@ class Cleric(
     var hp: Int = MAX_HP,
     var mp: Int = MAX_MP,
 ) {
+
+    companion object {
+        const val MAX_HP = 30
+        const val MAX_MP = 10
+    }
+
     fun selfAid() {
         if (mp < 5) {
             return
