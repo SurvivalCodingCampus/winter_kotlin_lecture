@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
-title="$(date -u +%Y-%m-%d)"
-daily_md="./docs/daily/$title.md"
+title="$(date +%Y-%m-%d)"
+daily_md="./docs/daily/${title}.md"
 
 [ -d ./docs/daily/ ] || mkdir -p ./docs/daily/
 if [ ! -f ./til_template.md ]; then
