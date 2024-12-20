@@ -100,4 +100,42 @@ class Cleric(
         return recoveryMp
     }
 }
+
+## 💻 예제 코드
+- val a = 10 
+- val b = 5
+- val name2: String? = null
+- val name3: String = ""
+
+- val c = if (a > b) a else b
+
+- val items : List<String> = listOf("apple", "banana")
+- for (item in items){ 
+    println(item)
+  }
+
+- fun plus5(x: Int): Int {  //"{" 앞에서 alt + enter로 아래 처럼 한줄로 가능
+      return x + 5
+  }
+- fun plus5(x: Int): Int = x + 5
+  
+- fun printSum(a: Int, b: Int): Unit { ... }
+
+
+# 2024-12-18
+
+## 📚 오늘 배운 내용
+- 메모리 heap 영역 안에 확보된 메모리
+- 코틀린 모든 타입들 레퍼런스 타입
+- comapnion object 는 사용시 밖에 선언한 상수와 같음
+  사람이 편하려고 사용함 / 의미부여 용도
+  fun 구현해도 클래스 내의 변수들에 접근 불가
+
+- 코틀린에서 모든 변수에 디폴트값이 있으면 기본 생성자를 자동으로 제공함
+- 생성자 작성 방법
+
+## 💻 예제 코드
+```kotlin
+
+
 ```
