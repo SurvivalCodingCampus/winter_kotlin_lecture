@@ -29,4 +29,16 @@ class WandTest {
             var wand = Wand("null")
         }
     }
+
+    @Test
+    fun `지팡이의 마력 설정 테스트`() {
+        // 마력이 0.5 ~ 100.0 범위 밖인 경우
+        assertThrows(IllegalArgumentException::class.java){
+            var wand = Wand("지팡이", power = 0.0)
+        }
+
+        // 마력이 0.5 ~ 100.0 범위 안인 경우
+        var wand = Wand("지팡이", power = 10.0)
+        assertEquals(true, 10.0 == wand.power)
+    }
 }
