@@ -28,12 +28,12 @@ fun main() {
 
     items.forEach(::fireball)
 
-    val wizard = Wizard()
-
-    wizard.attack()
-    wizard.fireball { damage: Int ->
-        println(damage)
-    }
+//    val wizard = Wizard()
+//
+//    wizard.attack()
+//    wizard.fireball { damage: Int ->
+//        println(damage)
+//    }
 }
 
 fun damage(num: Int): Unit {
