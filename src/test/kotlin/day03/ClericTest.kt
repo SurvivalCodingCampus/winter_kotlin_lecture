@@ -1,11 +1,9 @@
 package day03
 
 import com.survivalcoding.day03.Cleric
-import com.survivalcoding.day03.MAX_HP
-import com.survivalcoding.day03.MAX_MP
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
-import kotlin.test.assertContains
-import kotlin.test.assertEquals
 
 class ClericTest {
 
@@ -16,14 +14,14 @@ class ClericTest {
         cleric.hp = 10
 
         cleric.selfAid()
-        assertEquals(MAX_HP, cleric.hp)
+        assertEquals(Cleric.MAX_HP, cleric.hp)
 
         // mp가 부족할 때
         cleric.hp = 10
         cleric.mp = 4
 
         cleric.selfAid()
-        assertEquals(true, MAX_HP != cleric.hp)
+        assertEquals(true, Cleric.MAX_HP != cleric.hp)
     }
 
     @Test
@@ -44,9 +42,9 @@ class ClericTest {
 
 
         // mp 가 max 가 아니면 회복 됨 sec + (0~2)
-        for (sec in 1..MAX_MP) {
+        for (sec in 1..Cleric.MAX_MP) {
             cleric.mp = 0
-            assertContains(sec..sec + 2, cleric.pray(sec))
+            assertTrue((sec..sec + 2).contains(cleric.pray(sec)))
         }
     }
 }

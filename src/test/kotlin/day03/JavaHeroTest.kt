@@ -1,8 +1,7 @@
 package day03
 
 import com.survivalcoding.day03.Hero
-import kotlin.test.assertEquals
-
+import org.junit.Assert.assertEquals
 
 class JavaHeroTest {
 
