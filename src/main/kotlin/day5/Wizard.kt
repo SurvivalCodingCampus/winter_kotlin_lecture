@@ -1,9 +1,7 @@
 package org.example.day5
 
 class Wizard(
-    var name: String,
+    name: String,
     var hp: Int,
     var wand: Wand?,
-) {
-
-}
+)

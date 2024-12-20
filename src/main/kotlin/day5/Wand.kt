@@ -1,7 +1,6 @@
 package org.example.day5
 
 class Wand(
-    var name: String,
+    name: String,
     var power: Double,
-) {
-}
+)
