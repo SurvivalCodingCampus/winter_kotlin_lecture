@@ -5,4 +5,5 @@ class Wizard(
     var hp: Int,
     var wand: Wand?,
 ) {
+
 }
