@@ -1,26 +1,24 @@
 package org.example.day03
 
 open class Hero(
-    open var name: String,
-    open var hp: Int = 50,
-    open var mp: Int = 10,
+    open val name: String,
+    open var hp: Int = MAX_HP,
+    var sword: Sword? = null,
 ) {
+    companion object {
+        const val MONEY= 1000
+    }
 
     fun attack() {}
-
-//    open fun getDamaged(damagedNum: Int) {
-//
-//        println("1: $hp")
-//        if (hp != 0 && damagedNum > 0) hp -= damagedNum
-//        if (damagedNum > hp) hp = 0
-//        if (damagedNum < 0) return
-//        println("2: $hp")
-//    }
-
     fun run() {}
     fun sleep() {}
     fun usingSkills() {
-
-
     }
+}
+
+class Sword(
+    val name: String,
+    val damage: Int,
+){
+
 }

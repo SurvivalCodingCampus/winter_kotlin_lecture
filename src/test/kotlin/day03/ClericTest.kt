@@ -3,71 +3,51 @@ package day03
 import org.example.day03.Cleric
 import org.example.day03.MAX_HP
 import org.example.day03.MAX_MP
+import org.example.day03.USE_MP_SELF_AID
 import org.junit.Test
 import org.junit.Assert.*
+import org.junit.jupiter.api.assertAll
 
 
 class ClericTest {
+    @Test
+    fun `Cleric Pray input Test`(): Unit = assertAll(
+        "sec > 0, sec == 0, sec < -1",
+        {
+            val hero = Cleric(name = "성직자")
+            assertEquals(0, hero.pray(1))
+            assertEquals(0, hero.pray(2))
+            assertEquals(0, hero.pray(3))
+        },
+        {
+            val hero = Cleric(name = "성직자", hp = 30, mp = 5)
+            hero.pray(4)
+            assertEquals(hero.mp, hero.mp.coerceIn(0..MAX_MP))
+        },
+        {
+            val hero = Cleric(name = "성직자", hp = 30, mp = 5)
+            hero.pray(100000)
+            assertEquals(true, hero.mp == MAX_MP)
+            assertEquals(true, hero.pray(0) == 0)
+            assertEquals(true, hero.pray(-1) == 0)
+        },
+    )
 
     @Test
-    fun `Cleric Pray Test`() {
-        val sec = 6
-        val count = (sec / 3)
-
-        // given(준비)
-        val hero = Cleric(name = "하하")
-
-        hero.usingMp(4)
-
-        // when(실행)
-        val totalRecoveredMp = hero.pray(sec)
-
-        hero.showingStatus()
-
-        // then(random number 검증)
-        assertTrue("Something wrong with random", totalRecoveredMp in count * 2..count * 3)
-
-        // then(검증)
-        assertTrue(
-            "Cleric Info : ${hero.name} \n recovered hp : $totalRecoveredMp  \n  0 < ${hero.mp} < $MAX_MP",
-            hero.mp in 0..MAX_MP
-        )
-    }
-
-    @Test
-    fun `Cleric self Aid Test`() {
-
-        // given(준비)
-        val hero = Cleric(name = "박명수")
-
-        val damage = 30
-        val consumed = 10
-
-        hero.showingStatus()
-
-        // when(실행)
-        // 데미지 입력
-        hero.getDamaged(damage)
-
-        hero.showingStatus()
-
-        // then(hp 검증)
-        assertEquals(MAX_HP - damage, hero.hp)
-
-        // mp 사용
-        hero.usingMp(consumed)
-
-        // mp 사용
-        hero.usingMp(consumed)
-
-        // skill 사용 (mp가 없음)
-        hero.selfAid()
-
-        // then(selfAid 사용후 hp 검증)
-        assertEquals(MAX_HP - damage, hero.hp)
-        assertEquals(0, hero.mp)
-
-    }
+    fun `Cleric self Aid normal Test`() = assertAll(
+        "mp is 0 or lager than 0",
+        {
+            val hero = Cleric(name = "박명수", mp = MAX_HP, hp = 10)
+            hero.selfAid()
+            assertEquals(MAX_HP - USE_MP_SELF_AID, hero.mp)
+            assertEquals(MAX_HP, hero.hp)
+        },
+        {
+            val hero = Cleric(name = "박명수", mp = 0, hp = 10)
+            hero.selfAid()
+            assertEquals(10, hero.hp)
+        }
+    )
 }
 
 
