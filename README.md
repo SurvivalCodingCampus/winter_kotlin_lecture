@@ -4,18 +4,27 @@
 
 - [2024-12-16](src/docs/daily/2024-12-16.md) - Git, GitHub 기초
 - [2024-12-17](src/docs/daily/2024-12-17.md) - Kotlin 기초 문법
+- [2024-12-18](src/docs/daily/2024-12-18.md) - Kotlin 인스턴스와 클래스
 
 ## 💻 작성 코드
 
 - Day 2
     - [Basic.kt](src/main/kotlin/day02/Basic.kt) - Kotlin Basic
     - [Basic.java](src/main/kotlin/day02/Basic.java) - Java Basic
+- Day 3
+    - [Hero.kt](src/main/kotlin/day03/Hero.kt) - 용사(Hero) Class
+    - [Slime.kt](src/main/kotlin/day03/Slime.kt) - 슬라임(Slime) Class
+    - [Cleric.kt](src/main/kotlin/day03/Cleric.kt) - 성직자(Cleric) Class
+    - [ClericTest.kt](src/test/kotlin/ClericTest.kt) - 성직자(Cleric) Test Code
 
 ## 📚 주제별 정리
 
-- [Git](src/docs/topics/git.md)
+- Kotlin
+    - [Class](src/docs/topics/class.md)
+    - [Random](src/docs/topics/random.md)
 - Java
     - [ArrayList](src/docs/topics/java-array-list.md)
+- [Git](src/docs/topics/git.md)
 
 ## 🔍 참고 자료
 
