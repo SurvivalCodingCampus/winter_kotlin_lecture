@@ -10,6 +10,7 @@ import org.example.day03.Hero
 import org.example.day04.Sword
 import org.example.day04.Wizard
 import org.example.day04.Enemy
+import org.example.day05.Wand
 
 class HeroTest {
     lateinit var hero: Hero
@@ -19,7 +20,7 @@ class HeroTest {
     @Before
     fun setUp() {
         hero = Hero("hero",5, Sword("common sword", 5))
-        wizard = Wizard("wizard", 10, 5)
+        wizard = Wizard("wizard", 10, 5, 5, Wand("common wand", 5.0))
         enemy = Enemy("enemy")  // hp = MAX_HP(20)
     }
 
