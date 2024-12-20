@@ -6,7 +6,7 @@ open class Hero(
     var sword: Sword? = null,
 ) {
     companion object {
-        const val MOENY = 1000
+        const val MONEY= 1000
     }
 
     fun attack() {}
