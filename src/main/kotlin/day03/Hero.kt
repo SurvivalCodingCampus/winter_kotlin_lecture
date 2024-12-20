@@ -23,10 +23,9 @@ class Sword(val name: String, val damage: Int)
 class Hero(var name: String, hp: Int, var sword: Sword? = null) {  // hp를 생성자 파라미터로만 사용
     
     // 숨겨진 private 데이터를 외부에 노출하는 방법(getter, 읽기 전용)
-    // 방법2. Hero클래스에 hp getter를 추가. backing field를 사용하는 방법
-    private var _hp = hp  // 내부에서 _로 선언
-    val hp: Int
-        get() = _hp
+    // 방법3. Hero클래스에 hp getter를 추가. private set
+    var hp: Int = hp
+        private set
 
     fun bye() {
         println("빠이")
