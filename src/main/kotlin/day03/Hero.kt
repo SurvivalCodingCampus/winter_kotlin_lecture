@@ -9,6 +9,7 @@ fun main() {
 
     val slime = Slime(hp = 50, suffix = "A")
     println()
+
 }
 
 class Hero(var name : String, var hp: Int = 100 ) { //초기값
@@ -23,5 +24,5 @@ class Hero(var name : String, var hp: Int = 100 ) { //초기값
     fun pung(): String {
         return "뽕"
     }
-
 }
+

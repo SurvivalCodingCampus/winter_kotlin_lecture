@@ -25,4 +25,6 @@ public class Hero2 {
     public void setHp(int hp) {
         this.hp = hp;
     }
+
+
 }
