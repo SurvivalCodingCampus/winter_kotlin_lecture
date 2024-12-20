@@ -1,6 +1,5 @@
 package day05
 
-import utils.CommonUtils
 import utils.CommonUtils.getCurrentDate
 import utils.SystemFunction
 
