@@ -1,5 +1,7 @@
 package org.example.day5
 
+import java.lang.reflect.Array.set
+
 class Wizard(
     name: String,
     var hp: Int,
@@ -16,6 +18,14 @@ class Wizard(
         set(value) {
             require(wand != null) {
                 throw IllegalArgumentException("마법사의 지팡이는 null 일 수 없다")
+            }
+            field = value
+        }
+
+    var mp: Int = 0
+        set(value) {
+            require(0 <= value) {
+                throw IllegalArgumentException("마법사의 MP는 0 이상이어야 한다")
             }
             field = value
         }

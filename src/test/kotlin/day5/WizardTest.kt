@@ -3,10 +3,11 @@ package day5
 import org.example.day5.Wand
 import org.example.day5.Wizard
 import org.junit.After
-import org.junit.Assert.assertThrows
+import org.junit.Assert.*
 import org.junit.Before
 
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class WizardTest {
 
@@ -33,8 +34,22 @@ class WizardTest {
 
     @Test
     fun `마법사의 지팡이는 null일 수 없다`() {
-        assertThrows(IllegalArgumentException::class.java){
+        assertThrows(IllegalArgumentException::class.java) {
             var wizard = Wizard("제이나", hp = 50, wand = null)
         }
+    }
+
+    @Test
+    fun `마법사의 MP는 0 이상이어야 한다`() {
+        // 마법사의 MP는 0 미만인 경우
+        var wand1 = Wand("지팡이", power = 50.0)
+        var wizard = Wizard("제이나", hp = 50, wand = wand1)
+        assertThrows(IllegalArgumentException::class.java) {
+            wizard.mp = -1
+        }
+
+        // 마법사의 MP는 0 이상인 경우
+        wizard.mp = 100
+        assertEquals(100, wizard.mp)
     }
 }
