@@ -2,8 +2,12 @@ package com.survivalcoding.day03
 
 import kotlin.math.min
 
-const val MAX_HP = 50
-const val MAX_MP = 10
+fun main() {
+    val cleric1 = Cleric("아서스", hp = 40, mp = 5)
+    Cleric("아서스", hp = 35)
+    Cleric("아서스")
+//    Cleric()
+}
 
 class Cleric(
     val name: String,
@@ -12,7 +16,7 @@ class Cleric(
 ) {
 
     companion object {
-        const val MAX_HP = 30
+        const val MAX_HP = 50
         const val MAX_MP = 10
     }
 

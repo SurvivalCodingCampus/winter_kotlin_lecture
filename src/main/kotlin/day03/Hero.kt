@@ -18,9 +18,24 @@ fun main() {
 const val HERO_MONEY = 100
 
 class Hero(
-    var name: String,
-    var hp: Int = 100,
+    name: String,
+    hp: Int = 100,
 ) { // 초기화
+
+    var hp: Int = hp
+        private set
+
+    var name: String = name
+        set(value) {
+            require(value.isNotEmpty()) { "이름이 짧다" }
+            field = value
+        }
+
+
+//    private var _hp = hp
+
+
+//        get() = _hp
 
     // Java의 static
     companion object {
