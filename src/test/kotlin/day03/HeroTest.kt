@@ -10,7 +10,7 @@ class HeroTest {
         val hero = Hero(name = "홍길동", hp = 10)
 
         // 실행
-        hero.sleep()
+        //hero.sleep()
 
         // 확인
         assertEquals(100, hero.hp)

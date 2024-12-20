@@ -13,6 +13,7 @@ package day05
 * 5. HP가 음수가 되는 상황에서는 대신 0을 설정되도록 한다.
 *
 * */
+
 class Wizard(
     name: String,       // 이름
     hp: Int,            // hp

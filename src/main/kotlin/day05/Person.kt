@@ -12,12 +12,12 @@ import utils.SystemFunction
 * */
 class Person(
     private val name: String,
-    private val birthYear: String,
+    private val birthYear: Int,
 ) : SystemFunction {
     val age: Int
         get() {
             val currentYear = getCurrentDate().replace("-", "").take(4).toIntOrNull() ?: 0
-            val birthYear = birthYear.toIntOrNull() ?: 0
+            val birthYear = birthYear
             return currentYear - birthYear
         }
 
@@ -28,6 +28,6 @@ class Person(
 }
 
 fun main() {
-    val person = Person(name = "홍길동", birthYear = "1995")
+    val person = Person(name = "홍길동", birthYear = 1995)
     person.showStatus()
 }
