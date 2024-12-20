@@ -15,45 +15,51 @@ class ClericTest {
     }
 
     @Test
-    fun initCleric() {
+    fun `Cleric 초기 정보 확인`() {
+        // 요구 사항 2: 생성자 확인
+        Cleric(name = "아서스", hp = 40, mp = 5)
+        Cleric(name = "아서스", hp = 35)
+        Cleric(name = "아서스")
         assertEquals(expected = "힐러", cleric.name)
-        assertEquals(expected = 50, cleric.currentHp)
-        assertEquals(expected = 50, cleric.maxHp)
-        assertEquals(expected = 10, cleric.currentMp)
-        assertEquals(expected = 10, cleric.maxMp)
+        assertEquals(expected = Cleric.MAX_HP, cleric.hp)
+        assertEquals(expected = Cleric.MAX_HP, Cleric.MAX_HP)
+        assertEquals(expected = Cleric.MAX_MP, cleric.mp)
+        assertEquals(expected = Cleric.MAX_MP, Cleric.MAX_MP)
     }
 
     @Test
-    fun pray() {
-        cleric.currentMp = 0
+    fun `selfAid 사용 후 hp, mp 확인 (init hp, mp = 2, 10)`() {
+        cleric.hp = 2
+        val currentMp = cleric.mp
+        cleric.selfAid()
+        assertEquals(cleric.hp, Cleric.MAX_HP)
+        assertEquals(currentMp - Cleric.MP_COST_OF_SELF_AID, cleric.mp)
+    }
+
+    @Test
+    fun `pray (init mp, time = 0, 3)`() {
+        cleric.mp = 0
         val time = 3
         val recoveryMp = cleric.pray(time)
         assertTrue(recoveryMp in time..time + 2)
-        assertTrue(cleric.currentMp in 3..5)
+        assertTrue(cleric.mp in 3..5)
     }
 
     @Test
-    fun prayZeroTime() {
-        cleric.currentMp = 0
-        val time = 0
-        val recoveryMp = cleric.pray(time)
-        assertEquals(0, recoveryMp)
-        assertEquals(0, cleric.currentMp)
+    fun `pray time 0초 이하일 경우 `() {
+        cleric.mp = 0
+        (-1..0).forEach { time ->
+            val recoveryMp = cleric.pray(time)
+            assertEquals(0, recoveryMp)
+            assertEquals(0, cleric.mp)
+        }
     }
 
     @Test
-    fun prayWhenFullMp() {
+    fun `pray full mp 일 경우`() {
         val time = 2
         val recoveryMp = cleric.pray(time)
         assertEquals(0, recoveryMp)
-        assertEquals(10, cleric.currentMp)
-    }
-
-    @Test
-    fun selfAid() {
-        cleric.currentHp = 2
-        cleric.selfAid()
-        assertEquals(50, cleric.currentHp)
-        assertEquals(5, cleric.currentMp)
+        assertEquals(cleric.mp, Cleric.MAX_MP)
     }
 }
