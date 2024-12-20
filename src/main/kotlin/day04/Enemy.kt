@@ -8,13 +8,19 @@ class Enemy(
         const val MAX_HP = 20
     }
 
+    var alive: Boolean = true
+
     fun attacked(damage: Int) {
         hp = if (damage > hp) {
             println("$name 처치")
+            alive = false
             0
         } else {
             val updateHp = hp - damage
             updateHp
         }
     }
+
+    @JvmName("getAlive()")
+    fun getAlive(): Boolean = alive
 }

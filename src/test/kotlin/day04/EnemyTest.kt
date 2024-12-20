@@ -32,5 +32,12 @@ class EnemyTest {
         hero.attack(enemy)
 
         assertEquals(15, enemy.hp)
+
+        // 적의 hp가 0이 되는 경우
+        // 적이 이미 사망한 상태
+        for(cnt in 1..5) {
+            hero.attack(enemy)
+        }
+
     }
 }
