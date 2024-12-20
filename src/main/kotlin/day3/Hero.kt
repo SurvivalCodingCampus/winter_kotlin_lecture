@@ -3,8 +3,11 @@ package day3
 class Hero(
     var name: String,
     var maxHp: Int = 100,
-    var hp: Int = maxHp,
+    hp: Int = maxHp,
 ) {
+    var hp = hp
+        private set
+
     fun attack() {}
 
     fun defend() {}
