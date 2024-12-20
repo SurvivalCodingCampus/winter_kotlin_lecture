@@ -10,11 +10,9 @@ import org.junit.jupiter.api.assertAll
 
 
 class ClericTest {
-
-
     @Test
     fun `Cleric Pray input Test`(): Unit = assertAll(
-        "Checking ",
+        "sec > 0, sec == 0, sec < -1",
         {
             val hero = Cleric(name = "성직자")
             assertEquals(0, hero.pray(1))
@@ -37,7 +35,7 @@ class ClericTest {
 
     @Test
     fun `Cleric self Aid normal Test`() = assertAll(
-        "Chekcing selfaid mp is 0 or lager than 0",
+        "mp is 0 or lager than 0",
         {
             val hero = Cleric(name = "박명수", mp = MAX_HP, hp = 10)
             hero.selfAid()
