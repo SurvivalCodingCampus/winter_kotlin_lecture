@@ -17,7 +17,9 @@ fun main() {
 
 }
 
-class Hero(var name: String, var hp:Int) {
+class Sword(val name: String, val damage: Int)
+
+class Hero(var name: String, var hp: Int, var sword: Sword? = null) {
     var food = ""
     fun attack() {}
     fun run() {}
@@ -28,7 +30,7 @@ class Hero(var name: String, var hp:Int) {
     }
 }
 
-class Slime(var suffix: String, var hp:Int) {
+class Slime(var suffix: String, var hp: Int) {
     val level = 10
     fun run() {
         println("슬라임 ${suffix}가 도망갔다")
