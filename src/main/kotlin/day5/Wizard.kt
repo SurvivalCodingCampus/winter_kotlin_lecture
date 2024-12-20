@@ -4,7 +4,7 @@ import java.lang.reflect.Array.set
 
 class Wizard(
     name: String,
-    var hp: Int,
+    hp: Int,
     wand: Wand?,
 ) {
     var name: String = name
@@ -22,6 +22,12 @@ class Wizard(
             field = value
         }
 
+    var hp: Int = hp
+        set(value) {
+            // HP가 음수가 되는 상황에서는 대신 0을 설정 되도록 한다. (에러 아님)
+            field = if (value < 0) 0 else value
+        }
+
     var mp: Int = 0
         set(value) {
             require(0 <= value) {
@@ -30,14 +36,19 @@ class Wizard(
             field = value
         }
 
+    val deadHp = 0
+
     init {
         this.name = name
         this.wand = wand
+        this.hp = hp
     }
-
 
     fun attack() {
 
+    }
 
+    fun hurt(damage: Int) {
+        hp -= damage
     }
 }

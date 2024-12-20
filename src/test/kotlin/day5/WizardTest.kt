@@ -52,4 +52,19 @@ class WizardTest {
         wizard.mp = 100
         assertEquals(100, wizard.mp)
     }
+
+    @Test
+    fun `마법사의 HP는 음수가 되는 대신 0을 설정 되도록 한다 (에러 아님)`() {
+        var wand1 = Wand("지팡이", power = 50.0)
+        var wizard1 = Wizard("제이나", hp = 50, wand = wand1)
+        var wizard2 = Wizard("메디브", hp = 500, wand = wand1)
+
+        // 마법사의 HP가 음수가 되는 경우
+        wizard1.hurt(100)
+        assertEquals(0, wizard1.hp)
+
+        // 마법사의 HP가 음수가 아닌 경우
+        wizard2.hurt(100)
+        assertEquals(400, wizard2.hp)
+    }
 }
