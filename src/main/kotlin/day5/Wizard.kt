@@ -3,7 +3,7 @@ package org.example.day5
 class Wizard(
     name: String,
     var hp: Int,
-    var wand: Wand?,
+    wand: Wand?,
 ) {
     var name: String = name
         set(value) {
@@ -12,9 +12,17 @@ class Wizard(
             }
             field = value
         }
+    var wand: Wand? = wand
+        set(value) {
+            require(wand != null) {
+                throw IllegalArgumentException("마법사의 지팡이는 null 일 수 없다")
+            }
+            field = value
+        }
 
     init {
         this.name = name
+        this.wand = wand
     }
 
 
