@@ -4,8 +4,14 @@ fun main() {
     var person1 = Person("홍길동")
     var person2 = Person("한석봉")
     val persons: List<Person> = listOf(person1, person2)
+    val personMap: Map<String, Int> = mapOf(
+        person1.name to 20,
+        person2.name to 25,
+    )
 
-    for (person in persons) println(person.name)
+//    for (person in persons) println(person.name)
+
+    for ((key, value ) in personMap) println("\"${key}의 나이는 ${value}살\"")
 }
 class Person(
     name: String
