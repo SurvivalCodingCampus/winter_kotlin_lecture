@@ -6,8 +6,7 @@ fun main() {
 
 }
 
-class Encapsulation {
-}
+class Encapsulation
 
 // 여관 클래스의 오류
 //class Inn {

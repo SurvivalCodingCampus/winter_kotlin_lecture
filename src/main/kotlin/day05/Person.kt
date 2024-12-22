@@ -4,8 +4,6 @@ import utils.CommonUtils
 import utils.CommonUtils.getCurrentDate
 import utils.CommonUtils.getCurrentYear
 import utils.SystemFunction
-import java.text.SimpleDateFormat
-import java.util.*
 
 /*
 * Person 클래스 작성
@@ -20,8 +18,7 @@ class Person(
 ) : SystemFunction {
     val age: Int
         get() {
-            val currentYear = getCurrentYear()
-            return currentYear - birthYear
+            return getCurrentYear() - birthYear
         }
 
     override fun showStatus() {
@@ -33,4 +30,7 @@ class Person(
 fun main() {
     val person = Person(name = "홍길동", birthYear = 1995)
     person.showStatus()
+//    println(getCurrentYear())
+//    println(getCurrentDate())
+
 }

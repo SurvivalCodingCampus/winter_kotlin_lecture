@@ -22,13 +22,13 @@ class Wizard(
 ) {
     var name: String = name
         set(value) {
-            require(value.length >= 3) { "이름이 너무 짧습니다." }
+            require(value.length >= 3) { NAME_TOO_SHORT }
             field = value
         }
 
     var mp: Int = mp
         set(value) {
-            require(value >= 0) { "mp가 부족합니다." }
+            require(value >= 0) { MP_LACK }
             field = value
         }
 
@@ -36,4 +36,9 @@ class Wizard(
         set(value) {
             field = if (value < 0) 0 else value
         }
+
+    companion object {
+        const val NAME_TOO_SHORT = "이름이 너무 짧습니다."
+        const val MP_LACK = "mp가 부족합니다."
+    }
 }

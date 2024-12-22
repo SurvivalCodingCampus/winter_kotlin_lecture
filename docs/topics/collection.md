@@ -30,7 +30,7 @@ Array도 있으나 가급적 List사용
 
 - key,value쌍 : Map
 - 중복 가능: List
-- 중복 불기: Set
+- 중복 불가: Set
 - 순서 중요: List
 - 순서 안 중요: Set
 - 검색 속도 중요: Set

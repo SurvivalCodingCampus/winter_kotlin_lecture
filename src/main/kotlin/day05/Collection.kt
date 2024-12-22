@@ -5,7 +5,6 @@ fun main() {
     val gildong = mapOf(Pair("name", "홍길동"))
     val gildong2 = mapOf("name" to "홍길동")
 
-
     val items: List<Int> = listOf(1, 2, 3, 4)
 
     items.forEach {
@@ -21,18 +20,12 @@ fun main() {
 class Man(
     var name: String,
     val hp: Int
-) {
+)
 
-}
-
-class Collection {
-
-}
+class Collection
 
 class Test {
-    fun attack() {
-
-    }
+    fun attack() {}
 }
 
 fun Test.fireball(damage: (Int) -> Unit) {

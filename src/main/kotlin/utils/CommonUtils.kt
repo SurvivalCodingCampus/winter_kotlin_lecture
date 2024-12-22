@@ -1,16 +1,21 @@
 package utils
 
 import java.time.LocalDate
-import java.util.Calendar
 
 object CommonUtils {
-    fun getCurrentDate(): String {
-        val localDate: LocalDate = LocalDate.now()
-        return localDate.toString()
+    /**
+     * 연도를 바로 반환
+     * @return 현재 날짜 연도 (ex) 2024)
+     */
+    fun getCurrentYear(): Int {
+        return LocalDate.now().year
     }
 
-    fun getCurrentYear(): Int {
-        val calendar = Calendar.getInstance()
-        return calendar.get(Calendar.YEAR)
+    /**
+     * 현재 날짜의 연 월 일을 반환
+     * @return 현재 날짜 연도 (ex) 2024-12-22)
+     */
+    fun getCurrentDate(): LocalDate {
+        return LocalDate.now()
     }
 }
