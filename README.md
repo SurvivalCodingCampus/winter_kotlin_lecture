@@ -15,7 +15,7 @@
     - [Hero.kt](src/main/kotlin/day03/Hero.kt) - 용사(Hero) Class
     - [Slime.kt](src/main/kotlin/day03/Slime.kt) - 슬라임(Slime) Class
     - [Cleric.kt](src/main/kotlin/day03/Cleric.kt) - 성직자(Cleric) Class
-    - [ClericTest.kt](src/test/kotlin/ClericTest.kt) - 성직자(Cleric) Test Code
+    - [ClericTest.kt](src/test/kotlin/day03/ClericTest.kt) - 성직자(Cleric) Test Code
 
 ## 📚 주제별 정리
 

@@ -1,3 +1,5 @@
+package day03
+
 import org.hyunjung.day03.Cleric
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
