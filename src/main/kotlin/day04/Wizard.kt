@@ -19,32 +19,33 @@ class Wizard(
         const val MP_FOR_HEAL = 5
     }
 
-    var name: String? = if(_name == null || _name.length < 3) throw IllegalArgumentException() else _name
+    var name: String? = if(_name == null || _name.length < 3)
+        throw IllegalArgumentException("이름은 null이거나 3보다 작을 수 없습니다.") else _name
         set(value) {
             if (value == null || value.length < 3) {
-                throw IllegalArgumentException()
+                throw IllegalArgumentException("이름은 null이거나 3보다 작을 수 없습니다.")
             }
             field = value
         }
 
-    var wand = _wand
+    var wand: Wand? = if(_wand == null) throw IllegalArgumentException("wand는 null일 수 없습니다.") else _wand
         set(value) {
             if (value == null) {
-                throw IllegalArgumentException()
+                throw IllegalArgumentException("wand는 null일 수 없습니다.")
             }
 
             field = value
         }
 
-    var mp = _mp
+    var mp = if(_mp < 0) throw IllegalArgumentException("mp가 음수입니다.") else _mp
         set(value) {
             if(value < 0) {
-                throw IllegalArgumentException()
+                throw IllegalArgumentException("mp가 음수입니다.")
             }
             field = value
         }
 
-    var hp = _hp
+    var hp = if(_hp <= 0) 0 else _hp
         set(value) {
             field = if(value < 0) 0 else value
         }

@@ -2,13 +2,16 @@ package day05
 
 import org.junit.Assert.*
 import org.example.day05.Person
+import java.time.LocalDate
+import kotlin.test.assertContains
 
 class PersonTest {
     @org.junit.Test
     fun `check Person's age`() {
         val person = Person("who are you", 2000)
 
-        assertEquals(24, person.age)
+        val expectedAge = LocalDate.now().year - person.birthYear
+        assertEquals(expectedAge, person.age)
     }
 
     /* 컬렉션 연습문제 1번
@@ -31,22 +34,30 @@ class PersonTest {
 
         val list = listOf<Person>(person1, person2)
 
-        val stringBuilder = StringBuilder("")
+        /*val stringBuilder = StringBuilder("")
 
         for(person in list) {
             stringBuilder.appendLine("who are you: ${person.name}")
         }
         println(stringBuilder)
-        
+        */
+        assertEquals(2, list.size)
+        assertTrue(list.any { it.name == "홍길동" })
+        assertTrue(list.any { it.name == "한석봉" })
+
+
         // 컬렉션 연습문제 3번
         val personInfo = mapOf(
             person1.name to person1.age,
             person2.name to person2.age,
         )
 
-        personInfo.entries.forEach {
+        /*personInfo.entries.forEach {
             println("name: ${it.key}, age: ${it.value}")
-        }
+        }*/
+        assertEquals(2, personInfo.size)
+        assertTrue(personInfo.containsKey("홍길동"))
+        assertTrue(personInfo.containsKey("한석봉"))
     }
 
 }

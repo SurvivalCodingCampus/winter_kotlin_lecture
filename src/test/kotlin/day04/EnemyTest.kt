@@ -39,6 +39,7 @@ class EnemyTest {
         for(cnt in 1..5) {
             hero.attack(enemy)
         }
-
+        assertTrue("적의 HP가 0 이하가 되었습니다.", enemy.hp <= 0)
+        assertFalse("적이 사망했습니다.", enemy.getAlive())
     }
 }

@@ -11,6 +11,8 @@ import org.example.day04.Sword
 import org.example.day04.Wizard
 import org.example.day05.Wand
 
+import org.junit.jupiter.api.assertThrows
+
 class WizardTest {
     lateinit var hero: Hero
     lateinit var wizard: Wizard
@@ -48,48 +50,58 @@ class WizardTest {
 
         // test for hp is negative
         val wizard = Wizard("common wizard", -5, 10, 10, Wand("common", 5.0))
-        //assertEquals(0, wizard.hp)
-        // 어차피 위의 것들은 init 블록이나 보조생성자로 getter, setter를 잡아써야 한다.
-
+        assertEquals(0, wizard.hp)
     }
 
     @Test
     fun `wizardConstructionNameIsNUll`() {
         // test for name is null
-        try {
+        /*try {
             val wizard = Wizard(null, 10, 10, 5, Wand("common wand", 5.0))
         } catch(e: IllegalArgumentException) {
             println("name is null")
+        }*/
+        assertThrows<IllegalArgumentException>("name is null") {
+            Wizard(null, 10, 10, 5, Wand("common wand", 5.0))
         }
     }
 
     @Test
     fun `wizardConstructionNameIsTooShort`() {
         // test for name is too short
-        try {
+        /*try {
             val wizard = Wizard("?", 10, 10, 5, Wand("common wand", 5.0))
         } catch(e: IllegalArgumentException) {
             println("name is too short")
+        }*/
+        assertThrows<IllegalArgumentException>("name is too short") {
+            Wizard("?", 10, 10, 5, Wand("common wand", 5.0))
         }
     }
 
     @Test
     fun `wizardConstructionWandIsNull`() {
         // test for wand is null
-        try {
+        /*try {
             val wizard = Wizard(null, 10, 10, 5, null)
         } catch(e: IllegalArgumentException) {
             println("wand is null")
+        }*/
+        assertThrows<IllegalArgumentException>("wand is null") {
+            Wizard("common wizard", 10, 10, 5, null)
         }
     }
 
     @Test
     fun `wizardConstructionMpIsNegative`() {
         // test for mp is negative
-        try {
+        /*try {
             val wizard = Wizard(null, 10, -5, 5, Wand("common wand", 5.0))
         } catch(e: IllegalArgumentException) {
             println("mp is negative")
+        }*/
+        assertThrows<IllegalArgumentException>("mp is negative") {
+            Wizard("common wizard", 10, -5, 5, Wand("common wand", 5.0))
         }
     }
 
@@ -97,10 +109,13 @@ class WizardTest {
     fun `wizerdAfterNameIsNull`() {
         val wizardAfter = Wizard("common wizard", 10, 10, 10, Wand("common", 5.0))
 
-        try {
+        /*try {
             wizardAfter.name = null
         } catch(e: IllegalArgumentException) {
             println("name is null")
+        }*/
+        assertThrows<IllegalArgumentException>("name is null") {
+            wizardAfter.name = null
         }
     }
 
@@ -108,10 +123,13 @@ class WizardTest {
     fun `wizardAfterNameIsTooShort`() {
         val wizardAfter = Wizard("common wizard", 10, 10, 10, Wand("common", 5.0))
 
-        try {
+        /*try {
             wizardAfter.name = "?"
         } catch(e: IllegalArgumentException) {
             println("name is too short")
+        }*/
+        assertThrows<IllegalArgumentException>("name is too short") {
+            wizardAfter.name = "?"
         }
     }
 
@@ -119,10 +137,13 @@ class WizardTest {
     fun `wizardAfterWandIsNULL`() {
         val wizardAfter = Wizard("common wizard", 10, 10, 10, Wand("common", 5.0))
 
-        try {
+        /*try {
             wizardAfter.wand = null
         } catch(e: IllegalArgumentException) {
             println("wand is null")
+        }*/
+        assertThrows<IllegalArgumentException>("wand is null") {
+            wizardAfter.wand = null
         }
     }
 
@@ -130,10 +151,13 @@ class WizardTest {
     fun `wizardAfterMpIsNegative`() {
         val wizardAfter = Wizard("common wizard", 10, 10, 10, Wand("common", 5.0))
 
-        try {
+        /*try {
             wizardAfter.mp = -5
         } catch(e: IllegalArgumentException) {
             println("mp is negative")
+        }*/
+        assertThrows<IllegalArgumentException>("mp is negative") {
+            wizardAfter.mp = -5
         }
     }
 }
