@@ -5,6 +5,7 @@
 - [2024-12-16](src/docs/daily/2024-12-16.md) - Git, GitHub 기초
 - [2024-12-17](src/docs/daily/2024-12-17.md) - Kotlin 기초 문법
 - [2024-12-18](src/docs/daily/2024-12-18.md) - Kotlin 인스턴스와 클래스
+- [2024-12-19](src/docs/daily/2024-12-19.md) - Kotlin 클래스 생성자와 companion object
 
 ## 💻 작성 코드
 
@@ -16,6 +17,9 @@
     - [Slime.kt](src/main/kotlin/day03/Slime.kt) - 슬라임(Slime) Class
     - [Cleric.kt](src/main/kotlin/day03/Cleric.kt) - 성직자(Cleric) Class
     - [ClericTest.kt](src/test/kotlin/day03/ClericTest.kt) - 성직자(Cleric) Test Code
+- Day 4
+    - [Cleric.kt](src/main/kotlin/day04/Cleric.kt) - 성직자(Cleric) Class
+    - [ClericTest.kt](src/test/kotlin/day04/ClericTest.kt) - 성직자(Cleric) Test Code
 
 ## 📚 주제별 정리
 
@@ -30,6 +34,7 @@
 
 - [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
 - [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
+- [Kotlin in Action](https://www.manning.com/books/kotlin-in-action) by Dmitry Jemerov and Svetlana Isakova
 
 ---
 
