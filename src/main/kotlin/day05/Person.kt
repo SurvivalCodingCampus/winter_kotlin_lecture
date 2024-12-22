@@ -1,7 +1,11 @@
 package day05
 
+import utils.CommonUtils
 import utils.CommonUtils.getCurrentDate
+import utils.CommonUtils.getCurrentYear
 import utils.SystemFunction
+import java.text.SimpleDateFormat
+import java.util.*
 
 /*
 * Person 클래스 작성
@@ -16,8 +20,7 @@ class Person(
 ) : SystemFunction {
     val age: Int
         get() {
-            val currentYear = getCurrentDate().replace("-", "").take(4).toIntOrNull() ?: 0
-            val birthYear = birthYear
+            val currentYear = getCurrentYear()
             return currentYear - birthYear
         }
 
