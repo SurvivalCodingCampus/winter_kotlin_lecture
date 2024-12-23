@@ -1,4 +1,4 @@
-# Kotlin 01-1 인스턴스와 클래스
+# 인스턴스와 클래스
 
 ## 📚 오늘 배운 내용
 
@@ -108,6 +108,79 @@ val hero = Hero(name = "용사", hp = 100)
 - companion object는 그 내부에서만 서로 접근이 가능하다.
 
 
+### 캡슐화 
+- 이제 클래스나 인스턴스를 이용하여 현실세계를 객체 지향 프로그램으로 자유롭게 개발 가능
+- 하지만, 실수로 속성을 덮어쓰거나, 잘못된 조작을 하는 등의 휴먼 에러를 완전히 없애는 것은 불가
+-> 따라서, 실수를 미연에 방지하는 "캡슐화"를 활용해 보자.
+
+### 멤버에 대한 액세스 제어
+접근 지정자
+
+- private: 제한이 엄격, 자기 자신의 클래스에서만 접근 가능
+- public: 제한이 느슨, 모든 클래스에서 접근 가능 
+
+### getter와 setter
+메소드를 경유한 필드 조작
+- getter: 읽기 전용 프로퍼티를 구현할 때 사용 
+- setter: 쓰기 전용 프로퍼티를 구현할 때 사용 
+
+숨겨진 데이터를 외부에 노출하는 방법들
+1)
+```kotlin
+class Hero(
+    var name: String,
+    private var _hp: Int,
+    var sword: Sword? = null,
+) {
+    val hp: Int
+        get() = _hp
+}
+```
+
+2) 코드는 더 길지만 backing field 사용(Android 개발시 더 많이 사용 )
+```kotlin
+class Hero(
+    var name: String,
+    hp: Int, // 생성자 파라미터로 사용 
+    var sword: Sword? = null
+) {
+    private var _hp = hp // 내부에서 _로 선언 
+    val hp: Int
+        get() = _hp
+}
+```
+3) 또 다른 방법 - Effective Kotlin에서 실제로 권장하고 있음
+```kotlin
+class Hero(
+    var name: String,
+    hp: Int = 100,
+) { // 초기화 
+    var hp: Int = hp
+    private set
+}
+```
+
+### getter / setter 메리트
+1. Read Only, Write Only 필드의 선언
+2. 필드의 이름 등, 클래스의 내부 설계를 자유롭게 변경 가능
+3. 필드로의 액세스를 검사 가능
+4. val은 getter를 기본적으로 내장, var는 getter와 setter를 내장 
+
+### setter에서 타당성 검사를 하면 ?
+> 생성자에 var, val이 없으면 getter, setter 가 없는 것으로 간주함.
+> backing field는 프로퍼티의 값을 저장하기 위한 실제 필드, field로 접근 가능
+
+### 정리
+캡슐화의 개요
+- 캡슐화를 하여 멤버나 클래스로의 접근을 제어할 수 있음
+- 특히, 필드에 "현실세계에서 불가능한 값"이 들어가지 않도록 제어
+
+멤버에 대한 접근 지정
+- private 멤버는 , 동일 파일 내에서만 접근 가능
+- public 멤버는 모든 클래스에서 접근 가능
+
+클래스에 대한 접근 지정
+- 함수, 변수와 동일한 규칙 
 
 
 

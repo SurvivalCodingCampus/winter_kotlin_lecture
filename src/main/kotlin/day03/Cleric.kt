@@ -51,8 +51,6 @@ class Cleric(
         const val MAX_HP = 50
         const val MAX_MP = 10
     }
-
-
 }
 
 fun main() {

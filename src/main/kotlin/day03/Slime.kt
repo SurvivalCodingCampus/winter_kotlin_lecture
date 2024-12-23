@@ -23,6 +23,6 @@ fun main() {
     slime1.run()
     slime2.run()
     hero.run()
-    hero.sleep()
+    //hero.sleep()
 
 }
