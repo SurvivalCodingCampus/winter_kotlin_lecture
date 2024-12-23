@@ -19,6 +19,7 @@ e. poisonCount를 1 감소시킨다
 class PoisonSlime(var name: String) : Slime(name) {
 
     var poisonCount = 5 // 테스트해야 해서 private 못함
+        private set  // set 못하고 get만 하게 캡슐화!
 
     override fun attack(hero: Hero) {
 
