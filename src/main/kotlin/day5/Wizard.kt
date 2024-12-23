@@ -2,7 +2,7 @@ package org.example.day5
 
 import org.example.day3.Hero
 
-class Wizard(
+open class Wizard(
     name: String,
     hp: Int,
     wand: Wand?,
@@ -28,7 +28,7 @@ class Wizard(
             field = if (value < 0) 0 else value
         }
 
-    var mp: Int = 100
+    open var mp: Int = 100
         set(value) {
             require(0 <= value) {
                 throw IllegalArgumentException("마법사의 MP는 0 이상이어야 한다")
