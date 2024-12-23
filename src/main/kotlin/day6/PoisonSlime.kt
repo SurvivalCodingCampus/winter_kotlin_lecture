@@ -10,7 +10,7 @@ class PoisonSlime(
         const val ATTACK_CHANCE_COUNT = 5
     }
 
-    var poisonCoount: Int = ATTACK_CHANCE_COUNT
+    var poisonCount: Int = ATTACK_CHANCE_COUNT
         private set
 
     var poisonDamage: Int = 0
@@ -18,7 +18,7 @@ class PoisonSlime(
 
     override fun attack(hero: Hero): Unit {
         super.attack(hero)
-        if ((0 < poisonCoount) && (0 < hero.hp)) {
+        if ((0 < poisonCount) && (0 < hero.hp)) {
             println("추가로, 독 포자를 살포했다!")
 
             poisonDamage = hero.hp/5
@@ -31,7 +31,7 @@ class PoisonSlime(
 
             println("${poisonDamage}포인트 데미지")
 
-            poisonCoount--
+            poisonCount--
         }
     }
 }

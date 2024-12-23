@@ -26,19 +26,19 @@ class PoisonSlimeTest {
         val hero = Hero("용사", hp = 100)
         while (0 < hero.hp) {
             // 공격횟수가 정상적으로 감소하는지 확인
-            when (poisonSlime.poisonCoount) {
-                5 -> assertEquals(5, poisonSlime.poisonCoount)
-                4 -> assertEquals(4, poisonSlime.poisonCoount)
-                3 -> assertEquals(3, poisonSlime.poisonCoount)
-                2 -> assertEquals(2, poisonSlime.poisonCoount)
-                1 -> assertEquals(1, poisonSlime.poisonCoount)
-                0 -> assertEquals(0, poisonSlime.poisonCoount)
+            when (poisonSlime.poisonCount) {
+                5 -> assertEquals(5, poisonSlime.poisonCount)
+                4 -> assertEquals(4, poisonSlime.poisonCount)
+                3 -> assertEquals(3, poisonSlime.poisonCount)
+                2 -> assertEquals(2, poisonSlime.poisonCount)
+                1 -> assertEquals(1, poisonSlime.poisonCount)
+                0 -> assertEquals(0, poisonSlime.poisonCount)
             }
 
             poisonSlime.attack(hero)
 
             // 공격횟수가 0이 될 때까지
-            when (poisonSlime.poisonCoount) {
+            when (poisonSlime.poisonCount) {
                 4 -> assertEquals(18, poisonSlime.poisonDamage)
                 3 -> assertEquals(12, poisonSlime.poisonDamage)
                 2 -> assertEquals(8, poisonSlime.poisonDamage)
