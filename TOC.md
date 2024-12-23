@@ -7,6 +7,7 @@
 - [2024-12-18](./docs/daily/2024-12-18.md): Kotlin class + JUnit4
 - [2024-12-19](./docs/daily/2024-12-19.md): Kotlin class 계속
 - [2024-12-20](./docs/daily/2024-12-20.md): Kotlin collections, Encapsulation
+- [2024-12-23](./docs/daily/2024-12-23.md): Kotlin 상속
 
 ## 💻 작성 코드
 
@@ -14,6 +15,8 @@
 - [day3 유닛테스트](./src/test/kotlin/day3)
 - [day5](./src/main/kotlin/day5)
 - [day5 유닛테스트](./src/test/kotlin/day5)
+- [day6](./src/main/kotlin/day6)
+- [day6 테스트](./src/test/kotlin/day6)
 
 ## 📚 주제별 정리
 
@@ -26,3 +29,4 @@
 - [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
 - [Progit](https://git-scm.com/book/en/v2)
 - [Kotlin in Action](https://www.yes24.com/product/goods/55148593): 도서
+
