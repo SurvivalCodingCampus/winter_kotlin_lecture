@@ -1,0 +1,15 @@
+@startuml
+
+
+class Slime
+
+
+class Hero {
++ hp: Int
+- name: String
+
+attack(slime: Slime)
+}
+
+class SuperHero {}
+@enduml
