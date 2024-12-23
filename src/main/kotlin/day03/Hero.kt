@@ -2,12 +2,12 @@ package day03
 
 
 fun main() {
-    val hero = Hero(name = "홍길동", hp = 50)
+    val hero = OldHero(name = "홍길동", hp = 50)
     println(hero.hp)
     println(hero.hp)
 }
 
-class Hero(
+class OldHero(
     var name: String,
     hp: Int,
     var sword: Sword? = null

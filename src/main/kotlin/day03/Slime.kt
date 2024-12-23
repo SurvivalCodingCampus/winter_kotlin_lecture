@@ -15,7 +15,7 @@ class Slime(hp: Int, private val suffix: String) {
 
 fun main() {
     // 용사 생성
-    val hero = Hero(name = "용사", hp = 100)
+    val hero = OldHero(name = "용사", hp = 100)
     val slime1 = Slime(hp = 50, suffix = "조무래기1")
     val slime2 = Slime(hp = 100, suffix = "조무래기2")
 
