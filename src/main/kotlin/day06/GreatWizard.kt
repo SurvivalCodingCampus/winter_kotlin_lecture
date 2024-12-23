@@ -12,16 +12,17 @@ class GreatWizard(
 
     // 대상을 전부 회복
     fun superHeal(hero: Hero) {
-        if (mp < 50) {
-            println(MANA_LACK)
-        } else {
+        if (mp >= MP_FOR_USE_SKILL) {
             hero.getHeal(Hero.MAX_HP)
-            mp -= 50
+            mp -= MP_FOR_USE_SKILL
             println("슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}")
+        } else {
+            println(MANA_LACK)
         }
     }
 
     companion object {
+        const val MP_FOR_USE_SKILL = 50
         const val MAX_MP = 150
         const val MANA_LACK = "마나가 부족합니다."
     }

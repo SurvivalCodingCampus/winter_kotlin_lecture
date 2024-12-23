@@ -6,10 +6,13 @@ class Hero(
     var hp: Int = MAX_HP
         private set
 
+    var isDead: Boolean = false
+        private set
+
     // 호출되면 영웅이 데미지를 받는 코드
     fun getDamage(damage: Int) {
         if (hp > 0) {
-            hp = (hp - damage).coerceAtLeast(0)
+            hp = (hp - damage).coerceAtLeast(0)     // 체력이 0 아래로 떨어질경우 0으로 처리
             println("${damage}포인트의 데미지")
         }
         // hp가 0일 경우 사망 처리
@@ -28,7 +31,8 @@ class Hero(
     }
 
     private fun die() {
-        println("히어로 사망")
+        isDead = true
+        println("히어로가 사망했습니다.")
     }
 
     companion object {

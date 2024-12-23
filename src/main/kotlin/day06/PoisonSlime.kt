@@ -18,7 +18,7 @@ class PoisonSlime(
         if (poisonCount > 0) {
             println("추가로, 독 포자를 살포했다!")
             hero.getDamage(Hero.MAX_HP / 5)
-            poisonCount -= 1
+            poisonCount--
         }
     }
 
