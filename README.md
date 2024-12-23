@@ -5,6 +5,8 @@
 - [2024-12-16](src/docs/daily/2024-12-16.md) - Git, GitHub 기초
 - [2024-12-17](src/docs/daily/2024-12-17.md) - Kotlin 기초 문법
 - [2024-12-18](src/docs/daily/2024-12-18.md) - Kotlin 인스턴스와 클래스
+- [2024-12-19](src/docs/daily/2024-12-19.md) - Kotlin 클래스 생성자와 companion object
+- [2024-12-20](src/docs/daily/2024-12-20.md) - Kotlin 캡슐화와 컬렉션
 
 ## 💻 작성 코드
 
@@ -15,21 +17,33 @@
     - [Hero.kt](src/main/kotlin/day03/Hero.kt) - 용사(Hero) Class
     - [Slime.kt](src/main/kotlin/day03/Slime.kt) - 슬라임(Slime) Class
     - [Cleric.kt](src/main/kotlin/day03/Cleric.kt) - 성직자(Cleric) Class
-    - [ClericTest.kt](src/test/kotlin/ClericTest.kt) - 성직자(Cleric) Test Code
+    - [ClericTest.kt](src/test/kotlin/day03/ClericTest.kt) - 성직자(Cleric) Test Code
+- Day 4
+    - [Cleric.kt](src/main/kotlin/day04/Cleric.kt) - 성직자(Cleric) Class
+    - [ClericTest.kt](src/test/kotlin/day04/ClericTest.kt) - 성직자(Cleric) Test Code
+- Day 5
+    - [Wand.kt](src/main/kotlin/day05/Wand.kt) - 지팡이(Wand) Class
+    - [Wizard.kt](src/main/kotlin/day05/Wizard.kt) - 마법사(Wizard) Class
+    - [Person.kt](src/main/kotlin/day05/Person.kt) - Person Class
+    - [WandTest.kt](src/test/kotlin/day05/WandTest.kt) - 지팡이(Wand) Test Code
+    - [WizardTest.kt](src/test/kotlin/day05/WizardTest.kt) - 마법사(Wizard) Test Code
+    - [PersonTest.kt](src/test/kotlin/day05/PersonTest.kt) - Person Test Code
 
 ## 📚 주제별 정리
 
+- [Git](src/docs/topics/git.md)
 - Kotlin
     - [Class](src/docs/topics/class.md)
+    - [Collection](src/docs/topics/kotlin-collection.md)
     - [Random](src/docs/topics/random.md)
 - Java
     - [ArrayList](src/docs/topics/java-array-list.md)
-- [Git](src/docs/topics/git.md)
 
 ## 🔍 참고 자료
 
 - [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
 - [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
+- [Kotlin in Action](https://www.manning.com/books/kotlin-in-action) by Dmitry Jemerov and Svetlana Isakova
 
 ---
 
