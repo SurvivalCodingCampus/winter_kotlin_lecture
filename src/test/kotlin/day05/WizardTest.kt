@@ -31,7 +31,7 @@ class WizardTest {
         "sec > 0, sec == 0, sec < -1",
         {
             assertThrows<IllegalArgumentException> {
-                Wand(name = "성", magicDamage = 0.3)
+               Wand(name = "성", magicDamage = 0.3)
             }
         },
         {
@@ -57,6 +57,9 @@ class PersonTest {
             assertEquals(27, whoAmI.age)
             assertEquals("성", whoAmI.name)
 
+//            whoAmI.age = 30
+//            whoAmI.name = "ehllo"
+//            whoAmI.birthYear = 1944
 
         },
         {

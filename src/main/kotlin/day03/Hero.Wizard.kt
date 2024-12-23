@@ -8,8 +8,15 @@ class Wand(
     private var _magicDamage: Double = magicDamage
     private var _name: String = name
 
+    init {
+        require(_magicDamage in 0.5..100.0) { "must between 0.5 to 100.0" }
+        require(_name.length >= 3) { "Must your name larger than 3" }
+    }
+
+
     val magicDamage: Double
         get() {
+            println("hello world ${_magicDamage}")
             require(_magicDamage in 0.5..100.0) { "must between 0.5 to 100.0" }
             return _magicDamage
         }
