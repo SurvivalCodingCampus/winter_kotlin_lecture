@@ -1,17 +1,14 @@
 package day3
 
 import day6.Actor
+import day6.HealthPoint
 
 open class Hero(
     name: String,
     hp: Int = 100,
-    protected var maxHp: Int = hp
-) : Actor(name) {
-    var hp = hp
-        private set
+) : Actor(name, HealthPoint(hp)) {
 
     open fun attack() {
-
     }
 
     fun defend() {}
@@ -19,7 +16,7 @@ open class Hero(
     fun flee() {}
 
     fun rest() {
-        hp = maxHp
+        hp.value = hp.maximum
         println("${name}은 잠을 자고 회복했다: $hp")
     }
 }

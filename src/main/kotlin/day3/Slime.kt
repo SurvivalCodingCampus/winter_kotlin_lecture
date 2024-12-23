@@ -1,9 +1,10 @@
 package day3
 
 import day6.Actor
+import day6.HealthPoint
 
 open class Slime(
-    var hp: Int,
-    val suffix: String,
-) : Actor(name = "Slime $suffix") {
+    suffix: String,
+    hp: Int = 50,
+) : Actor(name = "Slime $suffix", HealthPoint(hp)) {
 }
