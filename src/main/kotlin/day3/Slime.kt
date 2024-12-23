@@ -8,10 +8,15 @@ open class Slime(
     hp: Int = 50,
 ) : Actor(name = "Slime $suffix", HealthPoint(hp)) {
 
+    companion object {
+        const val DEFAULT_BASIC_DAMAGE = 5
+    }
+
     var target: Actor? = null
     open fun attack() {
         if (target == null) return
-        println("Basic attack to $target")
+        target!!.hp.value -= DEFAULT_BASIC_DAMAGE
+        println("Basic attack to ${target?.name}")
     }
 
 }

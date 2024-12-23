@@ -18,7 +18,7 @@ class HealthPoint(value: Int, var maximum: Int = value) {
         }
 
     var percent: Float
-        get() = (100 * value / maximum).toFloat()
+        get() = 100 * value / maximum.toFloat()
         set(value) {
             val newValue = floor(value / 100F * maximum).toInt()
             this.value = newValue
