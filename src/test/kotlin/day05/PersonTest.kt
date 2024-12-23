@@ -31,4 +31,41 @@ class PersonTest {
     fun `이름이 비어있으면 예외 발생`() {
         Person(name = "   ", birthYear = 1995)
     }
+
+    @Test
+    fun `Person을 List에 저장`() {
+        val personList = listOf(
+            Person("홍길동", 1995),
+            Person("한석봉", 1990)
+        )
+        assertEquals(2, personList.size)
+        assertEquals("홍길동", personList[0].name)
+        assertEquals("한석봉", personList[1].name)
+    }
+
+    @Test
+    fun `List에 담긴 모든 Person의 이름 표시`() {
+        val personList = listOf(
+            Person("홍길동", 1995),
+            Person("한석봉", 1990)
+        )
+        val names = personList.map { it.name }
+        assertEquals(listOf("홍길동", "한석봉"), names)
+    }
+
+    @Test
+    fun `Person의 이름과 나이를 지정된 형식으로 출력`() {
+        val personList = listOf(
+            Person("홍길동", 2004),
+            Person("한석봉", 1999)
+        )
+
+        val expectedOutput = listOf(
+            "홍길동의 나이는 20살",
+            "한석봉의 나이는 25살"
+        )
+
+        val actualOutput = personList.map { "${it.name}의 나이는 ${it.age}살" }
+        assertEquals(expectedOutput, actualOutput)
+    }
 }
