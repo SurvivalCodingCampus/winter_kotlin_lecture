@@ -42,6 +42,10 @@ class Hero(name: String, var hp: Int, var sword: Sword? = null) {
         hp = (hp - damage).coerceAtLeast(0) // HP가 0보다 작아지지 않음
     }
 
+    fun takeHp(healAmount: Int) {
+        hp = (hp + healAmount).coerceAtMost(MAX_HP)
+    }
+
     fun sleep() {
         hp = 100
         println("${name}은 잠을 자고 회복했다 : $hp")
