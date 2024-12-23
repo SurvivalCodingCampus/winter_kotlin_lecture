@@ -14,6 +14,11 @@ class Hero(
     }
 
     fun attack(enemy: Enemy) {
+        if(!enemy.getAlive()) {
+            println("이미 처치한 대상입니다.")
+            return
+        }
+
         if (sword == null) {
             println("헛방")
         } else {
