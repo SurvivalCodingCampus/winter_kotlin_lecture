@@ -5,7 +5,7 @@ import day6.Actor
 import day6.HealthPoint
 import kotlin.properties.Delegates
 
-class Wizard(
+open class Wizard(
     name: String,
     hp: Int = 100,
     mp: Double = 100.0,
@@ -15,7 +15,7 @@ class Wizard(
     private var _mp by Delegates.notNull<Double>()
     private var _wand: Wand? = null
 
-    override var name: String
+    final override var name: String
         set(value) {
             require(value.length >= 3) { "이름의 최소길이는 3문자입니다." }
             _name = value
