@@ -17,7 +17,7 @@ open class Hero(
 
     fun rest() {
         hp.value = hp.maximum
-        println("${name}은 잠을 자고 회복했다: $hp")
+        println("${name}은 잠을 자고 회복했다: ${hp.value}")
     }
 }
 

@@ -1,17 +1,17 @@
 package day5
 
 import day6.Actor
+import day6.HealthPoint
 import kotlin.properties.Delegates
 
 class Wizard(
     name: String,
     HP: Int = 100,
-    MP: Double = 10.0,
+    MP: Double = 100.0,
     wand: Wand? = null,
-) : Actor(name) {
+) : Actor(name, HealthPoint(HP)) {
     private lateinit var _name: String
     private var _mp by Delegates.notNull<Double>()
-    private var _hp by Delegates.notNull<Int>()
     private var _wand: Wand? = null
 
     override var name: String
@@ -20,12 +20,6 @@ class Wizard(
             _name = value
         }
         get() = _name
-
-    var HP: Int
-        set(value) {
-            _hp = value.coerceAtLeast(0)
-        }
-        get() = _hp
 
     var MP: Double
         set(value) {
@@ -44,7 +38,6 @@ class Wizard(
     init {
         this._wand = wand // initial state can be null
         this.name = name
-        this.HP = HP
         this.MP = MP
     }
 }
