@@ -1,5 +1,7 @@
 package day03
 
+import day06.Slime
+
 
 class Sword(val name: String, val damage: Int)
 
@@ -14,6 +16,7 @@ class Hero(name: String, var hp: Int, var sword: Sword? = null) {
     }
 
     companion object {
+        const val MAX_HP = 100
         const val HP_BY_ATTACK = 10
     }
 
@@ -33,6 +36,10 @@ class Hero(name: String, var hp: Int, var sword: Sword? = null) {
         hp -= HP_BY_ATTACK
         println("$name 이 ${slime.suffix}을 공격했다")
         println("슬라임의 반격을 받았다")
+    }
+
+    fun takeDamage(damage: Int) {
+        hp = (hp - damage).coerceAtLeast(0) // HP가 0보다 작아지지 않음
     }
 
     fun sleep() {
@@ -55,9 +62,3 @@ class King {
     }
 }
 
-class Slime(var suffix: String, var hp: Int) {
-    val level = 10
-    fun run() {
-        println("슬라임 ${suffix}가 도망갔다")
-    }
-}
