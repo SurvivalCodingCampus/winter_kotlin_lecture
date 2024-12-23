@@ -16,7 +16,7 @@ open class Wizard(
     companion object {
         const val MAX_HP = 50
         const val MAX_MP = 100
-        const val MP_FOR_HEAL = 5
+        const val MP_FOR_HEAL = 10
     }
 
     var name: String? = if(_name == null || _name.length < 3)
@@ -56,7 +56,7 @@ open class Wizard(
             return
         }
 
-        mp -= 10
+        mp -= MP_FOR_HEAL
         hero.getHeal(healAbility)
         println("힐을 시전했습니다. 대상 HP: ${hero.hp}")
     }
