@@ -41,7 +41,7 @@ open class Wizard(
 
 
     // 회복 기능 메소드
-    private fun heal(hero: Hero) {
+    fun heal(hero: Hero) {
         if (mp < 10) {
             println(MANA_LACK)
         } else {

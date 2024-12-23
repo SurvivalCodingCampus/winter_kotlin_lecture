@@ -1,6 +1,7 @@
-package day05
+package day06
 
-import day06.Hero
+import day05.Wand
+import day05.Wizard
 
 class GreatWizard(
     name: String,
@@ -10,7 +11,7 @@ class GreatWizard(
 ) : Wizard(hp = hp, name = name, wand = wand) {
 
     // 대상을 전부 회복
-    private fun superHeal(hero: Hero) {
+    fun superHeal(hero: Hero) {
         if (mp < 50) {
             println(MANA_LACK)
         } else {

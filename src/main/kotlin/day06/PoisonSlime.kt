@@ -10,7 +10,8 @@ class PoisonSlime(
 ) : Slime(suffix) {
 
     // 독 공격 가능 횟수를 저장하는 posionCount
-    private var positionCount: Int = 5
+    var positionCount: Int = 5
+        private set
 
     override fun attack(hero: Hero) {
         super.attack(hero)      // 보통 슬라임 공격
