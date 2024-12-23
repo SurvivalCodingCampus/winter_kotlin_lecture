@@ -16,7 +16,7 @@ class PoisonSlime(
     var poisonDamage: Int = 0
         private set
 
-    override fun attack(hero: Hero) {
+    override fun attack(hero: Hero): Unit {
         super.attack(hero)
         if ((0 < poisonCoount) && (0 < hero.hp)) {
             println("추가로, 독 포자를 살포했다!")
