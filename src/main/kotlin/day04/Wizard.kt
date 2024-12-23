@@ -3,7 +3,7 @@ package org.example.day04
 import org.example.day03.Hero
 import org.example.day05.Wand
 
-class Wizard(
+open class Wizard(
     _name: String?,
     _hp: Int = MAX_HP,
     _mp: Int = MAX_MP,
@@ -15,7 +15,7 @@ class Wizard(
     }
     companion object {
         const val MAX_HP = 50
-        const val MAX_MP = 30
+        const val MAX_MP = 100
         const val MP_FOR_HEAL = 5
     }
 
@@ -56,6 +56,8 @@ class Wizard(
             return
         }
 
+        mp -= 10
         hero.getHeal(healAbility)
+        println("힐을 시전했습니다. 대상 HP: ${hero.hp}")
     }
 }
