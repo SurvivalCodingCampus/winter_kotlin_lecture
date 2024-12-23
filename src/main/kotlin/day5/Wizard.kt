@@ -1,6 +1,6 @@
 package org.example.day5
 
-import java.lang.reflect.Array.set
+import org.example.day3.Hero
 
 class Wizard(
     name: String,
@@ -9,7 +9,7 @@ class Wizard(
 ) {
     var name: String = name
         set(value) {
-            require((3 <= value.length) && ("null" != value))  {
+            require((3 <= value.length) && ("null" != value)) {
                 throw IllegalArgumentException("마법사의 이름은 null 일 수 없고, 반드시 3문자 이상이어야 한다")
             }
             field = value
@@ -28,7 +28,7 @@ class Wizard(
             field = if (value < 0) 0 else value
         }
 
-    var mp: Int = 0
+    var mp: Int = 100
         set(value) {
             require(0 <= value) {
                 throw IllegalArgumentException("마법사의 MP는 0 이상이어야 한다")
@@ -36,19 +36,27 @@ class Wizard(
             field = value
         }
 
-    val deadHp = 0
-
     init {
         this.name = name
         this.wand = wand
         this.hp = hp
     }
 
-    fun attack() {
+    fun heal(hero: Hero): Unit {
+        if (10 > mp) {
+            println("마나가 부족합니다")
+        } else {
+            mp -= 10
+            hero.hp += 20
+            println("힐을 시전했습니다, 대상 HP: ${hero.hp}")
+        }
+    }
+
+    fun attack(): Unit {
 
     }
 
-    fun hurt(damage: Int) {
+    fun hurt(damage: Int): Unit {
         hp -= damage
     }
 }

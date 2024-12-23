@@ -6,13 +6,14 @@ fun main() {
 open class Hero(
     name: String,
 //    private var _hp: Int,
-    var hp: Int = MAX_HP,
+    hp: Int = MAX_HP,
     var sword: String? = null,
 ) {
 //    private var _hp = hp
-//    val hp: Int
-//            get() = _hp
-
+    var hp: Int = hp
+    set(value) {
+        field = if (value > MAX_HP) MAX_HP else value
+    }
 
     var name: String = name
         set(value) {
