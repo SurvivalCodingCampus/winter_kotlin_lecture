@@ -1,5 +1,6 @@
 package day5
 
+import day3.Hero
 import day6.Actor
 import day6.HealthPoint
 import kotlin.properties.Delegates
@@ -39,5 +40,16 @@ class Wizard(
         this._wand = wand // initial state can be null
         this.name = name
         this.MP = MP
+    }
+
+    fun heal(hero: Hero) {
+        if (MP < 10) {
+            println("마나가 부족합니다.")
+            return
+        }
+
+        hero.hp.value += 20
+        this.MP -= 10
+        println("힐을 시전했습니다. 대상 HP상태: ${hero.hp.percent}%")
     }
 }

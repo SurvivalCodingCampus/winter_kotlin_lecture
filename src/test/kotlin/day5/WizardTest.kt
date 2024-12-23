@@ -1,7 +1,7 @@
 package day5
 
-import org.junit.Assert.assertNull
-import org.junit.Assert.assertThrows
+import day3.Hero
+import org.junit.Assert.*
 import org.junit.Test
 
 class WizardTest {
@@ -24,5 +24,13 @@ class WizardTest {
         assertThrows("Cannot assign null to wand", IllegalArgumentException::class.java) {
             testWizard.wand = null
         }
+    }
+
+    @Test
+    fun `heal should restore Hero hp`() {
+        val injuredHero = Hero("Injured", 10).apply { this.hp.maximum += 30 }
+        val testWizard = Wizard("abc", wand = null)
+        testWizard.heal(injuredHero)
+        assertEquals(10 + 20, injuredHero.hp.value);
     }
 }
