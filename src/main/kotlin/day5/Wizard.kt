@@ -1,5 +1,6 @@
 package day5
 
+import day6.Actor
 import kotlin.properties.Delegates
 
 class Wizard(
@@ -7,13 +8,13 @@ class Wizard(
     HP: Int = 100,
     MP: Double = 10.0,
     wand: Wand? = null,
-) {
+) : Actor(name) {
     private lateinit var _name: String
     private var _mp by Delegates.notNull<Double>()
     private var _hp by Delegates.notNull<Int>()
     private var _wand: Wand? = null
 
-    var name: String
+    override var name: String
         set(value) {
             require(value.length >= 3) { "이름의 최소길이는 3문자입니다." }
             _name = value

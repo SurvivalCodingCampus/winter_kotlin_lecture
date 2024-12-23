@@ -1,15 +1,16 @@
 package day3
 
+import day6.Actor
 import kotlin.math.floor
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
 class Cleric(
-    var name: String,
+    name: String,
     var hp: Int = MAX_HP,
     var mp: Int = MAX_MP,
-) {
+) : Actor(name) {
     companion object {
         const val MAX_HP = 50
         const val MAX_MP = 10

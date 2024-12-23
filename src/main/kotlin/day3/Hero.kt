@@ -1,14 +1,18 @@
 package day3
 
-class Hero(
-    var name: String,
-    var maxHp: Int = 100,
-    hp: Int = maxHp,
-) {
+import day6.Actor
+
+open class Hero(
+    name: String,
+    hp: Int = 100,
+    protected var maxHp: Int = hp
+) : Actor(name) {
     var hp = hp
         private set
 
-    fun attack() {}
+    open fun attack() {
+
+    }
 
     fun defend() {}
 
