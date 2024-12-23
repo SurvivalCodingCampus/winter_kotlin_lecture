@@ -10,15 +10,15 @@ class PoisonSlime(
 ) : Slime(suffix) {
 
     // 독 공격 가능 횟수를 저장하는 posionCount
-    var positionCount: Int = 5
+    var poisonCount: Int = 5
         private set
 
     override fun attack(hero: Hero) {
         super.attack(hero)      // 보통 슬라임 공격
-        if (positionCount > 0) {
+        if (poisonCount > 0) {
             println("추가로, 독 포자를 살포했다!")
             hero.getDamage(Hero.MAX_HP / 5)
-            positionCount -= 1
+            poisonCount -= 1
         }
     }
 

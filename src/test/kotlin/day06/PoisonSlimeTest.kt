@@ -33,7 +33,7 @@ class PoisonSlimeTest {
             poisonSlime.attack(hero)
         }
 
-        assertEquals(0, poisonSlime.positionCount)          // positionCount가 0이 되었는지 확인
+        assertEquals(0, poisonSlime.poisonCount)          // positionCount가 0이 되었는지 확인
 
     }
 
