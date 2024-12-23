@@ -1,6 +1,7 @@
 package org.example.day05
 
 import org.example.day06.Hero
+import kotlin.math.min
 
 /*
 * 작성한 Wand 클래스와 Wizard 클래스에 대해 4가지 규칙 타당성 검사 진행
@@ -39,13 +40,14 @@ open class Wizard(
         }
 
     fun heal(hero: Hero) {
-        if (mp > 9) {
-            hero.hp = if (hero.hp >= Hero.MAX_HP) Hero.MAX_HP else hero.hp + 20
-            mp -= 10
-            println("힐을 시전했습니다. HP: ${hero.hp}")
-        } else {
+        if (mp < 10) {
             println("마나가 부족합니다.")
+            return
         }
+
+        hero.hp = min(hero.hp + 20, Hero.MAX_HP)
+        mp -= 10
+        println("힐을 시전했습니다. HP: ${hero.hp}")
     }
 
     companion object {
