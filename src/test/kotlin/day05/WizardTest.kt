@@ -1,5 +1,6 @@
 package day05
 
+import day06.Hero
 import org.junit.Assert
 import org.junit.Test
 
@@ -47,5 +48,36 @@ class WizardTest {
         )
         wizard.hp = -50
         assertEquals(0, wizard.hp)
+    }
+
+    @Test
+    fun `wizard heal Test`() {
+        // 준비
+        val wizard = Wizard(name = "간달프", hp = 100, wand = Wand("우드완드", 40.0))
+        val hero = Hero(name = "홍길동")
+        hero.getDamage(40)              // hero 50 - 40 = 10 이남음
+
+        // 실행
+        wizard.heal(hero)
+
+        // 검증
+        assertEquals(30, hero.hp)
+        assertEquals(90, wizard.mp)
+    }
+
+    @Test
+    fun `lack mp for use wizard heal`() {
+        // 준비
+        val wizard = Wizard(name = "간달프", hp = 100, wand = Wand("우드완드", 40.0))
+        val hero = Hero(name = "홍길동")
+        wizard.mp = 0                           // 마법사의 mp를 0으로 만들어버림
+        hero.getDamage(40)              // hero 50 - 40 = 10 이남음
+
+        // 실행
+        wizard.heal(hero)
+
+        // 검증
+        assertEquals(10, hero.hp)
+        assertEquals(0, wizard.mp)
     }
 }
