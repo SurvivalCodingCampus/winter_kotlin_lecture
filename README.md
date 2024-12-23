@@ -33,7 +33,8 @@ kotlin-study/
 - [2024-12-17](docs/daily/2024-12-17.md) - Git협업 & Kotlin 기초
 - [2024-12-18](docs/daily/2024-12-18.md) - 클래스 인스턴스
 - [2024-12-19](docs/daily/2024-12-19.md) - 클래스, companion
-
+- [2024-12-20](docs/daily/2024-12-20.md) - 캡슐화, 컬렉션 
+- 
 ### 💻 작성 코드
 - Day 2
   - [Basic.kt](src/main/kotlin/day02/Basic.kt)
@@ -42,6 +43,18 @@ kotlin-study/
   - [HeroTest.kt](src/test/kotlin/day03/HeroTest.kt)
   - [Cleric.kt](src/main/kotlin/day03/Cleric.kt)
   - [ClericTest.kt](src/test/kotlin/day03/ClericTest.kt)
+- Day 5
+  - [Person.kt](src/main/kotlin/day05/Person.kt)
+  - [PersonTest.kt](src/test/kotlin/day05/PersonTest.kt)
+  - [Wand.kt](src/main/kotlin/day05/Wand.kt)
+  - [WandTest.kt](src/test/kotlin/day05/WandTest.kt)
+  - [Wizard.kt](src/main/kotlin/day05/Wizard.kt)
+  - [WizardTest.kt](src/test/kotlin/day05/WizardTest.kt)
+
+- Day 7
+  - [Person.kt](src/main/kotlin/day07/Person.kt)
+  - [PersonTest.kt](src/test/kotlin/day07/PersonTest.kt)
+
 
 ### 📚 주제별 정리
 - [Git&Github](docs/topics/Git&Github.md)
