@@ -5,6 +5,7 @@ import org.example.day03.*
 import org.junit.Test
 import org.junit.Assert.*
 import org.junit.jupiter.api.assertAll
+import org.junit.jupiter.api.assertThrows
 
 
 class WizardTest {
@@ -29,10 +30,14 @@ class WizardTest {
     fun `Wand input Test`(): Unit = assertAll(
         "sec > 0, sec == 0, sec < -1",
         {
-            val wand = Wand(name = "성", magicDamage = 0.3)
+            assertThrows<IllegalArgumentException> {
+                Wand(name = "성", magicDamage = 0.3)
+            }
         },
         {
-            val wand = Wand(name = "아름다운기사단장님", magicDamage = 103.3)
+            assertThrows<IllegalArgumentException> {
+                Wand(name = "아름다운기사단장님", magicDamage = 103.3)
+            }
         },
     )
 }
@@ -52,9 +57,6 @@ class PersonTest {
             assertEquals(27, whoAmI.age)
             assertEquals("성", whoAmI.name)
 
-//            whoAmI.age = 30
-//            whoAmI.name = "ehllo"
-//            whoAmI.birthYear = 1944
 
         },
         {
@@ -77,20 +79,21 @@ class PersonTest {
             val hong = Person(name = "홍길동", age = 20)
             val han = Person(name = "한석봉", age = 30)
 
-            val listOfAges = setOf<Person>(han, hong)
 //            println(listOfAges)
 //            listOfAges.forEach(::println)
+
+            val listOfAges = setOf<Person>(han, hong)
 
             listOfAges.forEach { person ->
                 println("${person.name}의 나이는 ${person.age}살")
             }
 
 
-//            val iterator = listOfAges.iterator()
-//
-//            iterator.forEach { person ->
-//                println("${person.name}의 나이는 ${person.age}살")
-//            }
+            val iterator = listOfAges.iterator()
+
+            iterator.forEach { person ->
+                println("${person.name}의 나이는 ${person.age}살")
+            }
         }
     )
 }

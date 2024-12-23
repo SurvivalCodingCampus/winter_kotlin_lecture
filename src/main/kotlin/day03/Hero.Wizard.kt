@@ -10,7 +10,6 @@ class Wand(
 
     val magicDamage: Double
         get() {
-            println("$_magicDamage")
             require(_magicDamage in 0.5..100.0) { "must between 0.5 to 100.0" }
             return _magicDamage
         }
