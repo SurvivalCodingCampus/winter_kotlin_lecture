@@ -24,16 +24,16 @@ class Wizard(
 
     var hp: Int = hp
         set(value) {
-            validateMp(value)
-            field = value
+            field = if (value < 0) {
+                println("HP는 음수일 수 없습니다. 대신 0으로 설정됩니다.")
+                0
+            } else value
         }
 
     var mp: Int = mp
         set(value) {
-            field = if (value < 0) {
-                println("P는 음수일 수 없습니다. 대신 0으로 설정됩니다.")
-                0
-            } else value
+            validateMp(value)
+            field = value
         }
 
     var wand: Wand? = wand

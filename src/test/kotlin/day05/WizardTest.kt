@@ -66,6 +66,7 @@ class WizardTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun `MP가 0미만인 경우`() {
-        Wizard(name = "간달프", hp = 100, mp = -1, wand = validWand)
+        val wizard = Wizard(name = "간달프", hp = 100, wand = validWand)
+        wizard.mp = -1
     }
 }
