@@ -17,10 +17,15 @@ fun main() {
 
 const val HERO_MONEY = 100
 
-class Hero(
+open class Hero(
     name: String,
     hp: Int = 100,
 ) { // 초기화
+
+    init {
+        // 생성자 이후에 호출 영역
+        println("Hero init 블럭이다 1")
+    }
 
     var hp: Int = hp
         private set
@@ -56,8 +61,8 @@ class Hero(
     var food = ""
 
     // 메소드
-    fun attack() {
-
+    open fun attack() {
+        println("Hero attack")
     }
 
     fun run() {
