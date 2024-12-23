@@ -12,7 +12,8 @@ fun main() {
 
 }
 
-class Hero(var name : String, var hp: Int = 100 ) { //초기값
+class Hero(var name : String, var hp: Int = 100, ) { //초기값
+
     //메소드
     fun attack() {}
     fun run() {}
