@@ -3,18 +3,16 @@ package org.example.day3
 fun main() {
 }
 
-class Hero(
+open class Hero(
     name: String,
 //    private var _hp: Int,
-    hp: Int,
+    var hp: Int = MAX_HP,
     var sword: String? = null,
 ) {
 //    private var _hp = hp
 //    val hp: Int
 //            get() = _hp
 
-    var hp: Int = hp
-        private set
 
     var name: String = name
         set(value) {
@@ -27,8 +25,8 @@ class Hero(
     }
 
     // 메소드
-    fun attack() {
-
+    open fun attack() {
+        println("hero attack")
     }
     fun run() {
 

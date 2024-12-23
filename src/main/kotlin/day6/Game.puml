@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+scale 1.1
+
+class Slime
+
+class Hero {
+    + int hp
+    - String name
+
+    attack(slime: Slime )
+}
+
+class SuperHero extends Hero
+
+@enduml
