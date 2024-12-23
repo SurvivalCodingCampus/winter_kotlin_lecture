@@ -8,9 +8,14 @@ class Hero(
 
     // 호출되면 영웅이 데미지를 받는 코드
     fun getDamage(damage: Int) {
-        hp -= damage
-        println("${damage}포인트의 데미지")
+        if (hp > 0) {
+            hp = (hp - damage).coerceAtLeast(0)
+            println("${damage}포인트의 데미지")
+        }
+        // hp가 0일 경우 사망 처리
+        if (hp == 0) die()
     }
+
 
     // 마법사로부터 힐을 받으면 호출
     fun getHeal(healAmount: Int) {
@@ -20,6 +25,10 @@ class Hero(
             hp += healAmount
         }
 
+    }
+
+    private fun die() {
+        println("히어로 사망")
     }
 
     companion object {
