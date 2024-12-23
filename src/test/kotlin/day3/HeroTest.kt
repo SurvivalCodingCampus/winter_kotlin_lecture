@@ -19,8 +19,7 @@ class HeroTest {
 
     @Test
     fun hpAfterResting() {
-        val hero = Hero("홍길동", 100)
-        hero.hp -= 10
+        val hero = Hero("홍길동", 100, 90)
         hero.rest()
         assertEquals(hero.hp, 100)
 

@@ -6,11 +6,14 @@
 - [2024-12-17](./docs/daily/2024-12-17.md)
 - [2024-12-18](./docs/daily/2024-12-18.md): Kotlin class + JUnit4
 - [2024-12-19](./docs/daily/2024-12-19.md): Kotlin class 계속
+- [2024-12-20](./docs/daily/2024-12-20.md): Kotlin collections, Encapsulation
 
 ## 💻 작성 코드
 
 - [day3](./src/main/kotlin/day3)
 - [day3 유닛테스트](./src/test/kotlin/day3)
+- [day5](./src/main/kotlin/day5)
+- [day5 유닛테스트](./src/test/kotlin/day5)
 
 ## 📚 주제별 정리
 

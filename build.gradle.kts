@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testImplementation("junit:junit:4.13.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
 }
 
 kotlin {
