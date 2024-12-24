@@ -1,5 +1,7 @@
 package day5
 
+import org.example.day6.GreatWizard
+import org.example.day3.Hero
 import org.example.day5.Wand
 import org.example.day5.Wizard
 import org.junit.After
@@ -66,5 +68,26 @@ class WizardTest {
         // 마법사의 HP가 음수가 아닌 경우
         wizard2.hurt(100)
         assertEquals(400, wizard2.hp)
+    }
+
+    @Test
+    fun `Wizard 의 heal 테스트`() {
+        // mp 10 소모해서 hero.hp 20 회복
+        // mp 부족시 마나 부족 추력
+        // 힐 성공시 힐 시전과 대상 체력 출력
+        val hero = Hero("용사", hp = 10)
+        val wand = Wand("지팡이", power = 50.0)
+        val wizard = Wizard("마법사", hp = 50, wand = wand)
+
+        // 힐 성공후 용사 체력
+        // 시작 체력은 10
+        wizard.heal(hero)
+        assertEquals(30, hero.hp)
+
+        // 마나가 부족한 경우 힐 작동 안하는지 확인
+        // 시작 체력은 30
+        wizard.mp = 9
+        wizard.heal(hero)
+        assertEquals(30, hero.hp)
     }
 }

@@ -23,6 +23,8 @@ class PersonKtTest {
 
         assertEquals("김진현", person.name)
         assertEquals(1999, person.birthYear)
+        // 만약에 2025년이면 테스트 결과가 일정하지 않기에
+        // 사실상 테스트 불가다
         assertEquals(25, person.age)
     }
 
