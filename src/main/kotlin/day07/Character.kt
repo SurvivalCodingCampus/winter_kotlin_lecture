@@ -13,7 +13,7 @@ abstract class Character(
     abstract fun attack(slime: Slime)
 }
 
-class Runner(): Runnable {
+class Runner() : Runnable {
     override fun run() {
         TODO("Not yet implemented")
     }
