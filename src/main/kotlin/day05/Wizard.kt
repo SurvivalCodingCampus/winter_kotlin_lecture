@@ -1,5 +1,7 @@
 package org.example.day05
 
+import org.example.day03.Hero
+import org.example.domain.behavior.skills.Healable
 import org.example.domain.error.InitializeError
 import org.example.domain.types.error.WizardInitializeErrorType
 
@@ -8,7 +10,7 @@ class Wizard(
     hp: Int,
     mp: Int,
     wand: Wand?,
-) {
+): Healable {
     var name: String = name
         set(value) {
             require(value.length < 3) {
@@ -17,7 +19,7 @@ class Wizard(
             field = value
         }
 
-    var mp: Int = mp
+    override var mp: Int = mp
         set(value) {
             require(value < 0) {
                 throw InitializeError(WizardInitializeErrorType.INVALID_MP)
@@ -40,4 +42,14 @@ class Wizard(
             }
             field = value
         }
+
+    override fun heal(hero: Hero) {
+        if(mp < Healable.NEED_MP) {
+            println(Healable.NEED_MORE_MP_MESSAGE)
+            return
+        }
+        hero.hp += Healable.HEAL_AMOUNT
+        mp -= Healable.NEED_MP
+        println(Healable.afterHealMessage(hero))
+    }
 }
