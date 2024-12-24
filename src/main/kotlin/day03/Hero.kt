@@ -7,7 +7,7 @@ fun main() {
     hero.sleep()
     println(hero.hp)
 
-    val slime = Slime(hp = 100, suffix =  "A")
+    val slime = Slime(suffix =  "A")
     println(slime.suffix)
     println(slime.hp)
 }
