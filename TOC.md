@@ -8,6 +8,7 @@
 - [2024-12-19](./docs/daily/2024-12-19.md): Kotlin class 계속
 - [2024-12-20](./docs/daily/2024-12-20.md): Kotlin collections, Encapsulation
 - [2024-12-23](./docs/daily/2024-12-23.md): Kotlin 상속
+- [2024-12-24](./docs/daily/2024-12-24.md): Kotlin Interface + abstract class
 
 ## 💻 작성 코드
 
@@ -17,11 +18,13 @@
 - [day5 유닛테스트](./src/test/kotlin/day5)
 - [day6](./src/main/kotlin/day6)
 - [day6 테스트](./src/test/kotlin/day6)
+- [day7 상속과 인터페이스](./src/main/kotlin/day7)
 
 ## 📚 주제별 정리
 
 - [git](./docs/topics/git.md)
 - [kotlin](./docs/topics/kotlin_basic.md)
+- [까먹기 좋은 잡지식 모음](./docs/topics/miscellneous_details_I_may_forget.md)
 
 ## 🔍 참고 자료
 
