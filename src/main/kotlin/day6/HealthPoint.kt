@@ -23,4 +23,14 @@ class HealthPoint(value: Int, var maximum: Int = value) {
             val newValue = floor(value / 100F * maximum).toInt()
             this.value = newValue
         }
+
+    operator fun plus(value: Int) = this.value + value
+    operator fun minus(value: Int) = this.value - value
+    operator fun plusAssign(value: Int) {
+        this.value += value
+    }
+
+    operator fun minusAssign(value: Int) {
+        this.value -= value
+    }
 }
