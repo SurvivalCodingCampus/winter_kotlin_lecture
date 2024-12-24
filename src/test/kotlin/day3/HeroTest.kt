@@ -19,9 +19,10 @@ class HeroTest {
 
     @Test
     fun hpAfterResting() {
-        val hero = Hero("홍길동", 100, 90)
+        val hero = Hero("홍길동", 100)
+        hero.hp.percent = 50F
         hero.rest()
-        assertEquals(hero.hp, 100)
+        assertEquals(100, hero.hp.value)
 
     }
 }

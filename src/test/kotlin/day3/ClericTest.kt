@@ -10,16 +10,17 @@ class ClericTest {
         val clericSubject = Cleric("Tester", hp = 2, mp = 3)
         clericSubject.selfAid()
 
-        assertEquals("HP should remain unchanged", 2, clericSubject.hp)
+        assertEquals("HP should remain unchanged", 2, clericSubject.hp.value)
         assertEquals("MP should remain unchanged", 3, clericSubject.mp)
     }
 
     @Test
     fun testSelfAid_ReplenishHP() {
         val clericSubject = Cleric("Tester", hp = 2, mp = 5)
+        clericSubject.hp.maximum
         clericSubject.selfAid()
 
-        assertEquals("HP should be restored", Cleric.MAX_HP, clericSubject.hp)
+        assertEquals("HP should be restored", Cleric.MAX_HP, clericSubject.hp.value)
         assertEquals("MP should be 5 less", 0, clericSubject.mp)
     }
 
