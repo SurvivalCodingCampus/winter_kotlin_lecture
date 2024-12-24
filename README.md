@@ -34,7 +34,7 @@ kotlin-study/
 - [2024-12-18](docs/daily/2024-12-18.md) - 클래스 인스턴스
 - [2024-12-19](docs/daily/2024-12-19.md) - 클래스, companion
 - [2024-12-20](docs/daily/2024-12-20.md) - 캡슐화, 컬렉션 
-- [2024-12-21](docs/daily/2024-12-21.md) - 상속
+- [2024-12-21](docs/daily/2024-12-23) - 상속
 
 
 ### 💻 작성 코드
@@ -57,10 +57,18 @@ kotlin-study/
   - [GreatWizardTest.kt](src/test/kotlin/day06/GreatWizardTest.kt)
   - [PoisonSlime.kt](src/main/kotlin/day06/PoisonSlime.kt)
   - [PoisonSlimeTest.kt](src/test/kotlin/day06/PoisonSlimeTest.kt)
-
 - Day 7
   - [Person.kt](src/main/kotlin/day07/Person.kt)
   - [PersonTest.kt](src/test/kotlin/day07/PersonTest.kt)
+  - [Game.puml](src/main/kotlin/day07/Game.puml)
+  - [Asset.puml](src/main/kotlin/day07/Asset.puml)
+  - [Asset.kt](src/main/kotlin/day07/Asset.kt)
+  - [Book.kt](src/main/kotlin/day07/Book.kt)
+  - [Computer.kt](src/main/kotlin/day07/Computer.kt)
+  - [IntangibleAsset.kt](src/main/kotlin/day07/IntangibleAsset.kt)
+  - [Patent.kt](src/main/kotlin/day07/Patent.kt)
+  - [TangibleAsset.kt](src/main/kotlin/day07/TangibleAsset.kt)
+  - [Thing.kt](src/main/kotlin/day07/Thing.kt)
 
 
 ### 📚 주제별 정리
