@@ -1,8 +1,11 @@
 package org.example.day03
 
-class Slime(var hp: Int, val suffix: String) {
-    val level = 10
+class Slime(val suffix: String) {
+    var hp = 50
 
-    fun attack() {
+    fun attack(hero: Hero) {
+        println("슬라임 ${suffix}가 공격했다.")
+        println("10의 데미지")
+        hero.hp -= 10
     }
 }

@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+scale 2
+' + means public
+' - means private
+' ~ means package private
+class Slime
+
+class Hero {
+    + hp: Int
+    - name: String
+
+    attack(slime: Slime)
+
+}
+
+class SuperHero extends Hero
+
+@enduml

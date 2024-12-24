@@ -13,17 +13,24 @@ fun main() {
 }
 
 
-class Hero(
+open class Hero(
     // var : 안에서 접근 가능
     // val : 읽기 전용
     var name: String,
     // 초기값
     var hp: Int = 100,
 ) {
+    init {
+        println("Hero init block called")
+    }
+
     var food = ""
 
     /// 메소드
-    fun attack() {}
+    open fun attack(slime: Slime) {
+        println("$name 이 ${slime}을 공격했다.")
+        println("")
+    }
 
     fun run() {}
 
