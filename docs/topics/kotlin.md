@@ -88,4 +88,43 @@ init 블록에서 생성자 매개변수를 클래스의 프로퍼티 name과 ag
 class Person(val name: String, val age: Int)
 // 곧바로 클래스의 프로퍼티로 선언하고 초기화
 ```
+- 파라미터랑 속성 차이점   
+    - 파라미터   
+  함수 또는 생성자에 전달되는 입력값   
+  var, val 붙이지 않고 선언한다   
+  기본적으로 불변이다   
+    - 속성   
+  클래스의 상태를 나타내는 변수   
+  클래스 내에서 선언되고 var, val 선택해서 사용 가능하다
 
+### 함수
+```kotlin
+fun 함수명(파라미터1: 타입, 파라미터2: 타입, ··· ): 반환 타입 {
+    return 값
+}
+```
+
+### 상속
+- 코틀린에서의 클래스와 메서드는 기본적으로 final이기 때문에 상속을 허용하려면 open 키워드를 앞에 붙여주어야 한다   
+- open이 붙은 클래스는 상속이 가능하고, open이 붙은 메서드도 하위 클래스에서 override 가능하다
+- super : super 키워드를 활용해 부모 클래스의 함수 기능을 사용한 후, 자식 클래스만의 추가 기능을 구현해주면 된다.
+
+    ```kotlin
+    open class Fruit{
+        open fun introduce(){
+            println("나는 과일이야!")
+        }
+    }
+    
+    class Apple : Fruit(){
+        override fun introduce() {
+            super.introduce()
+            println("그 중에서 나는 사과야")
+        }
+    }
+    
+    fun main() {
+        Apple().introduce()
+    }
+    ```
+  
