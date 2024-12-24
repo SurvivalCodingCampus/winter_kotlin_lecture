@@ -1,9 +1,8 @@
 package org.example.day07
 
 class Computer(
-    var name: String,
-    var price: Int,
-    var color: String,
+    name: String,
+    price: Int,
+    color: String,
     var makerName: String,
-) {
-}
+) : TangibleAsset(name, price, color)

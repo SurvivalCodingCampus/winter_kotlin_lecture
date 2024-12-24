@@ -1,9 +1,8 @@
 package org.example.day07
 
 class Book(
-    var name: String,
-    var price: Int,
-    var color: String,
+    name: String,
+    price: Int,
+    color: String,
     var isbn: String,
-) {
-}
+) : TangibleAsset(name, price, color)
