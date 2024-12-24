@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+scale 1.4
+
+abstract class Asset
+
+
+abstract class TangibleAsset implements Asset {
+
+}
+
+abstract class IntangibleAsset implements Asset {
+
+}
+
+class Computer implements TangibleAsset {
+
+}
+
+class Book implements TangibleAsset {
+
+}
+
+class Patent implements IntangibleAsset  {
+}
+@enduml
