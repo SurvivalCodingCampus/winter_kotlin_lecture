@@ -9,8 +9,8 @@ import org.junit.Assert.*
 import org.example.day03.Hero
 import org.example.day04.Sword
 import org.example.day04.Wizard
-import org.example.day04.Enemy
 import org.example.day05.Wand
+import org.example.day04.Enemy
 
 class EnemyTest {
     lateinit var hero: Hero
@@ -40,6 +40,6 @@ class EnemyTest {
             hero.attack(enemy)
         }
         assertTrue("적의 HP가 0 이하가 되었습니다.", enemy.hp <= 0)
-        assertFalse("적이 사망했습니다.", enemy.getAlive())
+        assertFalse("적이 사망했습니다.", enemy.alive)
     }
 }

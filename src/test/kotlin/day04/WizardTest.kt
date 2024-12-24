@@ -160,4 +160,28 @@ class WizardTest {
             wizardAfter.mp = -5
         }
     }
+
+    @Test
+    fun `common heal`() {
+        val wizard = Wizard("common wizard", 10, 15, 10, Wand("common wand", 5.0))
+        val hero = Hero("common hero", 5, null)
+
+        wizard.heal(hero)
+
+        assertEquals(wizard.healAbility + 5, hero.hp)
+        assertEquals(5, wizard.mp)
+    }
+
+    @Test
+    fun `out of mp for heal`() {
+        val wizard = Wizard("common wizard", 10, 30, 10, Wand("common wand", 5.0))
+        val hero = Hero("common hero", 5, null)
+
+        for(i in 1..5) {
+            wizard.heal(hero)
+        }
+
+        assertEquals(35, hero.hp)
+        assertEquals(0, wizard.mp)
+    }
 }

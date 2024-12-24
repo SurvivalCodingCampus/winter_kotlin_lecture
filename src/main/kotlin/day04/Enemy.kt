@@ -21,6 +21,6 @@ class Enemy(
         }
     }
 
-    @JvmName("getAlive()")
-    fun getAlive(): Boolean = alive
+    /*@JvmName("getAlive()")
+    fun getAlive(): Boolean = alive*/
 }
