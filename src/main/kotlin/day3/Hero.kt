@@ -16,7 +16,7 @@ open class Hero(
     fun flee() {}
 
     fun rest() {
-        hp.value = hp.maximum
+        hp set hp.maximum
         println("${name}은 잠을 자고 회복했다: ${hp.value}")
     }
 }

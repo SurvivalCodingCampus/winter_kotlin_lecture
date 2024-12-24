@@ -19,7 +19,7 @@ class PoisonSlimeTest {
         hero.hp.percent -= PoisonSlime.DEFAULT_POISON_DAMAGE_PERCENT
         val expectedTotalDamage = before - hero.hp.value + Slime.DEFAULT_BASIC_DAMAGE
 
-        hero.hp.value = before
+        hero.hp set before
         poisonSlime.attack()
 
         assertEquals(PoisonSlime.DEFAULT_POISON_CHARGE - 1, poisonSlime.poisonCharges)

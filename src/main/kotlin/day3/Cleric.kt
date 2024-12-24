@@ -27,7 +27,7 @@ class Cleric(
         }
 
         require(hp.value > 0) { "체력이 0 이하인 상태에서는 치유할 수 없습니다" }
-        hp.value = hp.maximum
+        hp set hp.maximum
         mp -= 5
     }
 
