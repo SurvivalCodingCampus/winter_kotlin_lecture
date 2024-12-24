@@ -14,9 +14,12 @@ open class Slime(
 
     var target: Actor? = null
     open fun attack() {
-        if (target == null) return
-        target!!.hp.value -= DEFAULT_BASIC_DAMAGE
-        println("Basic attack to ${target?.name}")
+        target?.let { basicAttack(it) }
+    }
+
+    private fun basicAttack(target: Actor) {
+        target.hp.value -= DEFAULT_BASIC_DAMAGE
+        println("Basic attack to ${target.name}")
     }
 
 }
