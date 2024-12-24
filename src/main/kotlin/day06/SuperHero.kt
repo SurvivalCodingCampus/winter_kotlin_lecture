@@ -21,6 +21,6 @@ class SuperHero(
 
 fun main() {
     val superHero = SuperHero("man")
-    val slime = Slime(100, "A")
+    val slime = Slime("A")
     superHero.attack(slime)
 }
