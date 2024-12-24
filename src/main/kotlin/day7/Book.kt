@@ -5,4 +5,5 @@ class Book(
     price: Int,
     color: String,
     var isbn: String,
-) : TangibleAsset(name, price, color)
+    weight: Double
+) : TangibleAsset(name, price, color, weight)
