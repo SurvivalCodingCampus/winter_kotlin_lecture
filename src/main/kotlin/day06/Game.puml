@@ -4,7 +4,9 @@
 '사이즈 증가'
 scale 2
 
-class Hero{
+class Slime
+
+class Hero extends Character{
     + hp: Int
     - name: String
 
@@ -12,6 +14,10 @@ class Hero{
 
 }
 
-class Slime
+class SuperHero extends Hero
+
+abstract class Character{
+    {abstract} + attack(slime: Slime)
+}
 
 @enduml
