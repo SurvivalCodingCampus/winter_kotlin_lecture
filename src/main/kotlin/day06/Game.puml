@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'사이즈 증가'
+scale 2
+
+class Hero{
+    + hp: Int
+    - name: String
+
+    attack(slime: Slime)
+
+}
+
+class Slime
+
+@enduml
