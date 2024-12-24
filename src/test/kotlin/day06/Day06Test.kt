@@ -24,12 +24,12 @@ class GreatWizardTest {
             val greatWizard = GreatWizard(name = "위대한위자드", wand = null)
             val cleric = Cleric(name = "Cleric", hp = MAX_HP - DAMAGE)
 
-            assertEquals(GREAT_WIZARD_MAX_MP, greatWizard._mp)
+            assertEquals(GREAT_WIZARD_MAX_MP, greatWizard.mp)
 
             greatWizard.superHeal(cleric)
 
             assertEquals(MAX_HP, cleric.hp)
-            assertEquals(GREAT_WIZARD_MAX_MP - USE_SUPER_HEAL_MP, greatWizard._mp)
+            assertEquals(GREAT_WIZARD_MAX_MP - USE_SUPER_HEAL_MP, greatWizard.mp)
         },
     )
 
@@ -52,7 +52,7 @@ class SlimeTest {
 
             greenSlime.attack(wizard)
 
-            assertEquals(wizard.hp, WIZARD_HP - SLIME_DAMAGE)
+            assertEquals(WIZARD_HP - SLIME_DAMAGE, wizard.hp)
             println("-------done Test #1------")
         },
         {

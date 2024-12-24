@@ -13,10 +13,9 @@ open class Slime(val suffix: String) {
     var hp = SLIME_HP
 
     open fun attack(hero: Hero) {
-        if(hero.hp < SLIME_DAMAGE){
+        if (hero.hp < SLIME_DAMAGE) {
             hero.hp = 0
-        }
-        else {
+        } else {
             hero.hp -= SLIME_DAMAGE
         }
         println("슬라임 $suffix (이)가 공격했다.")
@@ -43,7 +42,7 @@ class PoisonSlim(suffix: String) : Slime(suffix = suffix) {
             println("$poisonDamage 포인트의 데미지")
             poisonCount -= 1
         } else {
-           println("더이상 독공격을 사용할 수 없습니다.")
+            println("더이상 독공격을 사용할 수 없습니다.")
         }
     }
 
