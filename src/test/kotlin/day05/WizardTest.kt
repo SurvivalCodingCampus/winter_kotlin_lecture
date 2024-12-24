@@ -91,7 +91,6 @@ class PersonTest {
                 println("${person.name}의 나이는 ${person.age}살")
             }
 
-
             val iterator = listOfAges.iterator()
 
             iterator.forEach { person ->
