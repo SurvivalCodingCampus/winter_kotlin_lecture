@@ -5,5 +5,5 @@ class Book(
     price: Int,
     color: String,
     weight: Double,
-    var isbn: String,
+    val isbn: String,
 ) : Asset.TangibleAsset(name, price, color, weight)

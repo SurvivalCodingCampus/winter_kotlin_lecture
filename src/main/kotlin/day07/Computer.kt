@@ -5,5 +5,5 @@ class Computer(
     price: Int,
     color: String,
     weight: Double,
-    var makerName: String,
+    val makerName: String,
 ) : Asset.TangibleAsset(name, price, color, weight)
