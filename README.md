@@ -34,7 +34,9 @@ kotlin-study/
 - [2024-12-18](docs/daily/2024-12-18.md) - 클래스 인스턴스
 - [2024-12-19](docs/daily/2024-12-19.md) - 클래스, companion
 - [2024-12-20](docs/daily/2024-12-20.md) - 캡슐화, 컬렉션 
-- 
+- [2024-12-21](docs/daily/2024-12-21.md) - 상속
+
+
 ### 💻 작성 코드
 - Day 2
   - [Basic.kt](src/main/kotlin/day02/Basic.kt)
@@ -50,6 +52,11 @@ kotlin-study/
   - [WandTest.kt](src/test/kotlin/day05/WandTest.kt)
   - [Wizard.kt](src/main/kotlin/day05/Wizard.kt)
   - [WizardTest.kt](src/test/kotlin/day05/WizardTest.kt)
+- Day 6
+  - [GreatWizard.kt](src/main/kotlin/day06/GreatWizard.kt)
+  - [GreatWizardTest.kt](src/test/kotlin/day06/GreatWizardTest.kt)
+  - [PoisonSlime.kt](src/main/kotlin/day06/PoisonSlime.kt)
+  - [PoisonSlimeTest.kt](src/test/kotlin/day06/PoisonSlimeTest.kt)
 
 - Day 7
   - [Person.kt](src/main/kotlin/day07/Person.kt)

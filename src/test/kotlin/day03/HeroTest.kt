@@ -1,50 +1,38 @@
 package day03
 
-import org.junit.Before
-import org.junit.After
-import org.junit.Test
-import kotlin.test.assertFailsWith
+import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class HeroTest {
 
-    private lateinit var hero: Hero
-
-    @Before
-    fun setUp() {
-        hero = Hero(name = "Batman", 50)
-    }
-    // 테스트 시행 전에 수행되는 부분
-
-    @After
-    fun tearDown() {
-    }
-    // 테스트 수행 후에 수행되는 부분
-
     @Test
-    fun `공격시 hp 감소`() {
-        val slime = Slime("tester", 100)
-        hero.hp = 100
-        hero.attack(slime)
-        val expectedHp = 100 - Hero.HP_BY_ATTACK
-        assertEquals(expectedHp, hero.hp)
-    }
-
-    @Test
-    fun `hp 부족시 공격 불가`() {
-        val slime = Slime("tester", 100)
-        hero.hp = 0
-        hero.attack(slime)
+    fun `데미지 받고 hp가 음수가 되지 않음`() {
+        val hero = Hero("용사", 100)
+        val overHp = hero.hp + 10
+        hero.takeDamage(overHp)
         assertEquals(0, hero.hp)
     }
 
     @Test
-    fun `잠을 자면 hp가 100으로 회복됨 `() {
-        // 실행
-        hero.sleep()
+    fun `데미지 받고 hp가 깎임`() {
+        val hero = Hero("용사", 100)
+        hero.takeDamage(20)
+        assertEquals(80, hero.hp)
+    }
 
-        // 확인
-        assertEquals(100, hero.hp)
+    @Test
+    fun `힐링 받고 hp가 max보다 초과 되지 않음`() {
+        val hero = Hero("용사", Hero.MAX_HP)
+        hero.takeHp(10)
+        assertEquals(Hero.MAX_HP, hero.hp)
+    }
+
+    @Test
+    fun `힐링 받고 hp 회복함`() {
+        val hero = Hero("용사", 10)
+        hero.takeHp(20)
+        assertEquals(30, hero.hp)
     }
 
     @Test

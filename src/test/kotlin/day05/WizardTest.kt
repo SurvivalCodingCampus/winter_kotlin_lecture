@@ -1,10 +1,31 @@
 package day05
 
+import day03.Hero
 import kotlin.test.Test
 import kotlin.test.assertFailsWith
 import kotlin.test.assertEquals
 
 class WizardTest {
+
+    @Test
+    fun `Unit의 hp 20 회복시 mp 10 소모됨 확인`() {
+        val wand = Wand("마법지팡이", 10.0)
+        val wizard = Wizard("해리포터", 100, 10, wand)
+        val hero = Hero("용사", 50)
+        wizard.heal(hero)
+        assertEquals(0, wizard.mp)
+        assertEquals(70, hero.hp)
+    }
+
+    @Test
+    fun `mp 부족시 hp 회복시키지 않고 mp 마이너스 되지 않음 확인`() {
+        val wand = Wand("마법지팡이", 10.0)
+        val wizard = Wizard("해리포터", 100, 5, wand)
+        val hero = Hero("용사", 50)
+        wizard.heal(hero)
+        assertEquals(5, wizard.mp)
+        assertEquals(50, hero.hp)
+    }
 
     @Test
     fun `마법사 생성자 유효성 검사`() {
