@@ -1,9 +1,9 @@
 package org.example.day07
 
 class Book(
-    override var name: String,
-    override var price: Int,
-    override var color: String,
-    override var weight: Double,
+    name: String,
+    price: Int,
+    weight: Double,
+    color: String,
     var isbn: String,
-) : TangibleAsset()
+) : TangibleAsset(name, price, weight, color)

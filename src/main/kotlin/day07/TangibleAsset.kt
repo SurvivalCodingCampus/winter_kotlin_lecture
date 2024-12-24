@@ -1,5 +1,8 @@
 package org.example.day07
 
-abstract class TangibleAsset : Asset(), Thing {
-    abstract var color: String
-}
+abstract class TangibleAsset(
+    override var name: String,
+    override var price: Int,
+    override var weight: Double,
+    var color: String
+) : Asset(), Thing

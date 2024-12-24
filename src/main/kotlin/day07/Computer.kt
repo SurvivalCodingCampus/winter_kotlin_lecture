@@ -1,9 +1,9 @@
 package org.example.day07
 
 class Computer(
-    override var name: String,
-    override var price: Int,
-    override var color: String,
-    override var weight: Double,
+    name: String,
+    price: Int,
+    weight: Double,
+    color: String,
     var makerName: String,
-) : TangibleAsset()
+) : TangibleAsset(name, price, weight, color)
