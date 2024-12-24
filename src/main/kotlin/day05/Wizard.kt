@@ -21,7 +21,7 @@ open class Wizard(
 
     override var mp: Int = mp
         set(value) {
-            require(value < 0) {
+            require(value >= 0) {
                 throw InitializeError(WizardInitializeErrorType.INVALID_MP)
             }
             field = value
