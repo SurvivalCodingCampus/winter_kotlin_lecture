@@ -4,7 +4,7 @@ class Book(
     name: String,
     price: Int,
     color: String,
-    var isbn: String,
+    val isbn: String,
     weight: Double,
 ): TangibleAsset(name, price, color, weight) {
 

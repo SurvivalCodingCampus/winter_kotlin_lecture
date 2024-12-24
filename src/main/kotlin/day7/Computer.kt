@@ -4,7 +4,7 @@ class Computer(
     name: String,
     price: Int,
     color: String,
-    var makerName: String,
+    val makerName: String,
     weight: Double
 ): TangibleAsset(name, price, color, weight) {
 
