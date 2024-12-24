@@ -5,7 +5,7 @@ import org.example.domain.behavior.skills.Healable
 import org.example.domain.error.InitializeError
 import org.example.domain.types.error.WizardInitializeErrorType
 
-class Wizard(
+open class Wizard(
     name: String,
     hp: Int,
     mp: Int,
