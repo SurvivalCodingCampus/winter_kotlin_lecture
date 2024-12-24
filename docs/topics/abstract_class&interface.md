@@ -71,7 +71,7 @@
 - 인터페이스의 특별 취급
 - 여러 인터페이스를 구현할 수 있다
 - open class Hero(
-  val anme: String,
+  val name: String,
   var hp: Int = 100
   ) : Attackable, Movable { }
 
