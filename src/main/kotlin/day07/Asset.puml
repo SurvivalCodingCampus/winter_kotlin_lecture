@@ -20,7 +20,7 @@ class Computer extends TangibleAsset {
     + name: String
     + price: Int
     + color: String
-    + maker: String
+    + makerName: String
 }
 
 class Book extends TangibleAsset {
