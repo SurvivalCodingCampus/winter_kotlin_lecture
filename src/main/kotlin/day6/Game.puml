@@ -1,11 +1,11 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-scale 1.1
+scale 1.2
 
 class Slime
 
-class Hero {
+class Hero extends Character implements Runnable, Attackable{
     + int hp
     - String name
 
@@ -13,5 +13,17 @@ class Hero {
 }
 
 class SuperHero extends Hero
+
+abstract class Character {
+    {abstract} +attack(slime: Slime)
+}
+
+interface Attackable {
+    {abstract} +attack(slime: Slime)
+}
+
+interface Runnable {
+    {abstract} +run
+}
 
 @enduml
