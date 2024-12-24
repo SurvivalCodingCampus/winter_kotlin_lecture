@@ -1,5 +1,7 @@
 package day05
 
+import day06.Hero
+
 
 /*
 * 작성한 Wand 클래스와 Wizard 클래스에 대해 4가지 규칙 타당성 검사 진행
@@ -14,10 +16,10 @@ package day05
 *
 * */
 
-class Wizard(
+open class Wizard(
     name: String,       // 이름
     hp: Int,            // hp
-    mp: Int,            // mp
+    mp: Int = MAX_MP,            // mp
     var wand: Wand         // Wand(완드)
 ) {
     var name: String = name
@@ -26,7 +28,7 @@ class Wizard(
             field = value
         }
 
-    var mp: Int = mp
+    open var mp: Int = mp
         set(value) {
             require(value >= 0) { MP_LACK }
             field = value
@@ -37,8 +39,24 @@ class Wizard(
             field = if (value < 0) 0 else value
         }
 
+
+    // 회복 기능 메소드
+    fun heal(hero: Hero) {
+        if (mp >= MP_FOR_USE_SKILL) {
+            hero.getHeal(HEAL_AMOUNT)
+            mp -= MP_FOR_USE_SKILL
+            println("힐을 시전했습니다. 대상 HP: ${hero.hp}")
+        } else {
+            println(MANA_LACK)
+        }
+    }
+
     companion object {
+        const val MAX_MP = 100
+        const val MP_FOR_USE_SKILL = 10
+        const val HEAL_AMOUNT = 20
         const val NAME_TOO_SHORT = "이름이 너무 짧습니다."
         const val MP_LACK = "mp가 부족합니다."
+        const val MANA_LACK = "마나가 부족합니다."
     }
 }

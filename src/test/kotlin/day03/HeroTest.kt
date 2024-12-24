@@ -7,7 +7,7 @@ class HeroTest {
     @org.junit.Test
     fun sleep() {
         // 준비
-        val hero = Hero(name = "홍길동", hp = 10)
+        val hero = OldHero(name = "홍길동", hp = 10)
 
         // 실행
         //hero.sleep()

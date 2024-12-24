@@ -1,6 +1,5 @@
 package day05
 
-import day03.Hero
 
 fun main() {
 
