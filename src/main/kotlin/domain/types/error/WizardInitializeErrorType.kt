@@ -1,6 +1,4 @@
-package org.example.types.error
-
-import org.example.day05.Wizard
+package org.example.domain.types.error
 
 enum class WizardInitializeErrorType(override val message: String): InitializeErrorType {
     // 이름이 3글자 미만일 때

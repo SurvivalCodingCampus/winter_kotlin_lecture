@@ -1,6 +1,6 @@
-package org.example.error
+package org.example.domain.error
 
-import org.example.types.error.InitializeErrorType
+import org.example.domain.types.error.InitializeErrorType
 
 
 class InitializeError(type: InitializeErrorType): IllegalArgumentException(type.message)

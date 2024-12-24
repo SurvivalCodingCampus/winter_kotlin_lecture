@@ -1,4 +1,4 @@
-package org.example.types.error
+package org.example.domain.types.error
 
 enum class WandInitializeErrorType(override val message: String) : InitializeErrorType {
     SHORT_NAME("이름은 3글자 이상이어야 합니다."),

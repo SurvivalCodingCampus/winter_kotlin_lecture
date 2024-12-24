@@ -1,7 +1,7 @@
 package org.example.day05
 
-import org.example.error.InitializeError
-import org.example.types.error.WizardInitializeErrorType
+import org.example.domain.error.InitializeError
+import org.example.domain.types.error.WizardInitializeErrorType
 
 class Wizard(
     name: String,
