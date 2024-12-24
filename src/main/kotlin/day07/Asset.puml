@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+scale 1
+
+class Book extends TangibleAsset {
+    + var name: String
+    + var price: Int
+    + var color: String
+    + var isbn: String
+}
+
+class Computer extends TangibleAsset {
+    + var name: String
+    + var price: Int
+    + var color: String
+    + var makerName: String
+}
+
+class Patent extends IntangibleAsset {
+    + var name: String
+    + var price: Int
+}
+
+abstract class TangibleAsset extends Asset implements Thing {
+    {abstract} + var name: String
+    {abstract} + var price: Int
+    {abstract} + var color: String
+}
+
+abstract class IntangibleAsset extends Asset {
+    {abstract} + var name: String
+    {abstract} + var price: Int
+}
+
+
+interface Thing {
+    {abstract} + var weight: Double
+}
+
+abstract class Asset {
+    {abstract} + var name: String
+    {abstract} + var price: Int
+}
+
+@enduml
