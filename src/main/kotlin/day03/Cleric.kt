@@ -2,7 +2,37 @@ package com.survivalcoding.day03
 
 import kotlin.math.min
 
+class Person3(
+    var age: Int,
+) {
+    operator fun plus(value: Int): Person3 {
+        return Person3(age + value)
+    }
+}
+
 fun main() {
+    val person3 = Person3(10)
+    person3.apply { }
+
+    var nullType: String? = null
+
+    if (nullType == null) {
+        return
+    }
+
+//    if (nullType != null) {
+//
+//    }
+    println(nullType.uppercase())
+
+
+    var person = Person3(10)
+
+    person += 20
+
+    println(person.age)
+
+
     val cleric1 = Cleric("아서스", hp = 40, mp = 5)
     Cleric("아서스", hp = 35)
     Cleric("아서스")

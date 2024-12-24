@@ -5,7 +5,7 @@ scale 2
 
 class Slime
 
-class Hero {
+class Hero extends Character implements Runnable, Attackable {
     + hp: Int
     - name: String
 
@@ -13,5 +13,17 @@ class Hero {
 }
 
 class SuperHero extends Hero
+
+abstract class Character {
+    {abstract} +attack(slime: Slime)
+}
+
+interface Attackable {
+    {abstract} +attack()
+}
+
+interface Runnable {
+    {abstract} +run()
+}
 
 @enduml
