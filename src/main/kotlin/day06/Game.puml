@@ -1,8 +1,6 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-scale 2
-
 class Slime
 
 
@@ -14,5 +12,9 @@ class Hero {
 }
 
 class SuperHero extends Hero
+
+abstract class Character {
+    {abstract} +attack()
+}
 
 @enduml
