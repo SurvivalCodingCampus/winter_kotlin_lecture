@@ -1,15 +1,34 @@
 @startuml
 
+interface Attackable {
+    {abstract} +attack()
+}
 
-class Slime
+interface Runnable {
+    {abstract} +run()
+}
+
+abstract class Character {
++ name: String
++ hp : Int
+
+abstract attack(slime: Slime)
+
+}
 
 
-class Hero {
+'class Slime
+
+
+class Hero extends Character implements Runnable, Attackable {
 + hp: Int
 - name: String
 
 attack(slime: Slime)
 }
 
-class SuperHero {}
+'class SuperHero {}
+
+
+
 @enduml
