@@ -7,7 +7,7 @@ const val MAX_MP = 10
 const val USE_MP_SELF_AID = 5
 
 class Cleric(
-    override val name: String,
+    override var name: String,
     override var hp: Int = MAX_HP,
     var mp: Int = MAX_MP,
 ) : Hero(name, hp) {
