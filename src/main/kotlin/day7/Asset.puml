@@ -4,8 +4,8 @@
 scale 2.1
 
 abstract class Asset {
-    + String name
-    + int price
+    + var name : String
+    + var price : Int
 }
 
 interface Thing {
