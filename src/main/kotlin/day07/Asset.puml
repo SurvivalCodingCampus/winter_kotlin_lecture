@@ -1,0 +1,42 @@
+@startuml
+
+interface Asset {
+    {abstract} + name: String
+    {abstract} + price: Int
+}
+
+interface TangibleAsset implements Asset, Thing {
+    {abstract} + name: String
+    {abstract} + price: Int
+    {abstract} + color: String
+}
+
+interface IntangibleAsset implements Asset {
+    {abstract} + name: String
+    {abstract} + price: Int
+}
+
+class Computer extends TangibleAsset {
+    + name: String
+    + price: Int
+    + color: String
+    + makerName: String
+}
+
+class Book extends TangibleAsset {
+    + name: String
+    + price: Int
+    + color: String
+    + isbn: String
+}
+
+class Patent extends IntangibleAsset {
+    + name: String
+    + price: Int
+    + patentNumber: String
+}
+
+interface Thing {
+    {abstract} + weight: Double
+}
+@enduml
