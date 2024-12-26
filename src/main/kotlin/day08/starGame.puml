@@ -1,0 +1,101 @@
+@startuml
+'https://plantuml.com/class-diagram
+scale 2
+
+'종족
+interface Tribe
+interface Terran implements Tribe
+interface Zerg implements Tribe, GradualRecovery
+interface Protoss implements Tribe, GradualRecovery{
+   shield:Int
+}
+
+interface Fixable{
+    fun fix(target:Mechanic)
+}
+interface Healable{
+    fun heal(target:BionicUnit)
+}
+
+interface Recoverable
+
+interface Worker{
+    fun mining(target:Resource)
+    fun building()
+}
+
+interface Mechanic
+interface Bionic
+
+interface Attackable{
+    fun attack()
+}
+
+interface Movable{
+    fun move()
+}
+
+interface GradualRecovery{
+}
+
+class User{
+    fun selectTribe(tribe: Tribe)
+}
+
+class Team{
+    users: List<User>
+    fun addUser(user:User)
+}
+
+class MatchingGame{
+    List<Team>
+}
+
+abstract class Element{
+    hp:Int
+    maxHp:Int
+    armor:Int
+    name:String
+}
+'유닛
+abstract class Unit extends Element implements Attackable, Movable{
+    attackPoint:Int
+    speed:Int
+    cost:Resource
+}
+'바이오닉 유닛
+abstract class BionicUnit extends Unit implements Bionic, Recoverable
+abstract class TerranBionicUnit extends BionicUnit implements Terran
+abstract class ProtossBionicUnit extends BionicUnit implements Protoss
+abstract class ZergBionicUnit extends BionicUnit implements Zerg
+'메카닉 유닛
+abstract class MechanicUnit extends Unit implements Mechanic
+abstract class TerranMechanicUnit extends MechanicUnit implements Terran
+abstract class ProtossMechanicUnit extends MechanicUnit implements Protoss
+
+'테란 유닛
+class Marine extends TerranBionicUnit
+class Tank extends TerranMechanicUnit
+class SCV extends TerranMechanicUnit implements Fixable, Worker, Recoverable
+class Vulture extends TerranMechanicUnit
+class Medic extends TerranBionicUnit implements Healable
+
+class Resource
+
+'저그 유닛
+class Zergling extends ZergBionicUnit
+class Hydra extends ZergBionicUnit
+
+'플토 유닛
+class Zealot extends ProtossBionicUnit
+class dragun extends ProtossMechanicUnit
+
+
+'건물
+abstract class Structure extends Element
+abstract class TerranStructure extends Structure implements Mechanic, Terran
+abstract class ZergStructure extends Structure implements Bionic, Zerg
+abstract class ProtossStructure extends Structure implements Mechanic, Protoss
+
+
+@enduml
