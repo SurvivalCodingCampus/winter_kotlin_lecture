@@ -1,0 +1,31 @@
+@startuml
+scale 2
+
+interface Thing {
+    'getWeight(): Double,
+    'setWeight(weight: Double): Unit
+    {abstract} var weight: Double
+}
+
+abstract class Asset {
+    var name: String,
+    var price: Int,
+}
+
+abstract class IntangibleAsset extends Asset {
+}
+
+abstract class TangibleAsset extends Asset implements Thing {
+    var color: String,
+}
+
+class Book extends TangibleAsset {
+    var isbn: String,
+}
+
+class Computer extends TangibleAsset {
+    var makerName: String,
+}
+
+
+@enduml

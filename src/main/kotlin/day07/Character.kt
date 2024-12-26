@@ -2,9 +2,6 @@ package com.survivalcoding.day07
 
 import com.survivalcoding.day03.Slime
 
-fun main() {
-//    val character = Character("", 10)
-}
 
 //abstract class Runnable {
 //    abstract fun run()
@@ -38,6 +35,10 @@ class Dancer(
     override fun attack(slime: Slime) {
         TODO("Not yet implemented")
     }
+
+    override var weight: Double
+        get() = TODO("Not yet implemented")
+        set(value) {}
 
     override fun stop() {
         TODO("Not yet implemented")
