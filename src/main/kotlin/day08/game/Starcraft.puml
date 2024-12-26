@@ -1,0 +1,110 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+abstract class GameObject {
+    {abstract} + name: String
+    {abstract} + hp: Int,
+    {abstract} + speciesType: SpeciesType
+    {abstract} + isBiological: Boolean
+
+    <<open>> + takeDamage(damage: Int)
+    <<open>> + autoHeal(amount: Int)
+}
+
+package "Enum" {
+enum SpeciesType{
+    + TERRAN
+    + ZERG
+    + PROTOSS
+}
+
+enum UnitState {
+    IDLE,
+    MOVING,
+    ATTACKING,
+    REPAIRING,
+    HEALING
+}
+}
+
+' 공격 정의
+interface Attackable {
+    + attack(target: GameObject)
+}
+
+
+abstract Unit extends GameObject {
+    name: String
+    hp: Int
+    isBiological: Boolean
+    isSpeciesType: SpeciesType,
+    unitState: UnitState
+
+    <<open>> + move()
+    <<open>> + stop()
+}
+
+abstract Structure extends GameObject {
+    name: String,
+    hp: Int,
+    isBiological: Boolean,
+    isSpeciesType: SpeciesType
+}
+
+
+' 테란-생물유닛,기계유닛
+class Marin extends Unit {
+      name: String
+      hp: Int
+      isBiological: Boolean
+      isSpeciesType: SpeciesType,
+      unitState: UnitState
+}
+
+' 테란-생물유닛
+' 공격 인터페이스 구현 안 받음
+class Medic extends Unit {
+   + heal(isBionic:Boolean, type: SpeciesType)
+   + healGage: Int
+}
+
+' 테란-기계유닛
+class Vulture extends Unit {
+
+}
+
+' 테란-기계유닛
+'광맥 자원 채취 가능 - 광맥 자원은 유닛 생산하는데 쓰임
+'기계 유닛을 수리 가능
+class Scv extends Unit {
+   + mine(amount: Int)
+   + repair(isBionic: Boolean)
+}
+
+
+'저그-생물유닛, 생물건물
+'저그는 모든 유닛과 건물이 시간 지나면 서서히 회복 가능
+'저그의 건물은 테란의 Medic에게 치료 받을 수 있음
+class Zergling extends Unit {
+
+}
+
+'저그-생물유닛
+class Hydra extends Unit {
+
+}
+
+'프로토스-기계유닛
+class Dragun extends Unit  {
+}
+
+@enduml
+
+)
+
+'여러 유닛을 그룹화 가능합니다
+'유닛 그룹화를 통해 유저가 유닛 컨트롤을 용이하게 해야 합니다.
+'
+'예를 들면 10개의 서로 다른 유닛을 그룹화하고 한번에 공격을 하거나 이동을 시켜야 합니다.
+'그룹화가 가능하도록 설계를 수정하시오.
