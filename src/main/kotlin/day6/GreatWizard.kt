@@ -10,7 +10,7 @@ class GreatWizard(name: String) : Wizard(name, mp = 150.0) {
             return
         }
 
-        hero.hp.value = hero.hp.maximum
+        hero.hp set hero.hp.maximum
         this.mp -= 50
         println("슈퍼힐을 시전했습니다. 대상 HP상태: ${hero.hp.percent}%")
     }

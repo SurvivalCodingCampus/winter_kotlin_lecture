@@ -48,7 +48,7 @@ open class Wizard(
             return
         }
 
-        hero.hp.value += 20
+        hero.hp += 20
         this.mp -= 10
         println("힐을 시전했습니다. 대상 HP상태: ${hero.hp.percent}%")
     }

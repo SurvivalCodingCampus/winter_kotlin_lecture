@@ -5,7 +5,7 @@ import kotlin.math.floor
 
 class HealthPoint(value: Int, var maximum: Int = value) {
     var value: Int = value
-        set(value) {
+        private set(value) {
             val newValue = value.coerceIn(0..maximum)
 
             val diff = this.value - newValue
@@ -23,4 +23,18 @@ class HealthPoint(value: Int, var maximum: Int = value) {
             val newValue = floor(value / 100F * maximum).toInt()
             this.value = newValue
         }
+
+    operator fun plus(value: Int) = this.value + value
+    operator fun minus(value: Int) = this.value - value
+    operator fun plusAssign(value: Int) {
+        this.value += value
+    }
+
+    operator fun minusAssign(value: Int) {
+        this.value -= value
+    }
+
+    infix fun set(value: Int) {
+        this.value = value
+    }
 }

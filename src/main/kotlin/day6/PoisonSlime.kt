@@ -13,11 +13,13 @@ class PoisonSlime(suffix: String, hp: Int = 50) : Slime(suffix, hp) {
 
     override fun attack() {
         super.attack()
+        target?.let { specialAttack(it) }
+    }
 
-        if (target == null || poisonCharges <= 0) return
-        target!!.hp.percent -= DEFAULT_POISON_DAMAGE_PERCENT
+    private fun specialAttack(target: Actor) {
+        if (poisonCharges <= 0) return
+        target.hp.percent -= DEFAULT_POISON_DAMAGE_PERCENT
         --poisonCharges
         println("추가로 독 포자를 살포했다!")
     }
-
 }
