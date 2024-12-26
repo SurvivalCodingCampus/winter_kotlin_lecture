@@ -1,0 +1,44 @@
+@startuml
+
+scale 2
+
+interface Thing {
+   {abstract} var weight: Double
+}
+
+abstract Asset {
+    var name: String,
+    var price: Int,
+}
+
+abstract class IntangibleAsset extends Asset {
+    var name: String,
+    var price: Int,
+}
+
+
+abstract class TangibleAsset extends Asset implements Thing{
+    var color: String
+}
+
+
+
+class Book extends TangibleAsset {
+    var isbn: String,
+}
+
+
+class Computer extends TangibleAsset {
+    var color: String,
+}
+
+
+
+
+
+
+
+
+
+
+@enduml
