@@ -78,6 +78,8 @@
 - extends와 implements를 동시에 사용가능
 ![image](https://github.com/user-attachments/assets/50b4c934-0b84-4c72-afb5-0d24dbd01dfe)
 
+- 추상클래스에 선언한 프로퍼티들은 getter, setter를 포함하고 있기 때문에 함수라고도 볼 수 있다
+
 
 ## 💻 예제 코드
 - [추상 클래스 & 인터페이스 수업](../../src/main/kotlin/day7/Character.kt)
