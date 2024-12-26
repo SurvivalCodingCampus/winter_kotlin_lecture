@@ -15,8 +15,7 @@ class GreatWizardTest {
         val greatWizard = GreatWizard("대마법사", 90, wand = wand)
         val hero = Hero("다덤벼", hp = 33)
 
-     greatWizard.superHeal(hero)
-
+        greatWizard.superHeal(hero)
 
     }
 }

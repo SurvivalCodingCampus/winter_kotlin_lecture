@@ -1,6 +1,7 @@
 package day06
 
 import day03.Hero
+import day03.Hero.Companion.maxHp
 import day03.Slime
 import kotlin.time.toDuration
 
@@ -29,7 +30,7 @@ class PoisonSlime(suffix: String, hp: Int) : Slime(suffix, hp) {
 
         if (poisonCount > 0) {
             println("추가로, 독 포자를 살포했다!")
-            var damegeHp = hero.maxHp/5
+            var damegeHp = maxHp/5
             hero.hp -= damegeHp
             println("${damegeHp}의 데미지")
             poisonCount -= 1

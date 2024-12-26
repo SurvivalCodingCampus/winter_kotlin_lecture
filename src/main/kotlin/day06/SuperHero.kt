@@ -35,6 +35,15 @@ class SuperHero(
     }
 }
 
+interface Attackable {
+    fun attack(target: Slime)
+    fun defend()
+}
+
+interface Healable {
+    fun heal(target: Hero)
+}
+
 fun main() {
     val hero = Hero(name = "홍길동", hp = 100)
     hero.run()

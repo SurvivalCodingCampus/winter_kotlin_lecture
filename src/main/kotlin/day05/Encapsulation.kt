@@ -8,6 +8,9 @@ class Human(val name: String, var age: Int) {
     fun die() {
     TODO()
     }
+
+    open fun speak() {
+    }
 }
 
 fun main() {

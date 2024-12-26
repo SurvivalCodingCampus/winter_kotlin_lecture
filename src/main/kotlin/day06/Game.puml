@@ -1,14 +1,26 @@
 @startuml
 'https://plantuml.com/class-diagram
-scale 2
+'scale 2
 class Slime
-class Hero {
+class Hero extends Character {
     + hp: Int
     - name: String
 
-    attack(Slime: Slime)
+    attack(slime: Slime)
 }
 
-class SuperHero extends Hero
+class SuperHero extends Hero implements Attackable, Runnable
+
+abstract class Character {
+    {abstract} +attack(slime: Slime)
+}
+
+interface Attackable {
+    {abstract} +attack()
+}
+
+interface Runnable {
+    {abstract} +run()
+}
 
 @enduml

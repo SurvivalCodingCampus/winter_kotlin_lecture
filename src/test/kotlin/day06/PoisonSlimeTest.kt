@@ -13,10 +13,10 @@ class PoisonSlimeTest {
         val hero = Hero("다덤벼", hp = 100)
         val poisonSlime = PoisonSlime("악당", 99)
         poisonSlime.attack(hero)
-        assertEquals(poisonSlime.poisonCount, 4)
+        assertEquals(4, poisonSlime.poisonCount)
 //        assertEquals(hero.hp, 100 - (hero.hp / 5))
         poisonSlime.attack(hero)
-        assertEquals(poisonSlime.poisonCount, 3)
+        assertEquals(3, poisonSlime.poisonCount)
 //        assertEquals(hero.hp, 100 - (hero.hp / 5) * 2)
 
     }

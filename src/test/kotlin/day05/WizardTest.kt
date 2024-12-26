@@ -12,20 +12,20 @@ class WizardTest {
     fun checkName() {
         Assert.assertThrows(IllegalArgumentException::class.java) {
             val wand = Wand(name = "지팡이", power = 80.0)
-            Wizard(initialName = "간", initialHp = 90, mp = 30, wand = wand)
+            Wizard(name = "간", hp = 90, mp = 30, wand = wand)
         }
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun checkInitialNameValid() {
         val wand = Wand(name = "지팡이", power = 80.0)
-        Wizard(initialName = "간", initialHp = 90, mp = 30, wand = wand)
+        Wizard(name = "간", hp = 90, mp = 30, wand = wand)
     }
 
     @Test(expected = IllegalArgumentException::class)
     fun checkMpValid() {
         val wand = Wand(name = "지팡이", power = 80.0)
-        Wizard(initialName = "간달프", initialHp = 90, mp = -5, wand = wand)
+        Wizard(name = "간달프", hp = 90, mp = -5, wand = wand)
     }
 
     @Test(expected = IllegalArgumentException::class)
@@ -42,7 +42,7 @@ class WizardTest {
     @Test
     fun checkHp() {
         val wand = Wand(name = "지팡이", power = 80.0)
-        val wizard = Wizard(initialName = "간달프", initialHp = -10, mp = 30, wand = wand)
+        val wizard = Wizard(name = "간달프", hp = -10, mp = 30, wand = wand)
         assertEquals(0, wizard.hp)
     }
 

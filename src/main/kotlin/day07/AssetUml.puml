@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class TangibleAsset extends Asset implements Thing {
+
+}
+
+class Book extends TangibleAsset
+
+class Computer extends TangibleAsset
+
+interface Thing {
+    '인터페이스는 필드를 갖지 않음
+    'double getWeight();
+    'void setWeight(double weight);
+    {abstract} + weight: Double
+}
+
+@enduml

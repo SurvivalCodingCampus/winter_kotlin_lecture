@@ -22,7 +22,7 @@ class GreatWizard(initialName: String, initialHp: Int, mp: Int = 150, wand: Wand
         } else {
             println("슈퍼 힐을 시전했습니다. 대상 HP: ${hero.hp}")
             mp -= 50
-            hero.hp = hero.maxHp
+            hero.hp = Hero.Companion.maxHp
 
         }
     }
