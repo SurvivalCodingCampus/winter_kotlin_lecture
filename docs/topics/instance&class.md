@@ -327,6 +327,72 @@ open class Hero(
 - 복수의 인터페이스를 부모로 두는 다중상속 효과가 가능
 - 인터페이스를 구현한다고 한다.
 
+### 다형성
+
+
+### 개발을 즐겁게 하는 다형성
+다형성
+- 어떤 것을 이렇게도 볼 수 있고, 저렇게도 볼 수 있는 것
+
+
+### 다형성을 활용하는 방법
+- 선언을 상위 개념으로 인스턴스 생성으로 하위 개념으로 한다.
+- 추상적인 선언 = 상세 정의로 인스턴스화 
+
+```kotlin
+val character: Character = Hero(name = "홍길동", hp = 100)
+```
+
+### 인터페이스를 변수의 타입으로 사용하기
+```kotlin
+interface Human {
+    // 말하기 동작을 정의
+    fun speak()
+}
+
+val human: Human = Dancer(name = "댄서", hp = 100)
+```
+
+### 메소드 오버로딩
+
+```kotlin
+abstract class Character(val name: String, var hp: Int) {
+    abstract fun attack(slime: Slime)
+}
+class Hero(name: String, hp: Int) : Character(name, hp) {
+    override fun attack(slime: Slime) {
+        println("$name $slime을 공격했다.")
+        println("10의 데미지")
+        slime.hp -= 10
+    }
+    
+    fun attack(goblin: Goblin) {
+        // 고블린 공격 
+    }
+}
+```
+
+-> 이름이 같고 Input 형식이 다른 메소드를 추가로 정의 가능 
+
+### 정리
+인스턴스를 애매하게 퉁치기
+- 상속에 의한 is-a 관계가 성립한다면, 인스턴스를 부모 클래스 타입의 변수에 대입할 수 있다. 
+- 부모 클래스 타입 변수에 대입하는 것으로, 퉁 칠 수 있음 
+
+상자의 타입 과 내용의 타입의 역할
+- 어떤 멤버를 이용할 수 있는가는 상자의 타입이 결정한다.
+- 멤버가 어떻게 움직이는지는 내용의 타입이 결정한다. 
+
+취급 변경
+- as 키워드를 사용하여 타입 캐스팅을 수행한다.
+- is 키워드를 사용하여 타입을 검사할 수 있다. 
+
+다형성
+- 같은 부모를 가지는 다른 인스턴스를 동일시하여, 부모 클래스 타입에 담을 수 있다.
+- 마찬가지로, 부모 클래스 타입의 인수나 리턴 값을 이용하여, 다른 클래스를 모아서 처리 가능
+- 동일시 취급해도, 각각의 인스턴스는 각 클래스의 정의를 따르고 다른 동작을 한다. 
+
+
 
 
 
