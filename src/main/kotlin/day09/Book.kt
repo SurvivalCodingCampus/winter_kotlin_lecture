@@ -7,7 +7,7 @@ class Book(
     val title: String,
     val author: String,
     val publishedDate: LocalDateTime = LocalDateTime.now(),
-): Comparable<Book> {
+): Comparable<Book>, Comparator<Book> {
     override fun equals(other: Any?): Boolean {
         other as Book
         return if(title.equals(other.title) &&
@@ -24,6 +24,10 @@ class Book(
         return "title: $title\n author: $author\n publishedDate: ${publishedDate.format(DateTimeFormatter.ofPattern("YYYY-MM-dd"))}"
     }
 
+    override fun hashCode(): Int {
+        return title.hashCode() * 31 + publishedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).hashCode()
+    }
+
     fun copy(): Book {
         val newTitle: String = title.toCharArray().toString()
         val newAuthor: String = author.toCharArray().toString()
@@ -38,49 +42,54 @@ class Book(
         println("publishedDate: ${publishedDate.format(DateTimeFormatter.ofPattern("YYYY-MM-dd"))}")
     }
 
+    override fun compare(o1: Book?, o2: Book?): Int {
+        TODO("Not yet implemented")
+    }
 }
 
-// 잠시 테스트 한 내용
-//fun main() {
-//    val book1: Book = Book("good book", "good author", LocalDateTime.of(2024, 12, 27, 12, 52))
-//    val book2: Book = Book("good book", "good author", LocalDateTime.of(2024, 11, 12, 10, 54))
-//
-//    println("title: ${book1.title}")
-//    println("author: ${book1.author}")
-//    println("publishDate: ${book1.publishedDate.format(DateTimeFormatter.ofPattern("YYYY-MM-dd"))}")
-//
-//    if(book1 == book2)
-//        println("equal")
-//    else
-//        println("not equal")
-//
-//    println("-----not sorted------")
-//    var list: List<Book> = listOf(book1, book2)
-//    for(book in list)
-//        book.showBookInfo()
-//    list = list.sorted()
-//    println("------sorted------")
-//    for(book in list)
-//        book.showBookInfo()
-//    println("-----deep copy------")
-//    val book3: Book = book1.copy()
-//    if(book3 === book1)
-//        println("equal book class")
-//    else
-//        println("not equal book class")
-//
-//    if(book3.title === book1.title)
-//        println("equal title")
-//    else
-//        println("not equal title")
-//
-//    if(book3.author === book1.author)
-//        println("equal author")
-//    else
-//        println("not equal author")
-//
-//    if(book3.publishedDate === book1.publishedDate)
-//        println("equal publishedDated")
-//    else
-//        println("not equal publishedDated")
-//}
+ //잠시 테스트 한 내용
+fun main() {
+    val book1: Book = Book("good book", "good author", LocalDateTime.of(2024, 12, 27, 12, 52))
+    val book2: Book = Book("good book", "good author", LocalDateTime.of(2024, 11, 12, 10, 54))
+
+    println("title: ${book1.title}")
+    println("author: ${book1.author}")
+    println("publishDate: ${book1.publishedDate.format(DateTimeFormatter.ofPattern("YYYY-MM-dd"))}")
+
+    if(book1 == book2)
+        println("equal")
+    else
+        println("not equal")
+
+    println("-----not sorted------")
+    var list: List<Book> = listOf(book1, book2)
+    for(book in list)
+        book.showBookInfo()
+    list = list.sorted()
+    println("------sorted------")
+    for(book in list)
+        book.showBookInfo()
+    println("-----deep copy------")
+    val book3: Book = book1.copy()
+    if(book3 === book1)
+        println("equal book class")
+    else
+        println("not equal book class")
+
+    if(book3.title === book1.title)
+        println("equal title")
+    else
+        println("not equal title")
+
+    if(book3.author === book1.author)
+        println("equal author")
+    else
+        println("not equal author")
+
+    if(book3.publishedDate === book1.publishedDate)
+        println("equal publishedDated")
+    else
+        println("not equal publishedDated")
+
+
+}
