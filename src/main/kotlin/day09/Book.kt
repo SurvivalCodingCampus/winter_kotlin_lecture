@@ -29,8 +29,8 @@ class Book(
     }
 
     fun copy(): Book {
-        val newTitle: String = title.toCharArray().toString()
-        val newAuthor: String = author.toCharArray().toString()
+        val newTitle: String = title.toCharArray().joinToString("")
+        val newAuthor: String = author.toCharArray().joinToString("")
         val newPublishedDate: LocalDateTime = LocalDateTime.of(publishedDate.year, publishedDate.month, publishedDate.dayOfMonth, publishedDate.hour, publishedDate.minute)
         val newBook: Book = Book(newTitle, newAuthor, newPublishedDate)
         return newBook
@@ -69,6 +69,7 @@ fun main() {
     println("------sorted------")
     for(book in list)
         book.showBookInfo()
+
     println("-----deep copy------")
     val book3: Book = book1.copy()
     if(book3 === book1)
@@ -91,5 +92,7 @@ fun main() {
     else
         println("not equal publishedDated")
 
+     println("----- check book3 -----")
+     book3.showBookInfo()
 
 }
