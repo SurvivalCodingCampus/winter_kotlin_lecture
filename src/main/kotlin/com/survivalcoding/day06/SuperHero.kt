@@ -1,6 +1,6 @@
-package com.survivalcoding.day06
+package com.survivalcoding.com.survivalcoding.day06
 
-import com.survivalcoding.day03.Hero
+import com.survivalcoding.com.survivalcoding.day03.Hero
 
 class SuperHero(
     name: String,

@@ -1,4 +1,4 @@
-package com.survivalcoding.day03
+package com.survivalcoding.com.survivalcoding.day03
 
 class Slime(var hp: Int, val suffix: String) {
     val level = 10

@@ -1,4 +1,4 @@
-package com.survivalcoding.day02
+package com.survivalcoding.com.survivalcoding.day02
 
 const val MAX_COUNT = 8
 

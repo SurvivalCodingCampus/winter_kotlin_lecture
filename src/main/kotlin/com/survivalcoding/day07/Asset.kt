@@ -1,4 +1,4 @@
-package com.survivalcoding.day07
+package com.survivalcoding.com.survivalcoding.day07
 
 abstract class Asset(
     var name: String,

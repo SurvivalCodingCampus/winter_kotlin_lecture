@@ -1,6 +1,6 @@
-package com.survivalcoding.day04
+package com.survivalcoding.com.survivalcoding.day04
 
-import com.survivalcoding.day03.Hero
+import com.survivalcoding.com.survivalcoding.day03.Hero
 
 fun main() {
 

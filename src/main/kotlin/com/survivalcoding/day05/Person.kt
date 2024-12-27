@@ -1,4 +1,4 @@
-package com.survivalcoding.day05
+package com.survivalcoding.com.survivalcoding.day05
 
 import java.time.LocalDate
 

@@ -1,6 +1,6 @@
-package com.survivalcoding.day05
+package com.survivalcoding.com.survivalcoding.day05
 
-import com.survivalcoding.day03.Hero
+import com.survivalcoding.com.survivalcoding.day03.Hero
 
 class Person(
     var name: String,

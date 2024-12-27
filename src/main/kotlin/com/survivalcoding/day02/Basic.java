@@ -1,4 +1,4 @@
-package day02;
+package com.survivalcoding.day02;
 
 import java.util.ArrayList;
 import java.util.List;

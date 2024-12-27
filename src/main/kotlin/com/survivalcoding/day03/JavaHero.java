@@ -1,4 +1,4 @@
-package day03;
+package com.survivalcoding.day03;
 
 public class JavaHero {
     private String name;

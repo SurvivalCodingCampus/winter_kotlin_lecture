@@ -1,6 +1,6 @@
 package day03
 
-import com.survivalcoding.day03.Hero
+import com.survivalcoding.com.survivalcoding.day03.Hero
 import org.junit.Assert.assertEquals
 
 class JavaHeroTest {

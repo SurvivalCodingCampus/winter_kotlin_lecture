@@ -1,4 +1,4 @@
-package com.survivalcoding.day05
+package com.survivalcoding.com.survivalcoding.day05
 
 fun fireball(damage: Int): Unit {
     println("데미지 : $damage")

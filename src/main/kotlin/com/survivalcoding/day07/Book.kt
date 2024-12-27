@@ -1,4 +1,4 @@
-package com.survivalcoding.day07
+package com.survivalcoding.com.survivalcoding.day07
 
 class Book(
     name: String,

@@ -1,4 +1,4 @@
-package com.survivalcoding.day06
+package com.survivalcoding.com.survivalcoding.day06
 
 
 class Wand(

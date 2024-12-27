@@ -1,6 +1,6 @@
-package com.survivalcoding.day07
+package com.survivalcoding.com.survivalcoding.day07
 
-import com.survivalcoding.day03.Slime
+import com.survivalcoding.com.survivalcoding.day03.Slime
 
 
 //abstract class Runnable {

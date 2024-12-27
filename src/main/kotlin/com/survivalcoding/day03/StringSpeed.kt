@@ -1,4 +1,4 @@
-package com.survivalcoding.day03
+package com.survivalcoding.com.survivalcoding.day03
 
 import kotlin.time.measureTime
 
