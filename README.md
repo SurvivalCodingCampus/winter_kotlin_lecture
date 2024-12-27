@@ -7,6 +7,7 @@
 - [2024-12-18](src/docs/daily/2024-12-18.md) - Kotlin 인스턴스와 클래스
 - [2024-12-19](src/docs/daily/2024-12-19.md) - Kotlin 클래스 생성자와 companion object
 - [2024-12-20](src/docs/daily/2024-12-20.md) - Kotlin 캡슐화와 컬렉션
+- [2024-12-27](src/docs/daily/2024-12-27.md) - 인스턴스 기본 조작
 
 ## 💻 작성 코드
 
@@ -28,6 +29,9 @@
     - [WandTest.kt](src/test/kotlin/day05/WandTest.kt) - 지팡이(Wand) Test Code
     - [WizardTest.kt](src/test/kotlin/day05/WizardTest.kt) - 마법사(Wizard) Test Code
     - [PersonTest.kt](src/test/kotlin/day05/PersonTest.kt) - Person Test Code
+- Day 9
+    - [Book.kt](src/main/kotlin/day09/Book.kt) - 책(Book) 클래스
+    - [BookTest.kt](src/test/kotlin/day09/BookTest.kt) - 책(Book) Test Code
 
 ## 📚 주제별 정리
 
