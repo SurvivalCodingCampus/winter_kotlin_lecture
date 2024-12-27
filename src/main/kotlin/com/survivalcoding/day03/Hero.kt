@@ -20,12 +20,7 @@ const val HERO_MONEY = 100
 open class Hero(
     name: String,
     hp: Int = 100,
-) { // 초기화
-
-    init {
-        // 생성자 이후에 호출 영역
-        println("Hero init 블럭이다 1")
-    }
+) : Comparable<Hero> { // 초기화
 
     var hp: Int = hp
         private set
@@ -79,4 +74,31 @@ open class Hero(
         // 없으면 뽕
         return "뽕"
     }
+
+    override fun toString(): String {
+        return "Hero(food='$food', name='$name', hp=$hp)"
+    }
+
+    override fun compareTo(other: Hero): Int {
+        return hp.compareTo(other.hp)
+//        return name.compareTo(other.name)
+    }
+
+
+    // 동등성 규칙 수정
+    override fun equals(other: Any?): Boolean {
+        return name == (other as Hero).name
+    }
+
+    override fun hashCode(): Int {
+        return super.hashCode()
+    }
+
+    fun copy(
+        name: String = this.name,
+        hp: Int = this.hp,
+    ): Hero {
+        return Hero(name, hp)
+    }
+
 }

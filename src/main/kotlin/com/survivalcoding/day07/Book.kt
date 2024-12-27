@@ -6,4 +6,21 @@ class Book(
     color: String,
     var isbn: String,
     weight: Double,
-) : TangibleAsset(name, price, color, weight)
+) : TangibleAsset(name, price, color, weight) {
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+        if (!super.equals(other)) return false
+
+        other as Book
+
+        return isbn == other.isbn
+    }
+
+    override fun hashCode(): Int {
+        var result = super.hashCode()
+        result = 31 * result + isbn.hashCode()
+        return result
+    }
+}
