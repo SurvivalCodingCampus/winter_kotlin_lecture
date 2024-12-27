@@ -177,10 +177,10 @@ package "Core" {
     abstract class Vitality {
         +value
         +max
-        {abstract}takeDamage(amount:Int))
+        {abstract}takeDamage(amount:Int)
     }
     class BasicHp extends Vitality  {
-        +takeDamage(amount:Int))
+        +takeDamage(amount:Int)
     }
 
     class AutoHealedHp extends BasicHp implements AutoHealed  {
