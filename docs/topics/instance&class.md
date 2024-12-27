@@ -393,6 +393,119 @@ class Hero(name: String, hp: Int) : Character(name, hp) {
 - 동일시 취급해도, 각각의 인스턴스는 각 클래스의 정의를 따르고 다른 동작을 한다. 
 
 
+### 인스턴스 기본 조작
+
+### Object 클래스의 기본 기능 
+1. Java에서 모든 클래스는 Object 클래스의 메서드와 프로퍼티를 가지고 있다.
+2. Java에서 Object 타입 변수에는 모든 인스턴스를 대입할 수 있다. 
+3. Kotlin에서는 Any, 하지만 근본은 Object를 따름
+
+<Object 클래스의 대표 메서드>
+- toString() : 문자열 표현을 얻음
+- equals(): 비교(Kotlin 에서는 == 과 동일함)
+- hashCode(): 해시값을 얻음
+
+### toString()
+- 오버라이드하여 원하는 결과를 얻도록 수정할 수 있음
+
+
+
+### equals()
+- equals()를 재정의 하여 ==으로 비교시 나만의 동등성 규칙을 정의할 수 있다.
+- List에서 동등성 비교 시 사용됨 
+
+### hashCode()
+- hashCode()를 재정의하면 Set, Map 내부에서의 동등성 규칙으로 사용 됨 
+
+
+-> 클래스 내부의 모든 레퍼런스의 동등함을 비교해야 한다. 
+
+
+### Set, Map의 동작 원리
+Set, Map 계열은 요소를 검색할 때 hashCode를 사용하여 빠르다. List는 순차검색이라 느림
+1. 모든 객체는 해시값을 가진다.
+2. 동일한 객체는 항상 같은 해시값을 가진다.
+
+
+### 리스트에서 요소 정렬 
+- List.sorted() 메서드는 Comparable을 구현한 객체를 가지는 컬렉션 내부를 정렬해 줌 
+
+### 미리 정렬 규칙을 정하기 위한 Comparable 인터페이스 
+```java
+public interface Comparable<in T> {
+    public operator fun compareTo(other:T):Int
+}
+```
+
+### copy 메서드
+```kotlin
+class Person(
+    val name: String,
+    val age: Int
+) {
+    fun copy(
+        name: String = this.name,
+        age: Int = this.age
+    ) = Person(name, age)
+}
+```
+
+-> Primitive 타입과 String 복사
+
+
+### 얕은 복사
+```kotlin
+class Address(
+    var street: String
+)
+
+class Person(
+    val name: String,
+    val age: Int,
+    val address: Address
+) {
+    fun shallowCopy() = Person(name, age, address)
+}
+```
+
+### 깊은 복사
+
+```kotlin
+class Address(
+    var street: String
+) {
+    fun deepCopy() = Address(street)
+}
+
+class Person(
+    val name: String,
+    val age: Int,
+    val address: Address
+) {
+    fun deepCopy() = Person(name, age, address.deepCopy())  // 주소 객체도 새로 생성 
+}
+```
+
+### Data class
+- Kotlin에서는 data class로 정의하면 copy()를 통해 복사를 제공함(분류로는 얕은 복사)
+
+
+### Data class의 효과
+다음 메서드를 정의해준다.
+
+- equals()
+- hashCode()
+- toString()
+
+-> 다음 메서드를 추가해준다. 얕은 복사 기본 지원
+- copy()
+
+
+
+
+
+
+
 
 
 
