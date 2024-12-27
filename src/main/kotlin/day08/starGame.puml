@@ -14,7 +14,7 @@ interface Fixable{
     fun fix(target:Mechanic)
 }
 interface Healable{
-    fun heal(target:BionicUnit)
+    fun heal(target:Recoverable)
 }
 
 interface Recoverable
@@ -36,6 +36,7 @@ interface Movable{
 }
 
 interface GradualRecovery{
+    fun gradualRecovery()
 }
 
 class User{
@@ -92,7 +93,9 @@ class dragun extends ProtossMechanicUnit
 
 
 '건물
-abstract class Structure extends Element
+abstract class Structure extends Element{
+    fun createUnit(cost:Resource):Unit
+}
 abstract class TerranStructure extends Structure implements Mechanic, Terran
 abstract class ZergStructure extends Structure implements Bionic, Zerg
 abstract class ProtossStructure extends Structure implements Mechanic, Protoss
