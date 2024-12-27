@@ -1,8 +1,8 @@
-package org.example.day6
+package org.example.day06
 
-import org.example.day3.Hero
-import org.example.day5.Wand
-import org.example.day5.Wizard
+import org.example.day03.Hero
+import org.example.day05.Wand
+import org.example.day05.Wizard
 
 class GreatWizard(
     name: String,

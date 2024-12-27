@@ -1,4 +1,4 @@
-package org.example.day7
+package org.example.day07
 
 abstract class IntangibleAsset(
     name: String,

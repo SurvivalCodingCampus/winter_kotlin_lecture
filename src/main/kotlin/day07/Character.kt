@@ -1,6 +1,6 @@
-package org.example.day7
+package org.example.day07
 
-import org.example.day3.Slime
+import org.example.day03.Slime
 
 fun main() {
 //    val character = Character("", 10)

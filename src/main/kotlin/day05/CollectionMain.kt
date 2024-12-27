@@ -1,4 +1,6 @@
-package org.example.day5
+package org.example.day05
+
+import org.example.day05.Wizard
 
 fun fireball(damage: Int): Unit {
     println("데미지 : $damage")

@@ -1,11 +1,12 @@
-package org.example.day6
+package org.example.day06
 
-import org.example.day3.Hero
-import org.example.day3.Slime
+import org.example.day03.Hero
+import org.example.day03.Slime
 
-class PoisonSlime(
+class PoisonSlime(  // 주석 처리한 이유 : Slime 클래스 인스턴스의 기본 조작 단원에서 open class에서 data class로 변경해서
+    hp: Int,
     suffix: String,
-) : Slime(suffix) {
+) /*: Slime(hp,suffix) {
     companion object {
         const val ATTACK_CHANCE_COUNT = 5
     }
@@ -37,7 +38,7 @@ class PoisonSlime(
 }
 
 fun main() {
-    val poisonSlime = PoisonSlime("A")
+    val poisonSlime = PoisonSlime(10, "A")
     val hero = Hero("용사", hp = 100)
     poisonSlime.attack(hero)
-}
+}*/

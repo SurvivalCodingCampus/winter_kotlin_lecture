@@ -1,4 +1,4 @@
-package org.example.day6
+package org.example.day06
 
 class Wand(
     name: String

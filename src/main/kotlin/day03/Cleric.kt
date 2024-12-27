@@ -1,4 +1,4 @@
-package org.example.day3
+package org.example.day03
 
 //const val MAX_HP = 50
 //const val MAX_MP = 10

@@ -1,6 +1,6 @@
-package org.example.day5
+package org.example.day05
 
-import org.example.day3.Hero
+import org.example.day03.Hero
 
 open class Wizard(
     name: String,
