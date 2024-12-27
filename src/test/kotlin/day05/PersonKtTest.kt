@@ -1,4 +1,4 @@
-package day5
+package day05
 
 import org.example.day5.Person
 import org.junit.After

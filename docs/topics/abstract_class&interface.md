@@ -82,11 +82,11 @@
 
 
 ## 💻 예제 코드
-- [추상 클래스 & 인터페이스 수업](../../src/main/kotlin/day7/Character.kt)
-- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day7/Asset.kt)
-- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day7/TangibleAsset.kt)
-- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day7/IntangibleAsset.kt)
-- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day7/Book.kt)
-- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day7/Computer.kt)
-- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day7/Thing.kt)
-- [추상 클래스 & 인터페이스 연습문제 UML](../../src/main/kotlin/day7/Asset.puml)
+- [추상 클래스 & 인터페이스 수업](../../src/main/kotlin/day07/Character.kt)
+- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day07/Asset.kt)
+- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day07/TangibleAsset.kt)
+- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day07/IntangibleAsset.kt)
+- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day07/Book.kt)
+- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day07/Computer.kt)
+- [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day07/Thing.kt)
+- [추상 클래스 & 인터페이스 연습문제 UML](../../src/main/kotlin/day07/Asset.puml)

@@ -1,4 +1,4 @@
-package day5
+package day05
 
 import org.example.day6.GreatWizard
 import org.example.day3.Hero
