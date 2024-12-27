@@ -5,7 +5,7 @@ import org.example.day04.Wizard
 import org.example.day05.Wand
 
 class GreatWizard(
-    name: String?,
+    name: String,
     hp: Int = Wizard.MAX_HP,
     mp: Int = MAX_MP,
     healAbility: Int = 0,

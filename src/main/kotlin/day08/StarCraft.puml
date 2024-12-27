@@ -1,0 +1,178 @@
+@startuml
+'https://plantuml.com/class-diagram
+left to right direction
+skinparam ranksep 550
+skinparam nodesep 50
+'추상클래스 모임
+
+package tribe {
+    abstract class Tribe {
+        name
+        maxHp
+        hp
+    }
+    abstract class Terran
+    abstract class Zerg {
+        regenerate()
+    }
+    abstract class Protoss {
+        shield
+        charch()
+    }
+
+    Tribe <|-- Terran
+    Tribe <|-- Zerg
+    Tribe <|-- Protoss
+}
+
+package categorization {
+    interface Unit {
+            cost
+
+            move()
+        }
+    interface Structure {
+            cost
+    }
+}
+
+package markable {
+    interface Bionic
+    interface Mechanic
+    interface Healable
+
+    'Bionic ..|> Unit
+    'Mechanic ..|> Unit
+    'Bionic ..|> Healable
+    'Healable ..|> Bionic
+}
+
+package functional {
+    interface Attackable {
+        attack()
+    }
+    interface Workable {
+        gatherMineral()
+        gatherGas()
+    }
+    interface Floatable {
+        floating
+
+        float()
+    }
+    interface Moveable {
+        move()
+    }
+
+    Moveable ..|> Floatable
+}
+'클래스 모임
+package thingsT {
+    class Marine
+    class Medic {
+        heal(Healable)
+    }
+    class Tank
+    class Vulture
+    class Scv {
+        repair(Mechanic)
+    }
+
+    class Command
+
+    Terran <|-- Marine
+    Terran <|-- Medic
+    Terran <|-- Tank
+    Terran <|-- Vulture
+    Terran <|-- Scv
+    Terran <|-- Command
+
+    Marine ..[#red]|> Healable
+    Medic ..[#red]|> Healable
+    Marine ..[#red]|> Bionic
+    Medic ..[#red]|> Bionic
+    Tank ..[#red]|> Mechanic
+    Vulture ..[#red]|> Mechanic
+    Scv ..[#red]|> Mechanic
+
+    Marine ..|> Unit
+    Medic ..|> Unit
+    Tank ..|> Unit
+    Vulture ..|> Unit
+    Scv ..|> Unit
+    Command ..|> Structure
+
+    Marine ..[#blue]|> Attackable
+    Tank ..[#blue]|> Attackable
+    Vulture ..[#blue]|> Attackable
+    Scv ..[#blue]|> Attackable
+
+    Scv ..[#blue]|> Workable
+    Scv ..[#red]|> Healable
+
+    Command ..|> Structure
+    Command ..[#blue]|> Moveable
+}
+
+package thingsZ {
+    class Zergling
+    class Hydra
+    class Hatchery
+
+    Zerg <|-- Zergling
+    Zerg <|-- Hydra
+    Zerg <|-- Hatchery
+
+    Zergling ..|> Unit
+    Hydra ..|> Unit
+    Hatchery ..|> Structure
+
+    Zergling ..[#red]|> Healable
+    Hydra ..[#red]|> Healable
+    Zergling ..[#red]|> Bionic
+    Hydra ..[#red]|> Bionic
+
+    Hatchery ..[#red]|> Bionic
+}
+
+package thingsP {
+    class Zealot
+    class Dragun
+    class Cannon
+
+    Protoss <|-- Zealot
+    Protoss <|-- Dragun
+    Protoss <|-- Cannon
+
+    Zealot ..|> Unit
+    Dragun ..|> Unit
+    Cannon ..|> Structure
+
+    Zealot ..[#blue]|> Attackable
+    Dragun ..[#blue]|> Attackable
+    Cannon ..[#blue]|> Attackable
+
+    Zealot ..[#red]|> Healable
+    Zealot ..[#red]|> Bionic
+    Dragun ..[#red]|> Mechanic
+
+}
+package others {
+    abstract Resources {
+        amount
+    }
+    class Mineral
+    class Gas
+    class User {
+        select: Tribe
+    }
+    class room {
+        teamA: Array<User>
+        teamB: Array<User>
+        note: 최대 8:8까지
+    }
+
+    Resources <|.. Mineral
+    Resources <|.. Gas
+}
+@enduml

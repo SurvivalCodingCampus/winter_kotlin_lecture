@@ -5,10 +5,12 @@ class Book(
     price: Int,
     color: String,
     val isbn: String,
-): TangibleAsset(name, price, color) {
+    weight: Double,
+): TangibleAsset(name, price, color, weight) {
     override var weight: Double = 0.0
         get() = field
         set(value) {
             field = if(value < 0.0) throw IllegalArgumentException("책의 무게가 음수일리 없습니다.") else value
         }
+
 }
