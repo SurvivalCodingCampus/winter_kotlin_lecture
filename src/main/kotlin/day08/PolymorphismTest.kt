@@ -15,7 +15,15 @@ fun main() {
     y1.a()
     y2.a()
 
+    // 연습문제 3
+    val a: A = A()
+    val b: B = B()
 
+    val ab: List<Y> = listOf(a,b)
+
+    ab.forEach() {
+        it.b()
+    }
 }
 
 class A : Y() {
