@@ -41,7 +41,7 @@
                 - Zealot
                 * healable from Medic
             (2) Mechanic
-                - Dragun
+                - Dragoon
         2) Structure
 
 
@@ -215,7 +215,7 @@ package "Structures" {
     package "Zerg" {
         abstract class ZergStructure extends Structures.Structure
         ZergStructure*-- AutoHealedHp
-        class Hachery extends ZergStructure
+        class Hatchery extends ZergStructure
     }
 
     package "Protoss" {
