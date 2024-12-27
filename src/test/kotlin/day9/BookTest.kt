@@ -33,4 +33,24 @@ class BookTest {
         Assert.assertNotSame(test.publishedDate, copied.publishedDate)
     }
 
+    @Test
+    fun `Book equality test`() {
+        val testA = Book(
+            "A", "John",
+            LocalDateTime(LocalDate.parse("2020-02-02"), LocalTime.fromSecondOfDay(1))
+        )
+        val testB = Book(
+            "A", "John",
+            LocalDateTime(LocalDate.parse("2020-02-02"), LocalTime.fromSecondOfDay(2))
+        )
+        Assert.assertNotSame(testA, testB)
+        Assert.assertEquals(testA, testB)
+
+        val testC = Book(
+            "C", "John",
+            LocalDateTime(LocalDate.parse("2020-02-02"), LocalTime.fromSecondOfDay(2))
+        )
+        Assert.assertNotEquals(testA, testC)
+    }
+
 }
