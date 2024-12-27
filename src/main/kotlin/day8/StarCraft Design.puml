@@ -1,0 +1,291 @@
+# game init
+    - players number
+    - select species
+    - select match option (n:n)
+
+# play game
+    1. select species 1
+    2. 1:1, 2:2 -> can available optional
+
+
+# common status
+    1. hp
+    2. name
+    3. price
+
+# Species
+    1. Terran
+        1) Unit
+            (1) Bionic
+                - Marine, Medic,
+                * Medic -> unattackable, healable for Bionic / scv also available
+            (2) Mechanic
+                - Tank, Vulture, Scv,
+                * scv -> digging resource, fix mechanic(Tank, Vulture, scv)
+        2) Structure
+
+    2. Zerg
+        1) Unit
+            (1) Bionic
+                - Zergling, Hydra
+                - structure
+                * unhealable from Medic
+                * auto heal
+        2) Structure
+            * unhealable from Medic
+
+    3. Protoss
+        * adding protect shield
+        1) Unit
+            (1) Bionic
+                - Zealot
+                * healable from Medic
+            (2) Mechanic
+                - Dragun
+        2) Structure
+
+
+# control Unit
+    1. base control (Unit only)
+        - attack
+        - move
+
+        1) single unit
+
+        2) unit grouping
+            - maximum 10 unit
+            - only Unit
+            - attachable
+            - move
+
+@startuml
+top to bottom direction
+package "Game" {
+    GameManager *-- "*" Game
+    GameManager *-- "*" Player
+
+    Game <-- "2" Team
+    Team o-- "1..2" Player
+
+    Player <- Resource
+    class Game {
+        +teams
+        -entities: Map<String, Entity>
+        +join(player:Player)
+    }
+    class Player {
+        +resources
+        +faction: Faction
+        -controlledEntities: Map<String, Entity>
+        -unitGroups: List<String[]>
+        +groupUnits(String[])
+    }
+
+    note right of Game
+        게임진행 처리를 담당
+    end note
+    class Resource {
+        +name
+        +amount
+        +max
+    }
+    class Team {
+        -players
+        +join(player:Player)
+    }
+    class GameManager <<singleton>> {
+        -games
+        -players
+        +createGame()
+    }
+}
+
+@enduml
+
+@startuml
+package Action {
+    interface Action {
+        +target: Entity
+        {abstract}execute()
+    }
+    abstract class Mover implements Action{
+        +coordinates: Pair<Float, Float>
+    }
+    abstract class Attacker implements Action {
+
+    }
+    abstract class Healer implements Action{
+    }
+    abstract class Miner implements Action{
+    }
+    abstract class Repairer implements Action {
+    }
+
+    class CombinedAction extends Action {
+        -steps: Iterable<Action>
+        +execute()
+    }
+    class Walk extends Mover {
+        +execute()
+    }
+    class RangedAttack extends Attacker {
+        +execute()
+        -attack()
+    }
+    class Mine extends Miner {
+        +execute()
+        -mine(amount:Int)
+    }
+    class Heal extends Healer {
+        +execute()
+        -heal(amount:Int)
+        -isHealable(target:Entity): Bool
+    }
+    class Repair extends Repairer {
+        +execute()
+        -repair(amount:Int)
+        -isRepairable(target:Entity): Bool
+    }
+}
+@enduml
+
+@startuml
+
+interface Repairable
+
+Structures.Structure -[hidden]d- Core.Entity
+Core.Shield -[hidden]down- Units.Unit
+' structure, Unit
+package "Core" {
+    Entity o-down- Vitality
+    abstract class Entity {
+        +name: String
+        +cost: Resource[]
+        +faction: Faction
+        +vitality: Vitality
+        +possibleActions: Set<Action>
+    }
+
+
+    interface Shielded {
+    }
+
+    interface AutoHealed {
+        recover()
+    }
+
+    abstract class Vitality {
+        +value
+        +max
+        {abstract}takeDamage(amount:Int))
+    }
+    class BasicHp extends Vitality  {
+        +takeDamage(amount:Int))
+    }
+
+    class AutoHealedHp extends BasicHp implements AutoHealed  {
+        -recover()
+    }
+    class ShieldedHp extends BasicHp implements Shielded {
+        +takeDamage(amount:Int)
+        -shield: Shield
+        -handleDamage(amount:Int)
+    }
+
+    class Shield extends AutoHealedHp
+    ShieldedHp +- Shield
+
+    enum Faction {
+     Terran, Zerg, Protoss
+    }
+    Entity <- Faction
+}
+
+
+
+package "Structures" {
+    abstract class Structure extends Core.Entity
+
+    package "Terran" {
+        abstract class TerranStructure extends Structures.Structure implements .Repairable
+        TerranStructure *-- BasicHp
+        class CommandCenter extends TerranStructure
+    }
+
+    package "Zerg" {
+        abstract class ZergStructure extends Structures.Structure
+        ZergStructure*-- AutoHealedHp
+        class Hachery extends ZergStructure
+    }
+
+    package "Protoss" {
+        abstract class ProtossStucture extends Structures.Structure
+        ProtossStucture*-- ShieldedHp
+        class Nexus extends ProtossStucture
+    }
+}
+
+package "Units" {
+    interface Healable
+    abstract class Unit extends Core.Entity {
+        -movingBehavior: Mover
+        +move
+    }
+
+    abstract class Mechanic extends Unit implements .Repairable
+    abstract class Bionic extends Unit implements Healable
+
+    package "Terran" {
+        package "Bionic" {
+            class Medic extends Units.Bionic {
+                -healBehavior: Healer
+                +Medic(hp:BasicHp)
+            }
+            class Marine extends Units.Bionic {
+                -attackBehavior: Attacker
+                +Marine(hp:BasicHp)
+            }
+        }
+        package "Mechanic" {
+            class Vulture extends Units.Mechanic {
+                -attackBehavior: Attacker
+                +Vulture(hp:BasicHp)
+            }
+            class Tank extends Units.Mechanic {
+                -attackBehavior: Attacker
+                +Tank(hp:BasicHp)
+            }
+            class Scv extends Units.Mechanic implements Units.Healable{
+                -attackBehavior: Attacker
+                -repairBehavior: Repairer
+                +Scv(hp:BasicHp)
+           }
+        }
+    }
+
+    package "Protoss" {
+        class Zealot extends Units.Bionic {
+            -attackBehavior: Attacker
+            +Zealot(hp:ShieldedHp)
+        }
+        class Dragoon extends Units.Mechanic{
+            -attackBehavior: Attacker
+            +Dragoon(hp:ShieldedHp)
+       }
+
+    }
+
+    package "Zerg" {
+        class Zergling extends Units.Bionic {
+            -attackBehavior: Attacker
+            +Zergling(hp:AutoHealedHp)
+        }
+        class Hydra extends Units.Bionic {
+            -attackBehavior: Attacker
+            +Hydra(hp:AutoHealedHp)
+        }
+    }
+
+}
+
+@enduml
