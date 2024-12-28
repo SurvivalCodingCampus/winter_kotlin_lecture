@@ -92,3 +92,6 @@
 - [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day07/Computer.kt)
 - [추상 클래스 & 인터페이스 연습문제](../../src/main/kotlin/day07/Thing.kt)
 - [추상 클래스 & 인터페이스 연습문제 UML](../../src/main/kotlin/day07/Asset.puml)
+
+
+```
