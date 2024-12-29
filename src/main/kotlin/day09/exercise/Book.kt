@@ -34,16 +34,14 @@ data class Book(
     }
 
     override fun hashCode(): Int {
-        var result = title.hashCode()
-        result = 31 * result + publishedDate.hashCode()
-        return result
+        return 31 * title.hashCode() + publishedDate.hashCode()
     }
 
     // 깊은 복사 메소드
     fun deepCopy(
         title: String = this.title,
         author: String = this.author,
-        publishedDate: LocalDateTime = LocalDateTime.now(),
+        publishedDate: LocalDateTime = this.publishedDate
     ): Book = Book(title, author, publishedDate)
 }
 
