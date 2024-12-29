@@ -4,6 +4,7 @@ import org.example.day09.Book
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.time.LocalDateTime
 
 class BookTest {
 
@@ -24,14 +25,25 @@ class BookTest {
     @Test
     fun `Book 인스턴스를 담고 있는 컬렉션에 대해 sorted() 를 수행하면 출간일이 신상 순서대로 정렬되어야 함 `() {
         val books = listOf(
-            Book(title = "titleA", author = "A"),
-            Book(title = "titleB", author = "B"),
-            Book(title = "titleC", author = "C"),
-            Book(title = "titleD", author = "D")
+            Book(title = "titleB", author = "B", publishedDate = LocalDateTime.of(2024, 2, 1, 0, 0)),
+            Book(title = "titleA", author = "A", publishedDate = LocalDateTime.of(2024, 1, 1, 0, 0)),
+            Book(title = "titleD", author = "D", publishedDate = LocalDateTime.of(2025, 1, 1, 0, 0)),
+            Book(title = "titleC", author = "C", publishedDate = LocalDateTime.of(2024, 2, 20, 0, 0))
         )
 
         val sortedBooks = books.sortedBy { it.publishedDate }
-        sortedBooks.forEach { println(it.publishedDate) }
+
+        // 기대값 리스트
+        val expectedBooks = listOf(
+            Book(title = "titleA", author = "A", publishedDate = LocalDateTime.of(2024, 1, 1, 0, 0)),
+            Book(title = "titleB", author = "B", publishedDate = LocalDateTime.of(2024, 2, 1, 0, 0)),
+            Book(title = "titleC", author = "C", publishedDate = LocalDateTime.of(2024, 2, 20, 0, 0)),
+            Book(title = "titleD", author = "D", publishedDate = LocalDateTime.of(2025, 1, 1, 0, 0))
+        )
+
+        // 정렬 결과와 기대값 비교
+        assertEquals(expectedBooks, sortedBooks)
+
     }
 
 }
