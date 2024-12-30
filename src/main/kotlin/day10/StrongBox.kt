@@ -5,11 +5,11 @@ fun main() {
     val something1: Any = "money"
     val something2: Any = "gold"
     strongBox.put(something1)
-    strongBox.get()
-    println(strongBox.tryCount)
-    while (true) {
+    println(strongBox.get())
+    println(strongBox.getTryCount())
+    while (0 <= strongBox.getMaxTryCount()) {
         if (null != strongBox.get()) {
-            println("사용횟수 : ${strongBox.tryCount} 금고안 인스턴스 : ${strongBox.get()} ")
+            println("사용횟수 : ${strongBox.getTryCount()} 금고안 인스턴스 : ${strongBox.get()} ")
             break
         }
     }
@@ -23,7 +23,7 @@ class StrongBox<Any>(
         get() = field
     private var instanceCount = INSTANCE_COUNT
     private var maxTryCount = 0
-    var tryCount = 0        // 확인용으로 public으로 설정함
+    private var tryCount = 0
 
     companion object {
         const val INSTANCE_COUNT = 1
@@ -48,7 +48,6 @@ class StrongBox<Any>(
             instanceCount--
         } else {
             throw IllegalArgumentException("이미 인스턴스가 1개 존재합니다")
-//            println("이미 인스턴스가 1개 존재합니다")
         }
     }
 
@@ -59,6 +58,9 @@ class StrongBox<Any>(
             return null
         } else return instance
     }
+
+    fun getMaxTryCount() = maxTryCount
+    fun getTryCount() = tryCount
 }
 
 enum class KeyType {
