@@ -12,7 +12,7 @@ class Book(
         publishedDate.format(DateTimeFormatter.ISO_DATE)
 
     override fun compareTo(other: Book): Int {
-        return formattedPublishedDate.compareTo(other.formattedPublishedDate)
+        return -formattedPublishedDate.compareTo(other.formattedPublishedDate)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -29,7 +29,6 @@ class Book(
 
     override fun hashCode(): Int {
         var result = title.hashCode()
-        result = 31 * result + author.hashCode()
         result = 31 * result + formattedPublishedDate.hashCode()
         return result
     }

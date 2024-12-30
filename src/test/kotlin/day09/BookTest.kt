@@ -4,12 +4,9 @@ import org.example.day09.Book
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import java.time.LocalDate
 import java.time.LocalDateTime
 
 class BookTest {
-    private val books = mutableListOf<Book>()
-
     @Before
     fun setUp() {
 
@@ -54,7 +51,7 @@ class BookTest {
             ),
         )
 
-        val expect = "12345"
+        val expect = "54321"
         var result = ""
         books.sorted().forEach { result += it.title }
         assertEquals(expect, result)
