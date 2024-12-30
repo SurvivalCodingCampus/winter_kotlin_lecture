@@ -1,0 +1,110 @@
+@startuml
+' 주요 클래스 정의
+class User {
+    + selectTribe(tribe: Tribe)
+}
+class Team {
+    + users: List<User>
+    + addUser(user: User)
+}
+class MatchingGame {
+    + List<Team>
+}
+class Resource
+
+' 주요 인터페이스 정의
+interface Terran
+interface Protoss {
+    + shield: Int
+}
+interface Zerg
+interface Movable {
+    + move()
+}
+interface Attackable {
+    + attack()
+}
+interface GradualRecovery {
+    + gradualRecovery()
+}
+interface Fixable {
+    + fix(target: Mechanic)
+}
+interface Heal {
+    + heal(target: Recoverable)
+}
+interface Recoverable
+interface Bionic
+interface Mechanic
+
+' 유닛 및 구조물
+abstract class Unit {
+    + hp: Int
+    + maxHp: Int
+    + armor: Int
+    + name: String
+    + attachPoint: Int
+    + speed: Int
+    + cost: Resource
+}
+abstract class Structure {
+    + createUnit(cost: Resource): Unit
+}
+
+' 세부 유닛 정의
+class Marine
+class Medic
+class SCV
+class Tank
+class Vulture
+class Zealot
+class Zergling
+class Hydra
+
+' 구조물 정의
+abstract class TerranStructure
+abstract class ProtossStructure
+abstract class ZergStructure
+
+' 유닛 하위 클래스
+abstract class TerranMechanicUnit
+abstract class ProtossMechanicUnit
+abstract class ZergBionicUnit
+abstract class TerranBionicUnit
+
+' 관계 설정
+User --> Tribe
+Team --> User
+MatchingGame --> Team
+
+TerranStructure <|-- Structure
+ProtossStructure <|-- Structure
+ZergStructure <|-- Structure
+
+Unit <|-- TerranMechanicUnit
+Unit <|-- ProtossMechanicUnit
+Unit <|-- ZergBionicUnit
+Unit <|-- TerranBionicUnit
+
+TerranMechanicUnit <|-- SCV
+TerranMechanicUnit <|-- Tank
+TerranMechanicUnit <|-- Vulture
+TerranBionicUnit <|-- Marine
+TerranBionicUnit <|-- Medic
+ProtossMechanicUnit <|-- Zealot
+ZergBionicUnit <|-- Zergling
+ZergBionicUnit <|-- Hydra
+
+' 인터페이스 구현
+Marine ..|> Bionic
+Medic ..|> Heal
+SCV ..|> Fixable
+Tank ..|> Movable
+Zealot ..|> Movable
+Zergling ..|> Movable
+Hydra ..|> Movable
+Unit ..|> Attackable
+Unit ..|> Recoverable
+ProtossMechanicUnit ..|> GradualRecovery
+
+@enduml
