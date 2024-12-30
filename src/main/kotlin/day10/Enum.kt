@@ -6,7 +6,6 @@ fun main() {
 
 }
 
-
 enum class AuthState(val code: Int) {
     AUTHENTICATED(0), UNAUTHENTICATED(1), UNKNOWN(2)
 }
