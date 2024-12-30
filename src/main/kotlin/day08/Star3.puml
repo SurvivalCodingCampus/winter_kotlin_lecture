@@ -1,0 +1,60 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'efef
+
+interface Tribe
+
+interface Terran implements Tribe
+
+interface Zerg implements Tribe
+
+interface Protoss implements Tribe, Barrier
+
+interface Mechanic
+
+interface Barrier
+
+interface Fixable
+
+interface Attackable
+
+interface Bionic
+
+class MechanicUnit extends Unit implements Mechanic
+
+class BionicUnit extends Unit implements Bionic
+
+class TerranMechanicUnit extends MechanicUnit implements Terran
+
+class TerranBionicUnit extends BionicUnit implements Terran
+class Unit extends Element
+class Structure extends Element
+
+class Element
+
+'테란 유닛
+class Marine extends TerranBionicUnit implements Attackable
+class Tank extends TerranMechanicUnit implements Attackable
+class SCV extends TerranMechanicUnit implements Attackable, Fixable
+class Vulture extends TerranMechanicUnit implements Attackable
+class Medic extends TerranBionicUnit
+
+class ZergBionicUnit extends BionicUnit implements Zerg
+'저그 유닛
+class Zergling extends ZergBionicUnit implements Attackable
+class Hydra extends ZergBionicUnit implements Attackable
+
+'플토 유닛
+class ProtossBionicUnit extends BionicUnit implements Protoss
+class ProtossMechanicUnit extends MechanicUnit implements Protoss
+class Zealot extends ProtossBionicUnit implements Attackable
+class Dragun extends ProtossMechanicUnit implements Attackable
+
+'건물
+class TerranStructure extends Structure implements Mechanic, Terran
+class ZergStructure extends Structure implements Bionic, Zerg
+class ProtossStructure extends Structure implements Mechanic, Protoss
+
+
+@enduml

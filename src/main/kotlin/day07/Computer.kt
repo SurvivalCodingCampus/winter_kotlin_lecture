@@ -9,3 +9,8 @@ class Computer (
 ) : TangibleAsset(name, price, color, weight) {
 
 }
+
+fun main() {
+    Computer(
+        "cc", 3, "red", 3.3,"dd")
+}

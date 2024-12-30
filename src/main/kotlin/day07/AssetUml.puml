@@ -1,19 +1,30 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class TangibleAsset extends Asset implements Thing {
-
+abstract class Asset {
+    var name: String,
+    var price: Int,
 }
 
-class Book extends TangibleAsset
+abstract class IntangibleAsset extends Asset {}
 
-class Computer extends TangibleAsset
+abstract class TangibleAsset extends Asset implements Thing {
+    var color: String
+}
+
+class Book extends TangibleAsset {
+    var isbn: String
+}
+
+class Computer extends TangibleAsset {
+    var markerName: String
+}
 
 interface Thing {
-    '인터페이스는 필드를 갖지 않음
+    '인터페이스는 필드를 갖지 않음 / 생김새가 그럴뿐 getter, setter가 함축됨
     'double getWeight();
     'void setWeight(double weight);
-    {abstract} + weight: Double
+    {abstract} + var weight: Double
 }
 
 @enduml

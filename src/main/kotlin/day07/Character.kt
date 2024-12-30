@@ -1,7 +1,6 @@
 package day07
 
 import day03.Slime
-import day05.Human
 
 abstract class Character(
     open var name: String,
