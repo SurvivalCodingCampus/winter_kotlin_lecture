@@ -5,7 +5,8 @@ class Computer(
     price: Int,
     color: String,
     var makerName: String,
-): TangibleAsset(name, price, color) {
+    weight: Double,
+): TangibleAsset(name, price, color, weight) {
     override var weight: Double = 0.0
         get() = field
         set(value) {

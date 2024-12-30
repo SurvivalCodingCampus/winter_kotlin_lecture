@@ -19,7 +19,7 @@ class EnemyTest {
 
     @Before
     fun setUp() {
-        hero = Hero("hero",5, Sword("common sword", 5))
+        hero = Hero("hero",5, 12, Sword("common sword", 5))
         wizard = Wizard("wizard", 10, 5, 5, Wand("common wand", 5.0))
         enemy = Enemy("enemy")  // hp = MAX_HP(20)
     }

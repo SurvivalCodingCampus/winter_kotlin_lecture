@@ -7,8 +7,9 @@ import org.example.day04.Sword
 class SuperHero(
     name: String,
     hp: Int,
+    mp: Int,
     sword: Sword? = null,
-): Hero(name, hp, sword) {
+): Hero(name, hp, mp, sword) {
     var isFlying: Boolean = false
         set(value) {
             field = value

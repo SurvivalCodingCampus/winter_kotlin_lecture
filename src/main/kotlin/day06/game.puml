@@ -1,15 +1,86 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-scale 2
-class Slime
+scale 1
+' 미구현
+class Character {
+    var name: String
+    var hp: Int
+    var mp: Int
 
-class Hero {
-   + int hp
-   - String name
+    fun attack(enemy: Enemy): Unit
+    fun defend(): Unit
+    fun run(): Unit
+}
+class Weapon {
 
-   void attack(Slime slime)
+}
+class WizardWeapon
+class HeroWeapon
+' 구현
+class Enemy {
+    val name: String
+    var hp: Int
+    static val MAX_HP
+    var alive: Boolean
+
+    fun attacked(damage: Int): Unit
 }
 
-class SuperHero extends Hero
+class Slime {
+    var hp: Int
+
+    fun run(): Unit
+    fun attack(hero: Hero): Unit
+}
+
+class PoisonSlime
+class Hero {
+    var sword: Sword?
+    static const val MAX_HP
+
+    fun getHeal(heal: Int): Unit
+    fun sleep(): Unit
+}
+class SuperHero
+class Cleric {
+    val name: String
+    var hp: Int
+    var mp: Int
+    static const val MAX_HP
+    static const val MAX_MP
+
+    fun selfAid(): Unit
+    fun pray(sec: Int): Int
+}
+class Wizard {
+    var name: String
+    var wand: Wand?
+    var mp: Int
+    var hp: Int
+
+    fun heal(hero: Hero): Unit
+}
+class GreatWizard
+class Sword
+class Wand
+
+
+Enemy <|-- Slime
+
+Slime <|-- PoisonSlime
+
+Character <|-- Hero
+Character <|-- Wizard
+Character <|-- Cleric
+
+Hero <|-- SuperHero
+
+Wizard <|-- GreatWizard
+
+Weapon <|-- WizardWeapon
+Weapon <|-- HeroWeapon
+
+WizardWeapon <|-- Wand
+HeroWeapon <|-- Sword
 @enduml
