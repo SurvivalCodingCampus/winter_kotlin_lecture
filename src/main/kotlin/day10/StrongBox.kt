@@ -17,7 +17,7 @@ fun main() {
 }
 
 class StrongBox<T>(
-    keyType: KeyType
+    keyType: KeyType,
 ) {
     private var instance: T? = null
     private var instanceCount = INSTANCE_COUNT
@@ -50,8 +50,8 @@ class StrongBox<T>(
         }
     }
 
-    fun get() : T? {
-        if(maxTryCount != 0) {
+    fun get(): T? {
+        if (maxTryCount != 0) {
             maxTryCount--
             tryCount++
             return null
