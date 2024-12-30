@@ -20,7 +20,6 @@ class StrongBox<T>(
     keyType: KeyType
 ) {
     private var instance: T? = null
-        get() = field
     private var instanceCount = INSTANCE_COUNT
     private var maxTryCount = 0
     private var tryCount = 0
