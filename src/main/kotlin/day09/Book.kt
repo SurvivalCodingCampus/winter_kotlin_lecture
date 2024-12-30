@@ -55,7 +55,8 @@ fun main() {
     val book2 = Book("원피스", "오다2", LocalDateTime.of(2024, 6, 12, 0, 0, 0))
     val book3 = Book("블리치", "오다3", LocalDateTime.of(2000, 12, 24, 0, 0, 0))
 
-    val books = listOf(book1, book2, book3)
+    val books = mutableListOf(book1, book2, book3)
+//    books.sort()
 
     println("같은 책인지 확인 : ${book1 == book11}")
 

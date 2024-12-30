@@ -39,6 +39,7 @@ class BookTest {
         val book6 = Book("블리치", "쿠보", LocalDateTime.of(2000, 12, 24, 8, 9, 58))
 
         var books: List<Book> = mutableListOf(book1,book2,book3,book4, book5, book6)
+//        books.sort()
 
         assertEquals("1989-09-09", books.sorted()[5].publishedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))
         assertEquals("1997-09-09", books.sorted()[4].publishedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))
