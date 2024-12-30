@@ -35,7 +35,9 @@ class Book(
 
     override fun hashCode(): Int {
         var result = title.hashCode()
-        result = 31 * result + publishedDate.hashCode()
+//        result = 31 * result + publishedDate.hashCode()
+        val publishedDateString = publishedDate.toString().slice(0..9)
+        result = 31 * result + publishedDateString.hashCode()
         return result
     }
 
@@ -44,7 +46,18 @@ class Book(
         title: String = this.title,
         author: String = this.author,
     ): Book {
-        val deepCopyValue: LocalDateTime = publishedDate
+
+
+        val deepCopyValue: LocalDateTime = LocalDateTime.of(
+            publishedDate.year,
+            publishedDate.month,
+            publishedDate.dayOfMonth,
+            publishedDate.hour,
+            publishedDate.minute,
+            publishedDate.second,
+            publishedDate.nano,
+        )
+
 
         return Book(title, author, deepCopyValue)
     }
@@ -64,8 +77,6 @@ fun main() {
     println("$value $deepcopy")
     println("compare : ${value == deepcopy} / reference is : ${value === deepcopy}")
     println("compare published Date : ${value.publishedDate == deepcopy.publishedDate} / ${value.publishedDate}, ${deepcopy.publishedDate}")
-
-
 
 
 }
