@@ -1,7 +1,8 @@
 package org.example.day10
 
 fun main() {
-    val nums = mutableListOf<Int>(1, 2, 3, 4)   // <Int> 생략가능
+
+    val nums = mutableListOf(1, 2, 3, 4)    // <Int> 생략가능
     nums.add(10)
 
     val pocket = Pocket<Int>()
@@ -9,6 +10,12 @@ fun main() {
     pocket.put(10)
 
     println(pocket.get())
+
+    // 정규식 Regular Exeprssion
+//    "1,!2,!3".split(
+
+    "aaa" + "bbb"   // "aaabbb"
+
 }
 
 // ver2
@@ -20,6 +27,10 @@ class Pocket<E> {
     }
 
     fun get(): E? = _data
+
+    fun get2(a: E): E {
+        return a
+    }
 }
 
 //// ver1
