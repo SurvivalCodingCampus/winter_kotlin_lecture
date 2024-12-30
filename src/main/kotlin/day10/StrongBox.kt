@@ -1,5 +1,6 @@
 package org.example.day10
 
+import org.example.TestOnlyMethod
 
 class StrongBox<E>(private val key: KeyType) {
     private var _item: E? = null
@@ -15,5 +16,19 @@ class StrongBox<E>(private val key: KeyType) {
             return null
         }
         return _item
+    }
+
+    @TestOnlyMethod
+    fun isSetItem(): Boolean = _item != null
+
+    @TestOnlyMethod
+    fun getKeyType(): KeyType = key
+
+    @TestOnlyMethod
+    fun getTrialCount(): Int = _trialCount
+
+    @TestOnlyMethod
+    fun setTrialCount(trialCount: Int) {
+        _trialCount = trialCount
     }
 }
