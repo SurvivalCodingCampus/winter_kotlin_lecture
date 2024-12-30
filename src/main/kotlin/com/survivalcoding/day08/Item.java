@@ -58,8 +58,4 @@ public class Item {
         return Objects.hash(value, name);
     }
 
-    @Override
-    public Item clone() {
-        return super.clone();
-    }
 }
