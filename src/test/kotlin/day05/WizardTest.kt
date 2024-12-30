@@ -1,7 +1,7 @@
 package day05
 
-import org.example.day3.Hero
-import org.example.day5.Wand
+import org.example.day03.Hero
+import org.example.day05.Wand
 import org.example.day05.Wizard
 import org.junit.After
 import org.junit.Assert.*

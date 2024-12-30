@@ -1,6 +1,6 @@
 package day03
 
-import org.example.day3.Cleric
+import org.example.day03.Cleric
 import org.junit.After
 import org.junit.Before
 import org.junit.Assert.*

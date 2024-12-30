@@ -1,8 +1,8 @@
 package day06
 
-import org.example.day3.Hero
-import org.example.day5.Wand
-import org.example.day6.GreatWizard
+import org.example.day03.Hero
+import org.example.day05.Wand
+import org.example.day06.GreatWizard
 import org.junit.After
 import org.junit.Before
 
