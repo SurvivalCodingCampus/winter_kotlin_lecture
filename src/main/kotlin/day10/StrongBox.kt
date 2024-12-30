@@ -16,10 +16,10 @@ fun main() {
     strongBox.put(something2)
 }
 
-class StrongBox<Any>(
+class StrongBox<T>(
     keyType: KeyType
 ) {
-    private var instance: Any? = null
+    private var instance: T? = null
         get() = field
     private var instanceCount = INSTANCE_COUNT
     private var maxTryCount = 0
@@ -42,7 +42,7 @@ class StrongBox<Any>(
         }
     }
 
-    fun put(instance: Any) {
+    fun put(instance: T) {
         if (instanceCount != 0) {
             this.instance = instance
             instanceCount--
@@ -51,7 +51,7 @@ class StrongBox<Any>(
         }
     }
 
-    fun get() : Any? {
+    fun get() : T? {
         if(maxTryCount != 0) {
             maxTryCount--
             tryCount++
