@@ -327,6 +327,185 @@ open class Hero(
 - 복수의 인터페이스를 부모로 두는 다중상속 효과가 가능
 - 인터페이스를 구현한다고 한다.
 
+### 다형성
+
+
+### 개발을 즐겁게 하는 다형성
+다형성
+- 어떤 것을 이렇게도 볼 수 있고, 저렇게도 볼 수 있는 것
+
+
+### 다형성을 활용하는 방법
+- 선언을 상위 개념으로 인스턴스 생성으로 하위 개념으로 한다.
+- 추상적인 선언 = 상세 정의로 인스턴스화 
+
+```kotlin
+val character: Character = Hero(name = "홍길동", hp = 100)
+```
+
+### 인터페이스를 변수의 타입으로 사용하기
+```kotlin
+interface Human {
+    // 말하기 동작을 정의
+    fun speak()
+}
+
+val human: Human = Dancer(name = "댄서", hp = 100)
+```
+
+### 메소드 오버로딩
+
+```kotlin
+abstract class Character(val name: String, var hp: Int) {
+    abstract fun attack(slime: Slime)
+}
+class Hero(name: String, hp: Int) : Character(name, hp) {
+    override fun attack(slime: Slime) {
+        println("$name $slime을 공격했다.")
+        println("10의 데미지")
+        slime.hp -= 10
+    }
+    
+    fun attack(goblin: Goblin) {
+        // 고블린 공격 
+    }
+}
+```
+
+-> 이름이 같고 Input 형식이 다른 메소드를 추가로 정의 가능 
+
+### 정리
+인스턴스를 애매하게 퉁치기
+- 상속에 의한 is-a 관계가 성립한다면, 인스턴스를 부모 클래스 타입의 변수에 대입할 수 있다. 
+- 부모 클래스 타입 변수에 대입하는 것으로, 퉁 칠 수 있음 
+
+상자의 타입 과 내용의 타입의 역할
+- 어떤 멤버를 이용할 수 있는가는 상자의 타입이 결정한다.
+- 멤버가 어떻게 움직이는지는 내용의 타입이 결정한다. 
+
+취급 변경
+- as 키워드를 사용하여 타입 캐스팅을 수행한다.
+- is 키워드를 사용하여 타입을 검사할 수 있다. 
+
+다형성
+- 같은 부모를 가지는 다른 인스턴스를 동일시하여, 부모 클래스 타입에 담을 수 있다.
+- 마찬가지로, 부모 클래스 타입의 인수나 리턴 값을 이용하여, 다른 클래스를 모아서 처리 가능
+- 동일시 취급해도, 각각의 인스턴스는 각 클래스의 정의를 따르고 다른 동작을 한다. 
+
+
+### 인스턴스 기본 조작
+
+### Object 클래스의 기본 기능 
+1. Java에서 모든 클래스는 Object 클래스의 메서드와 프로퍼티를 가지고 있다.
+2. Java에서 Object 타입 변수에는 모든 인스턴스를 대입할 수 있다. 
+3. Kotlin에서는 Any, 하지만 근본은 Object를 따름
+
+<Object 클래스의 대표 메서드>
+- toString() : 문자열 표현을 얻음
+- equals(): 비교(Kotlin 에서는 == 과 동일함)
+- hashCode(): 해시값을 얻음
+
+### toString()
+- 오버라이드하여 원하는 결과를 얻도록 수정할 수 있음
+
+
+
+### equals()
+- equals()를 재정의 하여 ==으로 비교시 나만의 동등성 규칙을 정의할 수 있다.
+- List에서 동등성 비교 시 사용됨 
+
+### hashCode()
+- hashCode()를 재정의하면 Set, Map 내부에서의 동등성 규칙으로 사용 됨 
+
+
+-> 클래스 내부의 모든 레퍼런스의 동등함을 비교해야 한다. 
+
+
+### Set, Map의 동작 원리
+Set, Map 계열은 요소를 검색할 때 hashCode를 사용하여 빠르다. List는 순차검색이라 느림
+1. 모든 객체는 해시값을 가진다.
+2. 동일한 객체는 항상 같은 해시값을 가진다.
+
+
+### 리스트에서 요소 정렬 
+- List.sorted() 메서드는 Comparable을 구현한 객체를 가지는 컬렉션 내부를 정렬해 줌 
+
+### 미리 정렬 규칙을 정하기 위한 Comparable 인터페이스 
+```java
+public interface Comparable<in T> {
+    public operator fun compareTo(other:T):Int
+}
+```
+
+### copy 메서드
+```kotlin
+class Person(
+    val name: String,
+    val age: Int
+) {
+    fun copy(
+        name: String = this.name,
+        age: Int = this.age
+    ) = Person(name, age)
+}
+```
+
+-> Primitive 타입과 String 복사
+
+
+### 얕은 복사
+```kotlin
+class Address(
+    var street: String
+)
+
+class Person(
+    val name: String,
+    val age: Int,
+    val address: Address
+) {
+    fun shallowCopy() = Person(name, age, address)
+}
+```
+
+### 깊은 복사
+
+```kotlin
+class Address(
+    var street: String
+) {
+    fun deepCopy() = Address(street)
+}
+
+class Person(
+    val name: String,
+    val age: Int,
+    val address: Address
+) {
+    fun deepCopy() = Person(name, age, address.deepCopy())  // 주소 객체도 새로 생성 
+}
+```
+
+### Data class
+- Kotlin에서는 data class로 정의하면 copy()를 통해 복사를 제공함(분류로는 얕은 복사)
+
+
+### Data class의 효과
+다음 메서드를 정의해준다.
+
+- equals()
+- hashCode()
+- toString()
+
+-> 다음 메서드를 추가해준다. 얕은 복사 기본 지원
+- copy()
+
+
+
+
+
+
+
 
 
 

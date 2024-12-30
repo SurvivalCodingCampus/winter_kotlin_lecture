@@ -1,6 +1,8 @@
 package utils
 
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 object CommonUtils {
     /**
@@ -17,5 +19,9 @@ object CommonUtils {
      */
     fun getCurrentDate(): LocalDate {
         return LocalDate.now()
+    }
+
+    fun LocalDateTime.simpleFormatter(): String {
+        return this.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
     }
 }

@@ -9,6 +9,11 @@ class Hero(
     var isDead: Boolean = false
         private set
 
+
+    override fun hashCode(): Int {
+        return name.hashCode()
+    }
+
     // 호출되면 영웅이 데미지를 받는 코드
     fun getDamage(damage: Int) {
 
@@ -38,6 +43,15 @@ class Hero(
     private fun die() {
         isDead = true
         println("히어로가 사망했습니다.")
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Hero
+
+        return name == other.name
     }
 
     companion object {
