@@ -1,6 +1,6 @@
 package day05
 
-import org.example.day5.Wand
+import org.example.day05.Wand
 import org.junit.After
 import org.junit.Before
 
