@@ -25,7 +25,7 @@ class BookTest {
     }
 
     @Test
-    fun `출간일 순으로 정렬`() {
+    fun `출간일 신상 순으로 정렬`() {
         val book1 = Book("Book 1", "Author A", LocalDateTime.of(2023, 12, 1, 10, 0))
         val book2 = Book("Book 2", "Author B", LocalDateTime.of(2024, 1, 1, 10, 0))
         val book3 = Book("Book 3", "Author C", LocalDateTime.of(2022, 5, 1, 10, 0))
@@ -33,7 +33,7 @@ class BookTest {
         val books = listOf(book1, book2, book3)
         val sortedBooks = books.sorted()
 
-        assertEquals(listOf(book3, book1, book2), sortedBooks)
+        assertEquals(listOf(book2, book1, book3), sortedBooks)
     }
 
     @Test
