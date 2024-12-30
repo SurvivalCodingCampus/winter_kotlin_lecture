@@ -27,4 +27,10 @@ data class Book(
                 .toLocalDateTime(TimeZone.UTC)
         )
     }
+
+    override fun hashCode(): Int {
+        var result = title.hashCode()
+        result += 31 * publishedDate.date.hashCode()
+        return result
+    }
 }
