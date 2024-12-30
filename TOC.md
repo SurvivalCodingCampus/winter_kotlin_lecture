@@ -9,6 +9,7 @@
 - [2024-12-20](./docs/daily/2024-12-20.md): Kotlin collections, Encapsulation
 - [2024-12-23](./docs/daily/2024-12-23.md): Kotlin 상속
 - [2024-12-24](./docs/daily/2024-12-24.md): Kotlin Interface + abstract class
+- [2024-12-27](./docs/daily/2024-12-27.md): 게임데이터 설계 + Kotlin Instance control
 
 ## 💻 작성 코드
 
@@ -19,6 +20,8 @@
 - [day6](./src/main/kotlin/day6)
 - [day6 테스트](./src/test/kotlin/day6)
 - [day7 상속과 인터페이스](./src/main/kotlin/day7)
+- [day9](./src/main/kotlin/day9)
+- [day9 테스트](./src/test/kotlin/day9)
 
 ## 📚 주제별 정리
 
