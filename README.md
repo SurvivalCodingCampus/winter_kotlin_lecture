@@ -28,7 +28,7 @@
   - [Cleric.kt](src/main/kotlin/day03/Cleric.kt) - 연습문제
     
   - [ClericTest.kt](src/test/kotlin/day03/ClericTest.kt) - 연습문제 테스트 코드
-  - [HeroTest.kt](src/test/kotlin/day03/HeroTest.kt) - Hero클래스 테스트 코드
+  - [HeroTest.kt](src/test/kotlin/day03/HeroTest.kt) - Hero 클래스 테스트 코드
 - Day 05
   - [Encapsulation.kt](src/main/kotlin/day05/Encapsulation.kt) - 상속 키워드
   - [Man.kt](src/main/kotlin/day05/Man.kt) - 연습문제
@@ -37,20 +37,20 @@
   - [Wizard.kt](src/main/kotlin/day05/Wizard.kt) - 연습문제  
 
   - [ManTest.kt](src/test/kotlin/day05/ManTest.kt) - Man클래스 테스트 코드
-  - [PersonTest.kt](src/test/kotlin/day05/PersonTest.kt) - Person클래스 테스트 코드
-  - [WizardTest.kt](src/test/kotlin/day05/WizardTest.kt) - Wizard클래스 테스트 코드
+  - [PersonTest.kt](src/test/kotlin/day05/PersonTest.kt) - Person 클래스 테스트 코드
+  - [WizardTest.kt](src/test/kotlin/day05/WizardTest.kt) - Wizard 클래스 테스트 코드
 - Day 06
   - [GreatWizard.kt](src/main/kotlin/day06/GreatWizard.kt) - 연습문제    
   - [SuperHero.kt](src/main/kotlin/day06/SuperHero.kt) - 상속 클래스
   - [PoisonSlime.kt](src/main/kotlin/day06/PoisonSlime.kt) - 연습문제
   - [Game.puml](src/main/kotlin/day06/Game.puml) - 연습문제 uml
     
-  - [GreatWizardTest.kt](src/test/kotlin/day06/GreatWizardTest.kt) - GreatWizard클래스 테스트 코드    
-  - [PoisonSlimeTest.kt](src/test/kotlin/day06/GreatWizardTest.kt) - PoisonSlime클래스 테스트 코드
+  - [GreatWizardTest.kt](src/test/kotlin/day06/GreatWizardTest.kt) - GreatWizard 클래스 테스트 코드    
+  - [PoisonSlimeTest.kt](src/test/kotlin/day06/GreatWizardTest.kt) - PoisonSlime 클래스 테스트 코드
 - Day 07
   - [Character.kt](src/main/kotlin/day07/Character.kt) - 추상클래스
-  - [Book.kt](src/main/kotlin/day07/Book.kt) - TangibleAsset클래스를 상속받는 클래스
-  - [Computer.kt](src/main/kotlin/day07/Computer.kt) - TangibleAsset클래스를 상속받는 클래스
+  - [Book.kt](src/main/kotlin/day07/Book.kt) - TangibleAsset 클래스를 상속받는 클래스
+  - [Computer.kt](src/main/kotlin/day07/Computer.kt) - TangibleAsset 클래스를 상속받는 클래스
   - [TangibleAsset.kt](src/main/kotlin/day07/TangibleAsset.kt) - 연습문제
   - [Thing.kt](src/main/kotlin/day07/Thing.kt) - 인터페이스
   - [Asset.kt](src/main/kotlin/day07/Asset.kt) - 추상클래스
@@ -66,10 +66,19 @@
   - [Comparable.kt](src/main/kotlin/day09/Comparable.kt) - 인터페이스
   - [Book.kt](src/main/kotlin/day09/Book.kt) - 연습문제
       
-  - [BookTest.kt](src/test/kotlin/day09/BookTest.kt) - Book클래스 테스트 코드
+  - [BookTest.kt](src/test/kotlin/day09/BookTest.kt) - Book 클래스 테스트 코드
+- Day 10
+  - [Generic.kt](src/main/kotlin/day10/Generic.kt) - 제네릭
+  - [StrongBox.kt](src/main/kotlin/day10/StrongBox.kt) - 제네릭 연습문제
+  - [StringEnum.kt](src/main/kotlin/day10/StringEnum.kt) - 문자열 조작 연습문제
+  - [QuizTest.kt](src/main/kotlin/day10/QuizTest.kt) - 인스턴스 기본조작 퀴즈 예문
+    
+  - [KeyTypeTest.kt](src/test/kotlin/day10/KeyTypeTest.kt) - StrongBox 클래스 테스트 코드
+  - [WordTest.kt](src/test/kotlin/day10/WordTest.kt) - StringEnum 클래스 테스트 코드
 ## 📚 주제별 정리
 - [Git](docs/topics/Git.md)
 - [kotlin](docs/topics/kotlin.md)
+- [ObjectOriented](docs/topics/ObjectOriented.md)
 
 ## 🔍 참고 자료
 
