@@ -23,18 +23,3 @@ class StrongBox<T>(private val keyType: KeyType) {
         return null
     }
 }
-
-fun main() {
-    // StrongBox 테스트
-    val padlockBox = StrongBox<String>(KeyType.PADLOCK)
-    padlockBox.put("Treasure")
-
-    repeat(1_024) { // 시도 횟수 제한까지 반복
-        println("Attempt $it: ${padlockBox.get()}") // null 출력
-    }
-    println("Final Attempt: ${padlockBox.get()}") // Treasure 출력
-
-    val fingerBox = StrongBox<Int>(KeyType.FINGER)
-    fingerBox.put(42)
-    println(fingerBox.get()) // null 출력 (1회 시도)
-}
