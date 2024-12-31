@@ -6,4 +6,5 @@
 [2024-12-23](../../docs/daily/2024_12_23.md) - 상속, open 키워드, 상속의 생성자, UML
 [2024-12-24](../../docs/daily/2024_12_24.md) - 스코프 함수, 추상클래스와 인터페이스, UML에서의 이텔릭체의 의미
 [2024-12-26](../../docs/daily/2024_12_26.md) - 다형성 (Polymorphism), Immutable vs Mutable, Lambda와 Higher-Order Functions, Coroutine Basics
+[2024-12-27](../../docs/daily/2024_12_27.md) - List 의 sorted 함수, data class 의 copy 함수
 [2024-12-30](../../docs/daily/2024_12_30.md) - String 의 + 연산이 느린 이유(불변객체), measureTimeMillis, === 과 == 의 차이, 불변객체인 String 의 같은 값의 다른 val 두개에 ===을 사용하면 true가 나오는 이유
