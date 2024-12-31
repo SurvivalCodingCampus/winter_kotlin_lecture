@@ -8,8 +8,9 @@ fun main() {
     println(strongBox.get())
     println(strongBox.getTryCount())
     while (0 <= strongBox.getMaxTryCount()) {
-        if (null != strongBox.get()) {
-            println("사용횟수 : ${strongBox.getTryCount()} 금고안 인스턴스 : ${strongBox.get()} ")
+        val checkInstance = strongBox.get()
+        if (null != checkInstance) {
+            println("금고안 인스턴스 : ${checkInstance} 사용횟수 : ${strongBox.getTryCount()}")
             break
         }
     }
@@ -51,17 +52,20 @@ class StrongBox<T>(
     }
 
     fun get(): T? {
-        if (maxTryCount != 0) {
+        if (maxTryCount != 1) {
             maxTryCount--
             tryCount++
             return null
-        } else return instance
+        } else {
+            tryCount++
+            return instance
+        }
     }
 
     fun getMaxTryCount() = maxTryCount
     fun getTryCount() = tryCount
 }
 
-enum class KeyType {
+enum class KeyType() {
     PADLOCK, BUTTON, DIAL, FINGER
 }
