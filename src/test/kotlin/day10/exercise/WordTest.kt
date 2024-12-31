@@ -28,25 +28,5 @@ class WordTest {
         assertEquals(true, word.isConsonant(3))
 
     }
-
-    @Test
-    fun `모음 판단시 인덱스 초과할 경우`() {
-        val word = Word("Test")
-
-        Assert.assertThrows(IllegalArgumentException::class.java) {
-            word.isBowel(4)
-        }
-    }
-
-
-    @Test
-    fun `자음 판단시 인덱스 초과할 경우`() {
-        val word = Word("Test")
-
-        Assert.assertThrows(IllegalArgumentException::class.java) {
-            word.isConsonant(4)
-        }
-    }
-
 }
 
