@@ -10,6 +10,7 @@
 - [2024-12-23](./docs/daily/2024-12-23.md): Kotlin 상속
 - [2024-12-24](./docs/daily/2024-12-24.md): Kotlin Interface + abstract class
 - [2024-12-27](./docs/daily/2024-12-27.md): 게임데이터 설계 + Kotlin Instance control
+- [2024-12-30](./docs/daily/2024-12-30.md): Kotlin Generics
 
 ## 💻 작성 코드
 
@@ -22,6 +23,8 @@
 - [day7 상속과 인터페이스](./src/main/kotlin/day7)
 - [day9](./src/main/kotlin/day9)
 - [day9 테스트](./src/test/kotlin/day9)
+- [day10](./src/main/kotlin/day10)
+- [day10 테스트](./src/test/kotlin/day10)
 
 ## 📚 주제별 정리
 
