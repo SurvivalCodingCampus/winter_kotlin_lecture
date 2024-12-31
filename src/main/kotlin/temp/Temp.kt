@@ -11,6 +11,8 @@ fun main() {
     val enemy = Enemy("common enemy", 10)
 
     superHero.attack(enemy)
+
+
 }
 
 fun timesTable(dan: Int) : Unit {   // 코틀린에서 함수명은 언더바를 쓰지 않는다.
