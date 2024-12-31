@@ -1,8 +1,7 @@
 package day03
 
-import org.example.day3.Hero
+import org.example.day03.Hero
 import org.junit.Assert.*
-import kotlin.test.expect
 
 class HeroTest {
 

@@ -1,6 +1,6 @@
 package day05
 
-import org.example.day5.Person
+import org.example.day05.Person
 import org.junit.After
 import org.junit.Before
 
