@@ -186,6 +186,8 @@ fun functionName(a: Int) : Int = return 0
 ## comparator 인터페이스
 - 인터페이스 안에 있는 compare를 구현하게 해서 각종 sorted를 사용하기 위함
 - sortedWith, sortedWith, sortedBy 등이 있다.
+- 물론 클래스가 comparator를 구현하는 방식으로도 사용할 수도 있지만  
+주로 위에서 언급한 함수 사용을 위해 무명 함수 형태로 사용을 한다.
 
 ## set, map 인터페이스의 동작 원리
 - 리스트와 달리 hashCode비교도 진행된다.  
