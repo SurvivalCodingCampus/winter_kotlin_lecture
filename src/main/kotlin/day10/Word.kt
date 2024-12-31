@@ -7,6 +7,6 @@ class Word(val word: String) {
         require(word.matches("[a-zA-Z]+".toRegex()))
     }
 
-    fun isVowel(i: Int): Boolean = "aeiou".contains(word[i])
+    fun isVowel(i: Int): Boolean = "aeiou".contains(word[i].lowercaseChar())
     fun isConsonant(i: Int) = !isVowel(i)
 }
