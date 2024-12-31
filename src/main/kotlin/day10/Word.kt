@@ -16,6 +16,6 @@ class Word(private var word: String) {
         if (i < 0 || i >= word.length) {
             throw Exception("글자 길이를 확인 해 주세요")
         }
-        return !vowelCheckList.contains(word.trim().lowercase().substring(i, i + 1))
+        return !isVowel(i)
     }
 }
