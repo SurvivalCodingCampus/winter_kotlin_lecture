@@ -57,6 +57,7 @@ class StrongBox<T>(
             tryCount++
             return null
         } else {
+            maxTryCount--
             tryCount++
             return instance
         }

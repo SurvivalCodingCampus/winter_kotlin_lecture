@@ -56,31 +56,38 @@ class StrongBoxTest {
         strongBox4.put(something)
 
         for (i: Int in 1..1024) {
-            assertEquals(null, strongBox1.get())
+            if (i == 1024) assertEquals(something, strongBox1.get())
+            else assertEquals(null, strongBox1.get())
         }
+
         assertEquals(1024, strongBox1.getTryCount())
         assertEquals(0, strongBox1.getMaxTryCount())
-        assertEquals("Money", strongBox1.get())
+
 
         for (i: Int in 1..10000) {
-            assertEquals(null, strongBox2.get())
+            if (i == 10000) assertEquals(something, strongBox2.get())
+            else assertEquals(null, strongBox2.get())
         }
+
         assertEquals(10000, strongBox2.getTryCount())
         assertEquals(0, strongBox2.getMaxTryCount())
-        assertEquals("Money", strongBox2.get())
+
 
         for (i: Int in 1..30000) {
-            assertEquals(null, strongBox3.get())
+            if (i == 30000) assertEquals(something, strongBox3.get())
+            else assertEquals(null, strongBox3.get())
         }
+
         assertEquals(30000, strongBox3.getTryCount())
         assertEquals(0, strongBox3.getMaxTryCount())
-        assertEquals("Money", strongBox3.get())
+
 
         for (i: Int in 1..1000000) {
-            assertEquals(null, strongBox4.get())
+            if (i == 1000000) assertEquals(something, strongBox4.get())
+            else assertEquals(null, strongBox4.get())
         }
+
         assertEquals(1000000, strongBox4.getTryCount())
         assertEquals(0, strongBox4.getMaxTryCount())
-        assertEquals("Money", strongBox4.get())
     }
 }
