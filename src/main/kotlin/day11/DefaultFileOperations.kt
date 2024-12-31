@@ -12,7 +12,7 @@ class DefaultFileOperations : FileOperations {
             copyFile.writeText(originalFile.readText())
 
         } catch (e: FileNotFoundException) {
-            println("원본 파일을 찾을 수 없습니다.")
+            println("원본 파일을 찾을 수 없습니다.: ${e.message}")
         }
     }
 }
