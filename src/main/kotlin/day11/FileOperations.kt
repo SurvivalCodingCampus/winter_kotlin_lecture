@@ -12,8 +12,7 @@ interface FileOperations {
 
     @param sourcePath 복사할 원본 파일의 경로
     @param targetPath 파일이 복사될 대상 경로
-    @throws FileNotFoundException 원본 파일을 찾을 수 없는 경우
-    @throws IllegalArgumentException 대상 경로가 유효하지 않은 경우
+    @throws IllegalArgumentException 대상 경로가 유효하지 않은 경우 - 정규식 활용
     */
     fun copy(sourcePath: String, targetPath: String)
 }
