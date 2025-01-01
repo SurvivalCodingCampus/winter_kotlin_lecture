@@ -13,6 +13,8 @@ void copyAll(Collection<Object> to, Collection<String> from) {
 }
 ```
 
+## How java handles this issue
+
 In the following example Variance is used to limit the upper bound of your API
 
 ```java
@@ -36,3 +38,37 @@ __Effective Java, 3rd edition__ proposes the following mnemonic: PECS stands for
 > remove all the items from the list, since `clear()` does not take any parameters at all.
 > The only thing guaranteed by wildcards (or other types of variance) is type safety. Immutability is a completely
 > different story.
+
+## Kotlin Declaration-site variance
+
+In Kotlin, by denoting `in` or `out` to the Generic type compiler can understand that the type is safe to use as
+Producer/Consumer.
+this feature has been already successful in C# world
+
+## Start-projection
+
+Sometimes you want to say that you know nothing about the type argument, but you still want to use it in a safe way. The
+safe way here is to define such a projection of the generic type, that every concrete instantiation of that generic type
+will be a subtype of that projection.
+
+Kotlin provides so-called star-projection syntax for this:
+
+- For Foo<out T : TUpper>, where T is a covariant type parameter with the upper bound TUpper, Foo<\*> is equivalent to
+  Foo<out TUpper>. This means that when the T is unknown you can safely read values of TUpper from Foo<\*>.
+
+- For Foo<in T>, where T is a contravariant type parameter, Foo<\*> is equivalent to Foo<in Nothing>. This means there
+  is nothing you can write to Foo<\*> in a safe way when T is unknown.
+
+- For Foo<T : TUpper>, where T is an invariant type parameter with the upper bound TUpper, Foo<\*> is equivalent to
+  Foo<out TUpper> for reading values and to Foo<in Nothing> for writing values.
+
+If a generic type has several type parameters, each of them can be projected independently. For example, if the type is
+declared as interface Function<in T, out U> you could use the following star-projections:
+
+- Function<\*, String> means Function<in Nothing, String>.
+
+- Function<Int, \*> means Function<Int, out Any?>.
+
+- Function<\*, \*> means Function<in Nothing, out Any?>.
+
+> Star-projections are very much like Java's raw types, but safe.
