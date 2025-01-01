@@ -8,6 +8,7 @@
 - [2024-12-19](src/docs/daily/2024-12-19.md) - Kotlin 클래스 생성자와 companion object
 - [2024-12-20](src/docs/daily/2024-12-20.md) - Kotlin 캡슐화와 컬렉션
 - [2024-12-27](src/docs/daily/2024-12-27.md) - 인스턴스 기본 조작
+- [2024-12-30](src/docs/daily/2024-12-30.md) - 제네릭, 열거형, 문자열 조작
 
 ## 💻 작성 코드
 
@@ -32,6 +33,11 @@
 - Day 9
     - [Book.kt](src/main/kotlin/day09/Book.kt) - 책(Book) 클래스
     - [BookTest.kt](src/test/kotlin/day09/BookTest.kt) - 책(Book) Test Code
+- Day 10
+    - [StrongBox.kt](src/main/kotlin/day10/StrongBox.kt) - StrongBox Class
+    - [Word.kt](src/main/kotlin/day10/Word.kt) - Word Class
+    - [StrongBoxTest.kt](src/test/kotlin/day10/StrongBoxTest.kt) - StrongBox Test Code
+    - [WordTest.kt](src/test/kotlin/day10/WordTest.kt) - Word Test Code
 
 ## 📚 주제별 정리
 
@@ -39,9 +45,11 @@
 - Kotlin
     - [Class](src/docs/topics/class.md)
     - [Collection](src/docs/topics/kotlin-collection.md)
+    - [Equals](src/docs/topics/equals.md)
     - [Random](src/docs/topics/random.md)
 - Java
     - [ArrayList](src/docs/topics/java-array-list.md)
+- [TDD](src/docs/topics/tdd.md)
 
 ## 🔍 참고 자료
 
