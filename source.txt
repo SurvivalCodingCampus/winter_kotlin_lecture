@@ -1,0 +1,22 @@
+package com.survivalcoding.com.survivalcoding.day11.exam
+
+import java.io.File
+
+interface FileOperations {
+    fun copy(sourcePath: String, targetPath: String)
+}
+
+class DefaultFileOperations : FileOperations {
+    override fun copy(sourcePath: String, targetPath: String) {
+        val sourceFile = File(sourcePath)
+        val targetFile = File(targetPath)
+
+        targetFile.writeText(sourceFile.readText())
+    }
+}
+
+fun main() {
+    val fileOperations = DefaultFileOperations()
+
+    fileOperations.copy("source.txt", "target.txt")
+}
