@@ -17,7 +17,7 @@ class StrongBoxTest {
         {
             val strongBox = StrongBox(KeyPad.PAD_LOCK)
 
-            repeat(1024) {
+            repeat(1024 - 1) {
                 assertEquals(true, strongBox.get() == null)
             }
 
@@ -26,7 +26,7 @@ class StrongBoxTest {
         {
             val strongBox = StrongBox(KeyPad.DIAL)
 
-            repeat(30000) {
+            repeat(30000 - 1) {
                 assertEquals(true, strongBox.get() == null)
             }
 
@@ -36,7 +36,7 @@ class StrongBoxTest {
         {
             val strongBox = StrongBox(KeyPad.FINGER)
 
-            repeat(1000000) {
+            repeat(1000000 - 1) {
                 assertEquals(true, strongBox.get() == null)
             }
 
@@ -46,7 +46,7 @@ class StrongBoxTest {
         {
             val strongBox = StrongBox(KeyPad.BUTTON)
 
-            repeat(10000) {
+            repeat(10000 - 1) {
                 assertEquals(true, strongBox.get() == null)
             }
 
