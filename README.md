@@ -10,6 +10,7 @@
 - [2024-12-27](src/docs/daily/2024-12-27.md) - 인스턴스 기본 조작
 - [2024-12-30](src/docs/daily/2024-12-30.md) - 제네릭, 열거형, 문자열 조작
 - [2024-12-31](src/docs/daily/2024-12-31.md) - 예외, 파일 조작, 여러가지 데이터 형식
+- [2025-01-02](src/docs/daily/2025-01-02.md) - 디버깅, 람다식과 함수
 
 ## 💻 작성 코드
 
@@ -46,6 +47,10 @@
     - [Serialization.kt](src/main/kotlin/day11/Serialization.kt) - Serialization Example Code
     - [Company.kt](src/main/kotlin/day11/Company.kt) - Employee, Department Class
     - [DefaultFileOperationsTest.kt](src/test/kotlin/day11/DefaultFileOperationsTest.kt) - DefaultFileOperations Test Code
+- Day 12
+    - [JsonToList.kt](src/main/kotlin/day12/JsonToList.kt) - JsonToList Code
+    - [JsonToListSolution.md](src/main/kotlin/day12/JsonToListSolution.md) - JsonToList Solution
+    - [Transactions.kt](src/main/kotlin/day12/Transactions.kt) - Transactions Query
 
 ## 📚 주제별 정리
 
