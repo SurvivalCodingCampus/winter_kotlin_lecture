@@ -45,4 +45,5 @@ fun main() {
     val targetPath = "$topPath/src/main/kotlin/day11/exercise"
     val sourcePath = "/Users/kjy/winter_kotlin_study/save.txt"
     val fileOperator = DefaultFileOperations()
+    fileOperator.copy(sourcePath, targetPath, "tts", "tts")
 }

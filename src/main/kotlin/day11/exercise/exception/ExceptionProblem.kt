@@ -20,7 +20,7 @@ fun main() {
     val result = try {
         numString.toInt()
         println("변환 성공!: $numString")
-    } catch (e: Exception) {
+    } catch (e: NumberFormatException) {
         println("변환 실패 : ${e.message}")
         0
     }
@@ -33,7 +33,7 @@ fun main() {
 
     val resultSecond = runCatching { numStringSecond.toInt() }
         .getOrElse { exception ->
-            println("변환실패 : $exception")
+            println("변환 실패 : $exception")
             0
         }
 
