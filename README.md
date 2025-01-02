@@ -9,6 +9,7 @@
 - [2024-12-20](src/docs/daily/2024-12-20.md) - Kotlin 캡슐화와 컬렉션
 - [2024-12-27](src/docs/daily/2024-12-27.md) - 인스턴스 기본 조작
 - [2024-12-30](src/docs/daily/2024-12-30.md) - 제네릭, 열거형, 문자열 조작
+- [2024-12-31](src/docs/daily/2024-12-31.md) - 예외, 파일 조작, 여러가지 데이터 형식
 
 ## 💻 작성 코드
 
@@ -38,6 +39,13 @@
     - [Word.kt](src/main/kotlin/day10/Word.kt) - Word Class
     - [StrongBoxTest.kt](src/test/kotlin/day10/StrongBoxTest.kt) - StrongBox Test Code
     - [WordTest.kt](src/test/kotlin/day10/WordTest.kt) - Word Test Code
+- Day 11
+    - [RuntimeError.kt](src/main/kotlin/day11/RuntimeError.kt) - Use `try-catch()`
+    - [FileOperations.kt](src/main/kotlin/day11/FileOperations.kt) - FileOperations Interface
+    - [DefaultFileOperations.kt](src/main/kotlin/day11/DefaultFileOperations.kt) - DefaultFileOperations Class
+    - [Serialization.kt](src/main/kotlin/day11/Serialization.kt) - Serialization Example Code
+    - [Company.kt](src/main/kotlin/day11/Company.kt) - Employee, Department Class
+    - [DefaultFileOperationsTest.kt](src/test/kotlin/day11/DefaultFileOperationsTest.kt) - DefaultFileOperations Test Code
 
 ## 📚 주제별 정리
 
