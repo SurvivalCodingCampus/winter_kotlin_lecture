@@ -37,6 +37,9 @@ class DefaultFileOperationsTest {
             // 복사
             defaultFileOperations.copy(sourcePaths[i], targetPaths[i])
 
+            assertEquals(true, sourceFlie.exists())
+            assertEquals(true, targetFile.exists())
+
             assertEquals("${i}번째 테스트", sourceFlie.readText())
             assertEquals("${i}번째 테스트", targetFile.readText())
 
