@@ -34,8 +34,10 @@ kotlin-study/
 - [2024-12-18](docs/daily/2024-12-18.md) - 클래스 인스턴스
 - [2024-12-19](docs/daily/2024-12-19.md) - 클래스, companion
 - [2024-12-20](docs/daily/2024-12-20.md) - 캡슐화, 컬렉션 
-- [2024-12-21](docs/daily/2024-12-23) - 상속
-
+- [2024-12-23](docs/daily/2024-12-23.md) - 상속
+- [2024-12-24](docs/daily/2024-12-24.md) - 추상클래스,인터페이스
+- [2024-12-30](docs/daily/2024-12-30.md) - 제네릭, 열거형, 문자열 조작
+- [2024-12-31](docs/daily/2024-12-31.md) - 예외 처리, 파일 조작, 여러가지 데이터형식
 
 ### 💻 작성 코드
 - Day 2
@@ -69,7 +71,20 @@ kotlin-study/
   - [Patent.kt](src/main/kotlin/day07/Patent.kt)
   - [TangibleAsset.kt](src/main/kotlin/day07/TangibleAsset.kt)
   - [Thing.kt](src/main/kotlin/day07/Thing.kt)
-
+- Day 8
+  - [A.kt](src/main/kotlin/day08/A.kt)
+- Day 10
+  - [StrongBox.kt](src/main/kotlin/day10/StrongBox.kt)
+  - [StrongBoxTest.kt](src/test/kotlin/day10/StrongBoxTest.kt)
+  - [Word.kt](src/main/kotlin/day10/Word.kt)
+  - [WordTest.kt](src/test/kotlin/day10/WordTest.kt)
+- Day 11
+  - [FileOperations.kt](src/main/kotlin/day11/FileOperations.kt)
+  - [DefaultFileOperations.kt](src/main/kotlin/day11/DefaultFileOperations.kt)
+  - [DefaultFileOperationsTest.kt](src/test/kotlin/day11/DefaultFileOperationsTest.kt)
+  - [Employee.kt](src/main/kotlin/day11/Employee.kt)
+  - [RuntimeError.kt](src/main/kotlin/day11/RuntimeError.kt)
+  - [User.kt](src/main/kotlin/day11/User.kt)
 
 ### 📚 주제별 정리
 - [Git&Github](docs/topics/Git&Github.md)
