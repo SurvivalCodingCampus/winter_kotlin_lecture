@@ -1,13 +1,10 @@
 package day12
 
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.File
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 /*
 다음과 같은 데이터를 서버에서 받아서 처리해야 한다. 문제점이 있다면 생각해 보고 해결 방안을 고민해 보시오.
@@ -33,7 +30,19 @@ data class CollectionChartData(
     val collectionName: String,
     val collectionSalePrice: List<CollectionSalePrice>?,
     @Transient var pk: Int = -1 // 직렬화시 제외, 초기값 -1로, var로 수정 가능하도록
-)
+) {
+    companion object {
+        private var pkCounter = 0
+
+        fun generatePk(): Int {
+            return ++pkCounter
+        }
+    }
+
+    init {
+        pk = generatePk() // 객체 생성 시 pk 값 할당
+    }
+}
 
 @Serializable
 data class CollectionSalePrice(
@@ -45,12 +54,6 @@ fun main() {
     // 역직렬화
     val objString = File("JsonExam.txt").readText()
     val obj = Json.decodeFromString<CollectionChartDataList>(objString)
-    println(obj)
-
-    // 역직렬화 후, PK 값 추가 (1부터 순차적으로 pk 값 부여)
-    obj.collectionChartDataList.forEachIndexed { index, collectionChartData ->
-        collectionChartData.pk = index + 1 // 1부터 시작하도록 pk 부여
-    }
     println(obj)
 
     // obj 직렬화
