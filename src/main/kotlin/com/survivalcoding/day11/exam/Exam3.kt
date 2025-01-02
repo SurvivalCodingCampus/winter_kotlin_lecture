@@ -22,8 +22,19 @@ fun main() {
 
     val json = Json.encodeToString(department)
 
+    val json2 = myFunction(json)
+
     File("company.txt")
 
     val loadData = Json.decodeFromString<Department>(json)
     println(loadData)
+}
+
+fun myFunction(json: String): String {
+    val result = json.replace("{", "[")
+    return myFunction2(result)
+}
+
+fun myFunction2(json: String): String {
+    return json.replace("}", "]")
 }
