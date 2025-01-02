@@ -11,6 +11,7 @@
 - [2024-12-24](./docs/daily/2024-12-24.md): Kotlin Interface + abstract class
 - [2024-12-27](./docs/daily/2024-12-27.md): 게임데이터 설계 + Kotlin Instance control
 - [2024-12-30](./docs/daily/2024-12-30.md): Kotlin Generics
+- [2024-12-31](./docs/daily/2024-12-31.md): Kotlin File operations
 
 ## 💻 작성 코드
 
@@ -25,11 +26,14 @@
 - [day9 테스트](./src/test/kotlin/day9)
 - [day10](./src/main/kotlin/day10)
 - [day10 테스트](./src/test/kotlin/day10)
+- [day11](./src/main/kotlin/day11)
+- [day11 테스트](./src/test/kotlin/day11)
 
 ## 📚 주제별 정리
 
 - [git](./docs/topics/git.md)
 - [kotlin](./docs/topics/kotlin_basic.md)
+- [Generics](./docs/topics/generics.md)
 - [까먹기 좋은 잡지식 모음](./docs/topics/miscellneous_details_I_may_forget.md)
 
 ## 🔍 참고 자료

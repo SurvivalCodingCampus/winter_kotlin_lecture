@@ -8,3 +8,4 @@
 - sealed classes must be in same package or module
 - data class copy() is a shallow copy operation
 - data class Destructing declaration could be used like how typescript does
+- Java File streams have a 2Gb limitation: Instead use buffered streams for big files 

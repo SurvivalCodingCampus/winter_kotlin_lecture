@@ -10,7 +10,7 @@ if ! gh auth status >/dev/null 2>&1; then
     exit 1
 fi
 
-date_fmt="$(date -u +%Y-%m-%d)"
+date_fmt="$(date +%Y-%m-%d)"
 name='손세림'
 merge_to="student/05-$name"
 title="[$date_fmt] $name - 과제 제출"
@@ -22,4 +22,3 @@ if ! gh pr create --base "$merge_to" \
     echo "PR 생성 오류" >&2
     exit 2
 fi
-
