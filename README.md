@@ -46,7 +46,7 @@
   - [Game.puml](src/main/kotlin/day06/Game.puml) - 연습문제 uml
     
   - [GreatWizardTest.kt](src/test/kotlin/day06/GreatWizardTest.kt) - GreatWizard 클래스 테스트 코드    
-  - [PoisonSlimeTest.kt](src/test/kotlin/day06/GreatWizardTest.kt) - PoisonSlime 클래스 테스트 코드
+  - [PoisonSlimeTest.kt](src/test/kotlin/day06/PoisonSlimeTest.kt) - PoisonSlime 클래스 테스트 코드
 - Day 07
   - [Character.kt](src/main/kotlin/day07/Character.kt) - 추상클래스
   - [Book.kt](src/main/kotlin/day07/Book.kt) - TangibleAsset 클래스를 상속받는 클래스

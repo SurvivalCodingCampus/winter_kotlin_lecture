@@ -33,17 +33,15 @@ fun getLo() = "lo"
 
 // i 번째 글자가 모음인지 알려주는 isVowel() 함수 완성하기
 // 모음은 a, e, i, o, u
-class Word(var word: String) {
+class Word(val word: String) {
+
     fun isVowel(i: Int): Boolean {
-        if(i < 0 || i >= word.length) return false
+       require(i in word.indices)
         return word[i].lowercase() in "aeiou"
     }
 
     // i 번째 글자가 자음인지 알려주는 isConsonant() 함수 완성하기
-    fun isConsonant(i: Int): Boolean {
-        if(i < 0 || i >= word.length) return false
-        return word[i].lowercase() !in "aeiou"
-    }
+    fun isConsonant(i: Int): Boolean = !isVowel(i)
 }
 
 
