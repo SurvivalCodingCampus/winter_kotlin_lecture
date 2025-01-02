@@ -7,7 +7,7 @@ fun main() {
     try {
         num = numString.toInt()
     } catch (e: NumberFormatException) {
-        num = 0
+        println("숫자가 정수형이 아닙니다")
     }
 
     println(num)
