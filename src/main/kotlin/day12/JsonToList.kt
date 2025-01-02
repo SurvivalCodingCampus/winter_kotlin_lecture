@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 @Serializable
-data class CollectionChart(val collectionName: String, val collectionSalePrice: List<SalePrice>?)
+data class CollectionChart(val collectionId: Int, val collectionName: String, val collectionSalePrice: List<SalePrice>)
 
 @Serializable
 data class SalePrice(val price: Double, val cvtDatetime: String)
@@ -13,10 +13,12 @@ fun main() {
     val collectionChartDataList = """
         [
            {
+             "collectionId": 1,
              "collectionName": "collectionName",
-             "collectionSalePrice": null
+             "collectionSalePrice": []
            },
            {
+             "collectionId": 2,
              "collectionName": "collectionName",
              "collectionSalePrice": [
                {
