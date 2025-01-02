@@ -6,7 +6,7 @@ skinparam nodesep 50
 '추상클래스 모임
 
 package tribe {
-    abstract class Tribe {
+    interface Tribe {
         name
         maxHp
         hp
@@ -20,9 +20,9 @@ package tribe {
         charch()
     }
 
-    Tribe <|-- Terran
-    Tribe <|-- Zerg
-    Tribe <|-- Protoss
+    Tribe <|.. Terran
+    Tribe <|.. Zerg
+    Tribe <|.. Protoss
 }
 
 package categorization {
