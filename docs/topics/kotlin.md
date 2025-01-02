@@ -9,3 +9,4 @@
 [2024-12-27](../../docs/daily/2024_12_27.md) - List 의 sorted 함수, data class 의 copy 함수
 [2024-12-30](../../docs/daily/2024_12_30.md) - String 의 + 연산이 느린 이유(불변객체), measureTimeMillis, === 과 == 의 차이, 불변객체인 String 의 같은 값의 다른 val 두개에 ===을 사용하면 true가 나오는 이유
 [2024-12-31](../../docs/daily/2024_12_31.md) - 예외, 파일 조작, 여러가지 데이터 형식
+[2025_01_02](../../docs/daily/2025_01_02.md) - 디버깅, 람다식과 함수
