@@ -12,6 +12,7 @@
 - [2024-12-27](./docs/daily/2024-12-27.md): 게임데이터 설계 + Kotlin Instance control
 - [2024-12-30](./docs/daily/2024-12-30.md): Kotlin Generics
 - [2024-12-31](./docs/daily/2024-12-31.md): Kotlin File operations
+- [2025-01-02](./docs/daily/2025-01-02.md): Kotlin Lambda
 
 ## 💻 작성 코드
 
@@ -42,4 +43,3 @@
 - [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
 - [Progit](https://git-scm.com/book/en/v2)
 - [Kotlin in Action](https://www.yes24.com/product/goods/55148593): 도서
-
