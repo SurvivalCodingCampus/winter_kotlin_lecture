@@ -13,19 +13,17 @@ class Bird(
 }
 
 fun main() = runBlocking {
-    var soundCount = 0
+    val jobs = mutableListOf<Job>()
     val end = launch {
         delay(10_000L)
     }
-    val jobs = mutableListOf<Job>()
     listOf(
         Bird("꾸우", 1_000L),
         Bird("까악", 2_000L),
         Bird("짹짹", 3_000L),
     ).forEach {
         jobs.add(launch {
-            while (soundCount < 4) {
-                soundCount += 1
+            while (true) {
                 it.tweet()
             }
         })
