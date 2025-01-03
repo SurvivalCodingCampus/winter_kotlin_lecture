@@ -1,6 +1,7 @@
 package day03
 
 import com.survivalcoding.com.survivalcoding.day03.Hero
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 
 class JavaHeroTest {
@@ -16,7 +17,7 @@ class JavaHeroTest {
     }
 
     @org.junit.Test
-    fun sleep() {
+    fun sleep() = runBlocking {
         // 준비
         val hero = Hero("홍길동", 10)
 
