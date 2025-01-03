@@ -28,12 +28,16 @@ fun main(): Unit = runBlocking {
     val bird2 = SecondBird()
     val bird3 = ThirdBird()
 
-    launch {
-        repeat(4) {
+    val job = launch {
             bird1.BirdSound()
             bird2.BirdSound()
             bird3.BirdSound()
-        }
+    }
+
+    launch {
+        delay(10000)
+        job.cancel()
+        println("stop it")
     }
 
 }
