@@ -38,6 +38,7 @@ kotlin-study/
 - [2024-12-24](docs/daily/2024-12-24.md) - 추상클래스,인터페이스
 - [2024-12-30](docs/daily/2024-12-30.md) - 제네릭, 열거형, 문자열 조작
 - [2024-12-31](docs/daily/2024-12-31.md) - 예외 처리, 파일 조작, 여러가지 데이터형식
+- [2025-01-02](docs/daily/2025-01-02.md) - 디버깅, 람다식과 함수
 
 ### 💻 작성 코드
 - Day 2
@@ -85,6 +86,12 @@ kotlin-study/
   - [Employee.kt](src/main/kotlin/day11/Employee.kt)
   - [RuntimeError.kt](src/main/kotlin/day11/RuntimeError.kt)
   - [User.kt](src/main/kotlin/day11/User.kt)
+- Day 12
+  - [CallBackExam.kt](src/main/kotlin/day12/CallBackExam.kt)
+  - [CollectionChartDataList.kt](src/main/kotlin/day12/CollectionChartDataList.kt)
+  - [LambdaExam.kt](src/main/kotlin/day12/LambdaExam.kt)
+  - [Transaction.kt](src/main/kotlin/day12/Transaction.kt)
+
 
 ### 📚 주제별 정리
 - [Git&Github](docs/topics/Git&Github.md)
