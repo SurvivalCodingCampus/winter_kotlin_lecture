@@ -15,7 +15,7 @@ fun main() {
     )
 
     println("1. 2011년에 일어난 모든 트랜잭션을 찾아 가격 기준 오름차순으로 정리하여 이름을 나열하시오.")
-    println(transactions.sortedBy { it.value }.map { it.trader.name })
+    println(transactions.filter{ it.year == 2011 }.sortedBy { it.value }.map { it.trader.name })
 
     println("2. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오.")
     println(transactions.map { it.trader.city }.distinct().toString())
