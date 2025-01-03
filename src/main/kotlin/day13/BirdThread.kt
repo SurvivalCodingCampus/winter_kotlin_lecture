@@ -22,12 +22,10 @@ fun main() = runBlocking {
         }
     }
 
-    val jobCancle: Job = launch {
-        delay(10000)
-        job1.cancel()
-        job2.cancel()
-        job3.cancel()
-    }
+    delay(10000)
+    job1.cancel()
+    job2.cancel()
+    job3.cancel()
 }
 
 suspend fun bird1() {
