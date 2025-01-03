@@ -21,6 +21,10 @@ dependencies {
     // Coroutine
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
 
+
+    // Coroutine Test
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
+
 }
 
 tasks.test {
