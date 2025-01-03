@@ -24,5 +24,10 @@ fun main() {
         .onSuccess { value -> println("읽기 성공 $value") }
         .onFailure { exception -> println("변환 실패: $exception") }
 
+
+    "test".let {
+        println(it)
+    }
+
     println(result)
 }
