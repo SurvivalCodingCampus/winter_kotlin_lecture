@@ -5,21 +5,28 @@ import kotlinx.coroutines.*
 fun main() = runBlocking {
 
     var job1: Job = launch {
-        repeat(4) {
+        while (true) {
             bird1()
         }
     }
 
     val job2: Job = launch {
-        repeat(4) {
+        while (true) {
             bird2()
         }
     }
 
     val job3: Job = launch {
-        repeat(4) {
+        while (true) {
             bird3()
         }
+    }
+
+    val jobCancle: Job = launch {
+        delay(10000)
+        job1.cancel()
+        job2.cancel()
+        job3.cancel()
     }
 }
 
