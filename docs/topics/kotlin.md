@@ -38,6 +38,22 @@
       }
   
        ```
+### 변수
+- var
+  - 객체의 참조를 var로 선언하면, 객체 자체도 변경할 수 있고, 객체 속성도 변경할 수 있다.
+    ```kotlin
+    var person = Person("홍길동", 25)
+    person = Person("다른 사람", 30)  // person 참조 자체를 변경 가능
+    ```
+
+- val
+  - 객체의 참조를 **val**로 선언하면, 객체 참조 자체는 변경할 수 없지만, 객체 속성은 여전히 변경할 수 있다. (즉, 객체 내용은 변경 가능)
+    ```kotlin
+    val person = Person("홍길동", 25)
+    // person = Person("다른 사람", 30)  // 오류 발생: person 참조는 변경 불가
+    person.age = 26  // person 객체 내부 속성은 변경 가능
+    ```
+
 ### 상수
 |특징|companion object 사용|클래스 외부 선언|
 |------|---|---|

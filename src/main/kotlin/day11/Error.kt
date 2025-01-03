@@ -13,3 +13,4 @@ fun main() {
     println(num) // 예외 발생 시 초기값(0) 출력
 }
 
+//val num = numString.toIntNull() ? : 0

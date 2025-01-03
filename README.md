@@ -75,11 +75,28 @@
     
   - [KeyTypeTest.kt](src/test/kotlin/day10/KeyTypeTest.kt) - StrongBox 클래스 테스트 코드
   - [WordTest.kt](src/test/kotlin/day10/WordTest.kt) - StringEnum 클래스 테스트 코드
+- Day 11
+  - [Error.kt](src/main/kotlin/day11/Error.kt) - 예외처리 연습문제
+  - [ExamDebug.kt](src/main/kotlin/day11/ExamDebug.kt) - 디버깅 예제
+  - [DefaultFileOperations.kt](src/main/kotlin/day11/DefaultFileOperations.kt) - 파일복사 연습문제
+  - [FileOperations.kt](src/main/kotlin/day11/FileOperations.kt) - 인터페이스
+  - [Employee.kt](src/main/kotlin/day11/Employee.kt) - 직렬화 연습문제
+- Day 12
+  - [ExamDebug.kt](src/main/kotlin/day12/ExamDebug.kt) - 디버깅 예제
+  - [ExamJson.kt](src/main/kotlin/day12/ExamJson.kt) - 직렬화 예제
+  - [ExamJson2.kt](src/main/kotlin/day12/ExamJson2.kt) - 역직렬화 예제
+  - [Debuging.kt](src/main/kotlin/day12/Debuging.kt) - 디버깅 연습문제
+  - [ExamCallback.kt](src/main/kotlin/day12/ExamCallback.kt) - 콜백함수 예제_인터페이스
+  - [ExamCallback2.kt](src/main/kotlin/day12/ExamCallback2.kt) - 콜백함수 예제_함수
+  - [ExamCallback3.kt](src/main/kotlin/day12/ExamCallback3.kt) - 콜백함수 예제_람다
+  - [LambdaQuery.kt](src/main/kotlin/day12/LambdaQuery.kt) - 람다식 연습문제
+- Day 13    
 ## 📚 주제별 정리
-- [Git](docs/topics/Git.md)
-- [kotlin](docs/topics/kotlin.md)
-- [ObjectOriented](docs/topics/ObjectOriented.md)
-
+- [Git](docs/topics/Git.md) - 깃
+- [kotlin](docs/topics/kotlin.md) - 코틀린
+- [ObjectOriented](docs/topics/ObjectOriented.md) - 객체지향
+- [Scope](docs/topics/Scope.md) - 스코프함수
+- [Lambda](docs/topics/Lambda.md) - 람다식
 ## 🔍 참고 자료
 
 ```
