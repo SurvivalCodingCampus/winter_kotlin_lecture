@@ -33,7 +33,7 @@ fun main() {
 
     println("1 -----end----------")
     // 2. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오
-    transactions.forEach { it.trader.city }
+    transactions.map { it.trader.city }.distinct().forEach { println(it) }
 
 
     // 3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오
