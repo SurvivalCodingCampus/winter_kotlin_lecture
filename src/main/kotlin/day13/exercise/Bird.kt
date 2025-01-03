@@ -1,7 +1,6 @@
 package day13.exercise
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 /*
 * 매일 아침, 당신은 새소리에 잠에서 깹니다. 시간이 지나면서, 당신은 세가지 독특한 새소리를 알아차렸고, 각각 다른 간격으로 반복되는 것을 발견했습니다.
@@ -14,12 +13,41 @@ import kotlinx.coroutines.runBlocking
 * 3. 마지막 새는 "짹짹" 소리를 냅니다.
 * */
 
+
+// 연습문제 2번
+
+//fun main() = runBlocking {
+//    repeat(4) {
+//        firstBird()
+//        secondBird()
+//        thirdBird()
+//    }
+//}
+
+
+//// 연습문제 3번 첫번째 방법
+//fun main() = runBlocking {
+//    val job = launch {
+//        while (true) {
+//            firstBird()
+//            secondBird()
+//            thirdBird()
+//        }
+//    }
+//    delay(10000L)
+//    job.cancel()
+//}
+
+// 연습문제 3번 두번째 방법
 fun main() = runBlocking {
-    repeat(4) {
-        firstBird()
-        secondBird()
-        thirdBird()
+    val result = withTimeoutOrNull(10000L) {
+        while (true) {
+            firstBird()
+            secondBird()
+            thirdBird()
+        }
     }
+    println(result ?: "코루틴 취소")
 }
 
 
