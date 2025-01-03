@@ -38,4 +38,29 @@ class BirdTest {
         )
         println("bird1: ${result1.isActive}, bird2: ${result2.isActive}, bird3: ${result3.isActive}")
     }
+
+
+    @Test
+    fun `sing all day`() = runBlocking {
+
+        val job1 = launch {
+            꾸우Bird.singAllDay()
+        }
+        val job2 = launch {
+            까악Bird.singAllDay()
+        }
+        val job3 = launch {
+            짹짹Bird.singAllDay()
+        }
+
+        delay(10000)
+        println("10초 지남")
+        job1.cancel()
+        job2.cancel()
+        job3.cancel()
+
+        assertTrue("10초 이후에는 새가 울면 안된다.", !job1.isActive && !job2.isActive && !job3.isActive)
+    }
+
+
 }

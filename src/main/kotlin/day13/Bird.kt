@@ -10,4 +10,15 @@ class Bird(val sound: String, val soundDelay: Long) {
             delay(soundDelay)
         }
     }
+
+    suspend fun singAllDay() {
+        while (true) {
+            println(sound)
+            delay(soundDelay)
+        }
+    }
+
+    companion object {
+        const val SHORT_SING_COUNT = 4
+    }
 }
