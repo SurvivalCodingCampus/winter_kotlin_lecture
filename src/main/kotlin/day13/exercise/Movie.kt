@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 
 /*
-* 영화 정보를 담는 데이터 클래스
+* 영화 정보를 담는 데이터 클래스.
 *
 * */
 @Serializable

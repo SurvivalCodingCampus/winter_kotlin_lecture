@@ -2,7 +2,7 @@ package day13
 
 //object Weathers
 //
-//// 메인 스레드
+//// 메인 스레드.
 //fun main() {
 //    Weathers.tomorrow { content ->
 //        println(content)

@@ -9,7 +9,7 @@ import kotlinx.serialization.json.Json
 *
 * 영화 정보 반환
 * Movie 클래스를 작성,
-* 위 함수를 완성하고 director가 누군지 출력하는 main 함수 작성
+* 위 함수를 완성하고 director가 누군지 출력하는 main 함수 작성.
 * */
 
 
