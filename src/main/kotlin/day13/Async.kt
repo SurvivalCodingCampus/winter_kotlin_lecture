@@ -5,7 +5,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 
-fun main() = runBlocking {
+fun weather() = runBlocking {
     println(Thread.currentThread())
     println(1)
     withContext(Dispatchers.IO) {
