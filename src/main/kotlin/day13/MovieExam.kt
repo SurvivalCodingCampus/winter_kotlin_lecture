@@ -32,7 +32,6 @@ class MovieExam {
         // TODO : Movie 데이터를 리턴하도록 작성
         // Movie Json 파싱해서 받기
         val movie = Json.decodeFromString<Movie>(json)
-        // TODO : TestCode. 테스트코드에서도 fun 함수명() = runBlocking{} 하면 블록 내에서 코루틴 쓸 수 있음
 
         return movie
     }
