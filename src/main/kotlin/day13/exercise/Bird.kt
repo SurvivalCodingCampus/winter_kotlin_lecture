@@ -14,6 +14,7 @@ import kotlinx.coroutines.*
 * */
 
 
+// 4번 제한 로직
 //fun main() = runBlocking {
 //
 //    val firstBird = launch { birdSoundPrint(times = 4, timeMillis = 1000L, printSound = "꾸우") }
@@ -36,7 +37,7 @@ import kotlinx.coroutines.*
 
 // 계속 출력
 suspend fun birdSoundPrint(timeMillis: Long, printSound: String) {
-    while (true) {
+    while (currentCoroutineContext().isActive) {
         delay(timeMillis)
         println(printSound)
     }
