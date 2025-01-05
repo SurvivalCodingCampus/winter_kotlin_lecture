@@ -13,6 +13,7 @@
 - [2024-12-30](./docs/daily/2024-12-30.md): Kotlin Generics
 - [2024-12-31](./docs/daily/2024-12-31.md): Kotlin File operations
 - [2025-01-02](./docs/daily/2025-01-02.md): Kotlin Lambda
+- [2025-01-03](./docs/daily/2025-01-03.md): Kotlin coroutines
 
 ## 💻 작성 코드
 
@@ -29,6 +30,8 @@
 - [day10 테스트](./src/test/kotlin/day10)
 - [day11](./src/main/kotlin/day11)
 - [day11 테스트](./src/test/kotlin/day11)
+- [day13](./src/main/kotlin/day13)
+- [day13 테스트](./src/test/kotlin/day13)
 
 ## 📚 주제별 정리
 
@@ -43,3 +46,4 @@
 - [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
 - [Progit](https://git-scm.com/book/en/v2)
 - [Kotlin in Action](https://www.yes24.com/product/goods/55148593): 도서
+
