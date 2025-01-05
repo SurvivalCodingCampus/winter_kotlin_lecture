@@ -39,6 +39,7 @@ kotlin-study/
 - [2024-12-30](docs/daily/2024-12-30.md) - 제네릭, 열거형, 문자열 조작
 - [2024-12-31](docs/daily/2024-12-31.md) - 예외 처리, 파일 조작, 여러가지 데이터형식
 - [2025-01-02](docs/daily/2025-01-02.md) - 디버깅, 람다식과 함수
+- [2025-01-03](docs/daily/2025-01-03.md) - 비동기 프로그래밍
 
 ### 💻 작성 코드
 - Day 2
@@ -91,6 +92,19 @@ kotlin-study/
   - [CollectionChartDataList.kt](src/main/kotlin/day12/CollectionChartDataList.kt)
   - [LambdaExam.kt](src/main/kotlin/day12/LambdaExam.kt)
   - [Transaction.kt](src/main/kotlin/day12/Transaction.kt)
+- Day 13
+  - [Async.kt](src/main/kotlin/day13/Async.kt)
+  - [Asynchronous.kt](src/main/kotlin/day13/Asynchronous.kt)
+  - [Asynchronous2.kt](src/main/kotlin/day13/Asynchronous2.kt)
+  - [Bird.kt](src/main/kotlin/day13/Bird.kt)
+  - [CoroutineExam.kt](src/main/kotlin/day13/CoroutineExam.kt)
+  - [DispatchersExam.kt](src/main/kotlin/day13/DispatchersExam.kt)
+  - [MovieExam.kt](src/main/kotlin/day13/MovieExam.kt)
+  - [MovieExamTest.kt](src/test/kotlin/day13/MovieExamTest.kt)
+  - [WeatherCallback.kt](src/main/kotlin/day13/WeatherCallback.kt)
+  - [WeatherCoroutine.kt](src/main/kotlin/day13/WeatherCoroutine.kt)
+  - [WeatherLegacy.kt](src/main/kotlin/day13/WeatherLegacy.kt)
+
 
 
 ### 📚 주제별 정리
