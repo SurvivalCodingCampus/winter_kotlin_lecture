@@ -11,6 +11,7 @@
 - [2024-12-30](src/docs/daily/2024-12-30.md) - 제네릭, 열거형, 문자열 조작
 - [2024-12-31](src/docs/daily/2024-12-31.md) - 예외, 파일 조작, 여러가지 데이터 형식
 - [2025-01-02](src/docs/daily/2025-01-02.md) - 디버깅, 람다식과 함수
+- [2025-01-03](src/docs/daily/2025-01-03.md) - 비동기 프로그래밍, 코루틴
 
 ## 💻 작성 코드
 
@@ -51,24 +52,32 @@
     - [JsonToList.kt](src/main/kotlin/day12/JsonToList.kt) - JsonToList Code
     - [JsonToListSolution.md](src/main/kotlin/day12/JsonToListSolution.md) - JsonToList Solution
     - [Transactions.kt](src/main/kotlin/day12/Transactions.kt) - Transactions Query
+- Day 13
+    - [Async.kt](src/main/kotlin/day13/Async.kt) - Async Example Code
+    - [Movie.kt](src/main/kotlin/day13/Movie.kt) - Movie Code
+    - [BirdSounds.kt](src/main/kotlin/day13/BirdSounds.kt) - BirdSounds Code
+    - [TimedBirdSounds.kt](src/main/kotlin/day13/TimedBirdSounds.kt) - TimedBirdSounds Code
+    - [MovieKtTest.kt](src/test/kotlin/day13/MovieKtTest.kt) - Movie Test Code
 
 ## 📚 주제별 정리
 
 - [Git](src/docs/topics/git.md)
-- Kotlin
+- **Kotlin**
     - [Class](src/docs/topics/class.md)
     - [Collection](src/docs/topics/kotlin-collection.md)
+    - [Coroutines](src/docs/topics/coroutines.md)
     - [Equals](src/docs/topics/equals.md)
     - [Random](src/docs/topics/random.md)
-- Java
+- **Java**
     - [ArrayList](src/docs/topics/java-array-list.md)
 - [TDD](src/docs/topics/tdd.md)
 
 ## 🔍 참고 자료
 
 - [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
-- [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
-- [Kotlin in Action](https://www.manning.com/books/kotlin-in-action) by Dmitry Jemerov and Svetlana Isakova
+- [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html)
+- [Kotlin in Action](https://www.manning.com/books/kotlin-in-action)
+- [코틀린 코루틴의 정석](http://www.acornpub.co.kr/book/kotlin-coroutines)
 
 ---
 
