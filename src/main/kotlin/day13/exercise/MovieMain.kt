@@ -31,12 +31,9 @@ fun main() = runBlocking {
 suspend fun getMovieInfo(json: String): Movie {
     delay(1000L)
 
-    val result = runCatching {
+    return runCatching {
         Json.decodeFromString<Movie>(json)
-    }
-
-    // 실패했을 때 예외를 던짐
-    return result.getOrElse { exception ->
+    }.getOrElse { exception ->      // 실패했을때 예외
         throw RuntimeException("Json 파싱 실패: ${exception.message}", exception)
     }
 }

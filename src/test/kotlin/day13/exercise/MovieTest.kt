@@ -1,7 +1,6 @@
 package day13.exercise
 
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert
 import org.junit.Test
 import kotlin.test.assertEquals
 
@@ -9,16 +8,8 @@ import kotlin.test.assertEquals
 class MovieTest {
     @Test
     fun `Movie의 director가 제대로 출력되는지 확인`() = runTest {
-        val testJson = """
-               {
-               "title": "Star Wars",
-               "director": "George Lucas",
-               "year" : 1977
-               }
-           """.trimIndent()
-        val movieDirector = getMovieInfo(testJson).director
-
-        assertEquals("George Lucas", movieDirector)
+        val movieData = Movie(title = "Star Wars", director = "George Lucas", year = 1977)
+        assertEquals(movieData, getMovieInfo(json))
     }
 
     @Test(expected = RuntimeException::class)
