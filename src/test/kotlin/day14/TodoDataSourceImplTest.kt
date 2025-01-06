@@ -9,7 +9,7 @@ class TodoDataSourceImplTest {
     @Test
     fun getTodos() = runTest {
         val todoSource = TodoDataSourceImpl()
-        val expected = Json.decodeFromString<List<Todo>>(Data.todosString)
+        val expected = Json.decodeFromString<List<Todo>>(Data.TODO_STRING)
         Assert.assertEquals(expected, todoSource.getTodos())
     }
 }
