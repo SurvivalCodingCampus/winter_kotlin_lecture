@@ -1,11 +1,11 @@
-package day14
+package day14.todo
 
 import io.kotest.common.runBlocking
 import org.example.day14.todo.TodoHttpRepositoryImpl
 import org.junit.Test
 import kotlin.test.assertTrue
 
-class TodoDatabaseImplTest {
+class TodoHttpRepositoryImplTest {
     val todoDatabaseImpl: TodoHttpRepositoryImpl = TodoHttpRepositoryImpl()
 
     @Test
@@ -22,4 +22,5 @@ class TodoDatabaseImplTest {
 
         val data = todoDatabaseImpl.getTodos()
     }
+
 }
