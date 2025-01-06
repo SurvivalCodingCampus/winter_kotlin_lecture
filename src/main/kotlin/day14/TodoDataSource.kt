@@ -1,5 +1,5 @@
 package day14
 
 interface TodoDataSource {
-    suspend fun getTodo(): Todo
+    suspend fun getTodos(): List<Todo>
 }
