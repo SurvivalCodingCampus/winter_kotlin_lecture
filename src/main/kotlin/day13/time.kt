@@ -12,7 +12,7 @@ fun main() = runBlocking {
 
         val totalResult = result1 + result2 + result3
 
-        println("Total result: $totalResult")
+        println("Total Result: $totalResult")
     }
 
     println("Execution time: $time ms")
