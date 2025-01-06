@@ -19,5 +19,13 @@ data class Todo(
                 completed = todoData.completed ?: throw MissingFieldError("completed")
             )
         }
+        fun fromDataWithDefault(todoData: TodoData): Todo {
+            return Todo(
+                userId = todoData.userId ?: -1,
+                id = todoData.id ?: -1,
+                title = todoData.title ?: "",
+                completed = todoData.completed == true
+            )
+        }
     }
 }

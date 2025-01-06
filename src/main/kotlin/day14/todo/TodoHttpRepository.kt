@@ -8,4 +8,5 @@ interface TodoHttpRepository : HttpRepository {
 
     suspend fun getTodo(id: Int): Todo
 
+    suspend fun getTodos(): List<Todo>
 }

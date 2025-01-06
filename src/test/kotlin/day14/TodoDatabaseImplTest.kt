@@ -16,4 +16,10 @@ class TodoDatabaseImplTest {
         assertTrue("가져온 Todo의 id는 $todoId 여야 한다.") { data.id == todoId }
     }
 
+
+    @Test
+    fun getTodos(): Unit = runBlocking {
+
+        val data = todoDatabaseImpl.getTodos()
+    }
 }
