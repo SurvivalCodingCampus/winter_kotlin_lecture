@@ -3,7 +3,8 @@ package org.example.day14.stock
 object StockParser {
     fun parse(csv: String): List<StockData> {
         return csv.lines().filterIndexed { index, _ -> index != 0 }.map { line ->
-            val values = line.split(",")
+            val values = line.split(",").map { if (it == "null") null else it }
+
             StockData(
                 symbol = values.getOrNull(0),
                 name = values.getOrNull(1),

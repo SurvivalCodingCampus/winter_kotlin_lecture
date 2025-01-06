@@ -11,11 +11,7 @@ object StockMapper {
             assetType = AssetType.fromString(data.assetType),
             ipoDate = LocalDate.parse(data.ipoDate ?: "1900-01-01"),
             delistingDate = if (data.delistingDate != null) {
-                if (data.delistingDate == "null") {
-                    null
-                } else {
-                    LocalDate.parse(data.delistingDate)
-                }
+                LocalDate.parse(data.delistingDate)
             } else {
                 null
             },
