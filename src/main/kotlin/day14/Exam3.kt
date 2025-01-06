@@ -19,7 +19,7 @@ data class User(
 )
 
 interface UserDataSource {
-    suspend fun getTodo(): List<User>
+    suspend fun getUsers(): List<User>
 }
 
 class UserDataSourceImpl : UserDataSource {
@@ -27,7 +27,7 @@ class UserDataSourceImpl : UserDataSource {
     private val file = File("test_json3")
     private val json = file.readText()
 
-    override suspend fun getTodo(): List<User> {
+    override suspend fun getUsers(): List<User> {
         return Json.decodeFromString(json)
     }
 }
@@ -36,7 +36,7 @@ fun main() = runBlocking {
     val test = UserDataSourceImpl()
 
     val job = launch {
-        println(test.getTodo().toString())
+        println(test.getUsers().toString())
     }
 
 }
