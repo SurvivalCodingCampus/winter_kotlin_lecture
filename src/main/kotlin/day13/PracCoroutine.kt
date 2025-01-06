@@ -75,7 +75,6 @@ enum class Birds {
 
 
 fun speakingBirdLangauage() = runBlocking {
-    var sharedValue = 0
 
     val groupOfBirds: List<suspend () -> Unit> = listOf(
         ::bird1,
@@ -83,33 +82,16 @@ fun speakingBirdLangauage() = runBlocking {
         ::bird3
     )
 
-    // 시간 카운트 coroutine
-    launch {
-        while (true) {
-            delay(Birds.BIRD1.delay)
-            println(sharedValue)
-            ++sharedValue
-
-            if (sharedValue > 4) {
-                groupOfBirds.forEach { action ->
-                    action.invoke()
-                }
+    val jobs = launch {
+        groupOfBirds.forEach { action ->
+            launch {
+                action()
             }
         }
     }
 
-    // List로 비동기 함수 launch
-    groupOfBirds.forEach { action ->
-        val job = launch {
-            action()
-        }
-
-        if (sharedValue > 10) {
-            println("list ${sharedValue}")
-            job.cancel()
-            groupOfBirds.toMutableList().clear()
-        }
-    }
+    delay(10000)
+    jobs.cancel()
 }
 
 
