@@ -1,8 +1,8 @@
 package org.example.day14.todo
 
-import org.example.day14.HttpRepository
+import org.example.day14.FuelHttpRepository
 
-interface TodoHttpRepository : HttpRepository {
+interface TodoHttpRepository : FuelHttpRepository {
     // baseUrl
     override val baseUrl: String
         get() = "https://jsonplaceholder.typicode.com/todos"
