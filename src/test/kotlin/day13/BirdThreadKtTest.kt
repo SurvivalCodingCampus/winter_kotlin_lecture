@@ -70,7 +70,7 @@ class BirdThreadKtTest {
     @Test
     fun `10초동안 새들이 우는 테스트`() = runBlocking {
 
-        val job1: Job = launch {
+        val job1 = launch {
             var count = 0
             var totalTime1 = 0
             while (true) {
@@ -93,7 +93,7 @@ class BirdThreadKtTest {
             }
         }
 
-        val job2: Job = launch {
+        val job2 = launch {
             var count = 0
             var totalTime2 = 0
             while (true) {
@@ -116,7 +116,7 @@ class BirdThreadKtTest {
             }
         }
 
-        val job3: Job = launch {
+        val job3 = launch {
             var count = 0
             var totalTime3 = 0
             while (true) {
