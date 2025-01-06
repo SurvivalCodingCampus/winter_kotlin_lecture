@@ -1,30 +1,18 @@
 package org.example.day14.todo
 
-import org.example.domain.error.MissingFieldError
-
-
 data class Todo(
     val userId: Int,
     val id: Int,
     val title: String,
     val completed: Boolean,
 ) {
-
     companion object {
-        fun fromData(todoData: TodoData): Todo {
+        fun init(): Todo {
             return Todo(
-                userId = todoData.userId ?: throw MissingFieldError("userId"),
-                id = todoData.id ?: throw MissingFieldError("id"),
-                title = todoData.title ?: throw MissingFieldError("title"),
-                completed = todoData.completed ?: throw MissingFieldError("completed")
-            )
-        }
-        fun fromDataWithDefault(todoData: TodoData): Todo {
-            return Todo(
-                userId = todoData.userId ?: -1,
-                id = todoData.id ?: -1,
-                title = todoData.title ?: "",
-                completed = todoData.completed == true
+                userId = -1,
+                id = -1,
+                title = "",
+                completed = false
             )
         }
     }

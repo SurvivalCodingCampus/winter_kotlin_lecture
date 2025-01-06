@@ -6,11 +6,10 @@ import kotlinx.serialization.json.Json
 
 class TodoHttpRepositoryImpl : TodoHttpRepository {
 
-
     override suspend fun getTodo(id: Int): Todo {
         return runCatching {
             val data = Json.decodeFromString<TodoData>(fuelClient.get("$baseUrl/${id.toString()}").source.readString())
-            return Todo.fromDataWithDefault(data)
+            return TodoMapper.fromData(data)
         }.getOrElse {
             throw it
         }
@@ -19,7 +18,7 @@ class TodoHttpRepositoryImpl : TodoHttpRepository {
     override suspend fun getTodos(): List<Todo> {
         val data = Json.decodeFromString<List<TodoData>>(fuelClient.get(baseUrl).source.readString())
         val filteredData = filterNullData(data)
-        return filteredData.map { Todo.fromDataWithDefault(it) }
+        return TodoMapper.fromDataList(filteredData)
     }
 
 
