@@ -97,14 +97,14 @@ fun speakingBirdLangauage() = runBlocking {
 
 suspend fun bird1() {
     while (true) {
-        println("꾸우!")
+        Birds.BIRD1.speaking()
         delay(Birds.BIRD1.delay)
     }
 }
 
 suspend fun bird2() {
     while (true) {
-        println("까악")
+        Birds.BIRD2.speaking()
         delay(Birds.BIRD2.delay)
     }
 }
@@ -112,7 +112,7 @@ suspend fun bird2() {
 
 suspend fun bird3() {
     while (true) {
-        println("짹짹")
+        Birds.BIRD3.speaking()
         delay(Birds.BIRD3.delay)
     }
 }
