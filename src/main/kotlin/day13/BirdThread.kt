@@ -4,19 +4,19 @@ import kotlinx.coroutines.*
 
 fun main() = runBlocking {
 
-    var job1: Job = launch {
+    var job1 = launch {
         while (true) {
             bird1()
         }
     }
 
-    val job2: Job = launch {
+    val job2 = launch {
         while (true) {
             bird2()
         }
     }
 
-    val job3: Job = launch {
+    val job3 = launch {
         while (true) {
             bird3()
         }
