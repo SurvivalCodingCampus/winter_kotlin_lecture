@@ -6,7 +6,8 @@ import org.example.day14.data.result.Result
 import org.example.day14.data.result.asResult
 
 fun main(): Unit = runBlocking {
-    TodoDataSourceImpl().getTodos("https://jsonplaceholder.typicode.com/todos").asResult().collect { result ->
+    val todoRepo = TodoDataSourceImpl()
+    todoRepo.getTodosFromUrl().asResult().collect { result ->
         when (result) {
             is Result.Success -> {
                 result.data.forEach {
@@ -21,7 +22,7 @@ fun main(): Unit = runBlocking {
         }
     }
 
-    TodoDataSourceImpl().getTodo("https://jsonplaceholder.typicode.com/todos", 1).asResult().collect { result ->
+    todoRepo.getTodo(1).asResult().collect { result ->
         when (result) {
             is Result.Success -> {
                 println(result.data)
@@ -33,6 +34,6 @@ fun main(): Unit = runBlocking {
             }
         }
     }
-    println(TodoDataSourceImpl().getTodo())
-    println(TodoDataSourceImpl().getTodos())
+    println(todoRepo.getTodo())
+    println(todoRepo.getTodos())
 }

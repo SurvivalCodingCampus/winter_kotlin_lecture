@@ -18,7 +18,7 @@ class TodoViewModel(
 
     fun updateTodoState(url: String) {
         coroutineScope.launch {
-            todoDataSource.getTodos(url).asResult().map { result ->
+            todoDataSource.getTodosFromUrl().asResult().map { result ->
                 when (result) {
                     is Result.Success -> TodoUIState.Success(result.data)
                     is Result.Loading -> TodoUIState.Loading

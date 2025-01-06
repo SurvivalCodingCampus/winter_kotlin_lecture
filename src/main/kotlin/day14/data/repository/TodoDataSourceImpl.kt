@@ -13,6 +13,8 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class TodoDataSourceImpl : TodoDataSource {
+    private val url = "https://jsonplaceholder.typicode.com/todos"
+
     @OptIn(ExperimentalSerializationApi::class)
     private val jsonConfig = Json {
         allowTrailingComma = true
@@ -43,11 +45,11 @@ class TodoDataSourceImpl : TodoDataSource {
         return jsonConfig.decodeFromString(todosJsonString)
     }
 
-    override suspend fun getTodo(url: String, id: Int): Flow<Todo> = flow {
+    override suspend fun getTodo(id: Int): Flow<Todo> = flow {
         emit(fetchData<Todo>("$url/$id"))
     }
 
-    override suspend fun getTodos(url: String): Flow<List<Todo>> = flow {
+    override suspend fun getTodosFromUrl(): Flow<List<Todo>> = flow {
         emit(fetchData<List<Todo>>(url))
     }
 }
