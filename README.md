@@ -81,6 +81,8 @@
   - [DefaultFileOperations.kt](src/main/kotlin/day11/DefaultFileOperations.kt) - 파일복사 연습문제
   - [FileOperations.kt](src/main/kotlin/day11/FileOperations.kt) - 인터페이스
   - [Employee.kt](src/main/kotlin/day11/Employee.kt) - 직렬화 연습문제
+    
+  - [DefaultFileOperationsTest.kt](src/test/kotlin/day11/DefaultFileOperationsTest.kt) - DefaultFileOperations 클래스 테스트 코드
 - Day 12
   - [ExamDebug.kt](src/main/kotlin/day12/ExamDebug.kt) - 디버깅 예제
   - [ExamJson.kt](src/main/kotlin/day12/ExamJson.kt) - 직렬화 예제
@@ -91,6 +93,16 @@
   - [ExamCallback3.kt](src/main/kotlin/day12/ExamCallback3.kt) - 콜백함수 예제_람다
   - [LambdaQuery.kt](src/main/kotlin/day12/LambdaQuery.kt) - 람다식 연습문제
 - Day 13    
+- [Sample.kt](src/main/kotlin/day13/Sample.kt) - Thread Block 예제
+- [WeatherLegacy.kt](src/main/kotlin/day13/WeatherLegacy.kt) - Thread 싱글톤 예제
+- [WeatherCallback.kt](src/main/kotlin/day13/WeatherCallback.kt) - callback 예제
+- [WeatherCoroutine.kt](src/main/kotlin/day13/WeatherCoroutine.kt) - coroutine 예제
+- [Asynchronous.kt](src/main/kotlin/day13/Asynchronous.kt) - 비동기 예제
+- [Movie.kt](src/main/kotlin/day13/Movie.kt) - api 호출 및 데이터처리 연습문제
+- [CoroutineBirds.kt](src/main/kotlin/day13/CoroutineBirds.kt) - 코루틴 연습문제
+  
+- [MoviektTest.kt](src/test/kotlin/day13/MoviektTest.kt) - Movie 클래스 테스트코드
+
 ## 📚 주제별 정리
 - [Git](docs/topics/Git.md) - 깃
 - [kotlin](docs/topics/kotlin.md) - 코틀린

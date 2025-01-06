@@ -3,6 +3,7 @@ package day10
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.jupiter.api.assertThrows
 
 class WordTest {
 
@@ -11,7 +12,7 @@ class WordTest {
         val word = Word("HELLO")
         assertEquals(false, word.isVowel(0))
         assertEquals(true, word.isVowel(1))
-//        assertEquals(false, word.isVowel(-1))
+        assertThrows<IndexOutOfBoundsException> { word.isVowel(-1) }
     }
 
     @Test
@@ -19,6 +20,6 @@ class WordTest {
         val word = Word("HELLO")
         assertEquals(true, word.isConsonant(2))
         assertEquals(false, word.isConsonant(4))
-//        assertEquals(false, word.isConsonant(10))
+        assertThrows<IndexOutOfBoundsException> { word.isConsonant(10) }
     }
 }

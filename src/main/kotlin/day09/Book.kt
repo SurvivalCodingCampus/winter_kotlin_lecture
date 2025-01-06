@@ -65,5 +65,5 @@ fun main() {
     println(books)
 
     println(book2 < book1)    // true. 내림차순이라 book2가 최신이므로 작다고 간주
-    println(book2.compareTo(book1))
+    println(book2.compareTo(book1)) // -1
 }

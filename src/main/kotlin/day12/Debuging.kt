@@ -47,9 +47,10 @@ data class SalePrice(
 fun main() {
     try {
         val root = Json.decodeFromString<Root>(jsonString)
-        root.collectionChartDataList.forEach { collectionChartData ->
-            println("name: ${collectionChartData.collectionName}, salePrice: ${collectionChartData.collectionSalePrice}")
-        }
+        println(root)
+//        root.collectionChartDataList.forEach { collectionChartData ->
+//            println("name: ${collectionChartData.collectionName}, salePrice: ${collectionChartData.collectionSalePrice}")
+//        }
     } catch (e: Exception) {
         println(e.message)
     }
