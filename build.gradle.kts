@@ -19,6 +19,7 @@ dependencies {
     testImplementation("io.kotest:kotest-property:$kotestVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
+    implementation("com.github.kittinunf.fuel:fuel:3.0.0-alpha04")
 }
 
 tasks.test {
