@@ -75,7 +75,7 @@ enum class Birds {
 
 
 fun speakingBirdLangauage() = runBlocking {
-    var sharedVale = 0
+    var sharedValue = 0
 
     val groupOfBirds: List<suspend () -> Unit> = listOf(
         ::bird1,
@@ -87,10 +87,10 @@ fun speakingBirdLangauage() = runBlocking {
     launch {
         while (true) {
             delay(Birds.BIRD1.delay)
-            println(sharedVale)
-            ++sharedVale
+            println(sharedValue)
+            ++sharedValue
 
-            if (sharedVale > 4) {
+            if (sharedValue > 4) {
                 groupOfBirds.forEach { action ->
                     action.invoke()
                 }
@@ -104,8 +104,8 @@ fun speakingBirdLangauage() = runBlocking {
             action()
         }
 
-        if (sharedVale > 10) {
-            println("list ${sharedVale}")
+        if (sharedValue > 10) {
+            println("list ${sharedValue}")
             job.cancel()
             groupOfBirds.toMutableList().clear()
         }
