@@ -35,9 +35,3 @@ class TodoDataSourceImpl : TodoDataSource {
         return Json.decodeFromString(json)
     }
 }
-
-
-fun main(): Unit = runBlocking {
-    val tododata = TodoDataSourceImpl()
-    println(tododata.getTodo())
-}
