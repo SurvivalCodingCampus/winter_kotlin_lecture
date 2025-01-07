@@ -9,6 +9,22 @@ import kotlin.test.asserter
 class PostRepositoryImplTest {
 
     @Test
+    fun `전체 게시글 목록 조회`() = runBlocking {
+        val allPosts = PostRepositoryImpl(PostDataSourceImpl()).getPosts()
+
+        assertEquals(100, allPosts.size)
+    }
+    @Test
+    fun `잘못된 페이지 번호 처리`() = runBlocking {
+        // 잘못된 페이지 번호는 1로 처리
+        val invalidPage = PostRepositoryImpl(PostDataSourceImpl()).getPosts(0, 3)
+
+        for(i in 0..2) {
+            assertEquals(i + 1, invalidPage[i].id)
+        }
+    }
+
+    @Test
     fun getPost() = runBlocking {
         // 단일 포스트
         val data = PostRepositoryImpl(PostDataSourceImpl()).getPost(3)
@@ -20,12 +36,7 @@ class PostRepositoryImplTest {
     }
 
     @Test
-    fun getPosts() = runBlocking {
-        // 전체 목록
-        val allPosts = PostRepositoryImpl(PostDataSourceImpl()).getPosts()
-
-        assertEquals(100, allPosts.size)
-
+    fun `페이지 네이션의 정상적인 동작 확인 테스트`() = runBlocking {
         // 페이지 네이션
         val page1 = PostRepositoryImpl(PostDataSourceImpl()).getPosts(1, 3)
         val page2 = PostRepositoryImpl(PostDataSourceImpl()).getPosts(2, 3)
@@ -45,11 +56,5 @@ class PostRepositoryImplTest {
             assertEquals(i + 7, page3[i].id)
         }
 
-        // 잘못된 페이지 번호는 1로 처리
-        val invalidPage = PostRepositoryImpl(PostDataSourceImpl()).getPosts(0, 3)
-
-        for(i in 0..2) {
-            assertEquals(i + 1, invalidPage[i].id)
-        }
     }
 }

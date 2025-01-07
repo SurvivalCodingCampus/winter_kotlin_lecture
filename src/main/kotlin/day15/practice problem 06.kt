@@ -651,7 +651,7 @@ class PostRepositoryImpl(private val dataSource: PostDataSource): PostRepository
             return dataSource.getPost()
         } else {
             val startIndex = (myPage - 1) * limit
-            return dataSource.getPost().subList(startIndex, startIndex + 3)
+            return dataSource.getPost().subList(startIndex, startIndex + limit)
         }
     }
 }

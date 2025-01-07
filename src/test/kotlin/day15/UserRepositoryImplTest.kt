@@ -19,5 +19,16 @@ class UserRepositoryImplTest {
         val data = UserRepositoryImpl(MockUserDataSourceImpl()).getUsersTop10ByUserName()
 
         assertEquals(10, data.size)
+
+        // 데이터 내용 검증
+        data.forEachIndexed { index, user ->
+            assertNotNull(user.id)
+            assertNotNull(user.name)
+            assertNotNull(user.email)
+        }
+
+        // 정렬 검증
+        val sortedData = data.sortedBy { it.username }
+        assertEquals(sortedData, data)
     }
 }
