@@ -28,7 +28,7 @@ class StockDataSourceImpl : StockDataSource {
     private val file = File("listing_status.csv")
     private var csv = file.readLines().map { it.split(",") }.drop(1)
 
-    fun parsingCsv(csv: List<String>): StockListing {
+    fun makeStockListing(csv: List<String>): StockListing {
         return StockListing( csv[0], csv[1], csv[2], csv[3], csv[4], csv[5], csv[6])
     }
 
@@ -36,7 +36,7 @@ class StockDataSourceImpl : StockDataSource {
         val stockListing: MutableList<StockListing> = mutableListOf()
 
         csv.forEach{
-            stockListing.add(parsingCsv(it))
+            stockListing.add(makeStockListing(it))
         }
 
         return stockListing
