@@ -1,10 +1,11 @@
-package org.example.day14.data.repository
+package org.example.day14.data.mock
 
+import org.example.day14.data.datasource.StockDataSource
 import org.example.day14.data.model.StockListing
 import java.io.File
 import java.io.FileNotFoundException
 
-class StockDataSourceImpl : StockDataSource {
+class MockStockDataSourceImpl : StockDataSource {
     override fun getStockListings(): List<StockListing> {
         val file = File("src/main/kotlin/day14/data/resources/listing_status.csv")
 
