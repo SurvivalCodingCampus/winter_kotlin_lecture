@@ -13,7 +13,7 @@ fun main() = runBlocking {
         println("All Todos:")
         todos.forEach { println(it) }
     } catch (e: Exception) {
-        println("Error fetching photos: ${e.message}")
+        println("Error fetching todos: ${e.message}")
     }
 
     try {
@@ -21,6 +21,6 @@ fun main() = runBlocking {
         println("Completed Todos:")
         todos.forEach { println(it) }
     } catch (e: Exception) {
-        println("Error fetching photos: ${e.message}")
+        println("Error fetching todos: ${e.message}")
     }
 }
