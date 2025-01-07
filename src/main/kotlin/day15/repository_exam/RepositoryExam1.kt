@@ -10,5 +10,4 @@ fun main(): Unit = runBlocking {
     println("${testMock.getComments(1)}\n")
     println("${testMock.getComments(2)}\n")
     println("${testMock.getComments(3)}\n")
-
 }

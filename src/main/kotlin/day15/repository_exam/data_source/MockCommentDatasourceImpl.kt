@@ -18,10 +18,6 @@ class MockCommentDatasourceImpl : MockCommentDatasource {
     }
 
     override fun getAllComment(): List<Comment> {
-        return Json.decodeFromString(file.readText())
-    }
-
-    override fun getComments(postId: Int): List<Comment> {
-        return Json.decodeFromString<List<Comment>>(file.readText()).filter { it.postId == postId }
+        return Json.decodeFromString<List<Comment>>(file.readText())
     }
 }

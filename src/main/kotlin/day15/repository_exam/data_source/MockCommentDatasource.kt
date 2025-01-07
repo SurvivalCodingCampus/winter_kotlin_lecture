@@ -6,5 +6,4 @@ interface MockCommentDatasource {
     fun getComment(id: Int): Comment?
     fun saveComment(comment: Comment)
     fun getAllComment(): List<Comment>
-    fun getComments(postId: Int): List<Comment>
 }
