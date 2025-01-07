@@ -1,6 +1,5 @@
 package org.example.day15.repository_exam.repository
 
-import org.example.day15.repository_exam.data_source.CommentDataSource
 import org.example.day15.repository_exam.data_source.MockCommentDatasource
 import org.example.day15.repository_exam.model.Comment
 

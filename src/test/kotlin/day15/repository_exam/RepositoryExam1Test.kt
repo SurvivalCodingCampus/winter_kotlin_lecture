@@ -1,7 +1,7 @@
 package day15.repository_exam
 
 import kotlinx.coroutines.runBlocking
-import org.example.day15.repository_exam.data_source.MockCommentDataSourceImpl
+import org.example.day15.repository_exam.data_source.MockCommentDatasourceImpl
 import org.example.day15.repository_exam.repository.CommentRepositoryImpl
 import org.junit.After
 import org.junit.Before
@@ -21,7 +21,7 @@ class RepositoryExam1Test {
 
     @Test
     fun `MockCommentDatasourceImpl로 getComments() 테스트`() = runBlocking {
-        val testMock = CommentRepositoryImpl(MockCommentDataSourceImpl())
+        val testMock = CommentRepositoryImpl(MockCommentDatasourceImpl())
 
         // 가져온 Comment 개수 확인
         assertEquals(5, testMock.getComments(1).size)
