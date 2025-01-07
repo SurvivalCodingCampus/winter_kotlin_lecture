@@ -40,6 +40,7 @@ kotlin-study/
 - [2024-12-31](docs/daily/2024-12-31.md) - 예외 처리, 파일 조작, 여러가지 데이터형식
 - [2025-01-02](docs/daily/2025-01-02.md) - 디버깅, 람다식과 함수
 - [2025-01-03](docs/daily/2025-01-03.md) - 비동기 프로그래밍
+- [2025-01-06](docs/daily/2025-01-06.md) - 데이터소스
 
 ### 💻 작성 코드
 - Day 2
@@ -104,8 +105,13 @@ kotlin-study/
   - [WeatherCallback.kt](src/main/kotlin/day13/WeatherCallback.kt)
   - [WeatherCoroutine.kt](src/main/kotlin/day13/WeatherCoroutine.kt)
   - [WeatherLegacy.kt](src/main/kotlin/day13/WeatherLegacy.kt)
-
-
+- Day 14
+  - [StockDataSource.kt](src/main/kotlin/day14/StockDataSource.kt)
+  - [StockDataSourceTest.kt](src/test/kotlin/day14/StockDataSourceImplTest.kt)
+  - [TodoDataSource.kt](src/main/kotlin/day14/TodoDataSource.kt)
+  - [TodoDataSourceTest.kt](src/test/kotlin/day14/TodoDataSourceImplTest.kt)
+  - [UserDataSource.kt](src/main/kotlin/day14/UserDataSource.kt)
+  - [UserDataSourceTest.kt](src/test/kotlin/day14/UserDataSourceImplTest.kt)
 
 ### 📚 주제별 정리
 - [Git&Github](docs/topics/Git&Github.md)
