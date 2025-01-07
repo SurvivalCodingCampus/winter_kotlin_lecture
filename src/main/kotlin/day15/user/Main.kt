@@ -13,7 +13,7 @@ fun main() = runBlocking {
         println("All Users:")
         users.forEach { println(it) }
     } catch (e: Exception) {
-        println("Error fetching photos: ${e.message}")
+        println("Error fetching users: ${e.message}")
     }
 
     try {
@@ -21,6 +21,6 @@ fun main() = runBlocking {
         println("Users Top 10 by UserName:")
         users.forEach { println(it) }
     } catch (e: Exception) {
-        println("Error fetching photos: ${e.message}")
+        println("Error fetching users: ${e.message}")
     }
 }
