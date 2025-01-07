@@ -53,7 +53,19 @@ fun main() = runBlocking {
     coroutineScope.launch { birdSoundPrint(timeMillis = 2000L, printSound = "까악") }
     coroutineScope.launch { birdSoundPrint(timeMillis = 3000L, printSound = "짹짹") }
 
+
     delay(10000L)
+
+    println("10초 끝")
+    println("다시 대기")
+
+
+    delay(5000L)
+
+    println("5초끝")
+
+
+
 
     coroutineScope.cancel()
 }
