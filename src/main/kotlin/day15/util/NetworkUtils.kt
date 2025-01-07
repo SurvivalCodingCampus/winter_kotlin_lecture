@@ -10,7 +10,7 @@ import java.net.URL
 
 object NetworkUtils {
 
-    fun createHttpConnection(url: String, requestMethod: String = "GET"): HttpURLConnection {
+    private fun createHttpConnection(url: String, requestMethod: String = "GET"): HttpURLConnection {
         val connection = URL(url).openConnection() as HttpURLConnection
         connection.apply {
             connectTimeout = Constants.TIMEOUT
@@ -21,7 +21,7 @@ object NetworkUtils {
         return connection
     }
 
-    fun readStream(inputStream: InputStream): String {
+    private fun readStream(inputStream: InputStream): String {
         return BufferedReader(InputStreamReader(inputStream)).use { reader ->
             reader.readText()
         }
@@ -48,7 +48,7 @@ object NetworkUtils {
         }
     }
 
-    fun handleHttpError(responseCode: Int): String {
+    private fun handleHttpError(responseCode: Int): String {
         return when (responseCode) {
             HttpURLConnection.HTTP_BAD_REQUEST -> "Bad Request (400)"
             HttpURLConnection.HTTP_UNAUTHORIZED -> "Unauthorized (401)"

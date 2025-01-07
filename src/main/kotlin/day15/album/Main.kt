@@ -3,8 +3,6 @@ package org.hyunjung.day15.album
 import kotlinx.coroutines.runBlocking
 import org.hyunjung.day15.album.datasource.AlbumDataSourceImpl
 import org.hyunjung.day15.album.repository.AlbumRepositoryImpl
-import org.hyunjung.day15.photo.datasource.PhotoDataSourceImpl
-import org.hyunjung.day15.photo.repository.PhotoRepositoryImpl
 
 fun main() = runBlocking {
     val albumDataSource = AlbumDataSourceImpl()
@@ -15,7 +13,7 @@ fun main() = runBlocking {
         println("All Albums:")
         albums.forEach { println(it) }
     } catch (e: Exception) {
-        println("Error fetching photos: ${e.message}")
+        println("Error fetching albums: ${e.message}")
     }
 
     try {
@@ -23,6 +21,6 @@ fun main() = runBlocking {
         println("Three Albums:")
         albums.forEach { println(it) }
     } catch (e: Exception) {
-        println("Error fetching photos: ${e.message}")
+        println("Error fetching albums: ${e.message}")
     }
 }
