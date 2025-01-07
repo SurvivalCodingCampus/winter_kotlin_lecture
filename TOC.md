@@ -15,6 +15,7 @@
 - [2025-01-02](./docs/daily/2025-01-02.md): Kotlin Lambda
 - [2025-01-03](./docs/daily/2025-01-03.md): Kotlin coroutines
 - [2025-01-06](./docs/daily/2025-01-06.md): DataStore strategy
+- [2025-01-07](./docs/daily/2025-01-07.md): Repository strategy
 
 ## 💻 작성 코드
 
