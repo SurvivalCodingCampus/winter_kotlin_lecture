@@ -2,7 +2,7 @@ package org.hyunjung.day15.comment.datasource
 
 import org.hyunjung.day15.comment.model.Comment
 
-class MockCommentDatasourceImpl : CommentDataSource {
+class MockCommentDataSourceImpl : CommentDataSource {
     override suspend fun getComments(postId: Int): List<Comment> {
         return listOf(
             Comment(postId, 1, "Mock User 1", "mock1@example.com", "Mock Data 1"),

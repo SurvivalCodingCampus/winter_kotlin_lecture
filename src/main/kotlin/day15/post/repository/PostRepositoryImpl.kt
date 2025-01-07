@@ -4,14 +4,14 @@ import org.hyunjung.day15.post.datasource.PostDataSource
 import org.hyunjung.day15.post.model.Post
 
 class PostRepositoryImpl(
-    private val dataSource: PostDataSource
+    private val postDataSource: PostDataSource
 ) : PostRepository {
     override suspend fun getPost(id: Int): Post {
-        return dataSource.getPost(id)
+        return postDataSource.getPost(id)
     }
 
     override suspend fun getPosts(page: Int, limit: Int?): List<Post> {
-        val allPosts = dataSource.getPosts()
+        val allPosts = postDataSource.getPosts()
         val validatedPage = if (page < 1) 1 else page
 
         return if (limit != null) {

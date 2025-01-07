@@ -1,13 +1,13 @@
 package org.hyunjung.day15.comment
 
 import kotlinx.coroutines.runBlocking
-import org.hyunjung.day15.comment.datasource.MockCommentDatasourceImpl
-import org.hyunjung.day15.comment.datasource.RemoteCommentDatasourceImpl
+import org.hyunjung.day15.comment.datasource.MockCommentDataSourceImpl
+import org.hyunjung.day15.comment.datasource.RemoteCommentDataSourceImpl
 import org.hyunjung.day15.comment.repository.CommentRepositoryImpl
 
 fun main() = runBlocking {
-    val remoteDataSource = RemoteCommentDatasourceImpl()
-    val mockDataSource = MockCommentDatasourceImpl()
+    val remoteDataSource = RemoteCommentDataSourceImpl()
+    val mockDataSource = MockCommentDataSourceImpl()
 
     val repository = CommentRepositoryImpl(remoteDataSource, mockDataSource)
 
