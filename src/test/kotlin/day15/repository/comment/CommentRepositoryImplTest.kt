@@ -5,7 +5,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.SerializationException
 import org.example.day15.data_source.comment.MockCommentDataSourceImpl
 import org.example.day15.repository.comment.CommentRepositoryImpl
-import org.junit.Assert
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
@@ -40,13 +40,13 @@ class CommentRepositoryImplTest {
     fun getComments(): Unit = runBlocking {
         val postId = 1
         val comments = validCommentRepositoryImpl.getComments(postId)
-        Assert.assertTrue("댓글 정보는 5개 여야 한다.", comments.size == 5)
-        Assert.assertTrue("첫번째 댓글의 postId는 1이여야 한다.", comments.first().postId == postId)
+        assertTrue("댓글 정보는 5개 여야 한다.", comments.size == 5)
+        assertTrue("첫번째 댓글의 postId는 1이여야 한다.", comments.first().postId == postId)
 
         val invalidCommentRepositoryImpl = CommentRepositoryImpl(MockCommentDataSourceImpl(jsonWithInvalidField))
         val commentsWithInvalidField =
             assertDoesNotThrow("잘못된 필드가 있어도 default 객체를 반환 해야 한다.") { invalidCommentRepositoryImpl.getComments(postId) }
-        Assert.assertTrue("댓글 정보는 0개 여야 한다.", commentsWithInvalidField.size == 1)
+        assertTrue("댓글 정보는 0개 여야 한다.", commentsWithInvalidField.size == 1)
 
         val errorCommentRepositoryImpl = CommentRepositoryImpl(MockCommentDataSourceImpl(invalidJson))
 
