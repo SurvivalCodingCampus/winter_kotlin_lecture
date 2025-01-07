@@ -15,7 +15,8 @@ class PhotoRepositoryImpl(
             }
 
             is ResponseResult.Failure -> {
-                emptyList()
+                println("데이터 조회 실패: ${result.exception.message}")
+                throw result.exception
             }
         }
     }

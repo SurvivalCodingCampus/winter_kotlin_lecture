@@ -10,7 +10,7 @@ class AlbumRepositoryImpl(
     override suspend fun getAlbums(limit: Int?): List<Album> {
         return when (val result = albumDataSource.getAlbums()) {
             is ResponseResult.Success -> {
-                if (limit != null) {
+                if (limit != null && limit > 0) {
                     result.data.take(limit)
                 } else {
                     result.data

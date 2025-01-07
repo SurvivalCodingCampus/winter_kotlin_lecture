@@ -10,7 +10,7 @@ class PostRepositoryImpl(
     override suspend fun getPost(id: Int): Post? {
         return when (val result = postDataSource.getPosts()) {
             is ResponseResult.Success -> {
-                result.data.first { it.id == id }
+                result.data.find { it.id == id }
             }
 
             is ResponseResult.Failure -> {

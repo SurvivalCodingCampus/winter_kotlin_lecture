@@ -22,7 +22,7 @@ class UserRepositoryImpl(
     override suspend fun getUsersTop10ByUserName(): List<User> {
         return when (val result = userDataSource.getUsers()) {
             is ResponseResult.Success -> {
-                result.data.sortedBy { it.name }.take(10)
+                result.data.sortedBy { it.username }.take(10)
             }
 
             is ResponseResult.Failure -> {

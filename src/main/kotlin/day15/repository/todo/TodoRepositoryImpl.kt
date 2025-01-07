@@ -14,6 +14,7 @@ class TodoRepositoryImpl(
             }
 
             is ResponseResult.Failure -> {
+                println("Todo 데이터 받아오기 실패: ${result.exception.message}")
                 emptyList()
             }
         }
@@ -26,6 +27,7 @@ class TodoRepositoryImpl(
             }
 
             is ResponseResult.Failure -> {
+                println("Todo 데이터 받아오기 실패: ${result.exception.message}")
                 emptyList()
             }
         }

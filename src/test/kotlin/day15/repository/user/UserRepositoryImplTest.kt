@@ -26,6 +26,6 @@ class UserRepositoryImplTest {
    assertEquals(10, tenUsers.size)
 
    // 원본데이터에서 이름순 정렬후 10개를 가져왔을때 메소드에서 가져온거랑 동일한지 확인
-   assertEquals(originUsers.sortedBy { it.name }.take(10), tenUsers)
+   assertEquals(originUsers.sortedBy { it.username }.take(10), tenUsers)
  }
 }
