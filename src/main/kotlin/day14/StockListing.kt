@@ -3,7 +3,7 @@ package day14
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.Serializable
 
-@Serializable(with = StockListingSerializer::class)
+@Serializable
 data class StockListing(
     val symbol: String,
     val name: String,
