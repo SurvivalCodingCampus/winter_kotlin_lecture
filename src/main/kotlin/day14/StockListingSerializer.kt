@@ -62,7 +62,7 @@ object StockListingSerializer {
     }
 
     private fun <T> encodeToString(serializer: SerializationStrategy<T>, value: T): String {
-        val encoder = StockListingSerializer.CSVEncoder()
+        val encoder = CSVEncoder()
         encoder.encodeSerializableValue(serializer, value)
         return encoder.value!!
     }
@@ -70,7 +70,7 @@ object StockListingSerializer {
     fun encodeToString(value: StockListing) = encodeToString(serializer(), value)
 
     private fun <T> decodeFromString(record: String, deserializer: DeserializationStrategy<T>): T {
-        val decoder = StockListingSerializer.StockListingDecoder(record)
+        val decoder = StockListingDecoder(record)
         return decoder.decodeSerializableValue(deserializer)
     }
 
