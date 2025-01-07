@@ -1,5 +1,7 @@
 package org.hyunjung.day15.util
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -22,6 +24,27 @@ object NetworkUtils {
     fun readStream(inputStream: InputStream): String {
         return BufferedReader(InputStreamReader(inputStream)).use { reader ->
             reader.readText()
+        }
+    }
+
+    suspend fun <T> executeRequest(
+        url: String,
+        requestMethod: String = "GET",
+        handleResponse: (String) -> T
+    ): T {
+        return withContext(Dispatchers.IO) {
+            val connection = createHttpConnection(url, requestMethod)
+            try {
+                connection.connect()
+                if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+                    val response = readStream(connection.inputStream)
+                    handleResponse(response)
+                } else {
+                    throw Exception(handleHttpError(connection.responseCode))
+                }
+            } finally {
+                connection.disconnect()
+            }
         }
     }
 
