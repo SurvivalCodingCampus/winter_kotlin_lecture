@@ -7,9 +7,14 @@ import org.hyunjung.day15.util.NetworkUtils
 
 class PostDataSourceImpl : PostDataSource {
     override suspend fun getPost(id: Int): Post {
+        require(id > 0) { "게시물 ID는 양수여야 합니다." }
         val url = "${Constants.BASE_URL}/posts/$id"
         return NetworkUtils.executeRequest(url) { response ->
-            JsonParser.parseJson(response)
+            try {
+                JsonParser.parseJson(response)
+            } catch (e: Exception) {
+                throw IllegalArgumentException("Error fetching posts: ${e.message}")
+            }
         }
     }
 
