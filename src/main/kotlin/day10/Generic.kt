@@ -9,7 +9,7 @@ fun main() {
     println(pocket.get())
 
     val pocket2 = Pocket2<String>()
-    pocket.put("아무거나2")
+    pocket2.put("아무거나2")
     println(pocket.get())
 }
 

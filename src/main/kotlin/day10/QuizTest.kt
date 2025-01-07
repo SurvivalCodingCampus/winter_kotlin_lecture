@@ -29,6 +29,13 @@ data class Hero2(val name: String, val hp: Int)
 class NomalPerson(val name: String, val age: Int) // 일반 클래스
 data class DataPerson(val name: String, val age: Int) // 데이터 클래스
 
+data class Team2(val name: String, val members: MutableList<String>) {
+    fun deepCopy(): Team {
+        // members 리스트를 새로운 리스트로 복사하여 반환
+        return Team(name, members.toMutableList())
+    }
+}
+
 fun main() {
     println(p1 == p2) // true
                       // 왜냐하면 data class는 equals() 메소드가 자동으로 오버랑디이 돼서, 모든 속성 (name과 age)값이 동일하면 두 인스턴스를 같은 것으로 판단한다 : 객체의 동등성 비교
@@ -110,6 +117,13 @@ fun main() {
     val team2 = team1.copy()    // team1을 얕은 복사
     team2.members.add("Lee")
     println(team1.members.size)     // 2.    team1과 team2는 같은 members 리스트를 참조하므로, team1의 멤버 목록에도 "Lee"가 추가된다
+
+    val team3 = Team2("A팀", mutableListOf("Kim"))
+    val team4 = team3.deepCopy() // 깊은 복사
+    team4.members.add("Lee")
+    println(team3.members.size) // 1 (독립적으로 동작)
+    println(team4.members.size) // 2
+
     println("--------------------------------")
 
     val heroes = mutableListOf<Hero2>()     // List는 중복을 허용하므로 h1과 h2가 같은 값을 가지더라도 모두 추가될 수 있다.
