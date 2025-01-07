@@ -1,11 +1,11 @@
 package org.example.day15.repository_exam
 
 import kotlinx.coroutines.runBlocking
-import org.example.day15.repository_exam.data_source.PostDatasourceImpl
+import org.example.day15.repository_exam.data_source.MockPostDatasourceImpl
 import org.example.day15.repository_exam.repository.PostRepositoryImpl
 
 fun main() = runBlocking {
-    val test = PostRepositoryImpl(PostDatasourceImpl())
+    val test = PostRepositoryImpl(MockPostDatasourceImpl())
 
     val post = test.getPost(1)
 

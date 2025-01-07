@@ -1,7 +1,7 @@
 package day15.repository_exam
 
 import kotlinx.coroutines.runBlocking
-import org.example.day15.repository_exam.data_source.PhotoDatasourceImpl
+import org.example.day15.repository_exam.data_source.MockPhotoDatasourceImpl
 import org.example.day15.repository_exam.repository.PhotoRepositoryImpl
 import org.junit.After
 import org.junit.Before
@@ -21,7 +21,7 @@ class RepositoryExam2Test {
 
     @Test
     fun `getPhotos(int albumId) 테스트`() = runBlocking {
-        val test = PhotoRepositoryImpl(PhotoDatasourceImpl())
+        val test = PhotoRepositoryImpl(MockPhotoDatasourceImpl())
 
         // 가져온 Photo 개수 확인
         assertEquals(50, test.getPhotos(1).size)

@@ -4,7 +4,7 @@ import kotlinx.serialization.json.Json
 import org.example.day15.repository_exam.model.Album
 import java.io.File
 
-class AlbumDatasourceImpl : AlbumDatasource {
+class MockAlbumDatasourceImpl : AlbumDatasource {
     private val filePath = "albums.txt"
     private val file = File(filePath)
 

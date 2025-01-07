@@ -4,7 +4,7 @@ import kotlinx.serialization.json.Json
 import org.example.day15.repository_exam.model.Post
 import java.io.File
 
-class PostDatasourceImpl : PostDatasource {
+class MockPostDatasourceImpl : PostDatasource {
     private val filePath = "posts.txt"
     private val file = File(filePath)
 

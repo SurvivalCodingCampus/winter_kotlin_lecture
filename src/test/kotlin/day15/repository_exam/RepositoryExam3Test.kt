@@ -1,7 +1,7 @@
 package day15.repository_exam
 
 import kotlinx.coroutines.runBlocking
-import org.example.day15.repository_exam.data_source.TodoDatasourceImpl
+import org.example.day15.repository_exam.data_source.MockTodoDatasourceImpl
 import org.example.day15.repository_exam.repository.TodoRepositoryImpl
 import org.junit.After
 import org.junit.Before
@@ -10,7 +10,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class RepositoryExam3Test {
-    private val test = TodoRepositoryImpl(TodoDatasourceImpl())
+    private val test = TodoRepositoryImpl(MockTodoDatasourceImpl())
 
     @Before
     fun setUp() {

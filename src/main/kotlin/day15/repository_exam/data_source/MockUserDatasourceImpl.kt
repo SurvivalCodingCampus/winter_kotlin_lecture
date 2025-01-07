@@ -4,7 +4,7 @@ import kotlinx.serialization.json.Json
 import org.example.day15.repository_exam.model.User
 import java.io.File
 
-class UserDatasourceImpl : UserDatasource {
+class MockUserDatasourceImpl : UserDatasource {
     private val filePath = "users.txt"
     private val file = File(filePath)
 

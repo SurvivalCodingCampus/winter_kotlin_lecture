@@ -2,7 +2,7 @@ package day15.repository_exam
 
 import kotlinx.coroutines.runBlocking
 import org.example.day15.repository_exam.model.user.Address
-import org.example.day15.repository_exam.data_source.UserDatasourceImpl
+import org.example.day15.repository_exam.data_source.MockUserDatasourceImpl
 import org.example.day15.repository_exam.model.user.Company
 import org.example.day15.repository_exam.model.user.Geo
 import org.example.day15.repository_exam.repository.UserRepositoryImpl
@@ -13,7 +13,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class RepositoryExam4Test {
-    private val test = UserRepositoryImpl(UserDatasourceImpl())
+    private val test = UserRepositoryImpl(MockUserDatasourceImpl())
 
     @Before
     fun setUp() {

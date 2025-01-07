@@ -1,10 +1,7 @@
 package day15.repository_exam
 
 import kotlinx.coroutines.runBlocking
-import org.example.day15.repository_exam.data_source.AlbumDatasourceImpl
-import org.example.day15.repository_exam.model.user.Address
-import org.example.day15.repository_exam.model.user.Company
-import org.example.day15.repository_exam.model.user.Geo
+import org.example.day15.repository_exam.data_source.MockAlbumDatasourceImpl
 import org.example.day15.repository_exam.repository.AlbumRepositoryImpl
 import org.junit.After
 import org.junit.Before
@@ -13,7 +10,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class RepositoryExam5Test {
-    private val test = AlbumRepositoryImpl(AlbumDatasourceImpl())
+    private val test = AlbumRepositoryImpl(MockAlbumDatasourceImpl())
 
     @Before
     fun setUp() {

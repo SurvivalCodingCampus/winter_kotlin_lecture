@@ -1,7 +1,7 @@
 package day15.repository_exam
 
 import kotlinx.coroutines.runBlocking
-import org.example.day15.repository_exam.data_source.PostDatasourceImpl
+import org.example.day15.repository_exam.data_source.MockPostDatasourceImpl
 import org.example.day15.repository_exam.repository.PostRepositoryImpl
 import org.junit.After
 import org.junit.Before
@@ -10,7 +10,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class RepositoryExam6Test {
-    val test = PostRepositoryImpl(PostDatasourceImpl())
+    val test = PostRepositoryImpl(MockPostDatasourceImpl())
 
     @Before
     fun setUp() {

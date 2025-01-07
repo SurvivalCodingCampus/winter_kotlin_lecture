@@ -4,7 +4,7 @@ import kotlinx.serialization.json.Json
 import org.example.day15.repository_exam.model.Todo
 import java.io.File
 
-class TodoDatasourceImpl : TodoDatasource{
+class MockTodoDatasourceImpl : TodoDatasource{
     private val filePath = "todos.txt"
     private val file = File(filePath)
 

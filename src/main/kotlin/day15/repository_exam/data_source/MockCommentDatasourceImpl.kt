@@ -5,7 +5,7 @@ import org.example.day15.repository_exam.model.Comment
 import java.io.File
 
 
-class MockCommentDatasourceImpl : MockCommentDatasource {
+class MockCommentDatasourceImpl : CommentDatasource {
     private val filePath = "comments.txt"
     private val file = File(filePath)
 
