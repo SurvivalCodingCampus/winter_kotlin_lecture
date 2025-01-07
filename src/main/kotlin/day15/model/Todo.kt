@@ -1,4 +1,4 @@
-package day14.exercise.todo
+package day15.model
 
 import kotlinx.serialization.Serializable
 
