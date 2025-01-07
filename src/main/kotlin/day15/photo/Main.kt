@@ -9,9 +9,9 @@ fun main() = runBlocking {
     val repository = PhotoRepositoryImpl(photoDataSource)
 
     try {
-        val comments = repository.getPhoto(1)
+        val photos = repository.getPhoto(1)
         println("Fetched Photos:")
-        comments.forEach { println(it) }
+        photos.forEach { println(it) }
     } catch (e: Exception) {
         println("Error fetching photos: ${e.message}")
     }
