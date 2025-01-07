@@ -5,10 +5,10 @@ import kotlinx.serialization.json.Json
 import org.junit.Assert
 import org.junit.Test
 
-class TodoDataSourceImplTest {
+class MockTodoDataSourceTest {
     @Test
     fun getTodos() = runTest {
-        val todoSource = TodoDataSourceImpl()
+        val todoSource = MockTodoDataSource()
         val expected = Json.decodeFromString<List<Todo>>(Data.TODO_STRING)
         Assert.assertEquals(expected, todoSource.getTodos())
     }
