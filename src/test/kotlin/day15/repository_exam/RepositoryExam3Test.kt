@@ -10,7 +10,7 @@ import org.junit.Assert.*
 import org.junit.Test
 
 class RepositoryExam3Test {
-    val test = TodoRepositoryImpl(TodoDatasourceImpl())
+    private val test = TodoRepositoryImpl(TodoDatasourceImpl())
 
     @Before
     fun setUp() {
