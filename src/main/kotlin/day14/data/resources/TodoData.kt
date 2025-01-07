@@ -1,13 +1,5 @@
 package org.example.day14.data.resources
 
-val todoJsonString = """{
-    "userId": 1,
-    "id": 1,
-    "title": "delectus aut autem",
-    "completed": false,
-    "pass": 1,
-}""".trimIndent()
-
 val todosJsonString = """
     [
     {

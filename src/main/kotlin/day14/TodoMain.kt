@@ -1,13 +1,13 @@
 package org.example.day14
 
 import kotlinx.coroutines.runBlocking
-import org.example.day14.data.repository.TodoDataSourceImpl
+import org.example.day14.data.mock.MockTodoDataSourceImpl
 import org.example.day14.data.result.Result
 import org.example.day14.data.result.asResult
 
 fun main() = runBlocking {
-    val todoRepo = TodoDataSourceImpl()
-    todoRepo.getTodosFromUrl().asResult().collect { result ->
+    val todoRepo = MockTodoDataSourceImpl()
+    todoRepo.getTodos().asResult().collect { result ->
         when (result) {
             is Result.Success -> {
                 result.data.forEach {
@@ -34,6 +34,4 @@ fun main() = runBlocking {
             }
         }
     }
-    println(todoRepo.getTodo())
-    println(todoRepo.getTodos())
 }
