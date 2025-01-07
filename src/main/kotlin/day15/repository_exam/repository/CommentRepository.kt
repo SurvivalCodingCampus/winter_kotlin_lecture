@@ -3,5 +3,5 @@ package org.example.day15.repository_exam.repository
 import org.example.day15.repository_exam.model.Comment
 
 interface CommentRepository {
-    fun getComments(postId: Int): List<Comment>
+    suspend fun getComments(postId: Int): List<Comment>
 }

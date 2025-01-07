@@ -6,7 +6,7 @@ import org.example.day15.repository_exam.model.Comment
 
 class CommentRepositoryImpl(private val dataSource: MockCommentDatasource) : CommentRepository {
 
-    override fun getComments(postId: Int): List<Comment> {
+    override suspend fun getComments(postId: Int): List<Comment> {
         return dataSource.getComments(postId)
     }
 }

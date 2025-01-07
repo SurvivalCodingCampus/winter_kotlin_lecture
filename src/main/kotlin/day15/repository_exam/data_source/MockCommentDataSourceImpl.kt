@@ -4,6 +4,7 @@ import kotlinx.serialization.json.Json
 import org.example.day15.repository_exam.model.Comment
 import java.io.File
 
+
 class MockCommentDataSourceImpl: MockCommentDatasource {
     private val filePath = "comments.txt"
     private val file = File(filePath)
