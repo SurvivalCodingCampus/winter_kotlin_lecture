@@ -9,7 +9,7 @@ fun main() = runBlocking {
     val repository = PhotoRepositoryImpl(photoDataSource)
 
     try {
-        val photos = repository.getPhoto(1)
+        val photos = repository.getPhotos(1)
         println("Fetched Photos:")
         photos.forEach { println(it) }
     } catch (e: Exception) {
