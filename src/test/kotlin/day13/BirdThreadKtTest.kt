@@ -1,9 +1,6 @@
 package day13
 
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import org.example.day13.bird1
 import org.example.day13.bird2
 import org.example.day13.bird3
@@ -12,10 +9,7 @@ import org.junit.Before
 
 import org.junit.Assert.*
 import org.junit.Test
-import java.io.ByteArrayOutputStream
-import java.io.PrintStream
 import kotlin.system.measureNanoTime
-import kotlin.system.measureTimeMillis
 
 class BirdThreadKtTest {
 
