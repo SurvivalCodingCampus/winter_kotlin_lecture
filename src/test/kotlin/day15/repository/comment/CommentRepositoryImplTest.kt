@@ -46,7 +46,7 @@ class CommentRepositoryImplTest {
         val invalidCommentRepositoryImpl = CommentRepositoryImpl(MockCommentDataSourceImpl(jsonWithInvalidField))
         val commentsWithInvalidField =
             assertDoesNotThrow("잘못된 필드가 있어도 default 객체를 반환 해야 한다.") { invalidCommentRepositoryImpl.getComments(postId) }
-        assertTrue("댓글 정보는 0개 여야 한다.", commentsWithInvalidField.size == 1)
+        assertTrue("댓글 정보는 1개 여야 한다.", commentsWithInvalidField.size == 1)
 
         val errorCommentRepositoryImpl = CommentRepositoryImpl(MockCommentDataSourceImpl(invalidJson))
 
