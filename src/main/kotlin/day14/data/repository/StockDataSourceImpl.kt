@@ -11,7 +11,7 @@ class StockDataSourceImpl : StockDataSource {
         if (!file.exists()) throw FileNotFoundException()
 
         return file.readLines().drop(1).map {
-            val values = it.split(" ")
+            val values = it.trim(' ').split(',')
             StockListing(
                 values.getOrNull(0),
                 values.getOrNull(1),
