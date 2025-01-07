@@ -9,17 +9,17 @@ fun main() = runBlocking {
     val repository = UserRepositoryImpl(userDataSource)
 
     try {
-        val todos = repository.getUsers()
+        val users = repository.getUsers()
         println("All Users:")
-        todos.forEach { println(it) }
+        users.forEach { println(it) }
     } catch (e: Exception) {
         println("Error fetching photos: ${e.message}")
     }
 
     try {
-        val todos = repository.getUsersTop10ByUserName()
+        val users = repository.getUsersTop10ByUserName()
         println("Users Top 10 by UserName:")
-        todos.forEach { println(it) }
+        users.forEach { println(it) }
     } catch (e: Exception) {
         println("Error fetching photos: ${e.message}")
     }
