@@ -25,12 +25,16 @@ class ImageRepositoryImpl(private val dataSource: ImageDataSource) : ImageReposi
             "0"
         }
 
-        return DownloadInfo(
+        val downloadInfo =  DownloadInfo(
             startTime = startTime.toString(),
             endTime = endTime.toString(),
             elapsedTime = elapsedTime.toString(),
             fileSize = fileSize
         )
+
+        downloadInfo.printDownloadInfo()
+
+        return downloadInfo
     }
 
     override suspend fun saveImages(urls: List<String>, directory: String): List<DownloadInfo> {
@@ -64,3 +68,4 @@ class ImageRepositoryImpl(private val dataSource: ImageDataSource) : ImageReposi
     }
 
 }
+
