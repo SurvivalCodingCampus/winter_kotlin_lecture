@@ -10,12 +10,15 @@ val format = Json {
 }
 
 
-inline fun <reified T> parseJson(targetPath: String): List<T> {
+fun readJson(targetPath: String): String {
     val file = File(targetPath)
     if (!file.exists()) {
         throw IllegalArgumentException("File not found at path: $targetPath")
     }
 
-    val readText = file.readText()
-    return format.decodeFromString<List<T>>(readText)
+    return file.readText()
+}
+
+inline fun <reified T> parseJson(json: String): List<T> {
+    return format.decodeFromString<List<T>>(json)
 }
