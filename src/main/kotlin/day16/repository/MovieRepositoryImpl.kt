@@ -5,6 +5,10 @@ import day16.model.Movie
 
 class MovieRepositoryImpl(private val dataSource: MovieDataSource): MovieRepository {
     override suspend fun getMovieInfoList(): List<Movie> {
-        return dataSource.getUpcomingMovies()
+        return try {
+            dataSource.getUpcomingMovies()
+        } catch (e: Exception) {
+            emptyList()
+        }
     }
 }
