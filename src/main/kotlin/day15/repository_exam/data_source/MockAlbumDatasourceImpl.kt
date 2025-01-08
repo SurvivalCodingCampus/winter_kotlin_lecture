@@ -8,15 +8,15 @@ class MockAlbumDatasourceImpl : AlbumDatasource {
     private val filePath = "albums.txt"
     private val file = File(filePath)
 
-    override fun getAlbum(id: Int): Album {
+    override suspend fun getAlbum(id: Int): Album {
         TODO("Not yet implemented")
     }
 
-    override fun saveAlbum(album: Album) {
+    override suspend fun saveAlbum(album: Album) {
         TODO("Not yet implemented")
     }
 
-    override fun getAllAlbums(): List<Album> {
+    override suspend fun getAllAlbums(): List<Album> {
         return Json.decodeFromString<List<Album>>(file.readText())
     }
 }

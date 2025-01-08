@@ -8,15 +8,15 @@ class MockPostDatasourceImpl : PostDatasource {
     private val filePath = "posts.txt"
     private val file = File(filePath)
 
-    override fun getPost(id: Int): Post {
+    override suspend fun getPost(id: Int): Post {
         return Json.decodeFromString<List<Post>>(file.readText()).filter { it.id == id }[0]
     }
 
-    override fun savePost(post: Post) {
+    override suspend fun savePost(post: Post) {
         TODO("Not yet implemented")
     }
 
-    override fun getAllPosts(): List<Post> {
+    override suspend fun getAllPosts(): List<Post> {
         return Json.decodeFromString<List<Post>>(file.readText())
     }
 }

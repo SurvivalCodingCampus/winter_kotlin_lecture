@@ -9,15 +9,15 @@ class MockCommentDatasourceImpl : CommentDatasource {
     private val filePath = "comments.txt"
     private val file = File(filePath)
 
-    override fun getComment(id: Int): Comment? {
+    override suspend fun getComment(id: Int): Comment? {
         TODO("Not yet implemented")
     }
 
-    override fun saveComment(comment: Comment) {
+    override suspend fun saveComment(comment: Comment) {
         TODO("Not yet implemented")
     }
 
-    override fun getAllComment(): List<Comment> {
+    override suspend fun getAllComment(): List<Comment> {
         return Json.decodeFromString<List<Comment>>(file.readText())
     }
 }

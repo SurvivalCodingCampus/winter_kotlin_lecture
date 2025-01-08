@@ -8,15 +8,15 @@ class MockTodoDatasourceImpl : TodoDatasource{
     private val filePath = "todos.txt"
     private val file = File(filePath)
 
-    override fun getTodo(userId: Int): Todo? {
+    override suspend fun getTodo(userId: Int): Todo? {
         TODO("Not yet implemented")
     }
 
-    override fun saveTodo(todo: Todo) {
+    override suspend fun saveTodo(todo: Todo) {
         TODO("Not yet implemented")
     }
 
-    override fun getAllTodos(): List<Todo> {
+    override suspend fun getAllTodos(): List<Todo> {
         return Json.decodeFromString<List<Todo>>(file.readText())
     }
 }

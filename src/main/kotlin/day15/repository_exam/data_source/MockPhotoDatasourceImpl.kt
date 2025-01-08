@@ -8,15 +8,15 @@ class MockPhotoDatasourceImpl : PhotoDatasource {
     private val filePath = "photos.txt"
     private val file = File(filePath)
 
-    override fun getPhoto(albumId: Int): Photo? {
+    override suspend fun getPhoto(albumId: Int): Photo? {
         TODO("Not yet implemented")
     }
 
-    override fun savePhoto(photo: Photo) {
+    override suspend fun savePhoto(photo: Photo) {
         TODO("Not yet implemented")
     }
 
-    override fun getAllPhotos(): List<Photo> {
+    override suspend fun getAllPhotos(): List<Photo> {
         return Json.decodeFromString<List<Photo>>(file.readText())
     }
 }

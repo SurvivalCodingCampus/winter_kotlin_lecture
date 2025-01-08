@@ -8,15 +8,15 @@ class MockUserDatasourceImpl : UserDatasource {
     private val filePath = "users.txt"
     private val file = File(filePath)
 
-    override fun getUser(id: Int): User? {
+    override suspend fun getUser(id: Int): User? {
         TODO("Not yet implemented")
     }
 
-    override fun saveUser(user: User) {
+    override suspend fun saveUser(user: User) {
         TODO("Not yet implemented")
     }
 
-    override fun getAllUsers(): List<User> {
+    override suspend fun getAllUsers(): List<User> {
         return Json.decodeFromString<List<User>>(file.readText())
     }
 }
