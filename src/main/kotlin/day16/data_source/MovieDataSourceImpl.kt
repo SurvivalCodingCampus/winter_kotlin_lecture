@@ -5,7 +5,6 @@ import day16.model.Movie
 import day16.model.Movies
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 
 class MovieDataSourceImpl:MovieDataSource {
@@ -26,9 +25,4 @@ class MovieDataSourceImpl:MovieDataSource {
             emptyList()
         }
     }
-}
-
-fun main() = runBlocking{
-    val d = MovieDataSourceImpl()
-    println(d.getUpcomingMovies())
 }
