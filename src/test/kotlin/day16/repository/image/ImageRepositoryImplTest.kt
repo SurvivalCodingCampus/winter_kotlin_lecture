@@ -55,4 +55,22 @@ class ImageRepositoryImplTest {
         assertFalse("파일이 이미 존재하므로 저장되지 않아야 한다.", result2)
     }
 
+    @Test
+    fun saveImageAndReturnDownloadInfo() = runBlocking {
+        val downloadInfo = imageRepository.saveImageAndReturnDownloadInfo(url, path)
+        assertNotNull("다운로드 정보가 반환되어야 한다.", downloadInfo)
+    }
+
+    @Test
+    fun saveImagesAndReturnDownloadInfo() = runBlocking {
+        val downloadInfos = imageRepository.saveImagesAndReturnDownloadInfo(urls, directory)
+        assertEquals("다운로드 정보가 2개 반환되어야 한다.", 2, downloadInfos.size)
+    }
+
+    @Test
+    fun saveImageIfNotExistsAndReturnDownloadInfo() = runBlocking {
+        val downloadInfo = imageRepository.saveImageIfNotExistsAndReturnDownloadInfo(url, path)
+        assertNotNull("다운로드 정보가 반환되어야 한다.", downloadInfo)
+    }
+
 }
