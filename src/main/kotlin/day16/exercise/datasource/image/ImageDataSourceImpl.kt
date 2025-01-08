@@ -18,15 +18,17 @@ class ImageDataSourceImpl : ImageDataSource {
         }
     }
 
-    override suspend fun saveImage(bytes: ByteArray, path: String): Unit = withContext(Dispatchers.IO) {
+    override suspend fun saveImage(bytes: ByteArray, path: String) = withContext(Dispatchers.IO) {
         try {
             val file = File(path)
+
             // 파일이 이미 존재하면 덮어쓰기
             FileOutputStream(file).use { outputStream ->
                 outputStream.write(bytes)
             }
+
         } catch (e: IOException) {
-            throw e
+            println("파일 저장 오류")
         }
     }
 }

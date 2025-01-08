@@ -1,6 +1,7 @@
 package day16.exercise.datasource.image
 
 import day15.common.ResponseResult
+import day16.exercise.model.DownloadInfo
 
 /*
 * 사진 다운로드 기능
