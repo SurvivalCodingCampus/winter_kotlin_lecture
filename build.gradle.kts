@@ -25,6 +25,20 @@ dependencies {
     // Coroutine Test
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
 
+
+    // ktor - client
+    implementation("io.ktor:ktor-client-core:3.0.3")
+    implementation("io.ktor:ktor-client-cio:3.0.3")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.3")
+    implementation("io.ktor:ktor-client-json:3.0.3")
+    implementation("io.ktor:ktor-client-serialization:3.0.3")
+    implementation("io.ktor:ktor-client-content-negotiation:2.2.4")
+
+
+    // 메시지 처리 추가
+    implementation("ch.qos.logback:logback-classic:1.5.6")
+
+
 }
 
 tasks.test {
