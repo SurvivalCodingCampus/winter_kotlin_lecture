@@ -15,12 +15,12 @@ class UserRepositoryImplTest {
     }
 
     @Test
-    fun `User JSON 데이터를 이름순으로 10개 가져오는지 확인`() = runTest {
+    fun `User JSON 데이터를 사용자명순으로 10개 가져오는지 확`() = runTest {
         val repository = UserRepositoryImpl(MockUserDatasourceImpl())
         val topUsers = repository.getUsersTop10ByUserName()
 
-        assertEquals("Chelsey Dietrich", topUsers[0].name)
-        assertEquals("Patricia Lebsack", topUsers[9].name)
+        assertEquals("Antonette", topUsers[0].username)
+        assertEquals("Samantha", topUsers[9].username)
         assertEquals(10, topUsers.size)
     }
 }
