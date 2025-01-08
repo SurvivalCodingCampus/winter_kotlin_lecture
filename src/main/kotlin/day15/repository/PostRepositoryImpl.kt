@@ -1,9 +1,7 @@
 package day15.repository
 
-import day15.data_source.MockPostDatasourceImpl
 import day15.data_source.PostDataSource
 import day15.model.Post
-import kotlinx.coroutines.runBlocking
 
 class PostRepositoryImpl(private val dataSource: PostDataSource) : PostRepository {
     override suspend fun getPost(id: Int): Post {
@@ -15,21 +13,25 @@ class PostRepositoryImpl(private val dataSource: PostDataSource) : PostRepositor
     }
 
     override suspend fun getPosts(page: Int, limit: Int?): List<Post> {
-        // Todo : 페이지네이션
+        require(page > 0) { "페이지 번호는 1 이상이어야 합니다." }
+        require(limit == null || limit > 0) { "한계값은 양수여야 합니다." }
+
+        // page와 limit 값이 유효하지 않으면 기본값 1, 10으로 설정
+        val correctedPage = if (page < 1) 1 else page
+        val correctedLimit = limit?.takeIf { it > 0 } ?: 10
+
         val posts = dataSource.getPosts()
-        val startIndex = (page - 1) * (limit ?: 10)
-        val endIndex = startIndex + (limit ?: 10)
+        if (posts.isEmpty()) return emptyList()
+
+        val totalPosts = posts.size
+        val startIndex = (correctedPage - 1) * correctedLimit
+        val endIndex = startIndex + correctedLimit
+
+        if (startIndex >= totalPosts) {
+            return emptyList() // 범위를 넘는 페이지 번호는 빈 리스트 반환
+        }
 
         // 페이지만큼 슬라이싱
         return posts.subList(startIndex, endIndex.coerceAtMost(posts.size))
     }
-}
-
-fun main() = runBlocking {
-    val repository:PostRepository = PostRepositoryImpl(MockPostDatasourceImpl())
-    val post = repository.getPosts()
-    //val posts = repository.getPosts(2,3)
-    //println(posts)
-    println(post.size)
-
 }
