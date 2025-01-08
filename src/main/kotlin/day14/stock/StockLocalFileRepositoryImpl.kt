@@ -6,7 +6,12 @@ class StockLocalFileRepositoryImpl : StockLocalFileRepository {
 
     override suspend fun getStockData(): List<Stock> {
         val rwoData = File(filePath).readText()
-        val data = StockParser.parse(rwoData)
-        return StockMapper.fromDataList(data)
+        try {
+            val data = StockParser.parse(rwoData)
+            return StockMapper.fromDataList(data)
+        } catch (e: Exception) {
+            println(e)
+            return emptyList()
+        }
     }
 }

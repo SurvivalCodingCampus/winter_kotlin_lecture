@@ -6,7 +6,13 @@ import kotlinx.serialization.json.Json
 
 class UserHttpRepositoryImpl : UserHttpRepository {
     override suspend fun getUsers(): List<User> {
-        val data = Json.decodeFromString<List<UserData>>(fuelClient.get(baseUrl).source.readString())
-        return UserMapper.fromDataList(data)
+
+        return runCatching {
+            val data = Json.decodeFromString<List<UserData>>(fuelClient.get(baseUrl).source.readString())
+            UserMapper.fromDataList(data)
+        }.getOrElse {
+            println(it)
+            emptyList()
+        }
     }
 }
