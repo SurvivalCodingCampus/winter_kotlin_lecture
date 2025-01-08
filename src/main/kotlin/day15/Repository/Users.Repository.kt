@@ -8,9 +8,10 @@ import org.example.day15.Utils.readJson
 
 
 open class UserDataSourceImpl(private val jsonDataSource: String) : UserDataSource, UserRepositoryImpl {
-    override var users: List<User>
-        get() = parseJson(jsonDataSource)
-        set(value) {}
+    private var _users: List<User> = parseJson(jsonDataSource)
+
+    override val users: List<User>
+        get() = _users
 
     override suspend fun getUsers(): List<User> {
         return users

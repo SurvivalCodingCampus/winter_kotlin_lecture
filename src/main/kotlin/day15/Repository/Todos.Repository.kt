@@ -3,17 +3,19 @@ package org.example.day15.Repository
 import CustomErrorHandler
 import TodoDataSource
 import TodoRepositoryImpl
+import org.example.day15.Model.Photo
 import org.example.day15.Model.Todo
 import org.example.day15.Utils.parseJson
 import org.example.day15.Utils.readJson
 
 
 open class TodoDataSourceImp(private val jsonDataSource: String) : TodoDataSource, TodoRepositoryImpl {
-    override var todo: List<Todo>
-        get() {
-            return parseJson(jsonDataSource)
-        }
-        set(value) {}
+    private var _todo: List<Todo> = parseJson(jsonDataSource)
+
+    override val todo: List<Todo>
+        get() = _todo
+
+
 
     override suspend fun getTodos(): List<Todo> {
         return todo

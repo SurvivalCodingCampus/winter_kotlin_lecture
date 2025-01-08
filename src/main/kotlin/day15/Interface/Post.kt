@@ -8,6 +8,6 @@ interface PostRepositoryImpl {
 }
 
 interface PostDataSource {
-    var posts: List<Post?>
+    val posts: List<Post?>
 }
 

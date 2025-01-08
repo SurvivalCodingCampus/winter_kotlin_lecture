@@ -8,5 +8,5 @@ interface UserRepositoryImpl {
 }
 
 interface UserDataSource {
-    var users: List<User>
+    val users: List<User>
 }

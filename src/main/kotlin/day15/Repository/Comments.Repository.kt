@@ -8,11 +8,10 @@ import org.example.day15.Utils.readJson
 
 
 open class CommentDataSourceImpl(private val jsonDataSource: String) : CommentDataSource, CommentRepositoryImpl {
-    override var comments: List<Comment>
-        get() {
-            return parseJson(jsonDataSource)
-        }
-        set(value) {}
+    private var _comments: List<Comment> = parseJson(jsonDataSource)
+
+    override val comments: List<Comment>
+        get() = _comments
 
     override suspend fun getComments(postId: Int): List<Comment> {
         try {
@@ -28,4 +27,4 @@ open class CommentDataSourceImpl(private val jsonDataSource: String) : CommentDa
 
 const val commentDataSource = "./src/main/kotlin/day15/RawData/comments.json"
 
-open class CommentRepository : CommentDataSourceImpl(readJson(commentDataSource)) {}
+class CommentRepository : CommentDataSourceImpl(readJson(commentDataSource)) {}
