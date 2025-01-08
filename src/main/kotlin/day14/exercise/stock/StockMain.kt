@@ -13,6 +13,7 @@ class StockDataSourceImpl : StockDataSource {
         // 파일이 존재하지 않을경우 예외 던지기
         if (!file.exists()) throw FileNotFoundException()
 
+        // IO 작업을 선택하여 비동기 처리시 유용하도록 해준다.
         return withContext(Dispatchers.IO) {
             val data = file.readLines().map { it.split(",") }.drop(1)
 
