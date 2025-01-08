@@ -5,11 +5,11 @@ import kotlinx.serialization.json.Json
 import java.io.File
 
 class MockTodoDatasourceImpl : TodoDataSource {
-    override fun getTodos(): List<Todo> {
+    override suspend fun getTodos(): List<Todo> {
         return json
     }
 
-    override fun getCompletedTodos(): List<Todo> {
+    override suspend fun getCompletedTodos(): List<Todo> {
         return json.filter { it.completed }
     }
 
