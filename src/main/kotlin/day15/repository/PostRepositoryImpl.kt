@@ -10,15 +10,26 @@ class PostRepositoryImpl(private val dataSource: PostDataSource) : PostRepositor
         return dataSource.getPost(id)
     }
 
+    suspend fun getPosts(): List<Post> {
+        return dataSource.getPosts()
+    }
+
     override suspend fun getPosts(page: Int, limit: Int?): List<Post> {
-        return dataSource.getPosts(page, limit)
+        // Todo : 페이지네이션
+        val posts = dataSource.getPosts()
+        val startIndex = (page - 1) * (limit ?: 10)
+        val endIndex = startIndex + (limit ?: 10)
+
+        // 페이지만큼 슬라이싱
+        return posts.subList(startIndex, endIndex.coerceAtMost(posts.size))
     }
 }
 
 fun main() = runBlocking {
     val repository:PostRepository = PostRepositoryImpl(MockPostDatasourceImpl())
-    //val post = repository.getPost(2)
-    val posts = repository.getPosts()
-    println(posts)
+    val post = repository.getPosts()
+    //val posts = repository.getPosts(2,3)
     //println(posts)
+    println(post.size)
+
 }
