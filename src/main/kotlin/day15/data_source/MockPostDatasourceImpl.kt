@@ -4,16 +4,20 @@ import day15.model.Post
 import kotlinx.serialization.json.Json
 
 class MockPostDatasourceImpl : PostDataSource {
-    override fun getPost(id: Int): Post {
+    override suspend fun getPost(id: Int): Post {
         val post: Post = Json.decodeFromString<List<Post>>(json).filter { it.id == id }.get(0)
 
         return post
     }
 
-    override fun getPosts(page: Int, limit: Int?): List<Post> {
-        // 페이지네이션
-        
-        return Json.decodeFromString<List<Post>>(json)
+    override suspend fun getPosts(page: Int, limit: Int?): List<Post> {
+        // Todo : 페이지네이션
+        val posts = Json.decodeFromString<List<Post>>(json)
+        val startIndex = (page - 1) * (limit ?: 10)
+        val endIndex = startIndex + (limit ?: 10)
+
+        // 페이지만큼 슬라이싱
+        return posts.subList(startIndex, endIndex.coerceAtMost(posts.size))
     }
 
     private val json: String = """
