@@ -1,9 +1,9 @@
-package day16.repository
+package day16.repository.movie
 
 import io.kotest.common.runBlocking
-import org.example.day16.data_source.MockMovieDataSourceImpl
-import org.example.day16.repository.MovieRepositoryImpl
-import org.junit.Assert.assertEquals
+import org.example.day16.data_source.movie.MockMovieDataSourceImpl
+import org.example.day16.repository.movie.MovieRepositoryImpl
+import org.junit.Assert
 import org.junit.Test
 
 class MovieRepositoryImplTest {
@@ -39,9 +39,9 @@ class MovieRepositoryImplTest {
     @Test
     fun getMovieResponse(): Unit = runBlocking {
         val result = movieRepository.getMovieResponse()
-        assertEquals("영화의 갯수는 1개 여야 한다.", 1, result.size)
-        assertEquals("영화의 제목은 '수퍼 소닉 3' 이여야 한다.", "수퍼 소닉 3", result[0].title)
-        assertEquals("영화의 id는 939243 이여야 한다.", 939243, result[0].id)
+        Assert.assertEquals("영화의 갯수는 1개 여야 한다.", 1, result.size)
+        Assert.assertEquals("영화의 제목은 '수퍼 소닉 3' 이여야 한다.", "수퍼 소닉 3", result[0].title)
+        Assert.assertEquals("영화의 id는 939243 이여야 한다.", 939243, result[0].id)
     }
 
 }

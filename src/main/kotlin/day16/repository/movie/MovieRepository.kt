@@ -1,7 +1,7 @@
-package org.example.day16.repository
+package org.example.day16.repository.movie
 
-import org.example.day16.data_source.MovieDataSource
-import org.example.day16.model.Movie
+import org.example.day16.data_source.movie.MovieDataSource
+import org.example.day16.model.movie.Movie
 
 interface MovieRepository {
     val movieDataSource: MovieDataSource

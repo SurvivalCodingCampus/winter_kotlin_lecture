@@ -1,10 +1,10 @@
-package org.example.day16.repository
+package org.example.day16.repository.movie
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerializationException
-import org.example.day16.data_source.MovieDataSource
-import org.example.day16.model.Movie
+import org.example.day16.data_source.movie.MovieDataSource
+import org.example.day16.model.movie.Movie
 
 class MovieRepositoryImpl(override val movieDataSource: MovieDataSource) : MovieRepository {
     override suspend fun getMovieResponse(

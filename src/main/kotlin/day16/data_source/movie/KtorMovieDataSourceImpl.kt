@@ -1,11 +1,11 @@
-package org.example.day16.data_source
+package org.example.day16.data_source.movie
 
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.example.day15.data_source.KtorClient
-import org.example.day16.model.MovieResponse
+import org.example.day16.model.movie.MovieResponse
 
 class KtorMovieDataSourceImpl() : MovieDataSource, KtorClient {
     override val baseUrl: String =

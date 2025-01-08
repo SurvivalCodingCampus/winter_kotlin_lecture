@@ -1,8 +1,8 @@
-package org.example.day16.data_source
+package org.example.day16.data_source.movie
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.example.day16.model.MovieResponse
+import org.example.day16.model.movie.MovieResponse
 
 class MockMovieDataSourceImpl(jsonString: String? = null) : MovieDataSource {
 

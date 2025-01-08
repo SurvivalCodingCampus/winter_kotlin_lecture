@@ -1,4 +1,4 @@
-package org.example.day16.model
+package org.example.day16.model.movie
 
 import kotlinx.serialization.Serializable
 
