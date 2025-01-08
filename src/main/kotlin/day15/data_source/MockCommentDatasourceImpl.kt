@@ -4,9 +4,12 @@ import day14.Todo
 import day15.model.Comment
 import kotlinx.serialization.json.Json
 
-class MockCommentDatasourceImpl: CommentDataSource {
+class MockCommentDatasourceImpl(private val shouldThrowException: Boolean = false): CommentDataSource {
     override suspend fun getComments(postId: Int): List<Comment> {
-        return Json.decodeFromString<List<Comment>>(json)
+        if (shouldThrowException) {
+            throw Exception("데이터 소스 에러 발생")
+        }
+        return Json.decodeFromString<List<Comment>>(json).filter { it.postId == postId }
     }
 
     private val json: String = """
