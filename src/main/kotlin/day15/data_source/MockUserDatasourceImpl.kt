@@ -7,11 +7,19 @@ class MockUserDatasourceImpl : UserDataSource {
     private val format = Json { ignoreUnknownKeys = true }
 
     override suspend fun getUsers(): List<User> {
-        return format.decodeFromString<List<User>>(json)
+        return try {
+            format.decodeFromString<List<User>>(json)
+            } catch (e: Exception) {
+                throw IllegalStateException("사용자 데이터 파싱 중 오류 발생", e)
+        }
     }
 
     override suspend fun getUsersTop10ByUserName(): List<User> {
-        return format.decodeFromString<List<User>>(json).sortedBy { it.name }.take(10)
+        return try {
+            format.decodeFromString<List<User>>(json).sortedBy { it.username }.take(10)
+        } catch (e: Exception) {
+            throw IllegalStateException("사용자 데이터 파싱 중 오류 발생", e)
+        }
     }
 
     private val json: String = """
