@@ -13,11 +13,11 @@ class PostRemoteDataSource : PostDataSource {
     }
 
     override suspend fun getPosts(page: Int): Flow<List<Post>> = flow {
-        emit(fetchData<List<Post>>("$BASE_URL/posts_page=${page.toPositive()}"))
+        emit(fetchData<List<Post>>("$BASE_URL/posts?_page=${page.toPositive()}"))
     }
 
     override suspend fun getPosts(page: Int, limit: Int): Flow<List<Post>> = flow {
-        emit(fetchData<List<Post>>("$$BASE_URL/posts_page=${page.toPositive()}&_limit=${limit.toPositive()}"))
+        emit(fetchData<List<Post>>("$$BASE_URL/posts?_page=${page.toPositive()}&_limit=${limit.toPositive()}"))
     }
 }
 
