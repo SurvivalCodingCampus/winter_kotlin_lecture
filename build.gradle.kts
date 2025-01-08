@@ -29,10 +29,11 @@ dependencies {
     // ktor - client
     implementation("io.ktor:ktor-client-core:3.0.3")
     implementation("io.ktor:ktor-client-cio:3.0.3")
+    implementation("io.ktor:ktor-client-mock:3.0.3")
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.3")
     implementation("io.ktor:ktor-client-json:3.0.3")
     implementation("io.ktor:ktor-client-serialization:3.0.3")
-    implementation("io.ktor:ktor-client-content-negotiation:2.2.4")
+    implementation("io.ktor:ktor-client-content-negotiation:3.0.3")
 
 
     // 메시지 처리 추가
