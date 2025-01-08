@@ -8,7 +8,8 @@ class MovieRepositoryImpl(private val dataSource: MovieDataSource): MovieReposit
         return try {
             dataSource.getUpcomingMovies()
         } catch (e: Exception) {
-            emptyList()
+            //emptyList()
+            throw e
         }
     }
 }
