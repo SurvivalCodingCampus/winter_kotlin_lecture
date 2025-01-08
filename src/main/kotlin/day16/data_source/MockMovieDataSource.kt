@@ -1,11 +1,14 @@
 package day16.data_source
 
 import day16.model.Movie
-import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 
-class MockMovieDataSource : MovieDataSource {
+class MockMovieDataSource(private val shouldThrowError: Boolean = false) : MovieDataSource {
     override suspend fun getUpcomingMovies(): List<Movie> {
+        if (shouldThrowError) {
+            throw Exception("Network Error")
+        }
+
         return Json.decodeFromString(testData)
     }
 
@@ -17,9 +20,4 @@ class MockMovieDataSource : MovieDataSource {
         "release_date": "2024-12-19"
     }]
 """
-}
-
-fun main() = runBlocking {
-    val data = MockMovieDataSource()
-    println(data.getUpcomingMovies())
 }
