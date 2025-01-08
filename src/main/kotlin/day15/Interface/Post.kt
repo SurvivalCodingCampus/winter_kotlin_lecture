@@ -3,11 +3,11 @@ package org.example.day15.Interface
 import org.example.day15.Model.Post
 
 interface PostRepositoryImpl {
-    suspend fun getPost(id: Int): List<Post>
-    suspend fun getPosts(page: Int = 1, limit: Int? = null): List<Post>
+    suspend fun getPost(id: Int): Post?
+    suspend fun getPosts(page: Int = 1, limit: Int? = null): List<Post?>
 }
 
 interface PostDataSource {
-    var posts: List<Post>
+    var posts: List<Post?>
 }
 

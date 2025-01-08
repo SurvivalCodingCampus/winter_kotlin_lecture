@@ -4,17 +4,23 @@ import CommentDataSource
 import CommentRepositoryImpl
 import org.example.day15.Model.Comment
 import org.example.day15.Utils.parseJson
+import org.example.day15.Utils.readJson
 
 
-open class CommentDataSourceImpl(private val jsonFilePath: String) : CommentDataSource, CommentRepositoryImpl {
+open class CommentDataSourceImpl(private val jsonDataSource: String) : CommentDataSource, CommentRepositoryImpl {
     override var comments: List<Comment>
-        get() = parseJson(jsonFilePath)
+        get() {
+            return parseJson(jsonDataSource)
+        }
         set(value) {}
 
     override suspend fun getComments(postId: Int): List<Comment> {
-        if (comments.isEmpty()) emptyList<String?>()
-        return comments.filter { comment ->
-            comment.postId == postId
+        try {
+            return comments.filter { comment ->
+                comment.postId == postId
+            }
+        } catch (e: Exception) {
+            throw Exception("unexpected error")
         }
     }
 }
@@ -22,4 +28,4 @@ open class CommentDataSourceImpl(private val jsonFilePath: String) : CommentData
 
 const val commentDataSource = "./src/main/kotlin/day15/RawData/comments.json"
 
-class CommentRepository : CommentDataSourceImpl(commentDataSource) {}
+open class CommentRepository : CommentDataSourceImpl(readJson(commentDataSource)) {}
