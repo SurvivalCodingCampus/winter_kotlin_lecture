@@ -3,9 +3,9 @@ package day16.data_source
 import day16.model.Movie
 import kotlinx.serialization.json.Json
 
-class MockMovieDataSource(private val shouldThrowError: Boolean = false) : MovieDataSource {
+class MockMovieDataSource(private val shouldThrowException: Boolean = false) : MovieDataSource {
     override suspend fun getUpcomingMovies(): List<Movie> {
-        if (shouldThrowError) {
+        if (shouldThrowException) {
             throw Exception("Network Error")
         }
 
