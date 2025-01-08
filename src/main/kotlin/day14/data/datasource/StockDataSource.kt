@@ -1,4 +1,4 @@
-package org.example.day14.data.repository
+package org.example.day14.data.datasource
 
 import org.example.day14.data.model.StockListing
 

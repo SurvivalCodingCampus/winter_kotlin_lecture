@@ -1,14 +1,14 @@
 package org.example.day14
 
 import kotlinx.coroutines.runBlocking
-import org.example.day14.data.repository.UserDataSourceImpl
+import org.example.day14.data.mock.MockUserDataSourceImpl
 import org.example.day14.data.result.Result
 import org.example.day14.data.result.asResult
 
 fun main(): Unit = runBlocking {
-    val userRepo = UserDataSourceImpl()
+    val userRepo = MockUserDataSourceImpl()
 
-    userRepo.getUsersFromUrl().asResult().collect { result ->
+    userRepo.getUsers().asResult().collect { result ->
         when (result) {
             is Result.Success -> {
                 result.data.forEach {
@@ -35,6 +35,4 @@ fun main(): Unit = runBlocking {
             }
         }
     }
-    println(userRepo.getUser())
-    println(userRepo.getUser())
 }

@@ -1,9 +1,9 @@
 package org.example.day14
 
-import org.example.day14.data.repository.StockDataSourceImpl
+import org.example.day14.data.mock.MockStockDataSourceImpl
 
 fun main() {
-    StockDataSourceImpl().getStockListings().forEach {
+    MockStockDataSourceImpl().getStockListings().forEach {
         println(it)
     }
 }
