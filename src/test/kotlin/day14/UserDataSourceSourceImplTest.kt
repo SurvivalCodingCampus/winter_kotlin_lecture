@@ -3,7 +3,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class UserDataSourceImplTest {
+class UserDataSourceSourceImplTest {
 
  @Test
  fun checkUsers() = runBlocking {
