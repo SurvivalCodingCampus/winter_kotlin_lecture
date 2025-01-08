@@ -4,7 +4,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class MovieDatabaseKtTest {
+class MovieInfoDatabaseKtTest {
 
     @Test
     fun `movie info parsed correctly`() = runTest {
