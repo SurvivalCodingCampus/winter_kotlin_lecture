@@ -5,7 +5,11 @@ import kotlinx.serialization.json.Json
 
 class MockAlbumDatasourceImpl : AlbumDataSource {
     override suspend fun getAlbums(limit: Int?): List<Album> {
-        return Json.decodeFromString<List<Album>>(json)
+        return try {
+            if (limit == null) Json.decodeFromString<List<Album>>(json) else Json.decodeFromString<List<Album>>(json).take(limit)
+        } catch (e: Exception) {
+            throw IllegalArgumentException("JSON 파싱 중 오류가 발생했습니다", e)
+        }
     }
 
     private val json: String = """
