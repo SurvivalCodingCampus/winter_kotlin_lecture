@@ -20,6 +20,7 @@ dependencies {
     val ktor_version = "3.0.3"
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-cio:$ktor_version")
+    testImplementation("io.ktor:ktor-client-mock:$ktor_version")
     val logback_version = "1.5.6"
     implementation("ch.qos.logback:logback-classic:$logback_version")
 }
