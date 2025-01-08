@@ -6,7 +6,7 @@ import kotlinx.serialization.json.Json
 
 class MockCommentDatasourceImpl: CommentDataSource {
     override suspend fun getComments(postId: Int): List<Comment> {
-        return Json.decodeFromString<List<Comment>>(json).filter { it.postId == postId }
+        return Json.decodeFromString<List<Comment>>(json)
     }
 
     private val json: String = """
