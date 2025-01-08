@@ -5,19 +5,13 @@ import kotlinx.serialization.json.Json
 
 class MockPostDatasourceImpl : PostDataSource {
     override suspend fun getPost(id: Int): Post {
-        val post: Post = Json.decodeFromString<List<Post>>(json).filter { it.id == id }.get(0)
-
-        return post
+        return Json.decodeFromString<List<Post>>(json)
+            .firstOrNull { it.id == id }
+            ?: throw NoSuchElementException("ID가 ${id}인 게시물을 찾을 수 없습니다.")
     }
 
     override suspend fun getPosts(page: Int, limit: Int?): List<Post> {
-        // Todo : 페이지네이션
-        val posts = Json.decodeFromString<List<Post>>(json)
-        val startIndex = (page - 1) * (limit ?: 10)
-        val endIndex = startIndex + (limit ?: 10)
-
-        // 페이지만큼 슬라이싱
-        return posts.subList(startIndex, endIndex.coerceAtMost(posts.size))
+        return Json.decodeFromString<List<Post>>(json)
     }
 
     private val json: String = """
