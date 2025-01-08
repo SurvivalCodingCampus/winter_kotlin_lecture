@@ -6,10 +6,12 @@ import kotlinx.serialization.SerializationException
 import org.example.day15.data_source.post.PostDataSource
 import org.example.day15.model.Post
 
-class PostRepositoryImpl(override val dataSource: PostDataSource) : PostRepository {
+class PostRepositoryImpl(
+    override val postDataSource: PostDataSource,
+) : PostRepository {
     override suspend fun getPost(id: Int): Post = withContext(Dispatchers.IO) {
         try {
-            dataSource.getPosts().first { it.id == id }
+            postDataSource.getPosts().first { it.id == id }
         } catch (e: Exception) {
             when (e) {
                 is NoSuchElementException -> throw e
@@ -22,7 +24,7 @@ class PostRepositoryImpl(override val dataSource: PostDataSource) : PostReposito
 
     override suspend fun getPosts(page: Int, limit: Int?): List<Post> = withContext(Dispatchers.IO) {
         try {
-            dataSource.getPosts().let { posts ->
+            postDataSource.getPosts().let { posts ->
                 if (limit == null) {
                     posts
                 } else {
@@ -33,6 +35,17 @@ class PostRepositoryImpl(override val dataSource: PostDataSource) : PostReposito
                     }
                 }
             }
+        } catch (e: Exception) {
+            when (e) {
+                is SerializationException -> throw e
+                else -> emptyList()
+            }
+        }
+    }
+
+    override suspend fun getPostsInfoList(): List<Post> = withContext(Dispatchers.IO) {
+        try {
+            postDataSource.getPosts()
         } catch (e: Exception) {
             when (e) {
                 is SerializationException -> throw e
