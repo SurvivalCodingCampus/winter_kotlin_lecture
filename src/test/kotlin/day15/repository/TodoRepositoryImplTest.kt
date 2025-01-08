@@ -20,5 +20,6 @@ class TodoRepositoryImplTest {
         val todos = repository.getCompletedTodos()
 
         assertEquals(90, todos.size)
+        assertTrue(todos.all { it.completed }, "모든 할 일이 완료 상태여야 합니다")
     }
 }
