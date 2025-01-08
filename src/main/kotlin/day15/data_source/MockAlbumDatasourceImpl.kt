@@ -5,7 +5,7 @@ import kotlinx.serialization.json.Json
 
 class MockAlbumDatasourceImpl : AlbumDataSource {
     override suspend fun getAlbums(limit: Int?): List<Album> {
-        return if (limit == null) Json.decodeFromString<List<Album>>(json) else Json.decodeFromString<List<Album>>(json).take(limit)
+        return Json.decodeFromString<List<Album>>(json)
     }
 
     private val json: String = """
