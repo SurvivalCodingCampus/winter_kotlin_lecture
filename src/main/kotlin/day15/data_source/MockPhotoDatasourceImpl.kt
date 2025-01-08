@@ -4,7 +4,7 @@ import day15.model.Photo
 import kotlinx.serialization.json.Json
 
 class MockPhotoDatasourceImpl: PhotoDataSource {
-    override fun getPhotos(): List<Photo> {
+    override suspend fun getPhotos(): List<Photo> {
         return Json.decodeFromString<List<Photo>>(json)
     }
 

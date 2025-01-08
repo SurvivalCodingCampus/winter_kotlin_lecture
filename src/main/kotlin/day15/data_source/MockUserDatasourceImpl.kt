@@ -6,11 +6,11 @@ import kotlinx.serialization.json.Json
 class MockUserDatasourceImpl : UserDataSource {
     private val format = Json { ignoreUnknownKeys = true }
 
-    override fun getUsers(): List<User> {
+    override suspend fun getUsers(): List<User> {
         return format.decodeFromString<List<User>>(json)
     }
 
-    override fun getUsersTop10ByUserName(): List<User> {
+    override suspend fun getUsersTop10ByUserName(): List<User> {
         return format.decodeFromString<List<User>>(json).sortedBy { it.name }.take(10)
     }
 
