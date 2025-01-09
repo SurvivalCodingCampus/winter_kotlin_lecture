@@ -3,17 +3,17 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 @Serializable
-data class Movie(
+data class MovieCopy(
     val title: String,
     val director: String,
     val year: Int,
 )
 
-suspend fun getMovieInfo(): Movie {
+suspend fun getMovieInfo(): MovieCopy {
     delay(1000)
     val jsonData = """{"title": "Star Wars", "director": "George Lucas", "year": 1977}"""
 
-    val result = Json.decodeFromString<Movie>(jsonData)
+    val result = Json.decodeFromString<MovieCopy>(jsonData)
 
     return result
 }
@@ -38,7 +38,7 @@ fun pracNum1() = runBlocking {
     println("${result1.await()} and ${result2.await()}")
 
     println("Main ends on: ${Thread.currentThread().name}")
-    val movieData = Movie(title = "영화", director = "너", year = 123)
+    val movieData = MovieCopy(title = "영화", director = "너", year = 123)
 
 }
 
@@ -59,12 +59,10 @@ enum class Birds {
     BIRD2 {
         override val voice: String = "까앆!"
         override val delay: Long = 2000
-
     },
     BIRD3 {
         override val voice: String = "짹짹"
         override val delay: Long = 3000
-
     };
 
     abstract val voice: String

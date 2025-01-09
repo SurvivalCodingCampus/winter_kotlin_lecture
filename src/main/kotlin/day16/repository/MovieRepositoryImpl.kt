@@ -24,8 +24,4 @@ fun main(): Unit = runBlocking {
 
     val dataSource = ImageDataSourceImpl(client)
     ImageRepositoryImpl(dataSource, targetPath).saveImageIfNotExists(imageUrl, "")
-//    val result = ImageDataSourceImpl().fetchImage(imageUrl)
-//    ImageDataSourceImpl().saveImage(result, targetPath)
-
-
 }
