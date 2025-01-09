@@ -6,13 +6,13 @@ import org.example.day15.repository_exam.model.Post
 class PostRepositoryImpl(private val datasource: PostDatasource) : PostRepository {
     private var previousPage = 0
     private var previousLimit = 0
-    private val listMaxSize = datasource.getAllPosts().size
 
     override suspend fun getPost(id: Int): Post {
         return datasource.getPost(id)
     }
 
     override suspend fun getPosts(page: Int, limit: Int?): List<Post> {
+        val listMaxSize = datasource.getAllPosts().size
         if (page <= 1) {
             previousPage = 1
             if (limit != null) {
