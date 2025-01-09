@@ -5,6 +5,7 @@ import java.io.File
 
 val format = Json {
     ignoreUnknownKeys = true
+    coerceInputValues = true
     prettyPrint = true
     isLenient = true
 }
