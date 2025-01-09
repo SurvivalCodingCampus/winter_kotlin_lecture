@@ -1,4 +1,4 @@
-import kotlinx.serialization.json.Json
+import org.example.day15.Utils.format
 
 val mockData: String = """
     {
@@ -9,9 +9,10 @@ val mockData: String = """
     }
 """.trimIndent()
 
+
 class MockMovieDataSourceImpl : MovieRepository {
     override suspend fun getMovieInfoList(): List<Movie> {
-        return List<Movie>(1, { Json.decodeFromString<Movie>(mockData) })
+        return listOf(format.decodeFromString(mockData))
     }
 }
 

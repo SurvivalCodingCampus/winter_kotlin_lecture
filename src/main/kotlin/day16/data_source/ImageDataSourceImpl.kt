@@ -1,14 +1,17 @@
 import org.example.day16.utils.HttpClientFactory
 import io.ktor.client.*
+import io.ktor.client.engine.cio.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
+import io.ktor.http.*
+import org.example.day16.utils.ApiClient
 import java.io.File
 
 val imageUrl =
     "https://i.namu.wiki/i/uuV6HrKsXMGw7lQ7zLfdYN9e7Prx7hg9sT-gFzfy1JRxTItemFHeack_817SU5sX_bh7D5JsGT3MZv37qzuJlm2C-oEPlsIXar_ApkFqAtH5ocXp-0L5qe1qcYNSu_SHA4mHXJ6Y46-DQXTlrcYXbQ.webp"
 
 class ImageDataSourceImpl(
-    private val client: HttpClient = HttpClientFactory.create()
+    private val client: HttpClient = ApiClient().create()
 ) : ImageDataSource {
 
     override suspend fun fetchImage(url: String): ByteArray {
