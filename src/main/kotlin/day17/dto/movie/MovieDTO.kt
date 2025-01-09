@@ -1,4 +1,4 @@
-package org.example.day17.dto
+package org.example.day17.dto.movie
 
 import kotlinx.serialization.Serializable
 

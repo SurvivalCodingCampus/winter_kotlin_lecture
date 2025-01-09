@@ -5,8 +5,8 @@ import io.ktor.client.engine.cio.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import kotlinx.serialization.json.Json
-import org.example.day17.dto.MovieDto
-import org.example.day17.dto.MovieResult
+import org.example.day17.dto.movie.MovieDto
+import org.example.day17.dto.movie.MovieResult
 
 class MovieDataSourceImpl(
     private val client: HttpClient = HttpClient(CIO)
