@@ -35,17 +35,17 @@ val mockEngine = MockEngine { request ->
             )
         }
 
-        imgUrls[0] -> {
+        imgUrlTests[0].url -> {
             respond(
-                content = ByteReadChannel(byteArrayOf(1, 2, 3)),
+                content = ByteReadChannel(imgUrlTests[0].byteArray),
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "image/png")
             )
         }
 
-        imgUrls[1] -> {
+        imgUrlTests[1].url -> {
             respond(
-                content = ByteReadChannel(byteArrayOf(1, 2, 3)),
+                content = ByteReadChannel(imgUrlTests[0].byteArray),
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "image/png")
             )
@@ -76,8 +76,8 @@ private val todos = listOf(
     """
 )
 
-val imgUrls = listOf(
-    "https://test.com/image1.png",
-    "https://test.com/image2.png",
-    "https://test.com/image3.png",
-)
+val imgUrlTests = listOf(
+    "https://test.com/image1.png" to byteArrayOf(1, 2, 3),
+    "https://test.com/image2.png" to byteArrayOf(3, 4, 5),
+    "https://test.com/image3.png" to byteArrayOf(6, 7, 8),
+).map { ImageUrlTest(it.first, it.second) }

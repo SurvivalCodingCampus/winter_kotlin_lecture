@@ -1,6 +1,6 @@
 package day16.data.repository
 
-import day16.data.mock.imgUrls
+import day16.data.mock.imgUrlTests
 import day16.data.mock.mockEngine
 import io.ktor.client.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -44,30 +44,30 @@ class ImageRepositoryImplTest {
 
     @Test
     fun saveImage() = testScope.runTest {
-        subject.saveImage(imgUrls[0], directory)
+        subject.saveImage(imgUrlTests[0].url, directory)
             .asResult().filterNot { it == Result.Loading }.collect { result ->
                 assertTrue(result is Result.Success)
-                assertEquals("3bytes", result.data.fileSize)
+                assertEquals("${imgUrlTests[0].byteArray.size}bytes", result.data.fileSize)
             }
     }
 
     @Test
     fun saveImages() = testScope.runTest {
-        subject.saveImages(imgUrls, directory)
+        subject.saveImages(imgUrlTests.map { it.url }, directory)
             .asResult().filterNot { it == Result.Loading }.collect { result ->
                 assertTrue(result is Result.Success)
-                assertEquals(3, result.data.size)
+                assertEquals(imgUrlTests.size, result.data.size)
             }
     }
 
     @Test
     fun saveImageIfNotExists() = runTest {
-        subject.saveImageIfNotExists(imgUrls[1], directory)
+        subject.saveImageIfNotExists(imgUrlTests[1].url, directory)
             .asResult().filterNot { it == Result.Loading }.collect { result ->
                 assertTrue(result is Result.Success)
-                assertEquals("3bytes", result.data?.fileSize)
+                assertEquals("${imgUrlTests[1].byteArray.size}bytes", result.data?.fileSize)
             }
-        subject.saveImageIfNotExists(imgUrls[1], directory)
+        subject.saveImageIfNotExists(imgUrlTests[1].url, directory)
             .asResult().filterNot { it == Result.Loading }.collect { result ->
                 assertTrue(result is Result.Error)
                 assertTrue(result.exception is FileAlreadyExistsException)
