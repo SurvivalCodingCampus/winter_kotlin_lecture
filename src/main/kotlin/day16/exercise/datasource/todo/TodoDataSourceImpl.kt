@@ -12,11 +12,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class TodoDataSourceImpl(
-    private val client: HttpClient = HttpClient(CIO)
+    val client: HttpClient = HttpClient(CIO)
 ) : TodoDataSource {
     override suspend fun getTodos(): ResponseResult<List<Todo>> = withContext(Dispatchers.IO) {
         safeCall {
-            HttpClientFactory.client.get("https://jsonplaceholder.typicode.com/todos") {
+            client.get("https://jsonplaceholder.typicode.com/todos") {
 
             }.body<List<Todo>>()
         }
@@ -24,7 +24,7 @@ class TodoDataSourceImpl(
 
     override suspend fun getTodo(id: Int): ResponseResult<Todo> = withContext(Dispatchers.IO) {
         safeCall {
-            HttpClientFactory.client.get("https://jsonplaceholder.typicode.com/todos/$id") {
+            client.get("https://jsonplaceholder.typicode.com/todos/$id") {
 
             }.body<Todo>()
         }

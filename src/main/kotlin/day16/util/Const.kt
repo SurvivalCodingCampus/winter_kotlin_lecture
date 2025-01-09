@@ -12,4 +12,7 @@ object Const {
     val testImageUrl5 = "https://cdn.pixabay.com/photo/2019/09/16/14/45/meerkat-4481185_1280.jpg"
 
     const val DIRECTORY_NAME = "meerkat"
+
+    const val TODOS_URL = "https://jsonplaceholder.typicode.com/todos"
+
 }
