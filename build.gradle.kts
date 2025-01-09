@@ -23,6 +23,7 @@ dependencies {
     implementation("com.github.kittinunf.fuel:fuel:3.0.0-alpha04")
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-cio:$ktor_version")
+    testImplementation("io.ktor:ktor-client-mock:$ktor_version")
 }
 
 tasks.test {

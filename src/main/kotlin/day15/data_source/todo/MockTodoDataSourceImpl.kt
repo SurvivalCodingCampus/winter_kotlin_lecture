@@ -13,6 +13,14 @@ class MockTodoDataSourceImpl(jsonString: String? = null) : TodoDataSource {
         }
     }
 
+    override suspend fun getTodo(id: Int): Todo = withContext(Dispatchers.IO) {
+        try {
+            getTodos().first { it.id == id }
+        } catch (e: Exception) {
+            throw e
+        }
+    }
+
     private val json = jsonString ?: """
         [
           {
