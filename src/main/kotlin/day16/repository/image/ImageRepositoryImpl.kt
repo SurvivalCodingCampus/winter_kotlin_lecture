@@ -4,7 +4,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.example.day16.data_source.image.ImageDataSource
 import org.example.day16.model.image.DownloadInfo
+import java.time.Duration
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import kotlin.math.abs
 
 class ImageRepositoryImpl(override val dataSource: ImageDataSource) : ImageRepository {
 
@@ -47,12 +50,23 @@ class ImageRepositoryImpl(override val dataSource: ImageDataSource) : ImageRepos
         url: String,
         path: String
     ): DownloadInfo = withContext(Dispatchers.IO) {
+        val stringBuilder = StringBuilder()
+        val format = DateTimeFormatter.ofPattern("hh:mm:ss.SSSSSS")
         val startTime = LocalDateTime.now()
+        stringBuilder.append("다운로드 시작\n")
         val bytes = dataSource.fetchImage(url)
         val endTime = LocalDateTime.now()
         dataSource.saveImage(bytes, path)
-        val elapsedTime = endTime.minusNanos(startTime.nano.toLong())
-        DownloadInfo(startTime.toString(), endTime.toString(), elapsedTime.toString(), bytes.size.toString())
+        val elapsedTime = Duration.between(startTime, endTime)
+        stringBuilder.append("다운로드 끝\n=========\n소요시간 : ${formatDuration(elapsedTime)}\n용량 : ${bytes.size} byte\n")
+        println(stringBuilder)
+        val result = DownloadInfo(
+            startTime.format(format),
+            endTime.format(format),
+            formatDuration(elapsedTime),
+            bytes.size.toString()
+        )
+        result
     }
 
     override suspend fun saveImagesAndReturnDownloadInfo(
@@ -76,5 +90,18 @@ class ImageRepositoryImpl(override val dataSource: ImageDataSource) : ImageRepos
         } else {
             saveImageAndReturnDownloadInfo(url, path)
         }
+    }
+
+    private fun formatDuration(duration: Duration): String {
+        val seconds = duration.seconds
+        val absSeconds = abs(seconds)
+        val positive = String.format(
+            "%02d:%02d:%02d.%06d",
+            absSeconds / 3600,
+            absSeconds % 3600 / 60,
+            absSeconds % 60,
+            duration.nano / 1000
+        )
+        return if (seconds < 0) "-$positive" else positive
     }
 }
