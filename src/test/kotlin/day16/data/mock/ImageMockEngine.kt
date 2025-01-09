@@ -1,5 +1,6 @@
 package day16.data.mock
 
+import UrlWithContentTestData
 import io.ktor.client.engine.mock.*
 import io.ktor.http.*
 import io.ktor.utils.io.*
@@ -8,7 +9,7 @@ val imageMockEngine = MockEngine { request ->
     when (request.url.toString()) {
         imgUrlTests[0].url -> {
             respond(
-                content = ByteReadChannel(imgUrlTests[0].byteArray),
+                content = ByteReadChannel(imgUrlTests[0].content),
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "image/png")
             )
@@ -16,7 +17,7 @@ val imageMockEngine = MockEngine { request ->
 
         imgUrlTests[1].url -> {
             respond(
-                content = ByteReadChannel(imgUrlTests[0].byteArray),
+                content = ByteReadChannel(imgUrlTests[0].content),
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "image/png")
             )
@@ -32,4 +33,4 @@ val imgUrlTests = listOf(
     "https://test.com/image1.png" to byteArrayOf(1, 2, 3),
     "https://test.com/image2.png" to byteArrayOf(3, 4, 5),
     "https://test.com/image3.png" to byteArrayOf(6, 7, 8),
-).map { ImageUrlTest(it.first, it.second) }
+).map { UrlWithContentTestData(it.first, it.second) }
