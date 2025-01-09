@@ -443,3 +443,27 @@ withContext(Dispatchers.IO) {
 - 데이터를 삭제하려 할 때 사용된다.
 ### PUT
 - 데이터를 갱신하고자 할 때 사용된다.
+
+---
+
+## DTO
+- Data Transfer Object로  
+  원하는 형태의 Model Class에 적절한 값을 잘 담기 위해  
+  만들어진 중간 전달 객체이다.
+- 이 DTO에서 데이터 전달 도중에 발생할 법한(파싱 과정) 예외들을 대부분 잡아줄 수 있는 듯 하다.
+- 특별히 의미가 있어보이는 점은 Model class는 다른 종속성이 없기 때문에  
+  보다 자유롭게 Model class의 설계가 가능하다는 점이다.  
+  대신 그만큼 DTO에서 고생을 좀 해주어야 할 듯 싶다.
+
+## Mapper
+- DTO를 구현하였다면 Repository에서는 DTO 형태의 데이터를 받는다.  
+  그 DTO를 최종적으로 Repository에서 비즈니즈 로직에 알맞는 데이터를 전달한다.  
+  그러나 그 전에 DTO를 Model class로 전환하는 과정을 거치게 되는데  
+  그 부분을 도와주는 것이 이 Mapper라는 것이다.  
+  참고로 Mapper를 거쳐 만들어진 Model class를 이제 비즈니스 로직에 맞게 가공하여  
+  Repository를 호출하는 사용자에게 데이터를 넘겨주는 것이다.
+
+## 데이터의 전체적인 흐름
+- 그러면 이제 데이터의 전체적인 흐름을 정리하면  
+  Raw Data -> *DataSource -> DTO -> *Mapper -> Model Class -> *Repository -> 사용자가 원하는 데이터
+- 이름 앞의 별 표시는 실제 데이터가 아닌 데이터를 가공해주는 객체 혹은 메소드를 의미한다.

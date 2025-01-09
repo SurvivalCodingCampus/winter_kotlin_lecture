@@ -65,6 +65,9 @@ class ImageRepositoryImpl(private val dataSource: ImageDataSource): ImageReposit
 //        }
         for(i in urls.indices) {
             downloadInfo.add(saveImage(urls[i], directory))
+            // client를 하나만 사용하면 성능이 안좋을 수 있다. 그럴 경우 client를 한 3개쯤 만들어 병렬로 처리해주는 것을 고려할 수 있다.
+            // client는 내부에서 불러오므로 여기에서는 코루틴 병렬로 인덱스를 나눠서
+            // 반복 돌리는 형태가 될 것이다.
         }
         return downloadInfo
     }
