@@ -73,7 +73,7 @@ class TodoRepositoryImplTest {
     @Test
     fun `네트워크 에러 케이스`() = runTest {
         val mockEngine = createMockEngine {
-            throw throw ConnectTimeoutException("TimeOut")
+            throw ConnectTimeoutException("TimeOut")
         }
 
         val testDataSource = TodoRepositoryImpl(TodoDataSourceImpl(mockEngine))
