@@ -49,3 +49,4 @@ bin/
 /docs/daily/template.md
 /src/main/kotlin/PRTemplate.md
 /src/main/kotlin/day08/1조 설계.puml
+/local.properties
