@@ -1,7 +1,7 @@
 package com.survivalcoding.day17.repository
 
 import com.survivalcoding.com.survivalcoding.day17.dto.MovieDto
-import com.survivalcoding.com.survivalcoding.day17.dto.MovieResult
+import com.survivalcoding.com.survivalcoding.day17.dto.MovieResponse
 import com.survivalcoding.com.survivalcoding.day17.repository.MovieRepositoryImpl
 import com.survivalcoding.day17.data_source.MovieDataSource
 import kotlinx.coroutines.test.runTest
@@ -12,7 +12,7 @@ import org.junit.Test
 class MovieRepositoryImplTest {
     private val mockMovieDataSource = object : MovieDataSource {
         override suspend fun getUpcomingMovies(): List<MovieDto> {
-            val movieResult = Json.decodeFromString<MovieResult>(fakeMovieJsonString)
+            val movieResult = Json.decodeFromString<MovieResponse>(fakeMovieJsonString)
             return movieResult.results!!
         }
     }

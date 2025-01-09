@@ -3,7 +3,7 @@ package com.survivalcoding.com.survivalcoding.day17.dto
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class MovieResult(
+data class MovieResponse(
     val dates: DatesDto?,
     val page: Int?,
     val results: List<MovieDto>?,
