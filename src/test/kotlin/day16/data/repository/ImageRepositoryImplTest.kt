@@ -1,7 +1,7 @@
 package day16.data.repository
 
+import day16.data.mock.imageMockEngine
 import day16.data.mock.imgUrlTests
-import day16.data.mock.mockEngine
 import io.ktor.client.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.filterNot
@@ -29,7 +29,7 @@ class ImageRepositoryImplTest {
 
     @Before
     fun setUp() {
-        httpClient = HttpClient(mockEngine)
+        httpClient = HttpClient(imageMockEngine)
         subject = ImageRepositoryImpl(
             ImageDataSourceImpl(
                 httpClient
