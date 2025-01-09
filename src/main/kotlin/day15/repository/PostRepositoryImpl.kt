@@ -1,6 +1,6 @@
 package day15.repository
 
-import day15.data_source.PostDataSource
+import day15.dataSource.PostDataSource
 import day15.model.Post
 
 class PostRepositoryImpl(private val dataSource: PostDataSource) : PostRepository {

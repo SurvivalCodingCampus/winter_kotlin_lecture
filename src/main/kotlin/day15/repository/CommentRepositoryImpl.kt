@@ -1,6 +1,6 @@
 package day15.repository
 
-import day15.data_source.CommentDataSource
+import day15.dataSource.CommentDataSource
 import day15.model.Comment
 
 class CommentRepositoryImpl(private val dataSource: CommentDataSource): CommentRepository {

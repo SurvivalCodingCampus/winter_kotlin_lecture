@@ -1,8 +1,7 @@
 package day15.repository
 
-import day15.data_source.UserDataSource
+import day15.dataSource.UserDataSource
 import day15.model.User
-import kotlinx.serialization.json.Json
 
 class UserRepositoryImpl(private val dataSource: UserDataSource): UserRepository {
 

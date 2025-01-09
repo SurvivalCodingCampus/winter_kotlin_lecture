@@ -1,4 +1,4 @@
-package day15.data_source
+package day15.dataSource
 
 import day15.model.Post
 import day15.util.JsonData

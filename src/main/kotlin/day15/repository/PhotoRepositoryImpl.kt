@@ -1,6 +1,6 @@
 package day15.repository
 
-import day15.data_source.PhotoDataSource
+import day15.dataSource.PhotoDataSource
 import day15.model.Photo
 
 class PhotoRepositoryImpl(private val dataSource: PhotoDataSource): PhotoRepository {
