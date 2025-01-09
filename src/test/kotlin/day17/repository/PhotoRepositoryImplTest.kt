@@ -57,4 +57,22 @@ class PhotoRepositoryImplTest {
         assertEquals(PhotoType.UNKNOWN, secondData[1].type)
         assertEquals(PhotoType.UNKNOWN, secondData[2].type)
     }
+
+    @Test
+    fun `잘못된 JSON 형식 테스트`() = runTest {
+        val invalidJson = """
+                [
+                    "id": 1,
+                    "type": "article",
+                    "created_at": "2024-01-09"
+                ]
+            """.trimIndent()
+
+
+        photoRepositoryImpl = PhotoRepositoryImpl(MockPhotoDataSourceImpl(invalidJson))
+        val result = photoRepositoryImpl.getUsePhotoData()
+
+        // 에러 발생 시 빈 리스트 반환 확인
+        assertEquals(0, result.size)
+    }
 }
