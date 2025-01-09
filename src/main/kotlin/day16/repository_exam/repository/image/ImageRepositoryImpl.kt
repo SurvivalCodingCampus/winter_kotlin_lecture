@@ -1,11 +1,9 @@
 package org.example.day16.repository_exam.repository.image
 
-import kotlinx.coroutines.delay
 import org.example.day16.repository_exam.data_source.image.ImageDataSource
 import org.example.day16.repository_exam.model.image.DownloadInfo
 import java.io.File
 import kotlin.system.measureNanoTime
-import kotlin.system.measureTimeMillis
 
 class ImageRepositoryImpl(private val dataSource: ImageDataSource) : ImageRepository {
     override suspend fun saveImage(url: String, path: String): DownloadInfo {
@@ -26,7 +24,8 @@ class ImageRepositoryImpl(private val dataSource: ImageDataSource) : ImageReposi
 
 
         for (i: Int in 1..urls.size) {
-            val downloadInfo = saveImageIfNotExists(urls[i - 1], path + "${i}.txt")
+
+            val downloadInfo = saveImageIfNotExists(urls[i - 1], path + "${i}.jpg")
 
             if (downloadInfo != null) timeList.add(downloadInfo)
         }
