@@ -12,8 +12,10 @@ class StoreRepositoryImpl(private val dataSource: StoreDataSorce) : StoreReposit
     override suspend fun getStores(): List<Store> {
         return dataSource.getStores()
             .map { it.toStore() }
-            .filter { it.remainStat != "" }
-            .filter { it.stockAt != "" }
-            .filter { it.createdAt != "" }
+            .filterNot {
+                it.remainStat.isNullOrBlank() ||
+                        it.stockAt.isNullOrBlank() ||
+                        it.createdAt.isNullOrBlank()
+            }
     }
 }
