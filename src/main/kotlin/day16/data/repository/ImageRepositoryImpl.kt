@@ -7,6 +7,7 @@ import org.example.day14.data.result.asResult
 import org.example.day16.data.datasource.ImageDataSource
 import org.example.day16.data.model.DownloadInfo
 import java.io.File
+import java.nio.file.FileAlreadyExistsException
 
 class ImageRepositoryImpl(
     private val imageDataSource: ImageDataSource
@@ -30,11 +31,7 @@ class ImageRepositoryImpl(
     override suspend fun saveImages(urls: List<String>, directory: String): Flow<List<DownloadInfo>> = flow {
         val downloads = mutableListOf<DownloadInfo>()
 
-        val file = File(directory)
-        if (!file.exists()) {
-            file.mkdirs()
-        }
-        urls.forEachIndexed { idx, url ->
+        urls.forEach { url ->
             saveImage(url, directory).asResult()
                 .collect { result ->
                     if (result is Result.Success) {
@@ -47,7 +44,7 @@ class ImageRepositoryImpl(
 
     override suspend fun saveImageIfNotExists(url: String, path: String): Flow<DownloadInfo?> = flow {
         if (File(path).exists()) {
-            emit(null)
+            throw FileAlreadyExistsException(path)
         } else {
             saveImage(url, path).collect {
                 emit(it)

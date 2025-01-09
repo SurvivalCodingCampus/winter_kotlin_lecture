@@ -18,6 +18,10 @@ class ImageDataSourceImpl(
     override suspend fun saveImage(bytes: ByteArray, path: String) {
         var fileName = "img.png"
         var number = 1
+        val file = File(path)
+        if (!file.exists()) {
+            file.mkdirs()
+        }
         while (File("$path/$fileName").exists()) {
             number += 1
             fileName = "img($number).png"
