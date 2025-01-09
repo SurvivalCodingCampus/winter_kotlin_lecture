@@ -13,6 +13,7 @@
 - [2025-01-02](src/docs/daily/2025-01-02.md) - 디버깅, 람다식과 함수
 - [2025-01-03](src/docs/daily/2025-01-03.md) - 비동기 프로그래밍, 코루틴
 - [2025-01-07](src/docs/daily/2025-01-07.md) - Test 이론, Model Class, Repository 개념
+- [2025-01-08](src/docs/daily/2025-01-08.md) - 네트워크 통신
 
 ## 💻 작성 코드
 
@@ -64,6 +65,13 @@
     - [Constants.kt](src/main/kotlin/day15/util/Constants.kt) - Constants
     - [JsonParser.kt](src/main/kotlin/day15/util/JsonParser.kt) - Json Parser
     - [NetworkUtils.kt](src/main/kotlin/day15/util/NetworkUtils.kt) - NetworkUtils
+- Day 16
+    - [ApiModule.kt](src/main/kotlin/day16/ApiModule.kt) - ApiModule(Ktor)
+    - [MovieMain.kt](src/main/kotlin/day16/movie/MovieMain.kt) - Upcoming Movies
+    - [ImageMain.kt](src/main/kotlin/day16/image/ImageMain.kt) - Fetching Images
+    - [ImageDownloadMain.kt](src/main/kotlin/day16/image/ImageDownloadMain.kt) - Download Images
+    - [MockClientProvider.kt](src/test/kotlin/day16/util/MockClientProvider.kt) - MockEngine
+    - [TodoDataSourceTest.kt](src/test/kotlin/day16/mocking/repository/TodoDataSourceTest.kt) - TodoDataSource Test Code
 
 ## 📚 주제별 정리
 
@@ -83,6 +91,7 @@
 - [Kotlin 공식 문서](https://kotlinlang.org/docs/home.html)
 - [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html)
 - [Kotlin in Action](https://www.manning.com/books/kotlin-in-action)
+- [Ktor Documentation](https://ktor.io/docs/welcome.html)
 - [코틀린 코루틴의 정석](http://www.acornpub.co.kr/book/kotlin-coroutines)
 
 ---
