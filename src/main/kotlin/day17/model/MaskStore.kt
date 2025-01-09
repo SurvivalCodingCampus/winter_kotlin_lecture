@@ -2,7 +2,7 @@ package org.example.day17.model
 
 import java.time.LocalDate
 
-class MaskStore(
+data class MaskStore(
     val address: String,
     val code: String,
     val createdDate: LocalDate,
@@ -13,3 +13,4 @@ class MaskStore(
     val stockDate: LocalDate,
     val type: String
 )
+
