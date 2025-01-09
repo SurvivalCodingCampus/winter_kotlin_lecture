@@ -2,6 +2,7 @@ package day16.data.mock
 
 import io.ktor.client.engine.mock.*
 import io.ktor.http.*
+import io.ktor.utils.io.*
 import org.example.day15.data.resource.BASE_URL
 
 val mockEngine = MockEngine { request ->
@@ -34,6 +35,22 @@ val mockEngine = MockEngine { request ->
             )
         }
 
+        imgUrls[0] -> {
+            respond(
+                content = ByteReadChannel(byteArrayOf(1, 2, 3)),
+                status = HttpStatusCode.OK,
+                headers = headersOf(HttpHeaders.ContentType, "image/png")
+            )
+        }
+
+        imgUrls[1] -> {
+            respond(
+                content = ByteReadChannel(byteArrayOf(1, 2, 3)),
+                status = HttpStatusCode.OK,
+                headers = headersOf(HttpHeaders.ContentType, "image/png")
+            )
+        }
+
         else -> {
             respondError(HttpStatusCode.NotFound)
         }
@@ -57,4 +74,10 @@ private val todos = listOf(
             "completed": false
         }
     """
+)
+
+val imgUrls = listOf(
+    "https://test.com/image1.png",
+    "https://test.com/image2.png",
+    "https://test.com/image3.png",
 )
