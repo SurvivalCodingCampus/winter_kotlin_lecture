@@ -10,8 +10,6 @@ import org.junit.Test
 
 class StoreRepositoryImplTest {
     private val mockStoreDataSource = object : StoreDataSource {
-        override val baseUrl: String
-            get() = TODO("Not yet implemented")
 
         override suspend fun getStores(): List<StoreDto> {
             return defaultJson.decodeFromString<MaskStoreDto>(fakeJsonString).stores ?: emptyList()
