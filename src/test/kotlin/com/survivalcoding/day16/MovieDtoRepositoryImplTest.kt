@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class MovieRepositoryImplTest {
+class MovieDtoRepositoryImplTest {
     private val mockMovieDataSource = object : MovieDataSource {
         override suspend fun getUpcomingMovies(): List<Movie> {
             val json = """[{
