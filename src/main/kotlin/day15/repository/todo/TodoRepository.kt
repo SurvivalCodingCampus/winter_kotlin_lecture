@@ -6,6 +6,8 @@ import org.example.day15.data_source.todo.TodoDataSource
 interface TodoRepository {
     val dataSource: TodoDataSource
 
+    suspend fun getTodo(id: Int): Todo
+
     suspend fun getTodos(): List<Todo>
 
     suspend fun getCompletedTodos(): List<Todo>

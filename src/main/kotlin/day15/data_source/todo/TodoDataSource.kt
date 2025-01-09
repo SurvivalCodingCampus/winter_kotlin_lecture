@@ -5,4 +5,6 @@ import org.example.day15.data_source.DataSource
 
 interface TodoDataSource : DataSource {
     suspend fun getTodos(): List<Todo>
+
+    suspend fun getTodo(id: Int): Todo
 }

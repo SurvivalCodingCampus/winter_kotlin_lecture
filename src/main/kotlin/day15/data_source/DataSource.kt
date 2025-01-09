@@ -9,5 +9,6 @@ interface DataSource {
         get() = Json {
             ignoreUnknownKeys = true
             allowTrailingComma = true
+            encodeDefaults = true
         }
 }
