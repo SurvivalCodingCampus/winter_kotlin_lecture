@@ -16,6 +16,7 @@
 - [2025-01-03](./docs/daily/2025-01-03.md): Kotlin coroutines
 - [2025-01-06](./docs/daily/2025-01-06.md): DataStore strategy
 - [2025-01-07](./docs/daily/2025-01-07.md): Repository strategy
+- [2025-01-09](./docs/daily/2025-01-09.md): DTO + Mapper
 
 ## 💻 작성 코드
 
@@ -34,6 +35,8 @@
 - [day11 테스트](./src/test/kotlin/day11)
 - [day13](./src/main/kotlin/day13)
 - [day13 테스트](./src/test/kotlin/day13)
+- [day17](./src/main/kotlin/day17)
+- [day17 테스트](./src/test/kotlin/day17)
 
 ## 📚 주제별 정리
 
