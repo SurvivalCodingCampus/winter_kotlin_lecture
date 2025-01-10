@@ -27,7 +27,7 @@ class PhotoRepositoryImplTest {
         val photoList = photoRepositoryImpl.getUsableStoreData2()
 
         assertEquals(1, photoList[0].id)
-        assertEquals(PhotoType.Unknown, photoList[1].type)
-        assertEquals(PhotoType.Unknown, photoList[2].type)
+        assertEquals(PhotoType.UNKNOWN, photoList[1].type)
+        assertEquals(PhotoType.UNKNOWN, photoList[2].type)
     }
 }

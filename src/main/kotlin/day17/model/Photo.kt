@@ -13,8 +13,8 @@ data class Photo(
 )
 
 enum class PhotoType {
-    Article,
-    Image,
-    Video,
-    Unknown
+    ARTICLE,
+    IMAGE,
+    VIDEO,
+    UNKNOWN
 }

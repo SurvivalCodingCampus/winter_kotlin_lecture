@@ -8,14 +8,14 @@ import java.time.LocalDate
 
 class PhotoMapper() {
 
-    fun PhotoDtotoPhoto(photoDto: PhotoDto): Photo {
-        var type: PhotoType = PhotoType.Unknown
+    fun photoDTOtoPhoto(photoDto: PhotoDto): Photo {
+        var type: PhotoType = PhotoType.UNKNOWN
 
         when(photoDto.type) {
-            "Article" -> type = PhotoType.Article
-            "Image" -> type = PhotoType.Image
-            "Video" -> type = PhotoType.Video
-            else -> type = PhotoType.Unknown
+            "Article" -> type = PhotoType.ARTICLE
+            "Image" -> type = PhotoType.IMAGE
+            "Video" -> type = PhotoType.VIDEO
+            else -> type = PhotoType.UNKNOWN
         }
 
         var createdDate = LocalDate.parse(photoDto.createdAt)
