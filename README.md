@@ -14,6 +14,7 @@
 - [2025-01-03](src/docs/daily/2025-01-03.md) - 비동기 프로그래밍, 코루틴
 - [2025-01-07](src/docs/daily/2025-01-07.md) - Test 이론, Model Class, Repository 개념
 - [2025-01-08](src/docs/daily/2025-01-08.md) - 네트워크 통신
+- [2025-01-09](src/docs/daily/2025-01-09.md) - DTO, Mapper
 
 ## 💻 작성 코드
 
@@ -72,6 +73,9 @@
     - [ImageDownloadMain.kt](src/main/kotlin/day16/image/ImageDownloadMain.kt) - Download Images
     - [MockClientProvider.kt](src/test/kotlin/day16/util/MockClientProvider.kt) - MockEngine
     - [TodoDataSourceTest.kt](src/test/kotlin/day16/mocking/repository/TodoDataSourceTest.kt) - TodoDataSource Test Code
+- Day 17
+    - [MaskStoreMain.kt](src/main/kotlin/day17/maskstore/MaskStoreMain.kt) - MaskStoreDto를 Store로 매핑
+    - [PhotoMain.kt](src/main/kotlin/day17/photo/PhotoMain.kt) - 동적 Json인 경우 또는 서버에서 잘못된 값을 보낸 경우에도 Photo로 매핑
 
 ## 📚 주제별 정리
 
