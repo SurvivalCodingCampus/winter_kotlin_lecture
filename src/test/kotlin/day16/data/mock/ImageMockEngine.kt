@@ -17,7 +17,7 @@ val imageMockEngine = MockEngine { request ->
 
         imgUrlTests[1].url -> {
             respond(
-                content = ByteReadChannel(imgUrlTests[0].content),
+                content = ByteReadChannel(imgUrlTests[1].content),
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "image/png")
             )
