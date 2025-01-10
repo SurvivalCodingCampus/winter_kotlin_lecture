@@ -1,10 +1,10 @@
-package org.hyunjung.day17.content.dto
+package org.hyunjung.day17.photo.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ContentDto(
+data class PhotoDto(
     val id: String? = null,
     val type: String? = null,
     val title: String? = null,
