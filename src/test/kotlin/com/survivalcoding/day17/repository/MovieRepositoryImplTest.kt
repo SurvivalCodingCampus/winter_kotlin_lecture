@@ -33,7 +33,6 @@ class MovieRepositoryImplTest {
                     NetworkError.UNKNOWN -> TODO()
                 }
             }
-
             is Result.Success -> {
                 Assert.assertEquals(939243, result.data[0].id)
             }
