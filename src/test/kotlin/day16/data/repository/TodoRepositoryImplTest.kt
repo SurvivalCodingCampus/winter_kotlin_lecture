@@ -1,6 +1,6 @@
 package day16.data.repository
 
-import day16.data.mock.mockEngine
+import day16.data.mock.todoMockEngine
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -29,7 +29,7 @@ class TodoRepositoryImplTest {
 
     @Before
     fun setUp() {
-        httpClient = HttpClient(mockEngine) {
+        httpClient = HttpClient(todoMockEngine) {
             install(ContentNegotiation) {
                 json(jsonConfig)
             }

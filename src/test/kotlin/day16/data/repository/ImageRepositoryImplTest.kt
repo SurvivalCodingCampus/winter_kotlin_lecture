@@ -1,7 +1,7 @@
 package day16.data.repository
 
+import day16.data.mock.imageMockEngine
 import day16.data.mock.imgUrlTests
-import day16.data.mock.mockEngine
 import io.ktor.client.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.filterNot
@@ -29,7 +29,7 @@ class ImageRepositoryImplTest {
 
     @Before
     fun setUp() {
-        httpClient = HttpClient(mockEngine)
+        httpClient = HttpClient(imageMockEngine)
         subject = ImageRepositoryImpl(
             ImageDataSourceImpl(
                 httpClient
@@ -47,7 +47,7 @@ class ImageRepositoryImplTest {
         subject.saveImage(imgUrlTests[0].url, directory)
             .asResult().filterNot { it == Result.Loading }.collect { result ->
                 assertTrue(result is Result.Success)
-                assertEquals("${imgUrlTests[0].byteArray.size}bytes", result.data.fileSize)
+                assertEquals("${imgUrlTests[0].content.size}bytes", result.data.fileSize)
             }
     }
 
@@ -65,7 +65,7 @@ class ImageRepositoryImplTest {
         subject.saveImageIfNotExists(imgUrlTests[1].url, directory)
             .asResult().filterNot { it == Result.Loading }.collect { result ->
                 assertTrue(result is Result.Success)
-                assertEquals("${imgUrlTests[1].byteArray.size}bytes", result.data?.fileSize)
+                assertEquals("${imgUrlTests[1].content.size}bytes", result.data?.fileSize)
             }
         subject.saveImageIfNotExists(imgUrlTests[1].url, directory)
             .asResult().filterNot { it == Result.Loading }.collect { result ->
