@@ -1,6 +1,6 @@
 package day16.exercise.datasource.movie
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day16.exercise.model.Movie
 
 interface MovieDataSource {

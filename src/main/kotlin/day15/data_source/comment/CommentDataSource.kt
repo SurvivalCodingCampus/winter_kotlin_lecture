@@ -1,6 +1,6 @@
 package day15.data_source.comment
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day15.model.Comment
 
 interface CommentDataSource {

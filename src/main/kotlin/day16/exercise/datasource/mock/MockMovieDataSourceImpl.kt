@@ -1,7 +1,7 @@
 package day16.exercise.datasource.mock
 
-import day15.common.ResponseResult
-import day15.common.safeCall
+import utils.network.ResponseResult
+import utils.network.safeCall
 import day16.exercise.model.Movie
 import day16.util.TestJson
 import kotlinx.coroutines.Dispatchers

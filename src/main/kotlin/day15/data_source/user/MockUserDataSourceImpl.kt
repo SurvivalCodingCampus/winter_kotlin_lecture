@@ -1,7 +1,7 @@
 package day15.data_source.user
 
-import day15.common.ResponseResult
-import day15.common.safeCall
+import utils.network.ResponseResult
+import utils.network.safeCall
 import day15.model.User
 import day15.util.Urls
 import kotlinx.serialization.json.Json

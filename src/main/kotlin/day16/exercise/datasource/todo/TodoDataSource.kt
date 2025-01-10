@@ -1,6 +1,6 @@
 package day16.exercise.datasource.todo
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day15.model.Todo
 
 interface TodoDataSource {

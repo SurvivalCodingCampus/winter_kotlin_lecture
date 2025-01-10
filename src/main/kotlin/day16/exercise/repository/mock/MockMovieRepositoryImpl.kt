@@ -1,6 +1,6 @@
 package day16.exercise.repository.mock
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day16.exercise.datasource.mock.MockMovieDataSource
 import day16.exercise.model.Movie
 import kotlinx.coroutines.Dispatchers

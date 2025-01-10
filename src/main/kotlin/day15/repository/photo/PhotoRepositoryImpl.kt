@@ -1,6 +1,6 @@
 package day15.repository.photo
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day15.data_source.photo.PhotoDataSource
 import day15.model.Photo
 

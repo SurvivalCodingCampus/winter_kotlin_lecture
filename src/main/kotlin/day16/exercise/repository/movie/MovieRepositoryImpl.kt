@@ -1,6 +1,6 @@
 package day16.exercise.repository.movie
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day16.exercise.datasource.movie.MovieDataSource
 import day16.exercise.model.Movie
 import kotlinx.coroutines.Dispatchers

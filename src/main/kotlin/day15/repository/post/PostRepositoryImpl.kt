@@ -1,6 +1,6 @@
 package day15.repository.post
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day15.data_source.post.PostDataSource
 import day15.model.Post
 

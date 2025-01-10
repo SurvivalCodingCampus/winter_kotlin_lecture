@@ -1,7 +1,7 @@
 package day17.datasource
 
-import day15.common.ResponseResult
-import day15.common.safeCall
+import utils.network.ResponseResult
+import utils.network.safeCall
 import day16.util.HttpClientFactory
 import day17.dto.MaskResponse
 import day17.utils.Const
