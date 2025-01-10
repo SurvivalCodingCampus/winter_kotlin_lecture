@@ -3,6 +3,7 @@ package day18.data_source
 import day18.dto.PhotoDto
 import day18.dto.PhotoResponse
 import day18.utils.ApiConfig
+import day18.utils.PhotoError
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.request.*
@@ -18,6 +19,10 @@ class PhotoDataSourceImpl(
         const val BASE_URL =
             "https://pixabay.com/api/"
         const val SEARCH_TYPE = "photo"
+    }
+
+    init {
+        require(apiKey.isNotBlank()) { "API Key가 필요합니다" }
     }
 
     override suspend fun getPhotoList(keyword: String): List<PhotoDto> {
@@ -39,8 +44,15 @@ class PhotoDataSourceImpl(
                     }
 
                     return photoResult.hits
+
                 } else {
-                    // 상태 코드가 OK가 아닌 경우 예외 처리
+                    if (response.status.value in 400..499) {
+                        throw PhotoError.ClientError("Client Error. Status: ${response.status}")
+                    }
+                    if (response.status.value in 500..599) {
+                        throw PhotoError.ServerError("Server Error. Status: ${response.status}")
+                    }
+
                     throw Exception("Failed to load photos. Status: ${response.status}")
                 }
 
