@@ -1,16 +1,16 @@
 package day16.repository_exam.data_source
 
 import io.ktor.client.*
-import io.ktor.client.engine.cio.*
 import io.ktor.client.engine.mock.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.example.day15.repository_exam.data_source.TodoDatasource
-import org.example.day15.repository_exam.model.Todo
+import org.example.day16.repository_exam.data_source.todo.TodoDatasource
+import org.example.day16.repository_exam.model.todo.Todo
 
 class MockTodoDataSourceImpl : TodoDatasource {
-    val mockEngine = MockEngine { request ->
+    private val mockEngine = MockEngine { request ->
         when (request.url.toString()) {
             "https://test.com/todos" -> respond(
                 content = """
@@ -18,7 +18,7 @@ class MockTodoDataSourceImpl : TodoDatasource {
                     {"id": 1, "title": "Todo 1", "completed": false},
                     {"id": 2, "title": "Todo 2", "completed": true}
                     ]
-            """,
+            """.trimIndent(),
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "application/json")
             )
@@ -26,13 +26,13 @@ class MockTodoDataSourceImpl : TodoDatasource {
             "https://test.com/todo" -> respond(
                 content = """
                 {"id": 1, "title": "Todo 1", "completed": false}
-            """,
+            """.trimIndent(),
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "application/json")
             )
 
             else -> respond(
-                content = """""",
+                content = """""".trimIndent(),
                 status = HttpStatusCode.NotFound,
                 headers = headersOf(HttpHeaders.ContentType, "application/json")
             )
@@ -41,7 +41,7 @@ class MockTodoDataSourceImpl : TodoDatasource {
 
     private val client: HttpClient = HttpClient(mockEngine)
 
-    override suspend fun getTodo(userId: Int): Todo? {
+    override suspend fun getTodo(id: Int): Todo? {
         TODO("Not yet implemented")
     }
 
@@ -50,6 +50,6 @@ class MockTodoDataSourceImpl : TodoDatasource {
     }
 
     override suspend fun getAllTodos(): List<Todo> {
-        return Json.decodeFromString<List<Todo>>(mockEngine.toString())
+        return Json.decodeFromString<List<Todo>>(client.get("https://test.com/todos").bodyAsText())
     }
 }
