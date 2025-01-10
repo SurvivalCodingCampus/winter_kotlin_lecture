@@ -1,8 +1,8 @@
 import day16.dataSource.ImageDataSourceImpl
-import io.mockk.coEvery
-import io.mockk.mockk
 import io.ktor.client.*
-import io.ktor.client.statement.*
+import io.ktor.client.engine.mock.*
+import io.ktor.client.request.*
+import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -10,18 +10,34 @@ import java.io.File
 
 class ImageDataSourceImplTest {
 
-    private val client: HttpClient = mockk() // HttpClient Mock 객체 생성
-    private val imageDataSource = ImageDataSourceImpl(client)
-
     @Test
     fun checkFetchImage() = runBlocking {
         // Arrange
-        val mockUrl = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3bsTh%2Fbtr4G7tAaM9%2FNfGQDyKXu9YLx2MmPNP9Gk%2Fimg.png"
-        val mockByteArray = byteArrayOf(1, 2, 3, 4, 5) // 가상의 바이트 배열로 응답 설정
+        val mockUrl = "https://example.com/image.jpg"
+        val mockByteArray = byteArrayOf(1, 2, 3, 4, 5)
 
-        val mockResponse: HttpResponse = mockk()
-        coEvery { client[mockUrl] } returns mockResponse // HttpClient의 get 호출 Mocking
-        coEvery { mockResponse.readBytes() } returns mockByteArray // Mock 응답 설정
+        // MockEngine 설정
+        val mockEngine = MockEngine { request ->
+            when(request.url.toString()) {
+                mockUrl ->
+                respond(
+                    content = mockByteArray,
+                    status = HttpStatusCode.OK,
+                    headers = headersOf(HttpHeaders.ContentType, "image/jpeg")
+                )
+                else -> respond(
+                    content = "잘못된 요청입니다.",
+                    status = HttpStatusCode.NotFound,
+                )
+            }
+
+
+
+        }
+
+        // MockEngine을 사용하는 HttpClient
+        val client = HttpClient(mockEngine)
+        val imageDataSource = ImageDataSourceImpl(client)
 
         // Act
         val result = imageDataSource.fetchImage(mockUrl)
@@ -34,13 +50,17 @@ class ImageDataSourceImplTest {
     fun checkSaveImage(): Unit = runBlocking {
         // Arrange
         val mockBytes = byteArrayOf(1, 2, 3, 4, 5)
-        val mockPath = "C:\\koko\\winter_kotlin_study\\src\\test\\kotlin\\day16\\img\\test_image.jpg"   // 저장될 파일 경로
+        val mockPath = "test_image.jpg"
         val file = File(mockPath)
 
         // 기존에 파일이 있다면 삭제
         if (file.exists()) {
             file.delete()
         }
+
+        // MockEngine을 사용하지 않아도 되는 테스트
+        val client = HttpClient(MockEngine { respondOk() }) // 불필요하지만 HttpClient 생성
+        val imageDataSource = ImageDataSourceImpl(client)
 
         // Act
         imageDataSource.saveImage(mockBytes, mockPath)
@@ -49,6 +69,7 @@ class ImageDataSourceImplTest {
         assertTrue(file.exists()) // 파일이 생성되었는지 확인
         assertTrue(file.readBytes().contentEquals(mockBytes)) // 저장된 파일의 내용이 원본과 일치하는지 확인
 
-//        file.delete()
+        // Clean-up
+        file.delete()
     }
 }

@@ -12,7 +12,7 @@ class ImageDataSourceImpl(private val client: HttpClient) : ImageDataSource {
     override suspend fun fetchImage(url: String): ByteArray {
         return try {
             val response: HttpResponse = client.get(url)   // 이미지 다운로드
-            response.readBytes()  // 이미지를 ByteArray로 반환
+            response.bodyAsBytes()  // 이미지를 ByteArray로 반환
         } catch (e: Exception) {
             println(e.message)
             throw e
