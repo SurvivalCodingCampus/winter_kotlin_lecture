@@ -4,6 +4,9 @@ import com.survivalcoding.com.survivalcoding.day17.dto.MovieDto
 import com.survivalcoding.com.survivalcoding.day17.dto.MovieResponse
 import com.survivalcoding.com.survivalcoding.day17.repository.MovieRepositoryImpl
 import com.survivalcoding.day17.data_source.MovieDataSource
+import com.survivalcoding.day17.model.Movie
+import com.survivalcoding.day17.util.NetworkError
+import com.survivalcoding.day17.util.Result
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import org.junit.Assert
@@ -20,9 +23,22 @@ class MovieRepositoryImplTest {
     @Test
     fun getMovieInfoList() = runTest {
         val repository = MovieRepositoryImpl(mockMovieDataSource)
-        val movies = repository.getMovieInfoList()
+        val result: Result<List<Movie>> = repository.getMovieInfoList()
 
-        Assert.assertEquals(939243, movies[0].id)
+        when (result) {
+            is Result.Error -> {
+                println(result.e)
+                when (result.e) {
+                    NetworkError.NO_INTERNET -> TODO()
+                    NetworkError.UNKNOWN -> TODO()
+                }
+            }
+
+            is Result.Success -> {
+                Assert.assertEquals(939243, result.data[0].id)
+            }
+        }
+
     }
 }
 
