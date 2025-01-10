@@ -16,13 +16,13 @@ class PhotoRepositoryImpl(private val dataSource: PhotoDataSource) : PhotoReposi
     val photoMapper = PhotoMapper()
     override suspend fun getUsableStoreData1(): List<Photo> {
         return dataSource.getPhotoList1().map {
-            photoMapper.PhotoDtotoPhoto(it)
+            photoMapper.photoDTOtoPhoto(it)
         }
     }
 
     override suspend fun getUsableStoreData2(): List<Photo> {
         return dataSource.getPhotoList2().map {
-            photoMapper.PhotoDtotoPhoto(it)
+            photoMapper.photoDTOtoPhoto(it)
         }
     }
 }
