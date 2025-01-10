@@ -13,20 +13,12 @@ val photoMockEngine = MockEngine { request ->
         }
 
         fakePhotoUrlWithContents[1].url -> {
-            respond(
-                content = fakePhotoUrlWithContents[1].content,
-                status = HttpStatusCode.OK,
-                headers = headersOf(HttpHeaders.ContentType, "application/json")
-            )
-        }
-
-        fakePhotoUrlWithContents[2].url -> {
             respondError(HttpStatusCode.InternalServerError)
         }
 
-        fakePhotoUrlWithContents[3].url -> {
+        fakePhotoUrlWithContents[2].url -> {
             respond(
-                content = fakePhotoUrlWithContents[3].content,
+                content = fakePhotoUrlWithContents[2].content,
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "application/json")
             )
@@ -42,7 +34,6 @@ private val testBaseUrl = "https://pixabay.com/api/?key=${testPixabayApiKey}"
 
 private val fakePhotoUrlWithContents = listOf(
     "${testBaseUrl}&q=networkError" to "",
-    "${testBaseUrl}&q=emptyQuery" to "",
     "${testBaseUrl}&q=serverError" to "",
     "${testBaseUrl}&q=success" to
             """

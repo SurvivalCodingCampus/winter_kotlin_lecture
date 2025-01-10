@@ -11,8 +11,9 @@ class PhotoRemoteRepository(
 ) : PhotoRepository {
     override suspend fun getPhotos(query: String): Result<List<Photo>> {
         if (query.isBlank()) {
-            return Result.Error(PhotoError.NetworkError)
+            return Result.Error(PhotoError.EmptyQuery)
         }
+
         return try {
             val photos = photoDataSource.getPhotos(query)
             Result.Success(photos)
