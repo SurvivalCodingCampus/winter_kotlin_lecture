@@ -52,6 +52,6 @@ class MockPhotoDataSourceImpl : PhotoDataSource {
 
 
     override suspend fun getAllPhotos(): List<PhotoDto> {
-        return Json { ignoreUnknownKeys = true }.decodeFromString<List<PhotoDto>>(testJson)
+        return Json.decodeFromString<List<PhotoDto>>(testJson)
     }
 }
