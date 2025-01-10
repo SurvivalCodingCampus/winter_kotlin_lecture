@@ -1,32 +1,47 @@
 package day16.repository_exam.data_source
 
 import io.ktor.client.*
-import io.ktor.client.engine.cio.*
 import io.ktor.client.engine.mock.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
-import kotlinx.coroutines.runBlocking
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.example.day15.repository_exam.data_source.TodoDatasource
-import org.example.day15.repository_exam.model.Todo
-import org.example.day16.repository_exam.data_source.movie.MockMovieDataSourceImpl
-import org.example.day16.repository_exam.repository.movie.MovieRepositoryImpl
-import org.junit.After
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
+import org.example.day16.repository_exam.data_source.todo.TodoDatasource
+import org.example.day16.repository_exam.model.todo.Todo
 
 class MockTodoDataSourceImpl : TodoDatasource {
-//    val mockEngine = MockEngine { request ->
-//        respond(
-//            content = ByteReadChannel(),
-//            status = HttpStatusCode.OK,
-//            headers = headersOf(HttpHeaders.ContentType, "application/json")
-//        )
-//    }
+    private val mockEngine = MockEngine { request ->
+        when (request.url.toString()) {
+            "https://test.com/todos" -> respond(
+                content = """
+                [
+                    {"id": 1, "title": "Todo 1", "completed": false},
+                    {"id": 2, "title": "Todo 2", "completed": true}
+                    ]
+            """.trimIndent(),
+                status = HttpStatusCode.OK,
+                headers = headersOf(HttpHeaders.ContentType, "application/json")
+            )
 
+            "https://test.com/todo" -> respond(
+                content = """
+                {"id": 1, "title": "Todo 1", "completed": false}
+            """.trimIndent(),
+                status = HttpStatusCode.OK,
+                headers = headersOf(HttpHeaders.ContentType, "application/json")
+            )
 
-    override suspend fun getTodo(userId: Int): Todo? {
+            else -> respond(
+                content = """""".trimIndent(),
+                status = HttpStatusCode.NotFound,
+                headers = headersOf(HttpHeaders.ContentType, "application/json")
+            )
+        }
+    }
+
+    private val client: HttpClient = HttpClient(mockEngine)
+
+    override suspend fun getTodo(id: Int): Todo? {
         TODO("Not yet implemented")
     }
 
@@ -35,6 +50,6 @@ class MockTodoDataSourceImpl : TodoDatasource {
     }
 
     override suspend fun getAllTodos(): List<Todo> {
-        TODO("Not yet implemented")
+        return Json.decodeFromString<List<Todo>>(client.get("https://test.com/todos").bodyAsText())
     }
 }

@@ -11,18 +11,26 @@ fun main(): Unit = runBlocking {
     val urls = File("image_urls.txt").readLines()
     val directory = "image_test_directory"
 
+    if(File("${directory}/도지.jpg").exists()) File("${directory}/도지.jpg").delete()
+    if(File("${directory}/도지11.jpg").exists()) File("${directory}/도지11.jpg").delete()
+    if(File("${directory}/도지12.jpg").exists()) File("${directory}/도지12.jpg").delete()
+    if(File("${directory}/도지13.jpg").exists()) File("${directory}/도지13.jpg").delete()
+    if(File("${directory}/도지14.jpg").exists()) File("${directory}/도지14.jpg").delete()
+    if(File("${directory}/도지15.jpg").exists()) File("${directory}/도지15.jpg").delete()
+    if(File("${directory}/도지6.jpg").exists()) File("${directory}/도지6.jpg").delete()
 
-    imageRepository.saveImage(url, "${directory}/도지.txt")
+    println(imageRepository.saveImage(url, "${directory}/도지.jpg"))
 
-    imageRepository.saveImages(urls, directory)
+    println(imageRepository.saveImages(urls, directory))
 
-    println(imageRepository.saveImageIfNotExists(url, "${directory}/도지6.txt"))
+    println(imageRepository.saveImageIfNotExists(url, "${directory}/도지6.jpg"))
 
-    File("${directory}/도지.txt").delete()
-    File("${directory}/도지11.txt").delete()
-    File("${directory}/도지12.txt").delete()
-    File("${directory}/도지13.txt").delete()
-    File("${directory}/도지14.txt").delete()
-    File("${directory}/도지15.txt").delete()
-    File("${directory}/도지6.txt").delete()
+
+//    File("${directory}/도지.jpg").delete()
+//    File("${directory}/도지11.jpg").delete()
+//    File("${directory}/도지12.jpg").delete()
+//    File("${directory}/도지13.jpg").delete()
+//    File("${directory}/도지14.jpg").delete()
+//    File("${directory}/도지15.jpg").delete()
+//    File("${directory}/도지6.jpg").delete()
 }

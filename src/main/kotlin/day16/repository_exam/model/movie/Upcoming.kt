@@ -5,9 +5,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Upcoming(
-    val dates: Dates,
-    val page: Int,
-    val results: List<MovieAllKey>,
-    @SerialName("total_pages") val totalPages: Int,
-    @SerialName("total_results") val totalResults: Int,
+    val results: List<Movie>,
 )

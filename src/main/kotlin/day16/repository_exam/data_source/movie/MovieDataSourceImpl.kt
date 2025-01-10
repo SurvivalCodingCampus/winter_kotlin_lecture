@@ -15,9 +15,13 @@ class MovieDataSourceImpl(
     private val url =
         "https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1"
 
+    private val json = Json{
+        ignoreUnknownKeys = true
+    }
+
     override suspend fun getAllMovieInfo(): List<Movie> {
         val movieList: MutableList<Movie> = mutableListOf()
-        Json.decodeFromString<Upcoming>(client.get(url).bodyAsText()).results.forEach {
+        json.decodeFromString<Upcoming>(client.get(url).bodyAsText()).results.forEach {
             movieList.add(
                 Movie(
                     it.id,
@@ -32,7 +36,7 @@ class MovieDataSourceImpl(
 
     override suspend fun getUpcomingMovies(): List<Movie> {
         val movieList: MutableList<Movie> = mutableListOf()
-        Json.decodeFromString<Upcoming>(client.get(url).bodyAsText()).results.forEach {
+        json.decodeFromString<Upcoming>(client.get(url).bodyAsText()).results.forEach {
             movieList.add(
                 Movie(
                     it.id,
