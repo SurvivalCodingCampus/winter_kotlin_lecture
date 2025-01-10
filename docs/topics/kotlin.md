@@ -17,3 +17,5 @@
 - [2025_01_07](../../docs/daily/2025_01_07.md) - 테스트 이론, 테스트와 품질 관리, 테스트를 통한 품질 향상, 테스트 방법론, 단위 테스트(Unit Test)
 - [2025_01_08](../../docs/daily/2025_01_08.md) - HttpClient, 연습 문제
 - [2025_01_09](../../docs/daily/2025_01_09.md) - Kotlin DTO 및 Mapper 관련 정리
+- [2025_01_10](../../docs/daily/2025_01_10.md) - Unit vs Nothing, Result 패턴 사용의 효과, 중급 Result 클래스 ver. 2, 에러 정의 및
+  Repository 패턴, 정리
