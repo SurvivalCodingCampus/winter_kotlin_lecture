@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class PhotoDto(
-    val id: String? = null,
+    val id: Int,
     val type: String? = null,
     val title: String? = null,
     val content: String? = null,
