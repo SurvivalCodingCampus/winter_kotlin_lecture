@@ -17,6 +17,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
     testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
     implementation("org.slf4j:slf4j-simple:2.0.9")
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 
     val ktor_version = "3.0.3"
     implementation("io.ktor:ktor-client-core:$ktor_version")
