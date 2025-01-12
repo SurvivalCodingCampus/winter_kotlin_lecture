@@ -76,6 +76,8 @@
 - Day 17
     - [MaskStoreMain.kt](src/main/kotlin/day17/maskstore/MaskStoreMain.kt) - MaskStoreDto를 Store로 매핑
     - [PhotoMain.kt](src/main/kotlin/day17/photo/PhotoMain.kt) - 동적 Json인 경우 또는 서버에서 잘못된 값을 보낸 경우에도 Photo로 매핑
+    - [MaskStoreDataSourceTest.kt](src/test/kotlin/day17/MaskStoreDataSourceTest.kt) - MaskStoreDataSource Test Code
+    - [MockPhotoDataSourceTest.kt](src/test/kotlin/day17/MockPhotoDataSourceTest.kt) - MockPhotoDataSource Test Code
 
 ## 📚 주제별 정리
 
