@@ -13,9 +13,8 @@ data class PhotoDto(
     val content: String? = null,
     @SerialName("created_at")
     val createdAt: String? = null,
+)
 
-
-    )
 
 
 
