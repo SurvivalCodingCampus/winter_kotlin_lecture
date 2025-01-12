@@ -16,11 +16,12 @@ class PhotoRepositoryImpl(
 
         // 빈스트링 일경우 에러를 던짐
         if (query.isBlank()) {
-            return@withContext ResponseResult.failure(PhotoError.EmptyQuery)
+            return@withContext ResponseResult.Failure(PhotoError.EmptyQuery)
         }
 
         safeCall {
             val result = dataSource.getPhotos(query).map { it.mapper() }
+            println("결과값 뽑기 $result")
             result
         }
     }

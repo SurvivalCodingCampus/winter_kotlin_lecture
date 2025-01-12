@@ -5,7 +5,7 @@ import day18.model.Photo
 
 fun PhotoDto.mapper(): Photo {
     return Photo(
-        tags = tags?.split(",")?.map { it } ?: emptyList(),
+        tags = tags?.split(",") ?: emptyList(),
         imageUrl = largeImageURL ?: ""
     )
 }

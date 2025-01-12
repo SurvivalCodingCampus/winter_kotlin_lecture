@@ -107,7 +107,7 @@ class PhotoRepositoryImplTest {
     @Test
     fun `빈 검색어 체크 테스트`() = runTest {
         val mockEngine = createMockEngine { request ->
-            if (request.url.toString() == "https://pixabay.com/api/?key=48140147-a327051003c503566d8eefd82&q=yellow+flowers") {
+            if (request.url.toString() == Const.TEST_BASE_URL) {
                 respond(
                     "",
                     status = HttpStatusCode.OK,
@@ -131,7 +131,7 @@ class PhotoRepositoryImplTest {
     @Test
     fun `서버 에러 처리 테스트`() = runTest {
         val mockEngine = createMockEngine { request ->
-            if (request.url.toString() == "https://pixabay.com/api/?key=48140147-a327051003c503566d8eefd82&q=yellow+flowers") {
+            if (request.url.toString() == Const.TEST_BASE_URL) {
                 respond(
                     content = "{}",
                     status = HttpStatusCode.InternalServerError, // 500 서버 오류
