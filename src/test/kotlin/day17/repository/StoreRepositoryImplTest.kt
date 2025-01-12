@@ -1,9 +1,9 @@
 package day17.repository
 
 import Store
-import StoreRepositoryImpl
+import org.example.day17.repository.store.StoreRepositoryImpl
 import day17.PharmacyDto
-import day17.PharmacyDataSource
+import org.example.day17.data_source.pharmacy.PharmacyDataSource
 import kotlinx.coroutines.test.runTest
 import org.example.day15.Utils.format
 import org.junit.Test

@@ -1,10 +1,13 @@
+package org.example.day17.data_source.pharmacy
+
+import Store
 import day17.PharmacyDto
-import day17.PharmacyDataSource
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import org.example.day15.Utils.format
+import toStore
 
 class PharmacyDataSourceImpl(
     private val client: HttpClient = HttpClient(CIO)

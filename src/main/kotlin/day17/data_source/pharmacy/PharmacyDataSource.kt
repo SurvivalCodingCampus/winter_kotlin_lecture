@@ -1,4 +1,4 @@
-package day17
+package org.example.day17.data_source.pharmacy
 
 import Store
 

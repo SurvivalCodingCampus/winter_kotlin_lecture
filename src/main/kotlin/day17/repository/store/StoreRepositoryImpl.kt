@@ -1,8 +1,8 @@
-import day17.PharmacyDataSource
-import day17.StoreRepository
-import kotlinx.coroutines.runBlocking
-import org.example.day15.Repository.photoDataSource
-import org.example.day16.utils.ApiClient
+package org.example.day17.repository.store
+
+import Store
+import org.example.day17.data_source.pharmacy.PharmacyDataSource
+import org.example.day17.data_source.pharmacy.PharmacyDataSourceImpl
 
 
 class StoreRepositoryImpl(
