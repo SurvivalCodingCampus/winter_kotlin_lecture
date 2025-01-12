@@ -16,7 +16,7 @@ import kotlinx.serialization.json.jsonPrimitive
 
 @Serializable
 data class MediaDto(
-    @Serializable(FallbackSerializer::class) val id: Int,
+    val id: Int?,
     val type: String? = null,
     val title: String? = null,
     val content: String? = null,
@@ -40,7 +40,7 @@ object FallbackSerializer : KSerializer<Int> {
 fun MediaDto.toMediaItem(): MediaItem {
     return when (val type = MediaType.of(type)) {
         MediaType.ARTICLE -> MediaItem(
-            id = id,
+            id = id ?: 0,
             type = type,
             createdAt = createdAt?.let { LocalDate.parse(it) } ?: LocalDate.fromEpochDays(0),
             summary = title ?: "n/a",
@@ -49,7 +49,7 @@ fun MediaDto.toMediaItem(): MediaItem {
 
         MediaType.IMAGE, MediaType.VIDEO, MediaType.UNKNOWN ->
             MediaItem(
-                id = id,
+                id = id ?: 0,
                 type = type,
                 createdAt = createdAt?.let { LocalDate.parse(it) } ?: LocalDate.fromEpochDays(0),
                 summary = caption ?: "n/a",
