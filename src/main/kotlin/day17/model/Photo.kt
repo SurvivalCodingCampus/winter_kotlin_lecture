@@ -25,7 +25,4 @@ data class Photo(
     val title: String?,
     val content: String?,
     var createdAt: LocalDate?
-
 )
-
-

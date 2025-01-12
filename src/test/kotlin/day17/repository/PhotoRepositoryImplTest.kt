@@ -1,7 +1,7 @@
 package day17.repository
 
 import Photo
-import day17.MockPhotoDataSource
+import org.example.day17.data_source.photo.MockPhotoDataSource
 import day17.PhotoDto
 import kotlinx.coroutines.test.runTest
 import org.example.day15.Utils.format

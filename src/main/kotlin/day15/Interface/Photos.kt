@@ -1,9 +1,11 @@
-import org.example.day15.Model.Photo
+package day17
+
+import Photo
 
 interface PhotoRepositoryImpl {
     suspend fun getPhotos(albumId: Int): List<Photo>
 }
 
 interface PhotoDataSource {
-    val photos: List<Photo>
+    suspend fun getPhotos(): List<Photo>
 }

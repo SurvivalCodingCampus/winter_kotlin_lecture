@@ -1,9 +1,8 @@
-package org.example.day17.repository
+package org.example.day17.repository.photo
 
-import day17.MockPhotoDataSourceImpl
+import org.example.day17.data_source.photo.MockPhotoDataSourceImpl
 import day17.PhotoDataSource
 import Photo
-import day17.PhotoRepository
 
 
 class PhotoRepositoryImpl(

@@ -1,6 +1,8 @@
-package day17
+package org.example.day17.data_source.photo
 
 import Photo
+import day17.PhotoDataSource
+import day17.PhotoDto
 import org.example.day15.Utils.format
 import toPhoto
 
