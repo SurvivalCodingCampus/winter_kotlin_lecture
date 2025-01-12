@@ -3,11 +3,16 @@ plugins {
     kotlin("plugin.serialization") version "2.1.0"
 }
 
+
+
+
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
+    google()
 }
 
 val ktor_version = "3.0.3"
@@ -23,6 +28,7 @@ dependencies {
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-cio:$ktor_version")
     implementation("org.slf4j:slf4j-nop:2.0.7")
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
     testImplementation("io.ktor:ktor-client-mock:$ktor_version")
 }
 
