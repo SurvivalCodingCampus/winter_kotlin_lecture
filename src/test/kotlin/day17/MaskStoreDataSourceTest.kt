@@ -12,7 +12,7 @@ import org.junit.Test
 
 class MaskStoreDataSourceTest {
     @Test
-    fun `getStores should return mapped list of Store objects`() = runBlocking {
+    fun `정상 데이터 테스트`() = runBlocking {
         val mockEngine = MockEngine { request ->
             respond(
                 content = """
