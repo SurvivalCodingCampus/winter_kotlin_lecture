@@ -10,7 +10,6 @@ class MaskStoreRepository(
 
     suspend fun getStores(): List<Store> {
         val response = dataSource.getStores()
-        println(response.count)
         return response.stores
             .mapNotNull { MaskStoreMapper.map(it) }
     }
