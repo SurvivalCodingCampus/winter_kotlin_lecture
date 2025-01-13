@@ -1,0 +1,146 @@
+@startuml
+
+package "Relation"{
+top to bottom direction
+    package "Model" {
+        class UserModel {
+            +id
+            +password
+            +email
+            +name
+            +nickName
+            +profileImageUrl
+            +location
+            +provider
+            +job
+            +bio
+            +recipes
+            +savedRecipes
+            +notifications
+            +recentRecipesHistory
+        }
+
+        class NotificationModel {
+            +id
+            +target: UserRepository
+            +type: NotificationType
+            +message
+            +isRead
+            +createdAt
+        }
+        class ReviewModel {
+            +id
+            +comment
+            +thumbsUp
+            +thumbsDown
+            +createdAt
+            +editedAt
+            +createdBy
+        }
+
+        class RecipeModel {
+            +id
+            +procedure
+            +ingredients
+            +editedAt
+            +createdAy
+            +category
+            +savedCount
+            +title
+            +cookingDuration
+            +starRate
+            +serving
+            +thumbnailUrl
+            +videoUrl
+            +shareUrl
+        }
+
+        class IngredientModel {
+            +id
+            +image
+            +name
+            +weight
+        }
+    }
+
+
+    interface UserRepository {
+        +userDataSource : UserDataSource
+        +notificationDataSource : NotificationDataSource
+        +registerUser()
+        +loginByEmail()
+        +forgetPassword()
+        +loginByProvider()
+        +followUser()
+        +unFollowUser()
+        +getUserById()
+        +getOwnRecipes()
+        +getSavedRecipes()
+
+        +saveRecipe()
+        +unsavedRecipe()
+
+        +getNotifications()
+        +getFollowerUserList()
+        +getFollowingUserList()
+        +checkSavedRecipeIds()
+    }
+
+
+
+
+
+
+
+
+
+    interface RecipeRepository {
+        +reviews : ReviewDataSource
+        +ingredientsDataSource : IngredientDataSource
+        +userDataSource : UserDataSource
+        +recipesDataSource: RecipeDataSource
+
+        +getSearchRecipes(keyword)
+        +getRecipes(time, rate, category)
+        +getReviewsByRecipeId()
+
+        +createRecipe()
+        +getRecipeById()
+        +putRecipeById()
+        +deleteRecipeById()
+
+        +thumbsUp()
+        +thumbsDown()
+
+        +getReviews()
+        +createReview()
+        +putReview()
+        +deleteReview()
+
+        +getRecipeUrlById()
+        +rateRecipeById()
+    }
+
+    interface RecipeDataSource implements RecipeRepository {
+    }
+
+    interface ReviewDataSource implements RecipeRepository {
+    }
+
+    interface IngredientDataSource implements RecipeRepository {
+    }
+
+    interface NotificationDataSource implements UserRepository{
+    }
+
+    interface UserDataSource implements UserRepository {
+    }
+
+    interface UserDataSource implements RecipeRepository {
+    }
+
+
+
+}
+
+@enduml
