@@ -1,6 +1,6 @@
 package day15.repository.user
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day15.data_source.user.UserDataSource
 import day15.model.User
 

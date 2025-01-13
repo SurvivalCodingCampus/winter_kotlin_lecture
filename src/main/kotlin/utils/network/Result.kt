@@ -1,4 +1,4 @@
-package day15.common
+package utils.network
 
 // Result를 정의하여 받은 Response들의 결과가 정해진 규칙을 따르도록 함
 sealed class ResponseResult<out T> {

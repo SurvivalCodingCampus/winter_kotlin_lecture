@@ -1,6 +1,6 @@
 package day16.exercise.repository.todo
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day15.model.Todo
 import day16.exercise.datasource.todo.TodoDataSource
 import io.ktor.serialization.*

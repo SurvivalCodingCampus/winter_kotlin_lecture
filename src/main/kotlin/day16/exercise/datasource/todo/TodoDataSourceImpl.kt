@@ -1,9 +1,8 @@
 package day16.exercise.datasource.todo
 
-import day15.common.ResponseResult
-import day15.common.safeCall
+import utils.network.ResponseResult
+import utils.network.safeCall
 import day15.model.Todo
-import day16.util.HttpClientFactory
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*

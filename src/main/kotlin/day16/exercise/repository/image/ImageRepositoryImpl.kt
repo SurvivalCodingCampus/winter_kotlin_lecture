@@ -1,6 +1,6 @@
 package day16.exercise.repository.image
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day16.exercise.datasource.image.ImageDataSource
 import day16.exercise.datasource.image.ImageDataSourceImpl
 import day16.exercise.model.DownloadInfo

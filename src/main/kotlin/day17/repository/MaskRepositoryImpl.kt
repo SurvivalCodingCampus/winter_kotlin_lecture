@@ -1,6 +1,6 @@
 package day17.repository
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day17.datasource.MaskDataSource
 import day17.mapper.mapper
 import day17.model.Store

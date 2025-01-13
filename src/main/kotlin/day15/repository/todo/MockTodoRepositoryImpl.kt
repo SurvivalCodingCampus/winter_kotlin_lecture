@@ -1,6 +1,6 @@
 package day15.repository.todo
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day16.exercise.datasource.todo.TodoDataSource
 import day15.model.Todo
 

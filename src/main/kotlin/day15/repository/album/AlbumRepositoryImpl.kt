@@ -1,6 +1,6 @@
 package day15.repository.album
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day15.data_source.album.AlbumDataSource
 import day15.model.Album
 

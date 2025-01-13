@@ -1,6 +1,6 @@
 package day17.datasource
 
-import day15.common.ResponseResult
+import utils.network.ResponseResult
 import day17.dto.PhotoDto
 
 interface PhotoDataSource {

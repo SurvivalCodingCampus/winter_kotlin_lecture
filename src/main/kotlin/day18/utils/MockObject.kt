@@ -1,4 +1,4 @@
-package day16.util
+package day18.utils
 
 import io.ktor.client.*
 import io.ktor.client.engine.mock.*
