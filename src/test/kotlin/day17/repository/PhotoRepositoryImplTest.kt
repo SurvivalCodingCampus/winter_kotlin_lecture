@@ -1,6 +1,7 @@
 package day17.repository
 
 import day17.dataSource.MockPhotoDataSourceImpl
+import day17.dataSource.PhotoDataSource
 import day17.model.PhotoType
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
@@ -8,7 +9,7 @@ import org.junit.Assert.*
 import java.time.format.DateTimeFormatter
 
 class PhotoRepositoryImplTest {
-    private val mockDataSource = MockPhotoDataSourceImpl()
+    private val mockDataSource: PhotoDataSource = MockPhotoDataSourceImpl()
     private val repository = PhotoRepositoryImpl(mockDataSource)
 
     @Test

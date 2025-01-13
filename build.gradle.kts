@@ -22,13 +22,16 @@ dependencies {
     testImplementation ("org.junit.jupiter:junit-jupiter-engine:5.10.0")
     testImplementation("io.ktor:ktor-client-mock:3.0.3")
 
-    implementation ("net.bytebuddy:byte-buddy:1.12.21")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
     implementation("ch.qos.logback:logback-classic:1.5.6")
     implementation("io.ktor:ktor-client-core:3.0.3")
     implementation("io.ktor:ktor-client-cio:3.0.3")
-
+    implementation("io.ktor:ktor-client-mock:3.0.3")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.3")
+    implementation("io.ktor:ktor-client-json:3.0.3")
+    implementation("io.ktor:ktor-client-serialization:3.0.3")
+    implementation("io.ktor:ktor-client-content-negotiation:3.0.3")
 }
 
 tasks.test {
