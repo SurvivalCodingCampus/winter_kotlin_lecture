@@ -16,14 +16,14 @@ class MockPhotoDataSourceImpl(
     private val client: HttpClient
 ) : PhotoDataSource {
     override suspend fun getPhotos(query: String): List<PhotoDto> = withContext(Dispatchers.IO) {
-        val data = client.get(Const.TEST_BASE_URL) {}
+        val data = client.get(Const.TEST_BASE_URL)
 
-        // 상태 코드가 200이면 정상 데이터를 반환
+        // 상태 코드가 500이면 서버 에러
         if (data.status == HttpStatusCode.InternalServerError) {
             throw ServerResponseException(data, "")
-        } else {
-            val responseBody = data.bodyAsText()
-            return@withContext Json.decodeFromString<ImageResponse>(responseBody).hits ?: emptyList()
         }
+
+        val responseBody = data.bodyAsText()
+        return@withContext Json.decodeFromString<ImageResponse>(responseBody).hits ?: emptyList()
     }
 }
