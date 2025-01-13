@@ -18,6 +18,7 @@
 - [2025-01-07](./docs/daily/2025-01-07.md): Repository strategy
 - [2025-01-09](./docs/daily/2025-01-09.md): DTO + Mapper
 - [2025-01-10](./docs/daily/2025-01-10): Result Pattern
+- [2025-01-13](./docs/daily/2025-01-13.md): Repository realworld practice
 
 ## 💻 작성 코드
 
@@ -38,6 +39,7 @@
 - [day13 테스트](./src/test/kotlin/day13)
 - [day17](./src/main/kotlin/day17)
 - [day17 테스트](./src/test/kotlin/day17)
+- [day19](./src/main/kotlin/day19)
 
 ## 📚 주제별 정리
 
@@ -52,3 +54,4 @@
 - [코틀린 스타일 가이드](https://kotlinlang.org/docs/coding-conventions.html)
 - [Progit](https://git-scm.com/book/en/v2)
 - [Kotlin in Action](https://www.yes24.com/product/goods/55148593): 도서
+
