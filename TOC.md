@@ -17,6 +17,7 @@
 - [2025-01-06](./docs/daily/2025-01-06.md): DataStore strategy
 - [2025-01-07](./docs/daily/2025-01-07.md): Repository strategy
 - [2025-01-09](./docs/daily/2025-01-09.md): DTO + Mapper
+- [2025-01-10](./docs/daily/2025-01-10): Result Pattern
 
 ## 💻 작성 코드
 
