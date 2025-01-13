@@ -5,10 +5,13 @@ data class Recipe(
     val instruction: List<Steps>,
     val starRating: Float,
     val servings: Int,
-    val tags: List<String>,
+    val tags: List<Tag>,
 ) {
     data class Steps(
         val title: String,
         val description: String,
     )
 }
+
+@JvmInline
+value class Tag(val name: String)
