@@ -86,6 +86,14 @@ class Step {
     + content: String
 }
 
+class Review {
+    + id: String,
+    + author: Author,
+    + content: String,
+    + rate: Int,
+    + createdAt: LocalDateTime
+}
+
 class Ingredient {
     + imageUrl: String
     + name: String
