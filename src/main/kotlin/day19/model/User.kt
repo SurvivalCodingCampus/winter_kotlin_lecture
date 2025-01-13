@@ -1,9 +1,11 @@
 package day19.model
 
+import java.time.LocalDateTime
 import java.util.*
 
 data class User(
     val id: UUID,
+    val memberSince: LocalDateTime,
     val nickname: String,
     val fullName: String,
     val email: Email,
