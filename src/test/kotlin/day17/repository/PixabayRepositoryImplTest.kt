@@ -13,6 +13,7 @@ import io.ktor.utils.io.*
 import kotlinx.coroutines.test.runTest
 import org.example.day16.utils.ApiClient
 import org.example.day17.repository.pixabay.PixabayRepositoryImpl
+import org.junit.Assert.assertTrue
 import kotlin.test.Test
 
 val mock =
@@ -26,7 +27,8 @@ class PixabayRepositoryImplTest {
         val repository = createRepository(mockHttpClient, Constants.KEY)
 
         val result = repository.getPhotos("yellow+flowers")
-        handleResult(result)
+        require(result is RResult.Success)
+        assertTrue(result.data.isNotEmpty())
     }
 
     @Test
@@ -35,7 +37,9 @@ class PixabayRepositoryImplTest {
         val repository = createRepository(mockHttpClient, Constants.KEY)
 
         val result = repository.getPhotos("")
-        handleResult(result)
+
+        require(result is RResult.Error)
+        assertTrue(result.error is PhotoError.EmptyQuery)
     }
 
     @Test
@@ -44,7 +48,8 @@ class PixabayRepositoryImplTest {
         val repository = createRepository(mockHttpClient, "wrongApiKey")
 
         val result = repository.getPhotos("yellow+flowers")
-        handleResult(result)
+        require(result is RResult.Error)
+        assertTrue(result.error is PhotoError.ServerError)
     }
 
 
@@ -54,7 +59,8 @@ class PixabayRepositoryImplTest {
         val repository = createRepository(httpClient)
 
         val result = repository.getPhotos("power")
-        handleResult(result)
+        require(result is RResult.Error)
+        assertTrue(result.error is PhotoError.ServerError)
     }
 
     @Test
@@ -63,7 +69,8 @@ class PixabayRepositoryImplTest {
         val repository = createRepository(httpClient)
 
         val result = repository.getPhotos("power")
-        handleResult(result)
+        require(result is RResult.Success)
+        assertTrue(result.data.isNotEmpty())
     }
 
 
