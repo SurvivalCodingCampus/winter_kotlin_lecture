@@ -1,8 +1,12 @@
 package day19.model
 
-data class Notification<T>(
+import java.time.LocalDateTime
+
+data class Notification(
     val title: String,
     val contents: String,
+    val sentAt: LocalDateTime,
+    val recipient: User,
     val isRead: Boolean,
-    val linkedPost: Post<T>,
+    val linkedPost: Post<*>,
 )
