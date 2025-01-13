@@ -1,6 +1,6 @@
 @startuml
 
-package "Relation"{
+package "Recipe"{
 top to bottom direction
     package "Model" {
         class UserModel {
@@ -24,8 +24,8 @@ top to bottom direction
 
         class NotificationModel {
             +id
-            +target: UserRepository
-            +type: NotificationType
+            +targetUserId
+            +type
             +message
             +isRead
             +createdAt
@@ -66,83 +66,83 @@ top to bottom direction
     }
 
 
-    interface UserRepository {
-        +userDataSource : UserDataSource
-        +notificationDataSource : NotificationDataSource
-        +registerUser()
-        +loginByEmail()
-        +forgetPassword()
-        +loginByProvider()
-        +followUser()
-        +unFollowUser()
-        +getUserById()
-        +getOwnRecipes()
-        +getSavedRecipes()
+    package "Repository"{
 
-        +saveRecipe()
-        +unsavedRecipe()
+        interface UserRepository {
+            +userDataSource : UserDataSource
+            +notificationDataSource : NotificationDataSource
+            +registerUser()
+            +loginByEmail()
+            +forgetPassword()
+            +loginByProvider()
+            +followUser()
+            +unFollowUser()
+            +getUserById()
+            +getOwnRecipes()
+            +getSavedRecipes()
 
-        +getNotifications()
-        +getFollowerUserList()
-        +getFollowingUserList()
-        +checkSavedRecipeIds()
+            +saveRecipe()
+            +unsavedRecipe()
+
+            +getNotifications()
+            +getFollowerUserList()
+            +getFollowingUserList()
+            +checkSavedRecipeIds()
+        }
+
+
+
+
+
+
+
+
+
+        interface RecipeRepository {
+            +reviewDataSource : ReviewDataSource
+            +ingredientDataSource : IngredientDataSource
+            +userDataSource : UserDataSource
+            +recipeDataSource: RecipeDataSource
+
+            +getSearchRecipes(keyword)
+            +getRecipes(time, rate, category)
+            +getReviewsByRecipeId()
+
+            +createRecipe()
+            +getRecipeById()
+            +putRecipeById()
+            +deleteRecipeById()
+
+            +thumbsUp()
+            +thumbsDown()
+
+            +getReviews()
+            +createReview()
+            +putReview()
+            +deleteReview()
+
+            +getRecipeUrlById()
+            +rateRecipeById()
+        }
+
+        interface RecipeDataSource implements RecipeRepository {
+        }
+
+        interface ReviewDataSource implements RecipeRepository {
+        }
+
+        interface IngredientDataSource implements RecipeRepository {
+        }
+
+        interface NotificationDataSource implements UserRepository{
+        }
+
+        interface UserDataSource implements UserRepository {
+        }
+
+        interface UserDataSource implements RecipeRepository {
+        }
     }
-
-
-
-
-
-
-
-
-
-    interface RecipeRepository {
-        +reviews : ReviewDataSource
-        +ingredientsDataSource : IngredientDataSource
-        +userDataSource : UserDataSource
-        +recipesDataSource: RecipeDataSource
-
-        +getSearchRecipes(keyword)
-        +getRecipes(time, rate, category)
-        +getReviewsByRecipeId()
-
-        +createRecipe()
-        +getRecipeById()
-        +putRecipeById()
-        +deleteRecipeById()
-
-        +thumbsUp()
-        +thumbsDown()
-
-        +getReviews()
-        +createReview()
-        +putReview()
-        +deleteReview()
-
-        +getRecipeUrlById()
-        +rateRecipeById()
-    }
-
-    interface RecipeDataSource implements RecipeRepository {
-    }
-
-    interface ReviewDataSource implements RecipeRepository {
-    }
-
-    interface IngredientDataSource implements RecipeRepository {
-    }
-
-    interface NotificationDataSource implements UserRepository{
-    }
-
-    interface UserDataSource implements UserRepository {
-    }
-
-    interface UserDataSource implements RecipeRepository {
-    }
-
-
-
 }
 
 @enduml
