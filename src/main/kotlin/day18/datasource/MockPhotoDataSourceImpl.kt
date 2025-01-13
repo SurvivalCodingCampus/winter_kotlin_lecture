@@ -19,11 +19,11 @@ class MockPhotoDataSourceImpl(
         val data = client.get(Const.TEST_BASE_URL) {}
 
         // 상태 코드가 200이면 정상 데이터를 반환
-        if (data.status == HttpStatusCode.OK) {
+        if (data.status == HttpStatusCode.InternalServerError) {
+            throw ServerResponseException(data, "")
+        } else {
             val responseBody = data.bodyAsText()
             return@withContext Json.decodeFromString<ImageResponse>(responseBody).hits ?: emptyList()
-        } else {
-            throw ServerResponseException(data, "")
         }
     }
 }
