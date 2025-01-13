@@ -10,12 +10,12 @@ data class User(
     val fullName: String,
     val email: Email,
     val profileImage: Media,
-    val following: List<User>,
-    val followers: List<User>,
+    val following: Set<User>,
+    val followers: Set<User>,
     val bio: String,
     val occupation: String,
     val address: String,
-    val savedRecipes: List<Post<Recipe>>,
+    val savedRecipes: Set<Post<Recipe>>,
 )
 
 @JvmInline

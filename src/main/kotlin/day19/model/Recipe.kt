@@ -5,7 +5,7 @@ data class Recipe(
     val instruction: List<Steps>,
     val starRating: Float,
     val servings: Int,
-    val tags: List<Tag>,
+    val tags: Set<Tag>,
 ) {
     data class Steps(
         val title: String,
