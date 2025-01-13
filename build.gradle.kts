@@ -23,6 +23,8 @@ dependencies {
     testImplementation("io.ktor:ktor-client-mock:$ktor_version")
     val logback_version = "1.5.6"
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("com.typesafe:config:1.4.2")
+    implementation(kotlin("stdlib"))
 }
 
 tasks.test {
