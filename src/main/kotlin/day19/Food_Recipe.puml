@@ -149,6 +149,24 @@ top to bottom direction
 
             +checkSavedRecipeIds()
         }
+
+        interface RecipeDataSource{
+        }
+
+        interface ReviewDataSource{
+        }
+
+        interface IngredientDataSource {
+        }
+
+        interface NotificationDataSource{
+        }
+
+        interface UserDataSource {
+        }
+
+        interface UserDataSource {
+        }
     }
 }
 
