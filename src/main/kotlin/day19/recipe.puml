@@ -1,0 +1,173 @@
+@startuml
+
+package "Recipe"{
+top to bottom direction
+    package "Model" {
+        class UserModel {
+            +id
+            +password
+            +email
+            +name
+            +nickName
+            +profileImageUrl
+            +location
+            +provider
+            +job
+            +bio
+            +recipes
+            +savedRecipes
+            +notifications
+            +followingList
+            +followerList
+            +recentRecipeHistory
+        }
+            note bottom of UserModel
+            recipes : 작성된 레시피
+            savedRecipes: 내가 저장한 레시피 목록
+            recentRecipeHistory : 최근 검색한 목록
+            end note
+
+        class NotificationModel {
+            +id
+            +type
+            +message
+            +isRead
+            +createdAt
+            +receivedAt
+        }
+        class ReviewModel {
+            +id
+            +comment
+            +thumbsUp
+            +thumbsDown
+            +createdAt
+            +editedAt
+            +createdBy
+        }
+
+        class RecipeModel {
+            +id
+            +procedure
+            +ingredients
+            +editedAt
+            +createdAy
+            +category
+            +savedCount
+            +title
+            +cookingDuration
+            +starRate
+            +serving
+            +thumbnailUrl
+            +videoUrl
+            +shareUrl
+        }
+
+        class IngredientModel {
+            +id
+            +image
+            +name
+            +weight
+        }
+    }
+
+
+
+
+    package "Interface"{
+        class UserRepositoryImpl extends UserRepository, NotificationRepository, RecipeRepository {
+            +userDataSource : UserDataSource
+            +notificationDataSource : NotificationDataSource
+        }
+
+
+        interface UserRepository {
+            +registerUser()
+            +loginByEmail()
+            +forgetPassword()
+            +loginByProvider()
+            +followUser()
+            +unFollowUser()
+            +getUserById()
+            +getFollowerUserList()
+            +getFollowingUserList()
+        }
+
+        interface NotificationRepository {
+            +getNotifications()
+        }
+
+
+        interface ReviewRepository {
+            +getReviews()
+            +createReview()
+            +putReview()
+            +deleteReview()
+
+            +getReviewsByRecipeId()
+
+        }
+
+
+
+        class RecipeRepositoryImpl extends RecipeRepository, ReviewRepository {
+            +reviewDataSource : ReviewDataSource
+            +ingredientDataSource : IngredientDataSource
+            +userDataSource : UserDataSource
+            +recipeDataSource: RecipeDataSource
+        }
+
+
+
+
+
+
+
+
+        interface RecipeRepository {
+
+            +getSearchRecipes(keyword)
+
+            +createRecipe()
+            +getRecipeById()
+            +getRecipes(time, rate, category)
+
+            +putRecipeById()
+            +deleteRecipeById()
+
+            +thumbsUp()
+            +thumbsDown()
+
+
+            +getRecipeUrlById()
+            +rateRecipeById()
+
+            +getOwnRecipes()
+            +getSavedRecipes()
+
+            +saveRecipe()
+            +unsavedRecipe()
+
+            +checkSavedRecipeIds()
+        }
+
+        interface RecipeDataSource implements RecipeRepositoryImpl {
+        }
+
+        interface ReviewDataSource implements RecipeRepositoryImpl {
+        }
+
+        interface IngredientDataSource implements RecipeRepositoryImpl {
+        }
+
+        interface NotificationDataSource implements UserRepositoryImpl {
+        }
+
+        interface UserDataSource implements UserRepositoryImpl {
+        }
+
+        interface UserDataSource implements RecipeRepositoryImpl {
+        }
+    }
+}
+
+@enduml
