@@ -19,16 +19,21 @@ top to bottom direction
             +notifications
             +followingList
             +followerList
-            +recentRecipesHistory
+            +recentRecipeHistory
         }
+            note bottom of UserModel
+            recipes : 작성된 레시피
+            savedRecipes: 내가 저장한 레시피 목록
+            recentRecipeHistory : 최근 검색한 목록
+            end note
 
         class NotificationModel {
             +id
-            +targetUserId
             +type
             +message
             +isRead
             +createdAt
+            +receivedAt
         }
         class ReviewModel {
             +id
@@ -66,11 +71,16 @@ top to bottom direction
     }
 
 
-    package "Repository"{
 
-        interface UserRepository {
+
+    package "Interface"{
+        class UserRepositoryImpl implements UserRepository, NotificationRepository, RecipeRepository {
             +userDataSource : UserDataSource
             +notificationDataSource : NotificationDataSource
+        }
+
+
+        interface UserRepository {
             +registerUser()
             +loginByEmail()
             +forgetPassword()
@@ -78,18 +88,33 @@ top to bottom direction
             +followUser()
             +unFollowUser()
             +getUserById()
-            +getOwnRecipes()
-            +getSavedRecipes()
-
-            +saveRecipe()
-            +unsavedRecipe()
-
-            +getNotifications()
             +getFollowerUserList()
             +getFollowingUserList()
-            +checkSavedRecipeIds()
         }
 
+        interface NotificationRepository {
+            +getNotifications()
+        }
+
+
+        interface ReviewRepository {
+            +getReviews()
+            +createReview()
+            +putReview()
+            +deleteReview()
+
+            +getReviewsByRecipeId()
+
+        }
+
+
+
+        class RecipeRepositoryImpl implements RecipeRepository, ReviewRepository {
+            +reviewDataSource : ReviewDataSource
+            +ingredientDataSource : IngredientDataSource
+            +userDataSource : UserDataSource
+            +recipeDataSource: RecipeDataSource
+        }
 
 
 
@@ -99,48 +124,48 @@ top to bottom direction
 
 
         interface RecipeRepository {
-            +reviewDataSource : ReviewDataSource
-            +ingredientDataSource : IngredientDataSource
-            +userDataSource : UserDataSource
-            +recipeDataSource: RecipeDataSource
 
             +getSearchRecipes(keyword)
-            +getRecipes(time, rate, category)
-            +getReviewsByRecipeId()
 
             +createRecipe()
             +getRecipeById()
+            +getRecipes(time, rate, category)
+
             +putRecipeById()
             +deleteRecipeById()
 
             +thumbsUp()
             +thumbsDown()
 
-            +getReviews()
-            +createReview()
-            +putReview()
-            +deleteReview()
 
             +getRecipeUrlById()
             +rateRecipeById()
+
+            +getOwnRecipes()
+            +getSavedRecipes()
+
+            +saveRecipe()
+            +unsavedRecipe()
+
+            +checkSavedRecipeIds()
         }
 
-        interface RecipeDataSource implements RecipeRepository {
+        interface RecipeDataSource implements RecipeRepositoryImpl {
         }
 
-        interface ReviewDataSource implements RecipeRepository {
+        interface ReviewDataSource implements RecipeRepositoryImpl {
         }
 
-        interface IngredientDataSource implements RecipeRepository {
+        interface IngredientDataSource implements RecipeRepositoryImpl {
         }
 
-        interface NotificationDataSource implements UserRepository{
+        interface NotificationDataSource implements UserRepositoryImpl {
         }
 
-        interface UserDataSource implements UserRepository {
+        interface UserDataSource implements UserRepositoryImpl {
         }
 
-        interface UserDataSource implements RecipeRepository {
+        interface UserDataSource implements RecipeRepositoryImpl {
         }
     }
 }
