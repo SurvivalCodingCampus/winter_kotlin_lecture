@@ -1,0 +1,28 @@
+@startuml
+
+abstract class MyCharacter {
+    val name: String
+}
+
+class Character
+
+/'  0 = 초기사망,
+    1 = 시민,
+    2 = 공유자,
+    3 = 예언자,
+    4 = 영매사,
+    5 = 사냥꾼,
+    6 = 늑대,
+    7 = 배신자 '/
+
+package "RoleSection" {
+    interface Role
+    interface NoRole
+    interface Coworker
+    interface Prophet
+    interface Traitor
+    interface Hunter
+    interface Wolf
+    interface Betrayer
+}
+@enduml
