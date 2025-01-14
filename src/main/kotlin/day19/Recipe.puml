@@ -1,0 +1,137 @@
+@startuml
+'https://plantuml.com/class-diagram
+class User {
+    + val id: Int
+    + var email: String
+    + var password: String
+    + var firstName: String
+    + var lastName: String
+    + var nickName: String
+    + var profileImageUrl: String
+    + var location: String
+    + var provider: String
+    + var job: String
+    + var bio: String
+    + var followerList: List<User>
+    + var followingList: List<User>
+    + var recipes: List<Recipe>
+    + var savedRecipes: List<Recipe>
+    + var notifications: List<Notification>
+    + var recentSearchedQuery: String
+}
+
+class Recipe {
+    + val id: Int
+    + var foodName: String
+    + var thumbnailUrl: String
+    + var videoUrl: String
+    + var shareUrl: String
+    + var createdBy: User
+    + var createdAt: Date
+    + var editedAt: Date
+    + var category: String
+    + var cookingTime: Int
+    + var starRate: Int
+    + var serve: Int
+    + var videoUrl: String
+    + var savedCount: Int
+    + var ingredients: List<Ingredient>
+    + var procedures: List<String>
+    + var reviews: List<Review>
+    + var bookmarkUser: List<User>
+}
+
+class Ingredient {
+    + val id: Int
+    + var name: String
+    + var imageUrl: String
+    + var weight: Int
+}
+
+class Review {
+    + val id: Int
+    + var comment: String
+    + var thumbsUp: Int
+    + var thumbsDown: Int
+    + var createdAt: Date
+    + var editedAt: Date
+    + var createdBy: User
+}
+
+class Notification {
+    + val id: Int
+    + var message: String
+    + var isRead: Boolean
+    + var createdAt: Date
+    + var user: User
+    + var alertType: String
+}
+
+interface UserRepository {
+        +userDataSource : UserDataSource
+        +notificationDataSource : NotificationDataSource
+        +registerUser()
+        +loginByEmail()
+        +forgetPassword()
+        +loginByProvider()
+        +followUser()
+        +unFollowUser()
+        +getUserById()
+        +getOwnRecipes()
+        +getSavedRecipes()
+
+        +saveRecipe()
+        +unsavedRecipe()
+
+        +getNotifications()
+        +getFollowerUserList()
+        +getFollowingUserList()
+        +checkSavedRecipeIds()
+    }
+
+    interface RecipeRepository {
+            +reviews : ReviewDataSource
+            +ingredientsDataSource : IngredientDataSource
+            +userDataSource : UserDataSource
+            +recipesDataSource: RecipeDataSource
+
+            +getSearchRecipes(keyword)
+            +getRecipes(time, rate, category)
+            +getReviewsByRecipeId()
+
+            +createRecipe()
+            +getRecipeById()
+            +putRecipeById()
+            +deleteRecipeById()
+
+            +thumbsUp()
+            +thumbsDown()
+
+            +getReviews()
+            +createReview()
+            +putReview()
+            +deleteReview()
+
+            +getRecipeUrlById()
+            +rateRecipeById()
+        }
+
+        interface RecipeDataSource implements RecipeRepository {
+        }
+
+        interface ReviewDataSource implements RecipeRepository {
+        }
+
+        interface IngredientDataSource implements RecipeRepository {
+        }
+
+        interface NotificationDataSource implements UserRepository{
+        }
+
+        interface UserDataSource implements UserRepository {
+        }
+
+        interface UserDataSource implements RecipeRepository {
+        }
+
+@enduml
