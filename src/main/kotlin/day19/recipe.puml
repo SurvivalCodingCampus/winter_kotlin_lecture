@@ -74,7 +74,7 @@ top to bottom direction
 
 
     package "Interface"{
-        class UserRepositoryImpl implements UserRepository, NotificationRepository, RecipeRepository {
+        class UserRepositoryImpl extends UserRepository, NotificationRepository, RecipeRepository {
             +userDataSource : UserDataSource
             +notificationDataSource : NotificationDataSource
         }
@@ -109,7 +109,7 @@ top to bottom direction
 
 
 
-        class RecipeRepositoryImpl implements RecipeRepository, ReviewRepository {
+        class RecipeRepositoryImpl extends RecipeRepository, ReviewRepository {
             +reviewDataSource : ReviewDataSource
             +ingredientDataSource : IngredientDataSource
             +userDataSource : UserDataSource
