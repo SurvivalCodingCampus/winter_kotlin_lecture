@@ -4,6 +4,7 @@ import kotlinx.coroutines.test.runTest
 import day18.data_source.photo.MockPhotoDataSourceImpl
 import kotlinx.io.IOException
 import org.example.day18.repository.photo.PhotoRepositoryImpl
+import org.example.day18.util.photo.PhotoError
 import org.example.day18.util.photo.Result
 import org.junit.After
 import org.junit.Before
@@ -29,7 +30,6 @@ class PhotoRepositoryImplTest {
     @Test
     fun `정상적인 쿼리인 경우 테스트`() = runTest {
         val test = Result.checkPhotoError(mockPhotoRepository.getPhotos("cutedog"))
-
 
         // 가져온 Photo 개수 확인
         assertEquals(2, test.size)
