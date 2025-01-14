@@ -15,6 +15,7 @@
 - [2025-01-07](src/docs/daily/2025-01-07.md) - Test 이론, Model Class, Repository 개념
 - [2025-01-08](src/docs/daily/2025-01-08.md) - 네트워크 통신
 - [2025-01-09](src/docs/daily/2025-01-09.md) - DTO, Mapper
+- [2025-01-13](src/docs/daily/2025-01-13.md) - 설계 원칙, 디자인 패턴
 
 ## 💻 작성 코드
 
@@ -78,6 +79,11 @@
     - [PhotoMain.kt](src/main/kotlin/day17/photo/PhotoMain.kt) - 동적 Json인 경우 또는 서버에서 잘못된 값을 보낸 경우에도 Photo로 매핑
     - [MaskStoreDataSourceTest.kt](src/test/kotlin/day17/MaskStoreDataSourceTest.kt) - MaskStoreDataSource Test Code
     - [MockPhotoDataSourceTest.kt](src/test/kotlin/day17/MockPhotoDataSourceTest.kt) - MockPhotoDataSource Test Code
+- Day 19
+    - [NotificationRepository.kt](src/main/kotlin/day19/repository/NotificationRepository.kt) - NotificationRepository
+    - [ProfileRepository.kt](src/main/kotlin/day19/repository/ProfileRepository.kt) - ProfileRepository
+    - [RecipeRepository.kt](src/main/kotlin/day19/repository/RecipeRepository.kt) - RecipeRepository
+    - [ReviewRepository.kt](src/main/kotlin/day19/repository/ReviewRepository.kt) - ReviewRepository
 
 ## 📚 주제별 정리
 
