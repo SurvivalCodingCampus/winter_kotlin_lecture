@@ -1,0 +1,143 @@
+@startuml
+
+class LoginUser {
+    + email: String
+    + password: String
+}
+
+class SignupUser {
+    + email: String
+    + name: String
+    + password: String
+}
+
+class User {
+    + id: String
+    + email: String
+    + name: String
+    + portraitUrl: String
+    + signupType: SignupType
+}
+
+enum SignupType {
+    EMAIL
+    GOOGLE
+    FACEBOOK
+}
+
+' SecurePref 에 넣어 두고 로그인 인증 시 필요할 때만 꺼내서 사용 후 메모리 에서 삭제 할 것
+' 유저 객체와 토큰 객체는 분리 하여 사용 한다. (최소한의 보안))
+class UserToken {
+    + refreshToken: String
+    + accessToken: String
+    + id: String
+}
+
+class Author {
+    + id: String
+    + name: String
+    + portraitUrl: String
+    + isUserFollowed: Boolean
+    + address: String
+}
+
+class RecipeDetail {
+    + author: Author
+    + serve: Int
+    + ingredients: List<Ingredient>
+    + steps: List<Step>
+}
+
+class Recipe {
+    + id: String
+    + name: String
+    + authorName: String
+    ' 레시피의 총 소요 시간 (분)
+    + timeTaken: Int
+    + rate: Float
+    + CircledThumbnailImageUrl: String
+    + thumbnailImageUrl: String
+    + isUserSaved: Boolean
+    + isUserReviewed: Boolean
+    + isUserRated: Boolean
+    + isNew: Boolean
+    + categories: List<String>
+    + createdAt: LocalDateTime
+}
+
+' 검색 기능을 사용할 메서드를 위한 객체
+class SearchRequest {
+    + keyword: String
+    ' 좋아요 갯수가 같을 때 같은 애들 끼리 정렬 방식은?
+    + sortType: RecipeSortType?
+    + rateLowerLimit: Int?
+    + categories: List<String>
+
+}
+
+enum RecipeSortType {
+    LATEST
+    OLDEST
+    POPULAR
+}
+
+class Step {
+    + stepIndex: Int
+    + content: String
+}
+
+class Review {
+    + id: String,
+    + author: Author,
+    + content: String,
+    + rate: Int,
+    + createdAt: LocalDateTime
+}
+
+class Ingredient {
+    + imageUrl: String
+    + name: String
+    ' (g) 단위
+    + amount: String
+}
+
+class Comment {
+    + contents: String
+    + likeCount: Int
+    + hateCount: Int
+    + createAt : LocalDateTime
+    + authorName: String
+    + authorPortraitUrl: String
+    + isUserComment: Boolean
+    + updateAt: LocalDateTime
+    + likeStatus: LikeStatus
+}
+
+enum LikeStatus {
+    LIKE
+    HATE
+    NONE
+}
+
+class UserProfile {
+    + userId: String
+    + recipes: List<Recipe>
+    + flowingCount: Int
+    + followerCount: Int
+    + userName: String
+    + portraitUrl: String
+    + position: String
+    + introduce: String
+    + videos: List<VideoContents>
+    ' 추후 내용에 관련하여 문의 하기
+    + tags: List<Tag>
+}
+
+class Notifications {
+    + notiId: String
+    + isRead: Boolean
+    + notiTitle: String
+    + notiContent: String
+    + receivedAt: LocalDateTime
+}
+@enduml

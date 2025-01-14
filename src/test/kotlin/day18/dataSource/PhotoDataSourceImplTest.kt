@@ -4,10 +4,13 @@
 //import day18.util.createMockEngine
 //import io.ktor.client.*
 //import io.ktor.client.engine.mock.*
+//import io.ktor.client.plugins.contentnegotiation.*
 //import io.ktor.client.request.*
 //import io.ktor.http.*
+//import io.ktor.serialization.kotlinx.json.*
 //import kotlinx.coroutines.test.runTest
 //import kotlinx.io.IOException
+//import kotlinx.serialization.json.Json
 //import org.junit.Test
 //
 //import org.junit.Assert.*
@@ -35,7 +38,7 @@
 //        }
 //        """.trimIndent()
 //
-//        val mockEngine = createMockEngine { request ->
+//        val mockEngine = MockEngine { request ->
 //            respond(
 //                content = mockResponse,
 //                status = HttpStatusCode.OK,
@@ -45,7 +48,15 @@
 //            )
 //        }
 //
-//        val client = HttpClient(mockEngine)
+//        val client = HttpClient(mockEngine) {
+//            install(ContentNegotiation) {
+//                json(Json {
+//                    ignoreUnknownKeys = true
+//                    prettyPrint = true
+//                })
+//            }
+//        }
+//
 //        val dataSource = PhotoDataSourceImpl(client)
 //        val photos = dataSource.getPhoto("flowers")
 //
